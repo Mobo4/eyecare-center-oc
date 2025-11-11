@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --eyecare-blue: #1e40af;
+  --eyecare-light-blue: #3b82f6;
+  --eyecare-lighter-blue: #60a5fa;
+  --eyecare-dark-blue: #1e3a8a;
+  --eyecare-darker-blue: #1e2a78;
+  --eyecare-navy: #0f172a;
+  --eyecare-light-navy: #1e293b;
+  --eyecare-gray: #64748b;
+  --eyecare-light-gray: #94a3b8;
+
+  /* Shadcn UI colors */
+  --foreground: 222.2 47.4% 11.2%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --card-foreground: 222.2 47.4% 11.2%;
+  --popover-foreground: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive-foreground: 210 40% 98%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

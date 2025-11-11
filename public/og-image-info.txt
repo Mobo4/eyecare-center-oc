@@ -1,0 +1,11 @@
+OG Image Placeholder Created
+===========================
+This is a placeholder for the OpenGraph image.
+For production, replace with a 1200x630px branded image.
+
+Current: Simple text-based placeholder
+Recommended: Professional branded image with:
+- Clinic logo
+- "EyeCare Center of Orange County"
+- Phone: (949) 364-0008
+- Background with eye care imagery
