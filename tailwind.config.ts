@@ -3,20 +3,35 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './data/**/*.{ts,tsx,mdx}', // Add data directory
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+      },
       colors: {
         eyecare: {
-          blue: '#1e40af',
-          'light-blue': '#3b82f6',
-          'lighter-blue': '#60a5fa',
-          'dark-blue': '#1e3a8a',
-          'darker-blue': '#1e2a78',
-          navy: '#0f172a',
-          'light-navy': '#1e293b',
-          gray: '#64748b',
-          'light-gray': '#94a3b8',
+          // Medical Blue Primary Palette (matching live site)
+          blue: '#1e40af',           // Primary medical blue
+          'light-blue': '#3b82f6',   // Secondary blue
+          'lighter-blue': '#60a5fa', // Accent blue
+          'dark-blue': '#1e3a8a',    // Dark blue
+          'darker-blue': '#1e2a78',  // Darker blue
+
+          // Supporting Professional Colors
+          navy: '#0f172a',           // Professional navy
+          'light-navy': '#1e293b',   // Light navy
+          gray: '#64748b',           // Professional gray
+          'light-gray': '#94a3b8',   // Light gray
+
+          // Legacy purple (for gradual migration if needed)
+          purple: '#6a5acd',
+          'light-purple': '#a69aff',
+          'lighter-purple': '#e5deff',
+          'dark-purple': '#48409e',
+          'darker-purple': '#322b6e',
         },
       },
       keyframes: {

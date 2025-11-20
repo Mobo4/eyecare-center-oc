@@ -5,7 +5,8 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Eye, Glasses, Microscope, Heart, Shield, Users } from 'lucide-react';
+import { Eye, Glasses, Microscope } from 'lucide-react';
+import Image from 'next/image';
 
 interface FeatureProps {
   title: string;
@@ -18,19 +19,19 @@ const features: FeatureProps[] = [
     title: "Comprehensive Eye Exams",
     description:
       "State-of-the-art diagnostic technology to detect eye conditions early and preserve your vision for years to come.",
-    icon: <Eye className="w-12 h-12 text-eyecare-blue" />,
+    icon: <Eye className="w-8 h-8 text-eyecare-blue" />,
   },
   {
     title: "Contact Lens Fitting",
     description:
       "Expert fitting for all lens types including scleral, RGP, and specialty lenses for keratoconus and irregular corneas.",
-    icon: <Glasses className="w-12 h-12 text-eyecare-light-blue" />,
+    icon: <Glasses className="w-8 h-8 text-eyecare-light-blue" />,
   },
   {
     title: "Advanced Treatment",
     description:
       "Cutting-edge treatments for glaucoma, cataracts, macular degeneration, and 191 other eye conditions.",
-    icon: <Microscope className="w-12 h-12 text-eyecare-lighter-blue" />,
+    icon: <Microscope className="w-8 h-8 text-eyecare-lighter-blue" />,
   },
 ];
 
@@ -55,53 +56,56 @@ export default function ProfessionalFeatures() {
     >
       <div className="text-center space-y-4">
         <h2 className="text-3xl lg:text-4xl font-bold">
-          Comprehensive{" "}
+          A Legacy of{" "}
           <span className="bg-gradient-to-b from-eyecare-blue to-eyecare-light-blue text-transparent bg-clip-text">
-            Eye Care Services
+            Excellence & Innovation
           </span>
         </h2>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Board-certified specialists providing comprehensive care for all your vision needs
+          For over two decades, our board-certified specialists have provided comprehensive care, trusted by over 50,000 patients across Orange County.
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4">
-        {serviceList.map((service: string) => (
-          <div key={service}>
-            <Badge
-              variant="secondary"
-              className="text-sm bg-eyecare-blue/10 text-eyecare-blue hover:bg-eyecare-blue hover:text-white"
-            >
-              {service}
-            </Badge>
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column: Image */}
+        <div className="mt-8 lg:mt-0">
+          <Image
+            src="/images/clinic-photo.jpg"
+            alt="Interior of EyeCare Center of Orange County clinic"
+            width={800}
+            height={600}
+            className="rounded-xl shadow-2xl"
+          />
+        </div>
+
+        {/* Right Column: Features */}
+        <div>
+          <div className="grid gap-4">
+            {features.map(({ title, description, icon }: FeatureProps) => (
+              <Card key={title} className="border-2 hover:border-eyecare-blue transition-colors hover:shadow-xl bg-white/60 backdrop-blur-sm">
+                <CardHeader className="flex flex-row items-center gap-4">
+                  <div className="p-3 bg-eyecare-blue/10 rounded-full w-fit">
+                    {icon}
+                  </div>
+                  <CardTitle className="text-xl">{title}</CardTitle>
+                </CardHeader>
+
+                <CardContent className="text-muted-foreground">
+                  {description}
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        ))}
-      </div>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-        {features.map(({ title, description, icon }: FeatureProps) => (
-          <Card key={title} className="border-2 hover:border-eyecare-blue transition-colors hover:shadow-xl">
-            <CardHeader>
-              <div className="mb-4 p-3 bg-eyecare-blue/10 rounded-full w-fit">
-                {icon}
-              </div>
-              <CardTitle className="text-xl">{title}</CardTitle>
-            </CardHeader>
-
-            <CardContent className="text-muted-foreground">
-              {description}
-            </CardContent>
-          </Card>
-        ))}
+        </div>
       </div>
 
       <div className="mt-12 text-center">
         <div className="bg-gradient-to-r from-eyecare-blue to-eyecare-light-blue text-white p-8 rounded-xl shadow-2xl max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold mb-3">
-            Trusted by 50,000+ Orange County Patients
+            Your Vision is Our Priority
           </h3>
           <p className="text-lg mb-6 opacity-90">
-            Join thousands of satisfied patients who trust us with their vision care
+            From routine exams to complex surgery, we're here for you.
           </p>
           <div className="flex flex-wrap justify-center gap-8 text-center">
             <div>

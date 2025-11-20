@@ -1,6 +1,23 @@
 import type { Metadata } from "next";
+import { Poppins, Playfair_Display } from 'next/font/google';
 import "./globals.css";
 import { generateMedicalBusinessSchema } from "@/lib/schema";
+import Script from 'next/script';
+
+// Configure fonts to match live site
+const poppins = Poppins({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://eyecarecenteroc.com'),
@@ -10,47 +27,58 @@ export const metadata: Metadata = {
   },
   description: "Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams. Call (949) 364-0008",
   keywords: [
-    // Primary Services
+    // --- Primary Keywords ---
     "eye care orange county",
-    "lasik surgery",
-    "cataract surgery",
+    "ophthalmologist orange county",
+    "eye doctor orange county",
+    "lasik orange county",
+    "cataract surgery orange county",
     "keratoconus treatment",
-    "ophthalmologist",
-    "eye doctor",
-    "vision care",
-    "dry eye treatment",
-    // Location Keywords
+    "vision correction",
+    "eye surgery",
+    
+    // --- Location-Specific Keywords ---
     "eye doctor irvine",
+    "lasik irvine",
     "eye doctor newport beach",
+    "cataract surgery newport beach",
     "eye doctor santa ana",
     "eye doctor costa mesa",
     "eye doctor huntington beach",
     "eye doctor anaheim",
     "eye doctor tustin",
     "eye doctor orange",
-    // Condition Keywords
+    "eye doctor mission viejo",
+    "eye doctor laguna beach",
+
+    // --- Condition-Specific Keywords ---
     "glaucoma treatment",
-    "macular degeneration",
-    "diabetic retinopathy",
+    "macular degeneration treatment",
+    "diabetic retinopathy treatment",
+    "dry eye treatment",
     "astigmatism correction",
     "myopia control",
     "presbyopia treatment",
     "blepharitis treatment",
-    "pink eye treatment",
-    // Service Keywords
+    "corneal disease",
+    "floaters",
+    
+    // --- Service & Treatment Keywords ---
     "comprehensive eye exam",
     "contact lens fitting",
     "scleral lenses",
     "corneal cross linking",
-    "eye emergency",
-    "pediatric optometry",
-    "low vision aids",
-    // Specialty Keywords
+    "refractive lens exchange",
+    "premium iols",
+
+    // --- Specialty & Long-Tail Keywords ---
     "board certified ophthalmologist",
     "orange county eye specialist",
     "advanced eye care technology",
-    "same day eye appointments",
     "emergency eye care",
+    "pediatric eye care",
+    "low vision aids",
+    "top eye surgeon orange county"
   ],
   authors: [{ name: "Dr. Bonakdar", url: "https://eyecarecenteroc.com" }],
   creator: "EyeCare Center of Orange County",
@@ -106,12 +134,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
+        {/* Structured Data - MedicalBusiness Schema */}
         <script
-          async
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateMedicalBusinessSchema()),
+          }}
+        />
+      </head>
+      <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
+        {children}
+
+        {/* GHL Chat Widget */}
+        <Script
+          id="ghl-widget-loader"
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="69163f6533e9926104e6ee9e"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics */}
+        <Script
+          id="google-analytics-gtag"
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-CT7WS4307Z"
         />
-        <script
+        <Script
+          id="google-analytics-inline"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -123,7 +174,9 @@ export default function RootLayout({
         />
 
         {/* Meta Pixel Code */}
-        <script
+        <Script
+          id="meta-pixel-inline"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -139,32 +192,13 @@ export default function RootLayout({
             `,
           }}
         />
-        <noscript dangerouslySetInnerHTML={{
-          __html: '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=395306154557054&ev=PageView&noscript=1" alt="" />'
-        }} />
 
         {/* CallRail Phone Tracking */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){var s=document.createElement('script');
-              s.type='text/javascript';s.async=true;
-              s.src='https://cdn.callrail.com/companies/479856773/6582372c2e4a73e54ea1/12/swap.js';
-              var x=document.getElementsByTagName('script')[0];
-              x.parentNode.insertBefore(s,x);})();
-            `,
-          }}
+        <Script
+          id="callrail-swap"
+          strategy="afterInteractive"
+          src="https://cdn.callrail.com/companies/479856773/6582372c2e4a73e54ea1/12/swap.js"
         />
-        {/* Structured Data - MedicalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateMedicalBusinessSchema()),
-          }}
-        />
-      </head>
-      <body className="antialiased">
-        {children}
       </body>
     </html>
   );

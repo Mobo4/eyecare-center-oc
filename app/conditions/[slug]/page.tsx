@@ -5,9 +5,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getConditionBySlug, conditions } from '@/data/conditions-full';
 import { CheckCircle, Phone, Calendar } from 'lucide-react';
+import Image from 'next/image';
+import { generateBreadcrumbSchema, generateMedicalConditionSchema } from '@/lib/schema';
+import Script from 'next/script';
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }
 
 export async function generateStaticParams() {
@@ -26,27 +29,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const canonicalUrl = `/conditions/${slug}`;
+
   return {
     title: condition.seoTitle,
     description: condition.seoDescription,
+    keywords: condition.keywords || [],
     openGraph: {
       title: condition.seoTitle,
       description: condition.seoDescription,
+      url: canonicalUrl,
       type: 'website',
+    },
+    alternates: {
+      canonical: canonicalUrl,
     },
   };
 }
 
 export default async function ConditionPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
   const condition = getConditionBySlug(slug);
 
   if (!condition) {
     notFound();
   }
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://eyecarecenteroc.com' },
+    { name: 'Conditions', url: 'https://eyecarecenteroc.com/conditions' },
+    { name: condition.name, url: `https://eyecarecenteroc.com/conditions/${slug}` },
+  ]);
+
+  const medicalConditionSchema = generateMedicalConditionSchema(
+    condition.name,
+    condition.description,
+    `https://eyecarecenteroc.com/conditions/${slug}`
+  );
+
   return (
     <>
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Script
+        id="medical-condition-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalConditionSchema) }}
+      />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
@@ -76,11 +108,11 @@ export default async function ConditionPage({ params }: Props) {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+19493640008"
+                  href="tel:+17145581182"
                   className="inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  (949) 364-0008
+                  (714) 558-1182
                 </a>
                 <Link
                   href="/contact"
@@ -127,6 +159,56 @@ export default async function ConditionPage({ params }: Props) {
           </div>
         </section>
 
+        {/* Special Section for Keratoconus */}
+        {condition.slug === 'keratoconus' && (
+          <section className="py-16 bg-blue-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Advanced Keratoconus Treatment
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  We utilize cutting-edge technology for precise diagnosis and management of Keratoconus.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Eaglet Eye Surface Profiler</h3>
+                  <p className="text-lg text-gray-700 mb-4">
+                    Our practice is equipped with the Eaglet Eye Surface Profiler, a state-of-the-art diagnostic tool that provides a highly detailed 3D map of the cornea and sclera. This allows for an unparalleled level of precision in fitting custom lenses.
+                  </p>
+                </div>
+                <div>
+                  <Image
+                    src="/images/eaglet-eye-profiler.jpg"
+                    alt="Eaglet Eye Surface Profiler in use"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-md"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
+                <div>
+                   <Image
+                    src="/images/scleral-lens-diagram.jpg" // Placeholder for diagram
+                    alt="Diagram of a scleral lens on an eye"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-md"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Custom Scleral Lenses</h3>
+                  <p className="text-lg text-gray-700">
+                    Based on the precise measurements from the Eaglet Eye, we design custom-fit scleral lenses. These lenses vault over the irregular cornea, creating a new, smooth optical surface that dramatically improves vision and comfort for Keratoconus patients.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Why Choose Us */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -172,10 +254,10 @@ export default async function ConditionPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+19493640008"
+                href="tel:+17145581182"
                 className="bg-white text-eyecare-blue px-8 py-4 rounded-md font-semibold text-lg hover:shadow-xl transition-all"
               >
-                Call (949) 364-0008
+                Call (714) 558-1182
               </a>
               <Link
                 href="/contact"

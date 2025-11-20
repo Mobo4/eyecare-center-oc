@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button } from "./ui/button";
 import { Phone, Eye, Star, Users, Award } from 'lucide-react';
-import SimpleParticles from './SimpleParticles';
 
 export default function CleanHero() {
   return (
@@ -13,8 +12,6 @@ export default function CleanHero() {
           backgroundSize: '40px 40px'
         }} />
       </div>
-
-      <SimpleParticles />
 
       <div className="container grid lg:grid-cols-2 place-items-center gap-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         {/* Left Column - Text Content */}

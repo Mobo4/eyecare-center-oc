@@ -1,0 +1,27 @@
+import pkg from 'broken-link-checker';
+const { SiteChecker } = pkg;
+
+const options = {
+  filterLevel: 1, // Only check links on the first page
+  maxSocketsPerHost: 5,
+};
+
+const siteChecker = new SiteChecker(options, {
+  'error': (error) => {
+    console.error('ERROR:', error);
+  },
+  'link': (result) => {
+    if (result.broken) {
+      console.log(`- BROKEN: ${result.url.original} (${result.brokenReason})`);
+    } else {
+      console.log(`- OK: ${result.url.original}`);
+    }
+  },
+  'end': () => {
+    console.log('SITE CHECK COMPLETE!');
+  },
+});
+
+console.log('Starting site check...');
+// Before running, ensure the dev server is running on http://localhost:3000
+siteChecker.enqueue('http://localhost:3000');

@@ -94,7 +94,7 @@ export function generateMedicalBusinessSchema(): MedicalBusinessSchema {
     name: "EyeCare Center of Orange County",
     description: "Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams. Board-certified specialists serving 65+ Orange County cities.",
     url: "https://eyecarecenteroc.com",
-    telephone: "+19493640008",
+    telephone: "+1-949-364-0008",
     address: {
       "@type": "PostalAddress",
       streetAddress: "801 North Tustin Ave #404",
@@ -102,6 +102,11 @@ export function generateMedicalBusinessSchema(): MedicalBusinessSchema {
       addressRegion: "CA",
       postalCode: "92705",
       addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "33.758810",
+      longitude: "-117.836090"
     },
     openingHoursSpecification: [
       {
@@ -127,14 +132,15 @@ export function generateMedicalBusinessSchema(): MedicalBusinessSchema {
     image: "https://eyecarecenteroc.com/og-image.jpg",
     logo: "https://eyecarecenteroc.com/favicon.svg",
     sameAs: [
-      "https://www.facebook.com/",
-      "https://www.instagram.com/",
-      "https://www.youtube.com/",
+      "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
+      "https://www.instagram.com/eyecarecenteroc/",
+      "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
+      "https://www.youtube.com/@eyecarecenteroforangecount952"
     ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "50000",
+      reviewCount: "288"
     },
   };
 }
@@ -149,7 +155,7 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
     name: "EyeCare Center of Orange County",
     description: "Expert eye care services in Orange County. Serving 65+ cities with comprehensive vision care.",
     url: "https://eyecarecenteroc.com",
-    telephone: "+19493640008",
+    telephone: "+1-949-364-0008",
     address: {
       "@type": "PostalAddress",
       streetAddress: "801 North Tustin Ave #404",
@@ -157,6 +163,11 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
       addressRegion: "CA",
       postalCode: "92705",
       addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "33.758810",
+      longitude: "-117.836090"
     },
     openingHoursSpecification: [
       {
@@ -182,9 +193,10 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
     image: "https://eyecarecenteroc.com/og-image.jpg",
     logo: "https://eyecarecenteroc.com/favicon.svg",
     sameAs: [
-      "https://www.facebook.com/",
-      "https://www.instagram.com/",
-      "https://www.youtube.com/",
+      "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
+      "https://www.instagram.com/eyecarecenteroc/",
+      "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
+      "https://www.youtube.com/@eyecarecenteroforangecount952"
     ],
   };
 }

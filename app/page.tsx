@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CleanHero from "@/components/CleanHero";
-import ProfessionalFeatures from "@/components/ProfessionalFeatures";
+import Hero from "@/components/Hero";
+import TrustSignals from "@/components/TrustSignals";
+import ComprehensiveEyeCare from "@/components/ComprehensiveEyeCare";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import ProfessionalServices from "@/components/ProfessionalServices";
+import Testimonials from "@/components/Testimonials";
+import Faq from "@/components/Faq";
 import { Eye, MapPin, ArrowRight, Activity, Brain, Droplets, Sun, Phone } from 'lucide-react';
 
 const conditions = [
@@ -29,11 +33,19 @@ export default function HomePage() {
     <main className="min-h-screen">
       <Header />
 
-      <CleanHero />
+      <Hero />
 
-      <ProfessionalFeatures />
+      <TrustSignals className="py-16 bg-gray-50" />
+
+      <ComprehensiveEyeCare />
+
+      <WhyChooseUs />
 
       <ProfessionalServices />
+
+      <Testimonials />
+
+      <Faq />
 
       {/* Conditions Section - Simplified */}
       <section className="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">

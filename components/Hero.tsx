@@ -1,59 +1,80 @@
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { Calendar, Phone, Check } from 'lucide-react';
 
-interface HeroProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  primaryCTA?: {
-    text: string;
-    href: string;
-  };
-  secondaryCTA?: {
-    text: string;
-    href: string;
-  };
-  backgroundClass?: string;
-}
+const Hero = () => {
+  const phoneNumber = '(949) 658-2372';
+  const phoneHref = 'tel:+19496582372';
 
-export default function Hero({
-  title = "Expert Eye Care",
-  subtitle = "Orange County",
-  description = "Comprehensive eye care services powered by cutting-edge technology and compassionate care. Board-certified specialists serving all of Orange County.",
-  primaryCTA = { text: "Book Appointment", href: "/contact" },
-  secondaryCTA = { text: "Browse Conditions", href: "/conditions" },
-  backgroundClass = "bg-gradient-to-br from-blue-50 via-eyecare-lighter-blue/20 to-blue-50"
-}: HeroProps) {
   return (
-    <section className="relative bg-white py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-            {title}{" "}
-            <span className="text-eyecare-blue">
-              {subtitle}
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 lg:py-32 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-5xl mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
+            <Check className="w-4 h-4 mr-2" />
+            Trusted by 10,000+ Orange County Residents
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Expert Eye Care in{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
+              Orange County
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-            {description}
+
+          {/* Subheading */}
+          <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive eye exams, advanced treatments, and personalized care from Dr. Bonakdar with 30+ years of experience
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={primaryCTA.href}
-              className="inline-flex items-center justify-center bg-eyecare-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-eyecare-dark-blue hover:shadow-lg transition-all group"
-            >
-              {primaryCTA.text}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Link href="/book-appointment">
+              <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                <Calendar className="mr-2 w-5 h-5" />
+                Book Appointment
+              </button>
             </Link>
-            <Link
-              href={secondaryCTA.href}
-              className="inline-flex items-center justify-center bg-white text-eyecare-blue border-2 border-eyecare-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-eyecare-blue hover:text-white hover:shadow-lg transition-all"
-            >
-              {secondaryCTA.text}
-            </Link>
+
+            <a href={phoneHref} className="w-full sm:w-auto">
+              <button className="w-full bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold border-2 border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center callrail-phone">
+                <Phone className="mr-2 w-5 h-5 text-blue-600" />
+                {phoneNumber}
+              </button>
+            </a>
+          </div>
+
+          {/* Trust Badges */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md">
+              <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
+              <div className="text-gray-600 font-medium">Years of Experience</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md">
+              <div className="text-3xl font-bold text-blue-600 mb-2">10,000+</div>
+              <div className="text-gray-600 font-medium">Patients Treated</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md">
+              <div className="text-3xl font-bold text-blue-600 mb-2">4.9★</div>
+              <div className="text-gray-600 font-medium">Patient Rating</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
+

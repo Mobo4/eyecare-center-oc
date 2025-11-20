@@ -127,20 +127,23 @@ const Footer = () => {
         <div className="py-4 border-t border-gray-800">
           <div className="container mx-auto px-4 text-center text-gray-400 text-sm">
             <p>&copy; {new Date().getFullYear()} EYECARE CENTER OF ORANGE COUNTY. All rights reserved.</p>
-            <div className="mt-2 flex flex-wrap justify-center gap-4">
-              <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-400 text-xs">
+            <div className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-2">
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="text-gray-500 hover:text-gray-400 text-xs">
+              <Link href="/terms-of-service" className="hover:text-white transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/sitemap" className="text-gray-500 hover:text-gray-400 text-xs">
+               <Link href="/medical-disclaimer" className="hover:text-white transition-colors">
+                Medical Disclaimer
+              </Link>
+              <Link href="/sitemap" className="hover:text-white transition-colors">
                 Sitemap
               </Link>
-              <span className="text-gray-500 text-xs">
-                Serving Orange County: Santa Ana, Irvine, Newport Beach, Costa Mesa, Tustin, Anaheim, Orange
-              </span>
             </div>
+             <p className="mt-4 text-xs text-gray-500 max-w-3xl mx-auto">
+              <strong>Disclaimer:</strong> The information on this website is for informational purposes only and does not constitute medical advice. Please consult with a qualified healthcare professional for any medical concerns.
+            </p>
           </div>
         </div>
       </footer>
