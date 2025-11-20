@@ -30,7 +30,7 @@ const cities = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" suppressHydrationWarning>
       <Header />
 
       <Hero />

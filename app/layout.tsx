@@ -5,18 +5,20 @@ import { generateMedicalBusinessSchema } from "@/lib/schema";
 import Script from 'next/script';
 
 // Configure fonts to match live site
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-poppins',
-  display: 'swap',
+  display: 'block', // Changed from 'swap' to prevent FOIT/FOUT
+  preload: true,
 });
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-playfair',
-  display: 'swap',
+  display: 'block', // Changed from 'swap' to prevent FOIT/FOUT
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -145,13 +147,13 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
         {children}
 
-        {/* GHL Chat Widget */}
+        {/* GHL Chat Widget - Load after page is interactive */}
         <Script
           id="ghl-widget-loader"
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="69163f6533e9926104e6ee9e"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         {/* Google Analytics */}
@@ -193,10 +195,10 @@ export default function RootLayout({
           }}
         />
 
-        {/* CallRail Phone Tracking */}
+        {/* CallRail Phone Tracking - Load after page is fully loaded */}
         <Script
           id="callrail-swap"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://cdn.callrail.com/companies/479856773/6582372c2e4a73e54ea1/12/swap.js"
         />
       </body>

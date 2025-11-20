@@ -1,18 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Custom colors for eyecare */
+  --color-eyecare-blue: #1e40af;
+  --color-eyecare-light-blue: #3b82f6;
+  --color-eyecare-lighter-blue: #60a5fa;
+  --color-eyecare-dark-blue: #1e3a8a;
+  --color-eyecare-darker-blue: #1e2a78;
+  --color-eyecare-navy: #0f172a;
+  --color-eyecare-light-navy: #1e293b;
+  --color-eyecare-gray: #64748b;
+  --color-eyecare-light-gray: #94a3b8;
+  --color-eyecare-purple: #6a5acd;
+  --color-eyecare-light-purple: #a69aff;
+  --color-eyecare-lighter-purple: #e5deff;
+  --color-eyecare-dark-purple: #48409e;
+  --color-eyecare-darker-purple: #322b6e;
+
+  /* Fonts */
+  --font-family-sans: var(--font-poppins), system-ui, sans-serif;
+  --font-family-serif: var(--font-playfair), Georgia, serif;
+}
 
 :root {
-  --eyecare-blue: #1e40af;
-  --eyecare-light-blue: #3b82f6;
-  --eyecare-lighter-blue: #60a5fa;
-  --eyecare-dark-blue: #1e3a8a;
-  --eyecare-darker-blue: #1e2a78;
-  --eyecare-navy: #0f172a;
-  --eyecare-light-navy: #1e293b;
-  --eyecare-gray: #64748b;
-  --eyecare-light-gray: #94a3b8;
-
   /* Shadcn UI colors */
   --foreground: 222.2 47.4% 11.2%;
   --muted-foreground: 215.4 16.3% 46.9%;
