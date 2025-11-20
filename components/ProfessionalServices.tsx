@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Eye, Heart, Users, Shield, Clock, Award } from "lucide-react";
 import Link from 'next/link';
@@ -6,7 +7,7 @@ import { Button } from "./ui/button";
 interface ServiceProps {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 const serviceList: ServiceProps[] = [

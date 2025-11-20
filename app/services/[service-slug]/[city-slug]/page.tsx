@@ -118,7 +118,7 @@ export default async function LocalServicePage({ params }: Props) {
                     <MapPin className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold">{city.name}, California</p>
-                      <p className="text-gray-600">Part of our {city.region} service area.</p>
+                      <p className="text-gray-600">Part of our {city.county} service area.</p>
                     </div>
                   </div>
                   {/* Map Embed Placeholder */}
