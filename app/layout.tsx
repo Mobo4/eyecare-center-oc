@@ -6,6 +6,7 @@ import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 // Configure fonts to match live site
 const poppins = Poppins({
@@ -150,17 +151,43 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
         {children}
 
+        {/* Exit-Intent Popup for Conversion Optimization */}
+        <ExitIntentPopup enabled={true} delayMs={5000} />
+
         {/* Vercel Analytics & Speed Insights for Core Web Vitals */}
         <Analytics />
         <SpeedInsights />
 
-        {/* GHL Chat Widget - Load after page is interactive */}
+        {/* GHL Chat Widget - Delayed 10 seconds to prevent immediate distraction */}
         <Script
           id="ghl-widget-loader"
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="69163f6533e9926104e6ee9e"
           strategy="lazyOnload"
+        />
+        <Script
+          id="ghl-widget-delay"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Hide chat widget on initial load
+              (function() {
+                const style = document.createElement('style');
+                style.id = 'ghl-widget-hide';
+                style.textContent = '[data-widget-id="69163f6533e9926104e6ee9e"] { display: none !important; }';
+                document.head.appendChild(style);
+
+                // Show after 10 seconds
+                setTimeout(function() {
+                  const hideStyle = document.getElementById('ghl-widget-hide');
+                  if (hideStyle) {
+                    hideStyle.remove();
+                  }
+                }, 10000);
+              })();
+            `,
+          }}
         />
 
         {/* Google Analytics */}
