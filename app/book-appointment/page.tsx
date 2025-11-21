@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import GhlCalendarComponent from '@/components/ghl/GhlCalendarComponent'; // Use the GHL calendar component
+import GhlFormComponent from '@/components/ghl/GhlFormComponent'; // Use the GHL form component
 
 export const metadata: Metadata = {
   title: 'Book an Appointment | EyeCare Center of Orange County',
@@ -28,19 +27,19 @@ export default function BookAppointmentPage() {
                 Book Your Appointment Online
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Select a convenient date and time for your visit. Our online scheduling system makes it easy to book your next appointment with our expert team.
+                Fill out the form below to request an appointment. Our team will confirm your booking and answer any questions you may have.
               </p>
             </div>
           </div>
         </section>
 
-        {/* GHL Calendar Embed */}
+        {/* GHL Form Embed */}
         <section className="py-16 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gray-50 p-4 sm:p-8 rounded-lg shadow-md">
-              <GhlCalendarComponent
-                calendarId="YOUR_GHL_CALENDAR_ID" // Placeholder - needs actual calendar ID
-                containerId="ghl-calendar-container"
+              <GhlFormComponent
+                formId="a2vv3ztdBH5WpJ5iGfVj"
+                containerId="ghl-booking-form-container"
               />
             </div>
             <div className="mt-8 text-center text-gray-600">

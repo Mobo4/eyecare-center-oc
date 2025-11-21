@@ -50,8 +50,8 @@ export default function ContactPage() {
               {/* GHL Contact Form */}
               <div className="bg-gray-50 p-8 rounded-lg">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Request an Appointment</h2>
-                <GhlFormComponent 
-                  formId="NyAQq2ovWZij4fSauNmu"
+                <GhlFormComponent
+                  formId="a2vv3ztdBH5WpJ5iGfVj"
                   containerId="ghl-form-container"
                 />
               </div>
