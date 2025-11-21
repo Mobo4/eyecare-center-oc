@@ -45,19 +45,25 @@ const Navigation = () => {
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
         {navItems.map((item, index) => (
-          <div key={index} className="relative group">
+          <div key={index} className="relative">
             {item.label === 'Services' ? (
               // Mega Menu for Services
-              <div onMouseEnter={() => setIsServicesOpen(true)} onMouseLeave={() => setIsServicesOpen(false)}>
+              <div
+                className="relative"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
                 <Link
                   href={item.path}
-                  className="flex items-center text-gray-700 hover:text-eyecare-blue transition-colors font-medium"
+                  className={`flex items-center text-gray-700 hover:text-eyecare-blue transition-colors font-medium ${
+                    isActive(item.path) ? 'text-eyecare-blue border-b-2 border-eyecare-blue' : ''
+                  }`}
                 >
                   {item.label}
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </Link>
                 <div
-                  className={`absolute top-full -left-1/2 mt-2 w-[560px] bg-white rounded-md shadow-lg border transition-all duration-200 z-50 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[560px] bg-white rounded-md shadow-lg border transition-all duration-200 z-50 ${
                     isServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                   }`}
                 >
@@ -66,14 +72,14 @@ const Navigation = () => {
                       <Link
                         key={service.slug}
                         href={`/services/${service.slug}/santa-ana`}
-                        className="p-3 rounded-md hover:bg-eyecare-lighter-blue"
+                        className="p-3 rounded-md hover:bg-eyecare-lighter-blue transition-colors"
                       >
                         <p className="font-semibold text-gray-900">{service.name}</p>
                         <p className="text-sm text-gray-500">{service.description.substring(0, 50)}...</p>
                       </Link>
                     ))}
                   </div>
-                  <div className="bg-gray-50 p-4 text-center">
+                  <div className="bg-gray-50 p-4 text-center border-t">
                     <Link href="/services" className="font-semibold text-eyecare-blue hover:underline">
                       View All Services &rarr;
                     </Link>
