@@ -148,23 +148,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-
-      {/* Mobile Persistent Phone Button - Enhanced for Better Conversion */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-        <a
-          href={phoneHref}
-          className="block w-full bg-gradient-to-r from-eyecare-blue to-eyecare-light-blue text-white py-4 text-center font-bold text-lg shadow-2xl callrail-phone animate-pulse"
-          aria-label="Call Now for Appointment"
-        >
-          <div className="flex items-center justify-center">
-            <Phone className="w-6 h-6 mr-2" />
-            <span>CALL NOW: {phoneNumber}</span>
-          </div>
-          <div className="text-sm font-normal opacity-90">
-            Click to Call • Same Day Appointments Available
-          </div>
-        </a>
-      </div>
     </>
   );
 };
