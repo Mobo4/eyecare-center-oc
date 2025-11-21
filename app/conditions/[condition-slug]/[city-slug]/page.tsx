@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { 'condition-slug': conditionSlug, 'city-slug': citySlug } = params;
+  const { 'condition-slug': conditionSlug, 'city-slug': citySlug } = await params;
   const condition = getConditionBySlug(conditionSlug);
   const city = getCityBySlug(citySlug);
 
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LocalConditionPage({ params }: Props) {
-  const { 'condition-slug': conditionSlug, 'city-slug': citySlug } = params;
+  const { 'condition-slug': conditionSlug, 'city-slug': citySlug } = await params;
   const condition = getConditionBySlug(conditionSlug);
   const city = getCityBySlug(citySlug);
 
