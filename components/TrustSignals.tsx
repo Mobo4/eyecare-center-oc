@@ -11,7 +11,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ variant = 'horizontal', cla
   const trustItems = [
     {
       icon: '🏆',
-      title: '30+ Years Experience',
+      title: '35+ Years Experience',
       subtitle: 'Trusted expertise'
     },
     {

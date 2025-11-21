@@ -317,7 +317,7 @@ export function generateLocalConditionSchema(
         "@type": "MedicalBusiness",
         "@id": `https://eyecarecenteroc.com/#organization`,
         name: "EyeCare Center of Orange County",
-        description: `Expert ${conditionName} treatment serving ${cityName}, ${county}. Comprehensive eye care services with over 30 years of experience.`,
+        description: `Expert ${conditionName} treatment serving ${cityName}, ${county}. Comprehensive eye care services with over 35 years of experience.`,
         url: "https://eyecarecenteroc.com",
         telephone: "+1-714-558-1182",
         address: {

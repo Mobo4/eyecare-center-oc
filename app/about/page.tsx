@@ -11,7 +11,7 @@ import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
   title: 'About Dr. Bonakdar & Our Team | EyeCare Center of Orange County',
-  description: 'Meet Dr. Bonakdar and the expert team at EyeCare Center of Orange County. Learn about our 30+ years of experience and our commitment to patient care.',
+  description: 'Meet Dr. Bonakdar and the expert team at EyeCare Center of Orange County. Learn about our 35+ years of experience and our commitment to patient care.',
   keywords: [
     'about eye care center orange county',
     'Dr. Bonakdar',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'board certified ophthalmologist',
     'orange county ophthalmologist',
     'eye care specialists',
-    '30+ years experience eye care',
+    '35+ years experience eye care',
     'experienced eye doctors',
     'patient centered care',
     'advanced diagnostic technology',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'About Dr. Bonakdar & Our Team | EyeCare Center of Orange County',
-    description: 'With over 30 years of experience and training from the renowned Bascom Palmer Eye Institute, our team provides expert, compassionate eye care.',
+    description: 'With over 35 years of experience and training from the renowned Bascom Palmer Eye Institute, our team provides expert, compassionate eye care.',
     type: 'website',
   },
   alternates: {
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Trusted Expertise</h3>
                 <p className="text-gray-600">
-                  Two decades of experience treating the full spectrum of eye conditions with proven, evidence-based approaches.
+                  Three decades of experience treating the full spectrum of eye conditions with proven, evidence-based approaches.
                 </p>
               </div>
             </div>

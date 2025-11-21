@@ -36,7 +36,7 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive eye exams, advanced treatments, and personalized care from Dr. Bonakdar with 30+ years of experience
+            Comprehensive eye exams, advanced treatments, and personalized care from Dr. Bonakdar with 35+ years of experience serving Orange County since 1991
           </p>
 
           {/* CTA Buttons */}
@@ -59,7 +59,7 @@ const Hero = () => {
           {/* Trust Badges */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md">
-              <div className="text-3xl font-bold text-blue-600 mb-2">30+</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">35+</div>
               <div className="text-gray-600 font-medium">Years of Experience</div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md">

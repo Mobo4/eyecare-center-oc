@@ -19,7 +19,7 @@ const ComprehensiveEyeCare = () => {
     {
       icon: <GraduationCap className="w-6 h-6" />,
       title: "Doctor of Optometry Expertise",
-      description: "OD degree with advanced medical school training and 30+ years of clinical experience treating Orange County patients."
+      description: "OD degree with advanced medical school training and 35+ years of clinical experience treating Orange County patients."
     },
     {
       icon: <ClipboardCheck className="w-6 h-6" />,
@@ -47,7 +47,7 @@ const ComprehensiveEyeCare = () => {
             Orange County&apos;s Leading <span className="text-eyecare-blue">Optometrist</span> & Eye Care Center
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Dr. Bonakdar, Doctor of Optometry, provides comprehensive eye exams and treats eye problems with 30+ years of clinical training. Our optometry practice specializes in diagnosing and treating all types of eye conditions, from routine vision care to complex eye disease management.
+            Dr. Bonakdar, Doctor of Optometry, provides comprehensive eye exams and treats eye problems with 35+ years of clinical training. Our optometry practice specializes in diagnosing and treating all types of eye conditions, from routine vision care to complex eye disease management.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ const ComprehensiveEyeCare = () => {
                 </p>
                 <p className="flex items-start">
                   <span className="text-eyecare-blue font-bold mr-2">✓</span>
-                  <span><strong>Clinical Excellence:</strong> 30+ years of clinical training serving Orange County with a focus on eye health and vision care.</span>
+                  <span><strong>Clinical Excellence:</strong> 35+ years of clinical training serving Orange County with a focus on eye health and vision care.</span>
                 </p>
               </div>
             </div>

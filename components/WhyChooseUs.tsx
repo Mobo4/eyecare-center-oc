@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
     {
       icon: <Award className="w-8 h-8" />,
       title: "Medical Expertise",
-      description: "30+ years of clinical training with advanced optometry and medical school education for comprehensive eye care."
+      description: "35+ years of clinical training with advanced optometry and medical school education for comprehensive eye care."
     },
     {
       icon: <Microscope className="w-8 h-8" />,

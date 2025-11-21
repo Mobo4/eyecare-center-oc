@@ -73,7 +73,7 @@ const services: Service[] = [
     cta: 'Explore Keratoconus Options',
     benefits: [
       'Board-certified keratoconus specialist',
-      '30+ years treating complex cases',
+      '35+ years treating complex cases',
       'Advanced diagnostic technology',
       'Custom treatment plans'
     ]
@@ -168,7 +168,7 @@ const Top6Services = () => {
           </h2>
 
           <p className="text-xl text-gray-600 leading-relaxed">
-            Specialized treatments for the most common eye conditions in Orange County—backed by 30+ years of expertise and cutting-edge technology
+            Specialized treatments for the most common eye conditions in Orange County—backed by 35+ years of expertise and cutting-edge technology
           </p>
         </div>
 
