@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -9,6 +15,15 @@ const nextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
+  },
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  // Core Web Vitals optimization
+  experimental: {
+    optimizeCss: true,
+    scrollRestoration: true,
   },
   async redirects() {
     return [
@@ -74,4 +89,4 @@ const nextConfig = {
   output: 'standalone',
 }
 
-export default nextConfig
+export default withBundleAnalyzer(nextConfig);

@@ -4,6 +4,8 @@ import "./globals.css";
 import { generateMedicalBusinessSchema } from "@/lib/schema";
 import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 // Configure fonts to match live site
 const poppins = Poppins({
@@ -147,6 +149,10 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
         {children}
+
+        {/* Vercel Analytics & Speed Insights for Core Web Vitals */}
+        <Analytics />
+        <SpeedInsights />
 
         {/* GHL Chat Widget - Load after page is interactive */}
         <Script
