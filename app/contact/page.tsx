@@ -3,10 +3,11 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GhlFormComponent from '@/components/ghl/GhlFormComponent'; // Use the new GHL component
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
   title: 'Contact Us | EyeCare Center of Orange County',
-  description: 'Schedule your appointment at EyeCare Center of Orange County. Call (714) 558-1182 or book online. Convenient locations across Orange County.',
+  description: `Schedule your appointment at EyeCare Center of Orange County. Call ${CONTACT_INFO.primaryPhone.display} or book online. Convenient locations across Orange County.`,
   keywords: [
     'contact eye doctor orange county',
     'schedule eye exam',
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Contact Us | EyeCare Center of Orange County',
-    description: 'Schedule your appointment today. Call (714) 558-1182 or book online.',
+    description: `Schedule your appointment today. Call ${CONTACT_INFO.primaryPhone.display} or book online.`,
     type: 'website',
   },
 };
@@ -65,8 +66,8 @@ export default function ContactPage() {
                       <Phone className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-bold text-gray-900 mb-2">Call Us Directly</h3>
-                        <a href="tel:+17145581182" className="text-lg text-eyecare-blue hover:underline">
-                          (714) 558-1182
+                        <a href={CONTACT_INFO.primaryPhone.href} className="callrail-phone text-lg text-eyecare-blue hover:underline">
+                          {CONTACT_INFO.primaryPhone.display}
                         </a>
                       </div>
                     </div>

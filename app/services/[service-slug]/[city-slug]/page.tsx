@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import { Phone, Calendar, MapPin } from 'lucide-react';
 import { services, getServiceBySlug } from '@/data/services';
 import { cities, getCityBySlug } from '@/data/cities';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 interface Props {
   params: { 'service-slug': string; 'city-slug': string };
@@ -82,11 +83,11 @@ export default async function LocalServicePage({ params }: Props) {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+17145581182"
-                  className="inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
+                  href={CONTACT_INFO.primaryPhone.href}
+                  className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  (714) 558-1182
+                  {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/contact"

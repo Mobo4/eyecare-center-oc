@@ -4,6 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { X, MapPin, Eye, ArrowRight } from 'lucide-react';
 import { cities } from '@/data/cities';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 interface Condition {
   slug: string;
@@ -150,8 +151,8 @@ export default function ConditionCityModal({ condition, onClose }: ConditionCity
           <div className="mt-6 p-4 bg-gray-50 rounded-lg text-center">
             <p className="text-sm text-gray-600">
               Don't see your city? We serve all of Orange County.{' '}
-              <a href="tel:+17145581182" className="text-eyecare-blue font-semibold hover:underline">
-                Call (714) 558-1182
+              <a href={CONTACT_INFO.primaryPhone.href} className="callrail-phone text-eyecare-blue font-semibold hover:underline">
+                Call {CONTACT_INFO.primaryPhone.display}
               </a>
             </p>
           </div>

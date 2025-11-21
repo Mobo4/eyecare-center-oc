@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { cities } from '@/data/cities';
 import { MapPin, Phone, Calendar } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
   title: 'Locations We Serve | Orange County Eye Care',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Locations We Serve | Orange County Eye Care',
-    description: 'Expert eye care serving 65+ Orange County cities. Call (949) 364-0008 to schedule your appointment.',
+    description: `Expert eye care serving 65+ Orange County cities. Call ${CONTACT_INFO.primaryPhone.display} to schedule your appointment.`,
     type: 'website',
   },
 };
@@ -55,11 +56,11 @@ export default function LocationsPage() {
               </p>
               <div className="flex items-center gap-4">
                 <a
-                  href="tel:+19493640008"
-                  className="inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-eyecare-dark-blue transition-all"
+                  href={CONTACT_INFO.primaryPhone.href}
+                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-eyecare-dark-blue transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Call (949) 364-0008
+                  Call {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/contact"
@@ -164,11 +165,11 @@ export default function LocationsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="tel:+19493640008"
-                  className="inline-flex items-center justify-center bg-eyecare-blue text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all"
+                  href={CONTACT_INFO.primaryPhone.href}
+                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Call (949) 364-0008
+                  Call {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/contact"
@@ -221,11 +222,11 @@ export default function LocationsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+19493640008"
-                className="inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all"
+                href={CONTACT_INFO.primaryPhone.href}
+                className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Call (949) 364-0008
+                Call {CONTACT_INFO.primaryPhone.display}
               </a>
               <Link
                 href="/contact"

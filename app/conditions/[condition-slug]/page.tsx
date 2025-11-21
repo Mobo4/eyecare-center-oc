@@ -8,6 +8,7 @@ import { conditions, getConditionBySlug } from '@/data/conditions';
 import { cities } from '@/data/cities';
 import { generateBreadcrumbSchema, generateMedicalConditionSchema } from '@/lib/schema';
 import Script from 'next/script';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 interface Props {
   params: Promise<{ 'condition-slug': string }>;
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const title = `${condition.name}: Symptoms, Causes & Treatment | EyeCare Center OC`;
-  const description = `Comprehensive guide to ${condition.name.toLowerCase()}. Learn about symptoms, causes, and treatment options from Orange County's leading eye care specialists. Call (714) 558-1182.`;
+  const description = `Comprehensive guide to ${condition.name.toLowerCase()}. Learn about symptoms, causes, and treatment options from Orange County's leading eye care specialists. Call ${CONTACT_INFO.primaryPhone.display}.`;
   const canonicalUrl = `https://eyecarecenteroc.com/conditions/${conditionSlug}`;
 
   return {
@@ -149,11 +150,11 @@ export default async function ConditionPage({ params }: Props) {
               </p>
               <div className="flex items-center gap-4">
                 <a
-                  href="tel:+17145581182"
+                  href={CONTACT_INFO.primaryPhone.href}
                   className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3 rounded-md font-semibold hover:bg-eyecare-dark-blue transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  (714) 558-1182
+                  {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/book-appointment"
@@ -300,11 +301,11 @@ export default async function ConditionPage({ params }: Props) {
                     </p>
                     <div className="space-y-3">
                       <a
-                        href="tel:+17145581182"
+                        href={CONTACT_INFO.primaryPhone.href}
                         className="callrail-phone block w-full bg-white text-eyecare-blue text-center px-4 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
                       >
                         <Phone className="inline w-4 h-4 mr-2" />
-                        Call (714) 558-1182
+                        Call {CONTACT_INFO.primaryPhone.display}
                       </a>
                       <Link
                         href="/book-appointment"
@@ -386,11 +387,11 @@ export default async function ConditionPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17145581182"
+                href={CONTACT_INFO.primaryPhone.href}
                 className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-4 rounded-md font-bold text-lg hover:shadow-xl transition-all"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                (714) 558-1182
+                {CONTACT_INFO.primaryPhone.display}
               </a>
               <Link
                 href="/book-appointment"

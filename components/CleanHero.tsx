@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from "./ui/button";
 import { Phone, Eye, Star, Users, Award } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 export default function CleanHero() {
   return (
@@ -41,9 +42,9 @@ export default function CleanHero() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Button asChild size="lg" className="bg-eyecare-blue hover:bg-eyecare-dark-blue text-lg">
-              <a href="tel:+19493640008" className="group">
+              <a href={CONTACT_INFO.primaryPhone.href} className="callrail-phone group">
                 <Phone className="mr-2 h-5 w-5" />
-                Call (949) 364-0008
+                Call {CONTACT_INFO.primaryPhone.display}
               </a>
             </Button>
 

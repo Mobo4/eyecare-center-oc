@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { services } from '@/data/services';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,8 +38,8 @@ const Navigation = () => {
     { path: '/contact', label: 'Contact Us' },
   ];
 
-  const phoneNumber = '(714) 558-1182';
-  const phoneHref = 'tel:+17145581182';
+  const phoneNumber = CONTACT_INFO.primaryPhone.display;
+  const phoneHref = CONTACT_INFO.primaryPhone.href;
 
   return (
     <>

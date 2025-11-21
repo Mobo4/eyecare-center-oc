@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { Eye } from 'lucide-react';
 import Navigation from './Navigation'; // Client-side component
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 const Header = () => {
-  const phoneNumber = '(714) 558-1182';
-  const phoneHref = 'tel:+17145581182';
+  const phoneNumber = CONTACT_INFO.primaryPhone.display;
+  const phoneHref = CONTACT_INFO.primaryPhone.href;
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50" role="banner">

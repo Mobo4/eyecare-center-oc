@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Playfair_Display } from 'next/font/google';
 import "./globals.css";
 import { generateMedicalBusinessSchema } from "@/lib/schema";
+import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
 
 // Configure fonts to match live site
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     default: "EyeCare Center of Orange County | Expert Eye Care & LASIK Surgery",
     template: "%s | EyeCare Center OC"
   },
-  description: "Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams. Call (949) 364-0008",
+  description: `Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams. Call ${CONTACT_INFO.primaryPhone.display}`,
   keywords: [
     // --- Primary Keywords ---
     "eye care orange county",

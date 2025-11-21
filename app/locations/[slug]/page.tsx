@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import { getCityBySlug, cities } from '@/data/cities';
 import { MapPin, Phone, Calendar, Users, Eye } from 'lucide-react';
 import { conditions } from '@/data/conditions';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -84,11 +85,11 @@ export default async function CityPage({ params }: Props) {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+19493640008"
-                  className="inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
+                  href={CONTACT_INFO.primaryPhone.href}
+                  className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  (949) 364-0008
+                  {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/contact"
@@ -244,10 +245,10 @@ export default async function CityPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+19493640008"
-                className="bg-white text-eyecare-blue px-8 py-4 rounded-md font-semibold text-lg hover:shadow-xl transition-all"
+                href={CONTACT_INFO.primaryPhone.href}
+                className="callrail-phone bg-white text-eyecare-blue px-8 py-4 rounded-md font-semibold text-lg hover:shadow-xl transition-all"
               >
-                Call (949) 364-0008
+                Call {CONTACT_INFO.primaryPhone.display}
               </a>
               <Link
                 href="/contact"

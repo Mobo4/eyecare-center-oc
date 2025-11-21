@@ -9,6 +9,7 @@ import ProfessionalServices from "@/components/ProfessionalServices";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import { Eye, MapPin, ArrowRight, Activity, Brain, Droplets, Sun, Phone } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 const conditions = [
   { name: "Keratoconus", slug: "keratoconus", category: "Corneal Disease", icon: Eye, color: "from-blue-500 to-blue-600" },
@@ -179,11 +180,11 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="tel:+19493640008"
-              className="inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              href={CONTACT_INFO.primaryPhone.href}
+              className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               <Phone className="mr-2 h-5 w-5" />
-              Call (949) 364-0008
+              Call {CONTACT_INFO.primaryPhone.display}
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
 

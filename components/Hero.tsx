@@ -3,10 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { Calendar, Phone, Check } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 const Hero = () => {
-  const phoneNumber = '(949) 658-2372';
-  const phoneHref = 'tel:+19496582372';
+  const phoneNumber = CONTACT_INFO.primaryPhone.display;
+  const phoneHref = CONTACT_INFO.primaryPhone.href;
 
   return (
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 lg:py-32 overflow-hidden">

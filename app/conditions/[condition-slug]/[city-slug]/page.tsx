@@ -8,6 +8,7 @@ import { conditions, getConditionBySlug } from '@/data/conditions';
 import { cities, getCityBySlug } from '@/data/cities';
 import { generateBreadcrumbSchema, generateMedicalConditionSchema } from '@/lib/schema';
 import Script from 'next/script';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 interface Props {
   params: { 'condition-slug': string; 'city-slug': string };
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   
   const title = `${condition.name} Treatment in ${city.name}, CA | Eye Doctor Near You`;
-  const description = `Expert ${condition.name.toLowerCase()} treatment in ${city.name}, ${city.county}. Serving ${city.neighborhoods.slice(0, 3).join(', ')} and surrounding areas. ${condition.treatments.slice(0, 2).join(', ')}. Call (714) 558-1182.`;
+  const description = `Expert ${condition.name.toLowerCase()} treatment in ${city.name}, ${city.county}. Serving ${city.neighborhoods.slice(0, 3).join(', ')} and surrounding areas. ${condition.treatments.slice(0, 2).join(', ')}. Call ${CONTACT_INFO.primaryPhone.display}.`;
   const canonicalUrl = `https://eyecarecenteroc.com/conditions/${conditionSlug}/${citySlug}`;
 
   return {
@@ -118,7 +119,7 @@ export default async function LocalConditionPage({ params }: Props) {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>(714) 558-1182</span>
+                  <span>{CONTACT_INFO.primaryPhone.display}</span>
                 </div>
               </div>
             </div>
@@ -135,11 +136,11 @@ export default async function LocalConditionPage({ params }: Props) {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+17145581182"
+                  href={CONTACT_INFO.primaryPhone.href}
                   className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  (714) 558-1182
+                  {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/book-appointment"
@@ -254,8 +255,8 @@ export default async function LocalConditionPage({ params }: Props) {
                     high-quality eye care to all members of the {city.name} community.
                   </p>
                   <p className="text-gray-700">
-                    Don't let {condition.name.toLowerCase()} impact your quality of life. Schedule a comprehensive eye examination today 
-                    and take the first step toward better vision and eye health. Call us at (714) 558-1182 or book your appointment online.
+                    Don't let {condition.name.toLowerCase()} impact your quality of life. Schedule a comprehensive eye examination today
+                    and take the first step toward better vision and eye health. Call us at {CONTACT_INFO.primaryPhone.display} or book your appointment online.
                   </p>
                 </div>
               </div>
@@ -301,11 +302,11 @@ export default async function LocalConditionPage({ params }: Props) {
                     </p>
                     <div className="space-y-3">
                       <a
-                        href="tel:+17145581182"
+                        href={CONTACT_INFO.primaryPhone.href}
                         className="callrail-phone block w-full bg-white text-eyecare-blue text-center px-4 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
                       >
                         <Phone className="inline w-4 h-4 mr-2" />
-                        Call (714) 558-1182
+                        Call {CONTACT_INFO.primaryPhone.display}
                       </a>
                       <Link
                         href="/book-appointment"
@@ -358,11 +359,11 @@ export default async function LocalConditionPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17145581182"
+                href={CONTACT_INFO.primaryPhone.href}
                 className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-4 rounded-md font-bold text-lg hover:shadow-xl transition-all"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                (714) 558-1182
+                {CONTACT_INFO.primaryPhone.display}
               </a>
               <Link
                 href="/book-appointment"

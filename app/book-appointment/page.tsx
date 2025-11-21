@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GhlFormComponent from '@/components/ghl/GhlFormComponent'; // Use the GHL form component
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
   title: 'Book an Appointment | EyeCare Center of Orange County',
@@ -43,7 +44,7 @@ export default function BookAppointmentPage() {
               />
             </div>
             <div className="mt-8 text-center text-gray-600">
-              <p>If you have any questions or prefer to book by phone, please call us at <a href="tel:+17145581182" className="text-eyecare-blue font-semibold hover:underline">(714) 558-1182</a>.</p>
+              <p>If you have any questions or prefer to book by phone, please call us at <a href={CONTACT_INFO.primaryPhone.href} className="callrail-phone text-eyecare-blue font-semibold hover:underline">{CONTACT_INFO.primaryPhone.display}</a>.</p>
             </div>
           </div>
         </section>

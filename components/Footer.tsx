@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 const Footer = () => {
   const [showFullEmail, setShowFullEmail] = useState(false);
-  const phoneNumber = '(949) 364-0008';
-  const phoneHref = 'tel:+19493640008';
-  const email = 'eyecarecenteroc@gmail.com';
+  const phoneNumber = CONTACT_INFO.primaryPhone.display;
+  const phoneHref = CONTACT_INFO.primaryPhone.href;
+  const email = CONTACT_INFO.email.display;
 
   return (
     <>

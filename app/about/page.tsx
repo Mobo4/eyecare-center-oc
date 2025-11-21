@@ -7,6 +7,7 @@ import { Award, Heart, Eye, Users, Clock, Shield, Star } from 'lucide-react';
 import { generateBreadcrumbSchema } from '@/lib/schema';
 import Script from 'next/script';
 import Testimonials from '@/components/Testimonials';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
   title: 'About Dr. Bonakdar & Our Team | EyeCare Center of Orange County',
@@ -347,10 +348,10 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17145581182"
-                className="bg-white text-eyecare-blue px-8 py-4 rounded-md font-semibold text-lg hover:shadow-xl transition-all"
+                href={CONTACT_INFO.primaryPhone.href}
+                className="callrail-phone bg-white text-eyecare-blue px-8 py-4 rounded-md font-semibold text-lg hover:shadow-xl transition-all"
               >
-                Call (714) 558-1182
+                Call {CONTACT_INFO.primaryPhone.display}
               </a>
               <Link
                 href="/contact"

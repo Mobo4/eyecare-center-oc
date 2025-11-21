@@ -9,6 +9,7 @@ import { conditions, ConditionSeverity } from '@/data/conditions-full';
 import { Search, Eye, AlertTriangle } from 'lucide-react';
 import { generateBreadcrumbSchema } from '@/lib/schema';
 import Script from 'next/script';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 
 const severityStyles: { [key in ConditionSeverity]: string } = {
@@ -76,10 +77,10 @@ export default function ConditionsPage() {
               </p>
               <div className="flex items-center gap-4">
                 <a
-                  href="tel:+19493640008"
-                  className="inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-eyecare-dark-blue transition-all"
+                  href={CONTACT_INFO.primaryPhone.href}
+                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-eyecare-dark-blue transition-all"
                 >
-                  Call (949) 364-0008
+                  Call {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/contact"
@@ -179,8 +180,8 @@ export default function ConditionsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="tel:+19493640008"
-                  className="inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all"
+                  href={CONTACT_INFO.primaryPhone.href}
+                  className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all"
                 >
                   Call Us
                 </a>
@@ -206,10 +207,10 @@ export default function ConditionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+19493640008"
-                className="inline-flex items-center justify-center bg-gradient-to-r from-eyecare-blue to-eyecare-light-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all"
+                href={CONTACT_INFO.primaryPhone.href}
+                className="callrail-phone inline-flex items-center justify-center bg-gradient-to-r from-eyecare-blue to-eyecare-light-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all"
               >
-                Call (949) 364-0008
+                Call {CONTACT_INFO.primaryPhone.display}
               </a>
               <Link
                 href="/contact"

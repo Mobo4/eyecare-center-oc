@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Phone, Calendar } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
 
 interface LocalConditionCTAProps {
   cityName: string;
@@ -10,10 +11,10 @@ interface LocalConditionCTAProps {
   className?: string;
 }
 
-const LocalConditionCTA: React.FC<LocalConditionCTAProps> = ({ 
-  cityName, 
-  conditionName, 
-  className = '' 
+const LocalConditionCTA: React.FC<LocalConditionCTAProps> = ({
+  cityName,
+  conditionName,
+  className = ''
 }) => {
   return (
     <div className={`bg-eyecare-blue text-white p-6 rounded-lg ${className}`}>
@@ -23,11 +24,11 @@ const LocalConditionCTA: React.FC<LocalConditionCTAProps> = ({
       </p>
       <div className="space-y-3">
         <a
-          href="tel:+17145581182"
+          href={CONTACT_INFO.primaryPhone.href}
           className="callrail-phone block w-full bg-white text-eyecare-blue text-center px-4 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
         >
           <Phone className="inline w-4 h-4 mr-2" />
-          Call (714) 558-1182
+          Call {CONTACT_INFO.primaryPhone.display}
         </a>
         <Link
           href="/book-appointment"
