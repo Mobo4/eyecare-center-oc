@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 // import Hero from "@/components/Hero"; // Original Hero
 import ModernHero from "@/components/ModernHero"; // Parsley Health + Mayo Clinic Inspired
+import Top6Services from "@/components/Top6Services"; // Top 6 Google Ads optimized services
 import TrustSignals from "@/components/TrustSignals";
 import ComprehensiveEyeCare from "@/components/ComprehensiveEyeCare";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -38,6 +39,8 @@ export default function HomePage() {
       <ModernHero />
 
       <TrustSignals className="py-16 bg-gray-50" />
+
+      <Top6Services />
 
       <ComprehensiveEyeCare />
 
