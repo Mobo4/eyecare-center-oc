@@ -111,6 +111,15 @@ const Navigation = () => {
           <Phone className="h-4 w-4 mr-2" aria-hidden="true" />
           <span className="font-medium">{phoneNumber}</span>
         </a>
+        <a
+          href="https://bonakdar.eyefinityehr.com/ema/Login.action"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-eyecare-blue transition-colors font-medium"
+          aria-label="Patient login - Opens in new window"
+        >
+          Patient Login
+        </a>
         <Link
           href="/book-appointment"
           className="bg-eyecare-blue hover:bg-eyecare-dark-blue text-white px-6 py-2 rounded-md transition-colors font-medium"
@@ -153,6 +162,16 @@ const Navigation = () => {
                 >
                   <Phone className="h-4 w-4 mr-2" />
                   <span className="font-medium">{phoneNumber}</span>
+                </a>
+                <a
+                  href="https://bonakdar.eyefinityehr.com/ema/Login.action"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center w-full border-2 border-eyecare-blue text-eyecare-blue hover:bg-eyecare-blue hover:text-white px-6 py-3 rounded-md transition-colors font-medium"
+                  onClick={closeMobileMenu}
+                  aria-label="Patient login - Opens in new window"
+                >
+                  Patient Login
                 </a>
                 <Link
                   href="/book-appointment"
