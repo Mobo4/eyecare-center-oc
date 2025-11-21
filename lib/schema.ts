@@ -234,3 +234,111 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
   };
 }
 
+/**
+ * Generate combined LocalBusiness + MedicalCondition schema for local condition pages
+ * This combines location-specific business info with medical condition details
+ */
+export function generateLocalConditionSchema(
+  conditionName: string,
+  conditionDescription: string,
+  cityName: string,
+  county: string,
+  url: string
+) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MedicalBusiness",
+        "@id": `https://eyecarecenteroc.com/#organization`,
+        name: "EyeCare Center of Orange County",
+        description: `Expert ${conditionName} treatment serving ${cityName}, ${county}. Comprehensive eye care services with over 30 years of experience.`,
+        url: "https://eyecarecenteroc.com",
+        telephone: "+1-714-558-1182",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "801 North Tustin Ave #404",
+          addressLocality: "Santa Ana",
+          addressRegion: "CA",
+          postalCode: "92705",
+          addressCountry: "US",
+        },
+        areaServed: {
+          "@type": "City",
+          name: cityName,
+          containedIn: {
+            "@type": "AdministrativeArea",
+            name: county,
+          },
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "33.758810",
+          longitude: "-117.836090"
+        },
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Friday"],
+            opens: "09:00",
+            closes: "17:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Saturday"],
+            opens: "09:00",
+            closes: "14:00",
+          },
+        ],
+        priceRange: "$$",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "288"
+        },
+      },
+      {
+        "@type": "MedicalCondition",
+        "@id": url,
+        name: conditionName,
+        description: conditionDescription,
+        url: url,
+        associatedAnatomy: {
+          "@type": "AnatomicalStructure",
+          name: "Eye"
+        },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: `${conditionName} Treatment in ${cityName}`,
+        description: `Professional ${conditionName.toLowerCase()} diagnosis and treatment for residents of ${cityName} and ${county}.`,
+        provider: {
+          "@id": "https://eyecarecenteroc.com/#organization"
+        },
+        areaServed: {
+          "@type": "City",
+          name: cityName,
+        },
+        availableChannel: {
+          "@type": "ServiceChannel",
+          serviceUrl: "https://eyecarecenteroc.com/book-appointment",
+          servicePhone: {
+            "@type": "ContactPoint",
+            telephone: "+1-714-558-1182",
+            contactType: "customer service",
+            areaServed: "US",
+            availableLanguage: ["English", "Spanish"]
+          }
+        }
+      }
+    ]
+  };
+}
+

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getCityBySlug, cities } from '@/data/cities';
-import { MapPin, Phone, Calendar, Users } from 'lucide-react';
+import { MapPin, Phone, Calendar, Users, Eye } from 'lucide-react';
+import { conditions } from '@/data/conditions';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -180,6 +181,54 @@ export default async function CityPage({ params }: Props) {
                   {zip}
                 </span>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Conditions We Treat Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Eye Conditions We Treat in {city.name}
+              </h2>
+              <p className="text-xl text-gray-600">
+                Expert diagnosis and treatment for a wide range of eye conditions
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {conditions.map((condition) => (
+                <Link
+                  key={condition.slug}
+                  href={`/conditions/${condition.slug}/${slug}`}
+                  className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-eyecare-blue hover:shadow-lg transition-all group"
+                >
+                  <div className="flex items-start gap-4">
+                    <Eye className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-bold text-gray-900 group-hover:text-eyecare-blue mb-2">
+                        {condition.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 line-clamp-2">
+                        {condition.description.substring(0, 100)}...
+                      </p>
+                      <span className="text-sm text-eyecare-blue font-medium mt-2 inline-block">
+                        Learn More →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            
+            <div className="text-center mt-8">
+              <Link
+                href="/conditions"
+                className="inline-flex items-center text-eyecare-blue hover:text-eyecare-dark-blue font-semibold"
+              >
+                View All Conditions We Treat →
+              </Link>
             </div>
           </div>
         </section>

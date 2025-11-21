@@ -7,6 +7,10 @@ export interface Condition {
   treatments: string[];
   seoTitle: string;
   seoDescription: string;
+  // Local SEO enhancement fields
+  localKeywords?: string[];  // City-specific search terms
+  faqs?: Array<{question: string; answer: string}>;  // Local FAQ schema
+  relatedServices?: string[];  // Related services for cross-linking
 }
 
 export const conditions: Condition[] = [
@@ -19,7 +23,14 @@ export const conditions: Condition[] = [
     symptoms: ["Blurred or distorted vision", "Increased sensitivity to light", "Frequent prescription changes", "Difficulty seeing at night"],
     treatments: ["Corneal Cross-Linking (CXL)", "Scleral Contact Lenses", "Intacs Corneal Implants", "Corneal Transplant"],
     seoTitle: "Keratoconus Treatment Orange County | Corneal Cross-Linking Specialist",
-    seoDescription: "Expert keratoconus treatment in Orange County. Corneal cross-linking, scleral lenses, and advanced care for progressive corneal disease. Call (949) 364-0008."
+    seoDescription: "Expert keratoconus treatment in Orange County. Corneal cross-linking, scleral lenses, and advanced care for progressive corneal disease. Call (949) 364-0008.",
+    localKeywords: ["keratoconus specialist", "corneal cross-linking", "scleral lenses", "keratoconus treatment near me", "corneal disease doctor"],
+    faqs: [
+      { question: "How is keratoconus diagnosed?", answer: "Keratoconus is diagnosed through comprehensive eye examination including corneal topography, which maps the surface of your cornea to detect irregular shape and thinning." },
+      { question: "Can keratoconus be treated without surgery?", answer: "Yes, many keratoconus patients can be successfully treated with specialty contact lenses, particularly scleral lenses, which vault over the irregular cornea to provide clear vision." },
+      { question: "What is corneal cross-linking?", answer: "Corneal cross-linking (CXL) is a minimally invasive procedure that strengthens the cornea to slow or stop the progression of keratoconus." }
+    ],
+    relatedServices: ["Scleral Lens Fitting", "Comprehensive Eye Exam", "Corneal Disease Management"]
   },
   {
     name: "Dry Eye Syndrome",
@@ -29,7 +40,14 @@ export const conditions: Condition[] = [
     symptoms: ["Stinging or burning sensation", "Redness", "Light sensitivity", "Blurred vision"],
     treatments: ["Prescription Eye Drops", "Punctal Plugs", "LipiFlow Thermal Pulsation", "IPL Therapy"],
     seoTitle: "Dry Eye Treatment Orange County | Chronic Dry Eye Specialist",
-    seoDescription: "Advanced dry eye treatment in Orange County. LipiFlow, IPL therapy, and prescription treatments for chronic dry eye syndrome. Call (949) 364-0008."
+    seoDescription: "Advanced dry eye treatment in Orange County. LipiFlow, IPL therapy, and prescription treatments for chronic dry eye syndrome. Call (949) 364-0008.",
+    localKeywords: ["dry eye specialist", "dry eye treatment", "chronic dry eye", "eye drops for dry eyes", "dry eye syndrome doctor"],
+    faqs: [
+      { question: "What causes dry eye syndrome?", answer: "Dry eye syndrome can be caused by decreased tear production, increased tear evaporation, environmental factors, medications, aging, or underlying health conditions." },
+      { question: "How long does dry eye treatment take?", answer: "Treatment duration varies by individual, but many patients experience relief within a few weeks of starting treatment. Chronic dry eye may require ongoing management." },
+      { question: "Is dry eye permanent?", answer: "While some forms of dry eye are chronic and require ongoing management, many cases can be successfully treated and symptoms significantly reduced with proper care." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Contact Lens Evaluation"]
   },
   {
     name: "Cataracts",
@@ -39,7 +57,14 @@ export const conditions: Condition[] = [
     symptoms: ["Clouded or blurred vision", "Difficulty seeing at night", "Sensitivity to light", "Fading of colors"],
     treatments: ["Cataract Surgery", "Premium IOL Implants", "Laser-Assisted Surgery", "Multifocal Lenses"],
     seoTitle: "Cataract Surgery Orange County | Advanced Lens Implants",
-    seoDescription: "Expert cataract surgery in Orange County. Premium IOL implants, laser-assisted procedures, and advanced vision correction. Call (949) 364-0008."
+    seoDescription: "Expert cataract surgery in Orange County. Premium IOL implants, laser-assisted procedures, and advanced vision correction. Call (949) 364-0008.",
+    localKeywords: ["cataract surgery", "cataract specialist", "IOL implants", "cataract doctor", "cataract evaluation"],
+    faqs: [
+      { question: "When should I have cataract surgery?", answer: "Cataract surgery is typically recommended when cataracts begin to interfere with daily activities like reading, driving, or other normal tasks." },
+      { question: "Is cataract surgery painful?", answer: "No, cataract surgery is performed under local anesthesia and most patients experience little to no discomfort during or after the procedure." },
+      { question: "How long is cataract surgery recovery?", answer: "Most patients recover quickly, with improved vision within a few days. Full recovery typically takes 4-6 weeks." }
+    ],
+    relatedServices: ["Cataract Surgery", "Comprehensive Eye Exam"]
   },
   {
     name: "Glaucoma",
