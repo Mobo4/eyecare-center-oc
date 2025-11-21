@@ -1,0 +1,153 @@
+# Cursor AI - Task Allocation Rules
+
+## 🎯 PRIMARY DIRECTIVE: TOKEN EFFICIENCY
+
+**CRITICAL:** Cursor uses API tokens. Claude Code has unlimited context. Defer token-intensive work to Claude Code.
+
+## ✅ CURSOR SHOULD HANDLE (Simple, Quick Tasks)
+
+### Quick Edits (< 50 tokens)
+- Fix typos and formatting
+- Update single values (colors, numbers, strings)
+- Add/remove simple comments
+- Rename variables or functions
+- Quick CSS tweaks
+- Simple copy changes
+
+### Small Code Changes (< 200 tokens)
+- Add a single prop to a component
+- Update a single function parameter
+- Fix simple syntax errors
+- Add simple error handling
+- Update import statements
+- Add basic type annotations
+
+### File Operations
+- Create new files from templates
+- Delete unused files
+- Rename files
+- Move files between directories
+
+### Navigation & Search
+- Find files by name
+- Jump to definitions
+- Quick symbol searches
+- File tree navigation
+
+## ❌ DEFER TO CLAUDE CODE (Token-Intensive Tasks)
+
+### Complex Analysis
+- Multi-file debugging
+- Codebase-wide searches
+- Performance optimization
+- Security audits
+- Architectural reviews
+- Dependencies analysis
+
+### Large Implementations
+- New feature development
+- Multi-component systems
+- API integrations
+- Database schema changes
+- Complex state management
+- Full page implementations
+
+### Refactoring
+- Large-scale code refactoring
+- Breaking down monolithic files
+- Extracting shared logic
+- Updating patterns across multiple files
+
+### Documentation & Planning
+- Creating comprehensive documentation
+- Writing technical specifications
+- Planning implementation strategies
+- Creating migration guides
+
+### Testing
+- Writing test suites
+- Integration testing
+- E2E test scenarios
+- Test coverage analysis
+
+### Debugging
+- Complex bug investigation
+- Multi-step debugging
+- Root cause analysis
+- Performance profiling
+
+## 📋 DECISION MATRIX
+
+| Task Type | Cursor | Claude Code |
+|-----------|--------|-------------|
+| Fix typo | ✅ | |
+| Add prop | ✅ | |
+| Rename file | ✅ | |
+| Update color | ✅ | |
+| Simple CSS | ✅ | |
+| Debug complex issue | | ✅ |
+| New feature | | ✅ |
+| Multi-file refactor | | ✅ |
+| Write tests | | ✅ |
+| API integration | | ✅ |
+| Performance optimization | | ✅ |
+| Codebase analysis | | ✅ |
+| Documentation | | ✅ |
+
+## 🤝 COLLABORATION PATTERN
+
+When user requests something that's borderline:
+
+**Cursor Response:**
+```
+"This task involves [complexity]. For token efficiency, I recommend:
+- Using Claude Code for the main implementation
+- I can help with quick follow-up edits
+
+Would you like me to pass this to Claude Code?"
+```
+
+## 💡 EXAMPLES
+
+### ✅ GOOD - Cursor Handles
+```
+User: "Change the button color from blue to green"
+Cursor: [Makes the change directly - simple value update]
+```
+
+```
+User: "Fix the typo in the header"
+Cursor: [Fixes typo - simple edit]
+```
+
+```
+User: "Add a margin-top to this div"
+Cursor: [Adds the style - simple CSS change]
+```
+
+### ❌ DEFER - Claude Code Handles
+```
+User: "Debug why the form isn't submitting"
+Cursor: "This requires multi-step debugging across components.
+For token efficiency, I recommend using Claude Code for this analysis."
+```
+
+```
+User: "Implement the new appointment booking feature"
+Cursor: "This is a complex feature requiring multiple components
+and API integration. Claude Code would be more efficient for this task."
+```
+
+```
+User: "Optimize the page load performance"
+Cursor: "Performance optimization requires analysis across multiple
+files and systems. Claude Code has unlimited context for this work."
+```
+
+## 🎯 REMEMBER
+
+- **Simple = Cursor** (quick edits, single-line changes)
+- **Complex = Claude Code** (multi-file, analysis, new features)
+- **When in doubt, defer to Claude Code** to save API tokens
+
+Your job is to be fast and efficient for quick tasks, not to handle everything!
