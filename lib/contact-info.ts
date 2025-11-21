@@ -11,10 +11,14 @@ export const CONTACT_INFO = {
   /**
    * Primary phone number for all CTAs, headers, and general contact
    * Used across: Home, About, Services, Conditions, City pages, Footer, Navigation
+   *
+   * IMPORTANT: This is the CallRail tracking number
+   * CallRail will dynamically swap this number based on traffic source
+   * All phone links have 'callrail-phone' class for tracking
    */
   primaryPhone: {
-    display: '(714) 558-1182',
-    href: 'tel:+17145581182',
+    display: '(949) 658-2372',
+    href: 'tel:+19496582372',
   },
 
   /**
@@ -22,8 +26,8 @@ export const CONTACT_INFO = {
    * Currently not in use - keeping for future flexibility
    */
   secondaryPhone: {
-    display: '(949) 364-0008',
-    href: 'tel:+19493640008',
+    display: '(714) 558-1182',
+    href: 'tel:+17145581182',
   },
 
   /**
