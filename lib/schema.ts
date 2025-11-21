@@ -85,63 +85,128 @@ export interface MedicalConditionSchema {
 }
 
 /**
- * Generate MedicalBusiness schema for homepage
+ * Generate MedicalBusiness schema for homepage with Top 6 Services
  */
-export function generateMedicalBusinessSchema(): MedicalBusinessSchema {
+export function generateMedicalBusinessSchema(): any {
   return {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    name: "EyeCare Center of Orange County",
-    description: "Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams. Board-certified specialists serving 65+ Orange County cities.",
-    url: "https://eyecarecenteroc.com",
-    telephone: "+1-949-364-0008",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "801 North Tustin Ave #404",
-      addressLocality: "Santa Ana",
-      addressRegion: "CA",
-      postalCode: "92705",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "33.758810",
-      longitude: "-117.836090"
-    },
-    openingHoursSpecification: [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Friday"],
-        opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday"],
-        opens: "09:00",
-        closes: "14:00",
-      },
-    ],
-    priceRange: "$$",
-    image: "https://eyecarecenteroc.com/og-image.jpg",
-    logo: "https://eyecarecenteroc.com/favicon.svg",
-    sameAs: [
-      "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
-      "https://www.instagram.com/eyecarecenteroc/",
-      "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
-      "https://www.youtube.com/@eyecarecenteroforangecount952"
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "288"
-    },
+        "@type": "MedicalBusiness",
+        "@id": "https://eyecarecenteroc.com/#organization",
+        name: "EyeCare Center of Orange County",
+        description: "Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, dry eye IPL therapy, and comprehensive eye exams. Board-certified specialists serving 65+ Orange County cities.",
+        url: "https://eyecarecenteroc.com",
+        telephone: "+1-949-364-0008",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "801 North Tustin Ave #404",
+          addressLocality: "Santa Ana",
+          addressRegion: "CA",
+          postalCode: "92705",
+          addressCountry: "US",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "33.758810",
+          longitude: "-117.836090"
+        },
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Friday"],
+            opens: "09:00",
+            closes: "17:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Saturday"],
+            opens: "09:00",
+            closes: "14:00",
+          },
+        ],
+        priceRange: "$$",
+        image: "https://eyecarecenteroc.com/og-image.jpg",
+        logo: "https://eyecarecenteroc.com/favicon.svg",
+        sameAs: [
+          "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
+          "https://www.instagram.com/eyecarecenteroc/",
+          "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
+          "https://www.youtube.com/@eyecarecenteroforangecount952"
+        ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "288"
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Eye Care Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "MedicalProcedure",
+                name: "Dry Eye Treatment (IPL)",
+                description: "Intense Pulsed Light (IPL) therapy treats the root cause of dry eye syndrome, providing long-lasting relief where eye drops fail.",
+                procedureType: "IPL Therapy"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "MedicalProcedure",
+                name: "Keratoconus Treatment",
+                description: "Expert diagnosis and treatment for keratoconus including scleral lenses, corneal cross-linking, and advanced management strategies.",
+                procedureType: "Keratoconus Management"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "MedicalProcedure",
+                name: "LASIK Surgery",
+                description: "State-of-the-art LASIK consultation and co-management with Orange County's top refractive surgeons.",
+                procedureType: "Refractive Surgery"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "MedicalProcedure",
+                name: "Orthokeratology (Ortho-K)",
+                description: "Wear custom contact lenses overnight and wake up with clear vision all day—no surgery, no glasses, no daytime contacts.",
+                procedureType: "Non-Surgical Vision Correction"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "MedicalProcedure",
+                name: "Corneal Cross-Linking",
+                description: "Halt keratoconus progression with FDA-approved corneal cross-linking—the only treatment proven to stop the disease from worsening.",
+                procedureType: "Corneal Strengthening"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "MedicalProcedure",
+                name: "Scleral Lens Fitting",
+                description: "Custom scleral lenses provide superior vision and comfort for keratoconus, post-LASIK complications, severe dry eyes, and other complex conditions.",
+                procedureType: "Specialty Contact Lenses"
+              }
+            }
+          ]
+        }
+      }
+    ]
   };
 }
 
