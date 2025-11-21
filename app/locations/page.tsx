@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     'eye care near me',
     'local eye doctor',
   ],
+  robots: {
+    index: false,
+    follow: true,
+    nocache: false,
+  },
   openGraph: {
     title: 'Locations We Serve | Orange County Eye Care',
     description: 'Expert eye care serving 65+ Orange County cities. Call (949) 364-0008 to schedule your appointment.',

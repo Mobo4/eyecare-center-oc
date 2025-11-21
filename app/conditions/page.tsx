@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ConditionCityModal from '@/components/ConditionCityModal';
 import { conditions, ConditionSeverity } from '@/data/conditions-full';
 import { Search, Eye, AlertTriangle } from 'lucide-react';
 import { generateBreadcrumbSchema } from '@/lib/schema';
@@ -19,6 +20,7 @@ const severityStyles: { [key in ConditionSeverity]: string } = {
 
 export default function ConditionsPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCondition, setSelectedCondition] = useState<typeof conditions[0] | null>(null);
 
   const filteredConditions = useMemo(() => {
     if (!searchTerm) {
@@ -135,10 +137,10 @@ export default function ConditionsPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {groupedConditions[category].map((condition) => (
-                    <Link
+                    <button
                       key={condition.slug}
-                      href={`/conditions/${condition.slug}`}
-                      className="bg-white rounded-lg p-6 shadow-md hover:shadow-2xl transition-all group flex flex-col"
+                      onClick={() => setSelectedCondition(condition)}
+                      className="bg-white rounded-lg p-6 shadow-md hover:shadow-2xl transition-all group flex flex-col text-left w-full"
                     >
                       <div className="flex justify-between items-start mb-3">
                         <h3 className="text-xl font-bold text-gray-900 group-hover:text-eyecare-blue transition">
@@ -154,7 +156,7 @@ export default function ConditionsPage() {
                       <div className="text-eyecare-blue font-semibold group-hover:translate-x-2 transition-transform inline-block mt-auto">
                         Learn More →
                       </div>
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
@@ -220,6 +222,12 @@ export default function ConditionsPage() {
         </section>
       </main>
       <Footer />
+
+      {/* Condition City Modal */}
+      <ConditionCityModal
+        condition={selectedCondition}
+        onClose={() => setSelectedCondition(null)}
+      />
     </>
   );
 }

@@ -34,7 +34,6 @@ const Navigation = () => {
       label: 'Services',
       path: '/services',
     },
-    { path: '/locations', label: 'Locations' },
     { path: '/contact', label: 'Contact Us' },
   ];
 
