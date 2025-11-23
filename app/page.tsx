@@ -1,25 +1,26 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-// import Hero from "@/components/Hero"; // Original Hero
-import ModernHero from "@/components/ModernHero"; // Parsley Health + Mayo Clinic Inspired
-import Top6Services from "@/components/Top6Services"; // Top 6 Google Ads optimized services
+import CleanHero from "@/components/CleanHero";
+import Top6Services from "@/components/Top6Services";
 import TrustSignals from "@/components/TrustSignals";
 import ComprehensiveEyeCare from "@/components/ComprehensiveEyeCare";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ProfessionalServices from "@/components/ProfessionalServices";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
+import DiagnosisTool from "@/components/DiagnosisTool";
 import { Eye, MapPin, ArrowRight, Activity, Brain, Droplets, Sun, Phone } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 const conditions = [
-  { name: "Keratoconus", slug: "keratoconus", category: "Corneal Disease", icon: Eye, color: "from-blue-500 to-blue-600" },
-  { name: "Cataracts", slug: "cataracts", category: "Vision Impairment", icon: Sun, color: "from-amber-500 to-amber-600" },
-  { name: "Dry Eye Syndrome", slug: "dry-eye", category: "Chronic Condition", icon: Droplets, color: "from-cyan-500 to-cyan-600" },
-  { name: "Glaucoma", slug: "glaucoma", category: "Vision Threat", icon: Activity, color: "from-red-500 to-red-600" },
-  { name: "Macular Degeneration", slug: "macular-degeneration", category: "Retinal Disease", icon: Brain, color: "from-purple-500 to-purple-600" },
-  { name: "Diabetic Retinopathy", slug: "diabetic-retinopathy", category: "Retinal Disease", icon: Activity, color: "from-pink-500 to-pink-600" },
+  { name: "Keratoconus", slug: "keratoconus", category: "Corneal Disease", icon: Eye, color: "bg-blue-100 text-blue-600" },
+  { name: "Cataracts", slug: "cataracts", category: "Vision Impairment", icon: Sun, color: "bg-amber-100 text-amber-600" },
+  { name: "Dry Eye Syndrome", slug: "dry-eye", category: "Chronic Condition", icon: Droplets, color: "bg-cyan-100 text-cyan-600" },
+  { name: "Glaucoma", slug: "glaucoma", category: "Vision Threat", icon: Activity, color: "bg-red-100 text-red-600" },
+  { name: "Macular Degeneration", slug: "macular-degeneration", category: "Retinal Disease", icon: Brain, color: "bg-purple-100 text-purple-600" },
+  { name: "Diabetic Retinopathy", slug: "diabetic-retinopathy", category: "Retinal Disease", icon: Activity, color: "bg-pink-100 text-pink-600" },
 ];
 
 const cities = [
@@ -33,12 +34,18 @@ const cities = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen" suppressHydrationWarning>
+    <main className="min-h-screen bg-white" suppressHydrationWarning>
       <Header />
 
-      <ModernHero />
+      <CleanHero />
 
-      <TrustSignals className="py-16 bg-gray-50" />
+      <section className="py-12 bg-white relative z-20 -mt-20 px-4">
+        <div className="container mx-auto">
+          <DiagnosisTool />
+        </div>
+      </section>
+
+      <TrustSignals className="py-16 bg-white" />
 
       <Top6Services />
 
@@ -52,17 +59,14 @@ export default function HomePage() {
 
       <Faq />
 
-      {/* Conditions Section - Simplified */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
+      {/* Conditions Section - Clean Medical Style */}
+      <section className="py-24 bg-eyecare-warm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Eye Conditions We{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 text-transparent bg-clip-text">
-                Expertly Treat
-              </span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-eyecare-navy mb-6">
+              Eye Conditions We Treat
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-eyecare-light-navy max-w-3xl mx-auto">
               Advanced diagnosis and treatment for all eye conditions with cutting-edge technology
             </p>
           </div>
@@ -74,26 +78,26 @@ export default function HomePage() {
                 <Link
                   key={condition.slug}
                   href={`/conditions/${condition.slug}`}
-                  className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  className="group bg-white border border-eyecare-blue/5 rounded-2xl p-8 hover:shadow-xl hover:border-eyecare-blue/20 transition-all duration-300"
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 bg-gradient-to-br ${condition.color} rounded-xl`}>
-                      <IconComponent className="w-8 h-8 text-white" />
+                    <div className={`p-3 rounded-xl ${condition.color}`}>
+                      <IconComponent className="w-8 h-8" />
                     </div>
-                    <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-semibold text-white/80 border border-white/20">
+                    <span className="px-3 py-1 bg-eyecare-warm rounded-full text-xs font-semibold text-eyecare-light-navy border border-eyecare-blue/5">
                       {condition.category}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-eyecare-navy mb-3 group-hover:text-eyecare-blue transition-colors">
                     {condition.name}
                   </h3>
 
-                  <p className="text-gray-300 mb-4 leading-relaxed">
+                  <p className="text-eyecare-light-navy mb-4 leading-relaxed">
                     Expert treatment and care for {condition.name.toLowerCase()}. Learn about symptoms, causes, and treatment options.
                   </p>
 
-                  <div className="flex items-center text-cyan-400 font-semibold group-hover:translate-x-2 transition-transform">
+                  <div className="flex items-center text-eyecare-blue font-semibold group-hover:translate-x-2 transition-transform">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </div>
@@ -105,7 +109,7 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/conditions"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center px-8 py-4 bg-eyecare-blue hover:bg-eyecare-dark-blue text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
               View All 191 Eye Conditions
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -114,18 +118,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Cities Section - Simplified */}
-      <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-purple-50">
+      {/* Cities Section - Clean Style */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Serving{" "}
-              <span className="bg-gradient-to-r from-eyecare-blue via-blue-600 to-purple-600 text-transparent bg-clip-text">
-                Orange County
-              </span>
-              {" "}Communities
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-eyecare-navy mb-6">
+              Serving Orange County Communities
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-eyecare-light-navy max-w-3xl mx-auto">
               Expert eye care in your neighborhood with convenient locations across Orange County
             </p>
           </div>
@@ -135,19 +135,19 @@ export default function HomePage() {
               <Link
                 key={city.slug}
                 href={`/locations/${city.slug}`}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-eyecare-blue"
+                className="group bg-eyecare-warm rounded-2xl p-8 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-eyecare-blue/20"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className="p-3 bg-gradient-to-br from-eyecare-blue/10 to-purple-600/10 rounded-xl group-hover:from-eyecare-blue/20 group-hover:to-purple-600/20 transition-all">
-                    <MapPin className="w-8 h-8 text-eyecare-blue" />
+                  <div className="p-3 bg-white rounded-xl text-eyecare-blue shadow-sm">
+                    <MapPin className="w-8 h-8" />
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-eyecare-blue transition-colors">
+                <h3 className="text-2xl font-bold text-eyecare-navy mb-2 group-hover:text-eyecare-blue transition-colors">
                   {city.name}
                 </h3>
 
-                <p className="text-gray-600 mb-4">
+                <p className="text-eyecare-light-navy mb-4">
                   {city.count}
                 </p>
 
@@ -162,7 +162,7 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/locations"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-eyecare-blue to-purple-600 hover:from-eyecare-dark-blue hover:to-purple-700 text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center px-8 py-4 border-2 border-eyecare-blue text-eyecare-blue hover:bg-eyecare-blue hover:text-white font-semibold rounded-full text-lg transition-all duration-300"
             >
               View All 65 Cities We Serve
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -171,10 +171,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-eyecare-blue via-blue-600 to-purple-700">
+      {/* CTA Section - Medical Blue */}
+      <section className="py-24 bg-eyecare-blue text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Ready to Improve Your Vision?
           </h2>
 
@@ -189,7 +189,6 @@ export default function HomePage() {
             >
               <Phone className="mr-2 h-5 w-5" />
               Call {CONTACT_INFO.primaryPhone.display}
-              <ArrowRight className="ml-2 h-5 w-5" />
             </a>
 
             <Link
@@ -203,6 +202,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ExitIntentPopup
+        title="Get Expert Eye Care in Orange County"
+        description="Don't struggle with vision issues any longer. Dr. Bonakdar has 35+ years of experience providing comprehensive eye care and specialized treatments."
+        imageSrc="/images/hero-background.png"
+        benefits={[
+          'Same-day appointments available',
+          'Most insurance plans accepted',
+          'Advanced diagnostic technology',
+          'Experienced specialist care'
+        ]}
+        ctaText="Schedule Free Consultation"
+      />
       <Footer />
     </main>
   );

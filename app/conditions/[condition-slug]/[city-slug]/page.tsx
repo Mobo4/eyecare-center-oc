@@ -4,20 +4,36 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Phone, Calendar, MapPin, CheckCircle, Eye, AlertCircle } from 'lucide-react';
-import { conditions, getConditionBySlug } from '@/data/conditions';
+import { getEnhancedConditionBySlug } from '@/data/conditions';
+import { allConditions } from '@/data/conditions-search';
 import { cities, getCityBySlug } from '@/data/cities';
 import { generateBreadcrumbSchema, generateMedicalConditionSchema } from '@/lib/schema';
 import Script from 'next/script';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 interface Props {
-  params: { 'condition-slug': string; 'city-slug': string };
+  params: Promise<{ 'condition-slug': string; 'city-slug': string }>;
 }
+
+// Helper to get image for condition
+const getConditionImage = (slug: string) => {
+  if (slug.includes('keratoconus')) return '/images/Keratoconus_eye.avif';
+  if (slug.includes('dry-eye') || slug.includes('blepharitis')) return '/images/Dryeye_01.avif';
+  if (slug.includes('scleral')) return '/images/Scleral_lens_01.avif';
+  if (slug.includes('ortho-k') || slug.includes('myopia')) return '/images/Orthokeratology_topgraphy.avif';
+  if (slug.includes('cataract')) return '/images/hero-background.png'; // Use generic for now
+  if (slug.includes('lasik')) return '/images/hero-background.png'; // Use generic for now
+  return '/images/hero-background.png';
+};
 
 export async function generateStaticParams() {
   // Generate all condition + city combinations
-  // 15 conditions × 64 cities = 960 pages
-  const paths = conditions.flatMap(condition =>
+  // 338 conditions × 66 cities = ~22,300 pages
+  // We'll generate a subset at build time to avoid timeouts, others will be ISR
+  const popularConditions = allConditions.slice(0, 20); // Pre-build top 20 conditions
+
+  const paths = popularConditions.flatMap(condition =>
     cities.map(city => ({
       'condition-slug': condition.slug,
       'city-slug': city.slug,
@@ -29,13 +45,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { 'condition-slug': conditionSlug, 'city-slug': citySlug } = await params;
-  const condition = getConditionBySlug(conditionSlug);
+  const condition = getEnhancedConditionBySlug(conditionSlug);
   const city = getCityBySlug(citySlug);
 
   if (!condition || !city) {
     return { title: 'Page Not Found' };
   }
-  
+
   const title = `${condition.name} Treatment in ${city.name}, CA | Eye Doctor Near You`;
   const description = `Expert ${condition.name.toLowerCase()} treatment in ${city.name}, ${city.county}. Serving ${city.neighborhoods.slice(0, 3).join(', ')} and surrounding areas. ${condition.treatments.slice(0, 2).join(', ')}. Call ${CONTACT_INFO.primaryPhone.display}.`;
   const canonicalUrl = `https://eyecarecenteroc.com/conditions/${conditionSlug}/${citySlug}`;
@@ -50,9 +66,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${condition.category.toLowerCase()} ${city.name}`,
       ...city.neighborhoods.map(n => `${condition.name.toLowerCase()} ${n}`),
     ],
-    openGraph: { 
-      title, 
-      description, 
+    openGraph: {
+      title,
+      description,
       type: 'website',
       url: canonicalUrl,
     },
@@ -64,12 +80,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LocalConditionPage({ params }: Props) {
   const { 'condition-slug': conditionSlug, 'city-slug': citySlug } = await params;
-  const condition = getConditionBySlug(conditionSlug);
+  const condition = getEnhancedConditionBySlug(conditionSlug);
   const city = getCityBySlug(citySlug);
 
   if (!condition || !city) {
     notFound();
   }
+
+  const locationName = city.name;
+  const conditionImage = getConditionImage(condition.slug);
+  const popupTitle = `Suffering from ${condition.name}?`;
+  const popupDescription = `You don't have to live with ${condition.name.toLowerCase()}. Dr. Bonakdar is an expert in treating complex eye conditions in ${locationName}. Schedule your consultation today.`;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://eyecarecenteroc.com' },
@@ -166,8 +187,8 @@ export default async function LocalConditionPage({ params }: Props) {
                     {condition.description}
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    At EyeCare Center of Orange County, we serve patients from {city.name} and throughout {city.county}. 
-                    Our practice is conveniently located to serve residents from {city.neighborhoods.slice(0, 4).join(', ')}, 
+                    At EyeCare Center of Orange County, we serve patients from {city.name} and throughout {city.county}.
+                    Our practice is conveniently located to serve residents from {city.neighborhoods.slice(0, 4).join(', ')},
                     and all surrounding areas with zip codes including {city.zipCodes.slice(0, 5).join(', ')}.
                   </p>
                 </div>
@@ -245,13 +266,13 @@ export default async function LocalConditionPage({ params }: Props) {
                 <div className="prose prose-lg max-w-none">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Comprehensive Eye Care for {city.name}</h2>
                   <p className="text-gray-700 mb-4">
-                    Whether you've been recently diagnosed with {condition.name.toLowerCase()} or have been managing this condition for years, 
-                    our team is dedicated to providing personalized care tailored to your specific needs. We understand that {city.name} residents 
+                    Whether you've been recently diagnosed with {condition.name.toLowerCase()} or have been managing this condition for years,
+                    our team is dedicated to providing personalized care tailored to your specific needs. We understand that {city.name} residents
                     value quality, convenience, and compassionate care.
                   </p>
                   <p className="text-gray-700 mb-4">
-                    Our practice serves patients throughout {city.county}, with many of our patients coming from {city.name} neighborhoods 
-                    such as {city.neighborhoods.slice(0, 4).join(', ')}, and more. We're committed to providing accessible, 
+                    Our practice serves patients throughout {city.county}, with many of our patients coming from {city.name} neighborhoods
+                    such as {city.neighborhoods.slice(0, 4).join(', ')}, and more. We're committed to providing accessible,
                     high-quality eye care to all members of the {city.name} community.
                   </p>
                   <p className="text-gray-700">
@@ -275,7 +296,7 @@ export default async function LocalConditionPage({ params }: Props) {
                         <p className="text-gray-600 text-sm mt-1">Population: {city.population}</p>
                       </div>
                     </div>
-                    
+
                     <div className="mt-4">
                       <h4 className="font-semibold text-gray-900 mb-2">Neighborhoods We Serve:</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
@@ -322,7 +343,7 @@ export default async function LocalConditionPage({ params }: Props) {
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Related Conditions</h3>
                     <div className="space-y-2">
-                      {conditions
+                      {allConditions
                         .filter(c => c.category === condition.category && c.slug !== condition.slug)
                         .slice(0, 3)
                         .map((relatedCondition) => (
@@ -376,6 +397,19 @@ export default async function LocalConditionPage({ params }: Props) {
           </div>
         </section>
 
+        {/* Dynamic Exit Intent Popup */}
+        <ExitIntentPopup
+          title={popupTitle}
+          description={popupDescription}
+          imageSrc={conditionImage}
+          benefits={[
+            `Specialized ${condition.name} treatment`,
+            'Advanced diagnostic technology',
+            'Personalized care plan',
+            'Insurance accepted'
+          ]}
+          ctaText="Get Relief Today"
+        />
       </main>
       <Footer />
     </>

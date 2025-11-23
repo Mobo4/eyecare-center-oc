@@ -6,7 +6,7 @@ import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import ExitIntentPopup from '@/components/ExitIntentPopup';
+
 
 // Configure fonts to match live site
 const poppins = Poppins({
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "keratoconus treatment",
     "vision correction",
     "eye surgery",
-    
+
     // --- Location-Specific Keywords ---
     "eye doctor irvine",
     "lasik irvine",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     "blepharitis treatment",
     "corneal disease",
     "floaters",
-    
+
     // --- Service & Treatment Keywords ---
     "comprehensive eye exam",
     "contact lens fitting",
@@ -151,8 +151,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
         {children}
 
-        {/* Exit-Intent Popup for Conversion Optimization */}
-        <ExitIntentPopup enabled={true} delayMs={5000} />
+
 
         {/* Vercel Analytics & Speed Insights for Core Web Vitals */}
         <Analytics />

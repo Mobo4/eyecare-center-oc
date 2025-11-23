@@ -4,19 +4,70 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Phone, Calendar, Eye, AlertCircle, CheckCircle, MapPin, ArrowRight } from 'lucide-react';
-import { conditions, getConditionBySlug } from '@/data/conditions';
+import { conditions as fullConditions, getConditionBySlug as getFullConditionBySlug, Condition, ConditionSeverity } from '@/data/conditions-full';
+import { allConditions, SearchCondition } from '@/data/conditions-search';
 import { cities } from '@/data/cities';
 import { generateBreadcrumbSchema, generateMedicalConditionSchema } from '@/lib/schema';
 import Script from 'next/script';
 import { CONTACT_INFO } from '@/lib/contact-info';
+
+// Helper to create a full Condition from SearchCondition for pages not in conditions-full.ts
+const createConditionFromSearch = (search: SearchCondition): Condition => ({
+  name: search.name,
+  slug: search.slug,
+  category: search.category,
+  severity: 'Moderate' as ConditionSeverity,
+  description: `${search.name} is an eye condition that affects vision and overall eye health. Our board-certified specialists at EyeCare Center of Orange County provide comprehensive diagnosis and personalized treatment plans. Early detection and proper treatment can help manage symptoms and prevent progression.`,
+  symptoms: [
+    'Visual disturbances or changes in vision',
+    'Eye discomfort or irritation',
+    'Changes in eye appearance',
+    'Difficulty with daily visual tasks',
+    ...(search.aliases?.map(a => `Also known as: ${a}`) || [])
+  ],
+  treatments: [
+    'Comprehensive eye examination and diagnosis',
+    'Personalized treatment plan',
+    'Medical management as appropriate',
+    'Follow-up care and monitoring',
+    'Lifestyle and preventive recommendations'
+  ],
+  seoTitle: `${search.name} Treatment | Orange County Eye Care`,
+  seoDescription: `Expert ${search.name} diagnosis and treatment in Orange County. Comprehensive care from experienced eye specialists. Call (949) 364-0008.`,
+  keywords: search.aliases || [],
+});
+
+// Combined function to find condition from full list or create from search
+const getConditionBySlug = (slug: string): Condition | undefined => {
+  // Try full conditions first (has detailed info)
+  let condition = getFullConditionBySlug(slug);
+  if (condition) return condition;
+
+  // Try to find in search conditions and create a page
+  const searchCondition = allConditions.find(c => c.slug === slug);
+  if (searchCondition) {
+    return createConditionFromSearch(searchCondition);
+  }
+
+  return undefined;
+};
+
+// Get all condition slugs for static generation
+const getAllConditionSlugs = (): string[] => {
+  const fullSlugs = fullConditions.map(c => c.slug);
+  const searchSlugs = allConditions.map(c => c.slug);
+  // Combine and deduplicate
+  return [...new Set([...fullSlugs, ...searchSlugs])];
+};
 
 interface Props {
   params: Promise<{ 'condition-slug': string }>;
 }
 
 export async function generateStaticParams() {
-  return conditions.map((condition) => ({
-    'condition-slug': condition.slug,
+  const allSlugs = getAllConditionSlugs();
+  return allSlugs.map((slug) => ({
+    'condition-slug': slug,
   }));
 }
 
@@ -350,7 +401,7 @@ export default async function ConditionPage({ params }: Props) {
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-bold text-gray-900 mb-4">Related Conditions</h3>
                     <div className="space-y-2">
-                      {conditions
+                      {fullConditions
                         .filter(c => c.category === condition.category && c.slug !== condition.slug)
                         .slice(0, 5)
                         .map((relatedCondition) => (

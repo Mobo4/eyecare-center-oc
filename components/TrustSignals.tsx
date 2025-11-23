@@ -1,47 +1,49 @@
 'use client';
 
 import React from 'react';
+import { Award, Users, ShieldCheck } from 'lucide-react';
 
 interface TrustSignalsProps {
-  variant?: 'horizontal' | 'vertical';
   className?: string;
 }
 
-const TrustSignals: React.FC<TrustSignalsProps> = ({ variant = 'horizontal', className = '' }) => {
+const TrustSignals: React.FC<TrustSignalsProps> = ({ className = '' }) => {
   const trustItems = [
     {
-      icon: '🏆',
+      icon: Award,
       title: '35+ Years Experience',
-      subtitle: 'Trusted expertise'
+      subtitle: 'Serving Orange County since 1991'
     },
     {
-      icon: '👥',
-      title: '10,000+ Patients Helped',
-      subtitle: 'Proven results'
+      icon: Users,
+      title: '10,000+ Patients',
+      subtitle: 'Trusted by your community'
     },
     {
-      icon: '🏥',
-      title: 'Most Insurance Accepted',
-      subtitle: 'VSP, EyeMed & more'
+      icon: ShieldCheck,
+      title: 'Board Certified',
+      subtitle: 'Highest standard of care'
     }
   ];
 
-  const layoutClasses = variant === 'horizontal' 
-    ? 'grid grid-cols-1 sm:grid-cols-3 gap-6' 
-    : 'space-y-4';
-
   return (
-    <div className={`container mx-auto px-4 ${className}`}>
-      <div className={layoutClasses}>
-        {trustItems.map((item, index) => (
-          <div key={index} className="text-center p-6 bg-white rounded-lg shadow-md border hover:shadow-lg transition-shadow">
-            <div className="text-4xl mb-3">{item.icon}</div>
-            <h3 className="font-bold text-xl text-eyecare-blue mb-2">{item.title}</h3>
-            <p className="text-sm text-gray-600">{item.subtitle}</p>
-          </div>
-        ))}
+    <section className={`bg-white py-12 border-b border-eyecare-blue/5 ${className}`}>
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {trustItems.map((item, index) => (
+            <div key={index} className="flex items-center justify-center gap-4 p-4 rounded-xl hover:bg-eyecare-warm/50 transition-colors">
+              <div className="p-3 bg-eyecare-lighter-blue rounded-full text-eyecare-blue">
+                <item.icon className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <h3 className="font-serif font-bold text-lg text-eyecare-navy">{item.title}</h3>
+                <p className="text-sm text-eyecare-light-navy">{item.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,98 +1,108 @@
 import Link from 'next/link';
-import { Button } from "./ui/button";
-import { Phone, Eye, Star, Users, Award } from 'lucide-react';
-import { CONTACT_INFO } from '@/lib/contact-info';
+import Image from 'next/image';
+import { Star, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function CleanHero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] -z-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #1e40af 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
+    <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-eyecare-blue to-eyecare-dark-blue overflow-hidden">
+      {/* Background Pattern/Image Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-background.png"
+          alt="Modern Eye Care Center"
+          fill
+          className="object-cover opacity-10 mix-blend-overlay"
+          priority
+        />
+        {/* Subtle animated gradient orb for depth */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
       </div>
 
-      <div className="container grid lg:grid-cols-2 place-items-center gap-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-        {/* Left Column - Text Content */}
-        <div className="text-center lg:text-start space-y-6">
-          <div>
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-eyecare-blue/10 rounded-full text-eyecare-blue font-semibold mb-4">
-              <Eye className="w-4 h-4" />
-              Expert Eye Care Since 2004
-            </span>
-          </div>
+      <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Content */}
+          <div className="space-y-8 text-white">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-eyecare-lighter-blue">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              Accepting New Patients
+            </div>
 
-          <main className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            <h1 className="mb-4">
-              <span className="inline bg-gradient-to-r from-eyecare-blue to-eyecare-light-blue text-transparent bg-clip-text">
-                Professional Eye Care
+            <h1 className="text-5xl lg:text-7xl font-serif font-bold leading-tight tracking-tight">
+              World-Class <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                Eye Care
               </span>
+              <br />
+              in Orange County
             </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-700">
-              Specializing in Keratoconus, Scleral Lenses & Comprehensive Eye Exams
-            </h2>
-          </main>
 
-          <p className="text-xl text-gray-600 md:w-10/12 mx-auto lg:mx-0">
-            Board-certified specialists providing cutting-edge treatment for 191 eye conditions.
-            Serving 65+ Orange County cities with compassionate, personalized care.
-          </p>
+            <p className="text-xl text-blue-100 max-w-xl leading-relaxed font-light">
+              Experience the perfect blend of advanced medical technology and compassionate, personalized care with Dr. Bonakdar.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button asChild size="lg" className="bg-eyecare-blue hover:bg-eyecare-dark-blue text-lg">
-              <a href={CONTACT_INFO.primaryPhone.href} className="callrail-phone group">
-                <Phone className="mr-2 h-5 w-5" />
-                Call {CONTACT_INFO.primaryPhone.display}
-              </a>
-            </Button>
-
-            <Button asChild variant="outline" size="lg" className="border-2 border-eyecare-blue text-eyecare-blue hover:bg-eyecare-blue hover:text-white text-lg">
-              <Link href="/conditions">
-                Browse Conditions
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link
+                href="/book-appointment"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-eyecare-blue bg-white rounded-full hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Book Appointment
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-            </Button>
-          </div>
-
-          <div className="flex flex-wrap gap-3 justify-center lg:justify-start pt-4">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-medium text-eyecare-blue shadow-md border border-eyecare-blue/20">
-              <Star className="w-4 h-4 fill-current" />
-              4.9/5 Rating
-            </span>
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-medium text-eyecare-light-blue shadow-md border border-eyecare-light-blue/20">
-              <Users className="w-4 h-4" />
-              50,000+ Patients
-            </span>
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-medium text-eyecare-lighter-blue shadow-md border border-eyecare-lighter-blue/20">
-              <Award className="w-4 h-4" />
-              20+ Years
-            </span>
-          </div>
-        </div>
-
-        {/* Right Column - Visual Card */}
-        <div className="relative z-10 w-full">
-          <div className="relative bg-gradient-to-br from-eyecare-blue via-eyecare-light-blue to-eyecare-lighter-blue p-8 rounded-3xl shadow-2xl">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 text-center">
-              <Eye className="w-32 h-32 mx-auto text-white mb-6" />
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Advanced Eye Care Technology
-              </h3>
-              <p className="text-white/90 text-lg">
-                State-of-the-art diagnostic equipment for precise diagnosis and treatment
-              </p>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-white/30 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Explore Services
+              </Link>
             </div>
 
-            {/* Floating Stats */}
-            <div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-xl">
-              <div className="text-3xl font-bold text-eyecare-blue">191</div>
-              <div className="text-sm text-gray-600">Conditions Treated</div>
+            {/* Trust Indicators - White version */}
+            <div className="pt-8 flex items-center gap-8 text-blue-200 text-sm font-medium">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span>Board Certified</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span>Latest Technology</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <span>5-Star Rated</span>
+              </div>
             </div>
+          </div>
 
-            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl">
-              <div className="text-3xl font-bold text-eyecare-light-blue">65+</div>
-              <div className="text-sm text-gray-600">Cities Served</div>
+          {/* Right Column - Doctor Profile Card (5 cols) */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+            <div className="relative bg-white p-2 rounded-2xl shadow-2xl shadow-blue-900/5 max-w-sm rotate-1 hover:rotate-0 transition-transform duration-500">
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
+                <Image
+                  src="/images/doctors/drbonakdar.png"
+                  alt="Dr. Bonakdar - Lead Optometrist"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60" />
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <p className="font-serif text-2xl font-bold">Dr. Bonakdar</p>
+                  <p className="text-blue-100 font-medium">Lead Optometrist</p>
+                </div>
+              </div>
+
+              {/* Floating Badge */}
+              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-50">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-blue-50 rounded-full text-eyecare-blue">
+                    <Star className="w-5 h-5 fill-current" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-slate-900">4.9/5</p>
+                    <p className="text-xs text-slate-500">Patient Rating</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

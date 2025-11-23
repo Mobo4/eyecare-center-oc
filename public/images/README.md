@@ -1,68 +1,76 @@
-# Image Assets Directory
+# EyeCare Center OC - Image Assets
 
-This directory contains all image assets for the EyeCare Center OC website.
+This directory contains all organized, SEO-optimized images for the EyeCare Center of Orange County website.
 
 ## Directory Structure
 
 ```
-images/
-├── clinic/          # Clinic exterior, interior, waiting room photos
-├── doctors/         # Doctor and staff professional headshots
-├── equipment/      # Medical equipment and technology photos
-└── testimonials/    # Patient testimonial photos (if available)
+public/images/
+├── hero/                    # Hero section backgrounds (3 images - 4.3MB)
+├── trust-signals/           # Trust badges and statistics (3 images - 3.6MB)
+├── services/                # Service and treatment images (9 images - 8.8MB)
+└── [documentation files]
 ```
 
-## Image Requirements
+## Quick Start
 
-### Format
-- **Primary:** WebP format (with JPEG fallback)
-- **Optimization:** Compress to 80-85% quality
-- **Responsive:** Multiple sizes for different screen sizes
+**For Developers:**
+1. Read `NEXTJS_IMAGE_USAGE_GUIDE.md` for implementation patterns
+2. Use `QUICK_REFERENCE.md` for copy-paste code templates
+3. Reference `IMAGE_METADATA.md` for exact alt text and metadata
 
-### Sizes
-- **Hero images:** 1920x1080px (desktop), 768x432px (mobile)
-- **Thumbnails:** 400x300px
-- **Profile photos:** 400x400px (square)
-- **Card images:** 600x400px
+**For Content Team:**
+1. See `QUICK_REFERENCE.md` for all image paths and alt text
+2. Follow the naming convention in `ORGANIZATION_SUMMARY.md`
+3. Use descriptive, keyword-rich filenames for new images
 
-### Naming Convention
-- Use lowercase with hyphens
-- Example: `clinic-exterior.jpg`, `doctor-john-smith.jpg`
+## File Naming Convention
 
-## Usage
+```
+{category}-{description}-{keywords}-{location}.{extension}
 
-Images should be used with Next.js `Image` component for automatic optimization:
-
-```tsx
-import Image from 'next/image';
-import { getImagePath } from '@/lib/images';
-
-<Image
-  src={getImagePath('clinic', 'clinic-exterior.jpg')}
-  alt="EyeCare Center exterior"
-  width={1920}
-  height={1080}
-  priority
-/>
+✅ Good: lasik-laser-eye-surgery-orange-county.png
+❌ Bad: Lasik.png
 ```
 
-## Alt Text
+## Alt Text Guidelines
 
-All images must have descriptive alt text for accessibility and SEO.
+- Length: 100-125 characters
+- Include: What's shown + context + location
+- Natural keyword inclusion (no stuffing)
+- Write for accessibility first, SEO second
 
-## Current Status
+## Documentation Files
 
-**⚠️ Images need to be added:**
-- Clinic photos: 0/5
-- Doctor photos: 0/3
-- Equipment photos: 0/3
-- Testimonial photos: 0/3
+📄 `IMAGE_METADATA.md` - Complete metadata catalog for all 15 images
+📄 `NEXTJS_IMAGE_USAGE_GUIDE.md` - Implementation examples and patterns (7,000+ words)
+📄 `ORGANIZATION_SUMMARY.md` - Full project summary and next steps
+📄 `QUICK_REFERENCE.md` - Quick copy-paste reference guide
+
+## Statistics
+
+- **Total Images:** 15 files
+- **Current Size:** 16.7MB
+- **Target Size:** 2MB (after AVIF conversion)
+- **Potential Savings:** 88% file size reduction
 
 ## Next Steps
 
-1. Source professional photos
-2. Optimize images (compress, convert to WebP)
-3. Add images to appropriate directories
-4. Update components to use images
-5. Test image loading and optimization
+1. ⏳ Convert all images to AVIF format (88% size reduction)
+2. ⏳ Measure actual dimensions and add to components
+3. ⏳ Generate blur placeholders for progressive loading
+4. ⏳ Update existing components with new paths
+5. ⏳ Run Lighthouse audits to verify improvements
 
+## Recent Changes
+
+**November 21, 2025:**
+- ✅ Reorganized 15 images from `components/icons/` to proper directories
+- ✅ Renamed all files with SEO-optimized names
+- ✅ Fixed typos (yeras → years, start → star)
+- ✅ Created comprehensive documentation (4 files)
+- ✅ Removed original files from components/icons/
+
+## Questions?
+
+See `ORGANIZATION_SUMMARY.md` for complete details and FAQs.

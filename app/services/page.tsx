@@ -34,16 +34,23 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
-                <div key={service.slug} className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-3">{service.name}</h2>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <Link 
-                    href={`/services/${service.slug}/orange-county`} // Example link, this could be more sophisticated
-                    className="inline-flex items-center font-semibold text-eyecare-blue hover:underline"
-                  >
-                    Learn More <ChevronRight className="w-4 h-4 ml-1" />
-                  </Link>
-                </div>
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}/orange-county`}
+                  className="group block bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100"
+                >
+                  <div className="flex flex-col h-full">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-eyecare-blue transition-colors">
+                      {service.name}
+                    </h2>
+                    <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center font-semibold text-eyecare-blue group-hover:translate-x-2 transition-transform">
+                      Learn More <ChevronRight className="w-5 h-5 ml-1" />
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

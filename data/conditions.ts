@@ -9,7 +9,7 @@ export interface Condition {
   seoDescription: string;
   // Local SEO enhancement fields
   localKeywords?: string[];  // City-specific search terms
-  faqs?: Array<{question: string; answer: string}>;  // Local FAQ schema
+  faqs?: Array<{ question: string; answer: string }>;  // Local FAQ schema
   relatedServices?: string[];  // Related services for cross-linking
 }
 
@@ -190,10 +190,75 @@ export const conditions: Condition[] = [
   // Continue adding more conditions to reach 191...
 ];
 
+import { allConditions } from './conditions-search';
+
 export function getConditionBySlug(slug: string): Condition | undefined {
   return conditions.find(c => c.slug === slug);
 }
 
 export function getConditionsByCategory(category: string): Condition[] {
   return conditions.filter(c => c.category === category);
+}
+
+/**
+ * Retrieves a condition by slug, enhancing it with template data if it only exists in the search list.
+ * This allows us to generate 300+ condition pages without manually writing content for each one.
+ */
+export function getEnhancedConditionBySlug(slug: string): Condition | undefined {
+  // 1. Try to find in detailed conditions first
+  const detailedCondition = conditions.find(c => c.slug === slug);
+  if (detailedCondition) {
+    return detailedCondition;
+  }
+
+  // 2. If not found, look in the search conditions (comprehensive list)
+  const searchCondition = allConditions.find(c => c.slug === slug);
+
+  if (!searchCondition) {
+    return undefined;
+  }
+
+  // 3. Hydrate the simple search condition into a full Condition object using templates
+  return {
+    name: searchCondition.name,
+    slug: searchCondition.slug,
+    category: searchCondition.category,
+    description: `Expert diagnosis and treatment for ${searchCondition.name} is available at EyeCare Center of Orange County. ${searchCondition.name} is a condition classified under ${searchCondition.category}. Our experienced team provides comprehensive care to manage symptoms and protect your vision.`,
+    symptoms: searchCondition.symptoms || [
+      "Changes in vision",
+      "Eye discomfort or irritation",
+      "Redness or inflammation",
+      "Sensitivity to light"
+    ],
+    treatments: [
+      "Comprehensive Eye Examination",
+      "Personalized Treatment Plan",
+      "Prescription Medication (if applicable)",
+      "Regular Monitoring and Follow-up"
+    ],
+    seoTitle: `${searchCondition.name} Treatment Orange County | ${searchCondition.category} Specialist`,
+    seoDescription: `Expert ${searchCondition.name} treatment in Orange County. Specialized care for ${searchCondition.category.toLowerCase()} and comprehensive eye exams. Call (949) 364-0008.`,
+    localKeywords: [
+      `${searchCondition.name.toLowerCase()} specialist`,
+      `${searchCondition.name.toLowerCase()} doctor`,
+      `${searchCondition.name.toLowerCase()} treatment`,
+      "eye doctor near me",
+      "ophthalmologist orange county"
+    ],
+    faqs: [
+      {
+        question: `What is ${searchCondition.name}?`,
+        answer: `${searchCondition.name} is a condition affecting the eyes, categorized as ${searchCondition.category}. Early diagnosis and treatment are important for maintaining optimal eye health.`
+      },
+      {
+        question: `How is ${searchCondition.name} treated?`,
+        answer: `Treatment for ${searchCondition.name} depends on the severity and specific symptoms. We offer comprehensive evaluations to determine the best course of action for your specific needs.`
+      },
+      {
+        question: `Do I need to see a specialist for ${searchCondition.name}?`,
+        answer: `Yes, seeing an eye care professional is recommended if you suspect you have ${searchCondition.name} or are experiencing symptoms affecting your vision.`
+      }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Diagnostic Testing"]
+  };
 }

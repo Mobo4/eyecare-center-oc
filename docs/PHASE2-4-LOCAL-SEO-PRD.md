@@ -492,12 +492,12 @@ This PRD defines the requirements for implementing comprehensive local SEO optim
 {
   "@context": "https://schema.org",
   "@type": "Physician",
-  "name": "Dr. Hani Bonakdar",
+  "name": "Dr. Alexander Bonakdar",
   "honorificPrefix": "Dr.",
   "honorificSuffix": "OD",
   "jobTitle": "Board-Certified Optometrist",
   "description": "Board-certified optometrist specializing in keratoconus treatment...",
-  "image": "https://eyecarecenteroc.com/images/doctors/dr-hani-bonakdar.avif",
+  "image": "https://eyecarecenteroc.com/images/doctors/drbonakdar.png",
   "medicalSpecialty": {
     "@type": "MedicalSpecialty",
     "name": "Optometry"
@@ -517,7 +517,7 @@ This PRD defines the requirements for implementing comprehensive local SEO optim
     "addressCountry": "US"
   },
   "telephone": "+17145581182",
-  "url": "https://eyecarecenteroc.com/doctors/dr-hani-bonakdar",
+  "url": "https://eyecarecenteroc.com/doctors/dr-alexander-bonakdar",
   "alumniOf": {
     "@type": "EducationalOrganization",
     "name": "[Medical School Name]"
@@ -867,7 +867,7 @@ export default function DoctorPage({ params }: DoctorPageProps) {
 **Time Estimate:** 16-24 hours
 
 **Deliverables:**
-- [ ] Dr. Hani Bonakdar biography page (1,200 words)
+- [ ] Dr. Alexander Bonakdar biography page (1,200 words)
 - [ ] Additional doctor pages (if applicable)
 
 **Schema Implementation:**
@@ -1706,7 +1706,7 @@ BMAD Strategic Analysis Team
 November 21, 2025
 
 **Review Required From:**
-- [ ] Dr. Hani Bonakdar (Medical Review & Approval)
+- [ ] Dr. Alexander Bonakdar (Medical Review & Approval)
 - [ ] Practice Manager (Budget & Resource Approval)
 - [ ] Marketing Director (Strategy Approval)
 - [ ] Lead Developer (Technical Feasibility Review)

@@ -22,7 +22,7 @@ export const enhancedServices: ServiceData[] = [
     icon: '/images/icons/keratoconus-icon.svg',
     overview: `Keratoconus is a progressive eye condition where the cornea thins and bulges into a cone-like shape, causing blurred vision, light sensitivity, and difficulty with everyday activities. At EyeCare Center of Orange County, we specialize in comprehensive keratoconus management, helping patients at every stage of the condition achieve clear, comfortable vision.
 
-Our keratoconus specialist, Dr. Hani Bonakdar, has over 35 years of experience fitting scleral contact lenses and managing complex corneal conditions. We've helped thousands of patients who were told they had no options achieve remarkable improvements in their vision and quality of life.`,
+Our keratoconus specialist, Dr. Alexander Bonakdar, has over 35 years of experience fitting scleral contact lenses and managing complex corneal conditions. We've helped thousands of patients who were told they had no options achieve remarkable improvements in their vision and quality of life.`,
     benefits: [
       'Clear vision restoration with specialized contact lenses',
       'Non-surgical treatment options available',
@@ -693,6 +693,8 @@ Our comprehensive glaucoma services include screening, diagnosis, and ongoing ma
   }
 ];
 
+import { services as basicServices } from './services';
+
 /**
  * Get enhanced service by slug
  */
@@ -706,3 +708,97 @@ export function getEnhancedServiceBySlug(slug: string): ServiceData | undefined 
 export function getAllEnhancedServices(): ServiceData[] {
   return enhancedServices;
 }
+
+/**
+ * Smart getter that returns enhanced data if available, or hydrates basic data if not.
+ */
+export function getSmartServiceBySlug(slug: string): ServiceData | undefined {
+  // 1. Try enhanced first
+  const enhanced = enhancedServices.find(s => s.slug === slug);
+  if (enhanced) return enhanced;
+
+  // 2. Fallback to basic
+  const basic = basicServices.find(s => s.slug === slug);
+  if (!basic) return undefined;
+
+  // 3. Hydrate basic service
+  return {
+    slug: basic.slug,
+    name: basic.name,
+    shortName: basic.name,
+    description: basic.description,
+    metaDescription: `Expert ${basic.name} in Orange County. Comprehensive care and personalized treatment from Dr. Bonakdar. Schedule your consultation today.`,
+    keywords: [basic.name.toLowerCase(), `${basic.name.toLowerCase()} orange county`, 'eye doctor near me'],
+    heroImage: '/images/hero-background.png', // Default
+    icon: '/images/icons/eye-exam-icon.svg', // Default
+    overview: `${basic.name} is a specialized service offered at EyeCare Center of Orange County. Dr. Bonakdar has over 35 years of experience providing ${basic.name.toLowerCase()} to patients throughout Orange County. We use the latest technology and techniques to ensure the best possible outcomes for your vision and eye health.`,
+    benefits: [
+      'Expert diagnosis and treatment',
+      'Personalized care plan',
+      'State-of-the-art technology',
+      'Experienced specialist',
+      'Convenient Orange County location'
+    ],
+    candidateCriteria: [
+      'Patients experiencing relevant symptoms',
+      'Referrals from other doctors',
+      'Those seeking a second opinion'
+    ],
+    notCandidates: [],
+    process: [
+      {
+        step: 1,
+        title: 'Initial Consultation',
+        description: 'Comprehensive evaluation to assess your needs and determine the best course of action.',
+        duration: '45-60 minutes'
+      },
+      {
+        step: 2,
+        title: 'Treatment Planning',
+        description: 'Developing a customized plan tailored to your specific condition and lifestyle.',
+        duration: '15-30 minutes'
+      },
+      {
+        step: 3,
+        title: 'Treatment/Procedure',
+        description: 'Expert delivery of care using advanced techniques and equipment.',
+        duration: 'Varies'
+      },
+      {
+        step: 4,
+        title: 'Follow-Up',
+        description: 'Ongoing monitoring to ensure optimal results and eye health.',
+        duration: '15-30 minutes'
+      }
+    ],
+    cost: {
+      rangeMin: 150,
+      rangeMax: 500,
+      insuranceCoverage: 'Coverage varies by plan. We accept most major insurance and can verify your benefits.',
+      financingAvailable: true
+    },
+    faqs: [
+      {
+        question: `What is included in ${basic.name}?`,
+        answer: `${basic.name} includes a comprehensive evaluation, diagnosis, and personalized treatment plan. Dr. Bonakdar will explain every step of the process.`
+      },
+      {
+        question: 'Do I need a referral?',
+        answer: 'In most cases, a referral is not required. You can schedule an appointment directly with our office.'
+      },
+      {
+        question: 'Is this covered by insurance?',
+        answer: 'Many services are covered by medical or vision insurance. We recommend calling our office so we can verify your specific coverage details.'
+      }
+    ],
+    relatedServices: ['comprehensive-eye-exam'],
+    lastUpdated: '2025-11-21'
+  };
+}
+
+export const allSmartServices = [
+  ...enhancedServices,
+  ...basicServices
+    .filter(bs => !enhancedServices.find(es => es.slug === bs.slug))
+    .map(bs => getSmartServiceBySlug(bs.slug)!)
+];

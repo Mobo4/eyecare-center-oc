@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next'
 import { conditions } from '@/data/conditions';
-import { conditions as fullConditions } from '@/data/conditions-full';
+import { allConditions } from '@/data/conditions-search';
 import { cities } from '@/data/cities';
-import { services } from '@/data/services';
- 
+import { allSmartServices } from '@/data/services-enhanced';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://eyecarecenteroc.com';
   const lastModified = new Date();
@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy-policy',
     '/terms-of-service',
     '/medical-disclaimer',
+    '/doctors',
+    '/insurance',
   ];
 
   const staticUrls = staticPages.map((page) => ({
@@ -29,8 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page === '/' ? 1.0 : 0.8,
   }));
 
-  // General condition pages (from conditions-full.ts)
-  const conditionUrls = fullConditions.map((condition) => ({
+  // General condition pages - ALL 263+ conditions from search data
+  const conditionUrls = allConditions.map((condition) => ({
     url: `${baseUrl}/conditions/${condition.slug}`,
     lastModified,
     changeFrequency: 'monthly' as const,
@@ -45,10 +47,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Service + City combinations
-  const serviceCityUrls = services.flatMap((service) =>
-    cities.slice(0, 5).map((city) => ({
-      url: `${baseUrl}/services/${service.slug}/${city.slug}`,
+  // Service pages (main service pages)
+  const serviceUrls = allSmartServices.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }));
+
+  // Service + City combinations - ALL cities + Orange County region
+  const allCitySlugs = [...cities.map(c => c.slug), 'orange-county'];
+  const serviceCityUrls = allSmartServices.flatMap((service) =>
+    allCitySlugs.map((citySlug) => ({
+      url: `${baseUrl}/services/${service.slug}/${citySlug}`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
@@ -56,8 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // Condition + City combinations (HIGH PRIORITY for local SEO)
-  // 15 conditions × 64 cities = 960 pages
-  const conditionCityUrls = conditions.flatMap((condition) =>
+  // 338 conditions × 66 cities = ~22,300 pages
+  const conditionCityUrls = allConditions.flatMap((condition) =>
     cities.map((city) => ({
       url: `${baseUrl}/conditions/${condition.slug}/${city.slug}`,
       lastModified,
@@ -65,11 +76,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8, // High priority for local SEO
     }))
   );
- 
+
   return [
     ...staticUrls,
     ...conditionUrls,
     ...locationUrls,
+    ...serviceUrls,
     ...serviceCityUrls,
     ...conditionCityUrls,
   ]

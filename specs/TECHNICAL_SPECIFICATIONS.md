@@ -971,7 +971,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
 export default function ServicePage({ params }: ServicePageProps) {
   const service = getServiceBySlug(params['service-slug']);
-  const doctor = getDoctorBySlug('dr-hani-bonakdar');
+  const doctor = getDoctorBySlug('dr-alexander-bonakdar');
 
   if (!service || !doctor) {
     notFound();
@@ -1217,7 +1217,7 @@ export default function DoctorPage({ params }: DoctorPageProps) {
 - [ ] DoctorLocations component
 
 **Content Creation:**
-- [ ] Dr. Hani Bonakdar biography (1,200 words)
+- [ ] Dr. Alexander Bonakdar biography (1,200 words)
 - [ ] Professional photo optimization
 - [ ] Video introduction embed (if available)
 

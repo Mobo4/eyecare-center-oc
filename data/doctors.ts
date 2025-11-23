@@ -12,11 +12,11 @@ import { DoctorData } from '@/lib/schema/types';
 
 export const doctors: DoctorData[] = [
   {
-    slug: 'dr-hani-bonakdar',
-    name: 'Hani Bonakdar',
+    slug: 'dr-alexander-bonakdar',
+    name: 'Alexander Bonakdar',
     credentials: 'O.D.',
     title: 'Optometrist & Keratoconus Specialist',
-    photo: '/images/doctors/dr-hani-bonakdar.jpg',
+    photo: '/images/doctors/drbonakdar.png',
     videoIntro: undefined,
     yearsExperience: 35,
     medicalSchool: 'Southern California College of Optometry',
@@ -49,7 +49,7 @@ export const doctors: DoctorData[] = [
       'Comprehensive Eye Exams'
     ],
     proceduresPerformed: 50000,
-    bio: `Dr. Hani Bonakdar has been serving patients in Orange County for over 35 years, establishing himself as one of the region's leading specialists in keratoconus treatment and complex contact lens fitting.
+    bio: `Dr. Alexander Bonakdar has been serving patients in Orange County for over 35 years, establishing himself as one of the region's leading specialists in keratoconus treatment and complex contact lens fitting.
 
 After graduating from the Southern California College of Optometry, Dr. Bonakdar dedicated his career to helping patients with challenging vision conditions that other practices often couldn't address. His expertise in scleral lens fitting has helped thousands of patients with keratoconus, post-surgical complications, and severe dry eye regain clear, comfortable vision.
 

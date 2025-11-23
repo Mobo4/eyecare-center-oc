@@ -16,7 +16,7 @@ import { Star, Award, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Our Doctors | EyeCare Center of Orange County',
-  description: 'Meet our experienced eye care specialists. Dr. Hani Bonakdar has 35+ years of experience treating keratoconus, dry eye, and complex vision conditions in Orange County.',
+  description: 'Meet our experienced eye care specialists. Dr. Alexander Bonakdar has 35+ years of experience treating keratoconus, dry eye, and complex vision conditions in Orange County.',
 };
 
 export default function DoctorsPage() {
