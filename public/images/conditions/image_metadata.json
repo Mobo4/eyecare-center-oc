@@ -1,0 +1,52 @@
+[
+  {
+    "condition": "Blepharitis",
+    "filename": "blepharitis.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/blepharitis.jpg"
+  },
+  {
+    "condition": "Chalazion",
+    "filename": "chalazion.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/chalazion.jpg"
+  },
+  {
+    "condition": "Pinguecula",
+    "filename": "pinguecula.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/pinguecula.jpg"
+  },
+  {
+    "condition": "Cataract",
+    "filename": "cataract.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/cataract.jpg"
+  },
+  {
+    "condition": "Angle Closure Glaucoma",
+    "filename": "angle-closure-glaucoma.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/angle-closure.jpg"
+  },
+  {
+    "condition": "Retinal Detachment",
+    "filename": "retinal-detachment.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/retinal-detachment.jpg"
+  },
+  {
+    "condition": "Central Retinal Vein Occlusion",
+    "filename": "central-retinal-vein-occlusion.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/crvo.jpg"
+  },
+  {
+    "condition": "Acanthamoeba Keratitis",
+    "filename": "acanthamoeba-keratitis.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/acanthamoeba-keratitis-THUMB.jpg"
+  },
+  {
+    "condition": "Subconjunctival Hemorrhage",
+    "filename": "subconjunctival-hemorrhage.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/subconjunctival-hemorrhage-THUMB.jpg"
+  },
+  {
+    "condition": "Ectropion",
+    "filename": "ectropion.jpg",
+    "sourceUrl": "https://eyerounds.org/atlas/thumbnails/ectropion.jpg"
+  }
+]

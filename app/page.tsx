@@ -1,4 +1,6 @@
 import Link from "next/link";
+import OrganizationSchema from '@/components/Schema/OrganizationSchema';
+import Hero from '@/components/Hero';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CleanHero from "@/components/CleanHero";
@@ -43,6 +45,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white" suppressHydrationWarning>
       <Header />
+      <OrganizationSchema />
 
       <CleanHero />
 

@@ -1,9 +1,21 @@
+import { Metadata } from 'next';
 import React from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Eye, Shield, Wind, Maximize, CheckCircle, AlertCircle } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+
+export const metadata: Metadata = {
+    title: 'Rigid Gas Permeable (RGP) Lenses | EyeCare Center of Orange County',
+    description: 'RGP lenses offer superior visual clarity and eye health. Expert fitting for astigmatism, keratoconus, and presbyopia.',
+    keywords: ['RGP lenses', 'rigid gas permeable', 'hard contact lenses', 'astigmatism contacts', 'keratoconus lenses'],
+    openGraph: {
+        title: 'Rigid Gas Permeable (RGP) Lenses | EyeCare Center OC',
+        description: 'Sharper vision and better eye health with RGP lenses.',
+        type: 'website',
+    }
+};
 
 export default function RGPLensesPage() {
     return (

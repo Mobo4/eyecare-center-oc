@@ -39,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+import BreadcrumbSchema from '@/components/Schema/BreadcrumbSchema';
+import LocalBusinessSchema from '@/components/Schema/LocalBusinessSchema';
+
 export default async function CityPage({ params }: Props) {
   const { slug } = await params;
   const city = getCityBySlug(slug);
@@ -49,6 +52,12 @@ export default async function CityPage({ params }: Props) {
 
   return (
     <>
+      <LocalBusinessSchema city={city} />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: 'https://eyecarecenteroc.com' },
+        { name: 'Locations', url: 'https://eyecarecenteroc.com/locations' },
+        { name: city.name, url: `https://eyecarecenteroc.com/locations/${city.slug}` }
+      ]} />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

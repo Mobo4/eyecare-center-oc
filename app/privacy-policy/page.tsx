@@ -3,72 +3,105 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Eye Care Center OC',
-  description: 'Privacy Policy for Eye Care Center OC.',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  title: 'Privacy Policy & HIPAA Notice | EyeCare Center of Orange County',
+  description: 'Our privacy policy and Notice of Privacy Practices (HIPAA) regarding your medical information.',
+  robots: 'noindex, follow',
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
-      <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
-        <div className="prose prose-lg text-gray-600">
-          <p>Last updated: November 14, 2025</p>
-          
-          <p>
-            Eye Care Center OC ("us", "we", or "our") operates the https://www.eyecarecenteroc.com website (the "Service").
-          </p>
 
-          <p>
-            This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.
-          </p>
+      <section className="py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Privacy Policy & HIPAA Notice</h1>
 
-          <h2>Information Collection and Use</h2>
-          <p>
-            We collect several different types of information for various purposes to provide and improve our Service to you.
-          </p>
+          <div className="prose prose-lg text-gray-600 max-w-none">
+            <p className="lead text-xl text-gray-800 mb-8">
+              At EyeCare Center of Orange County, we are committed to protecting your privacy and the confidentiality of your health information.
+            </p>
 
-          <h3>Types of Data Collected</h3>
-          <h4>Personal Data</h4>
-          <p>
-            While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:
-          </p>
-          <ul>
-            <li>Email address</li>
-            <li>First name and last name</li>
-            <li>Phone number</li>
-            <li>Address, State, Province, ZIP/Postal code, City</li>
-            <li>Cookies and Usage Data</li>
-          </ul>
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Website Privacy Policy</h2>
+            <p>
+              This Privacy Policy applies to the EyeCare Center of Orange County website. It describes how we collect, use, and protect information you provide to us through our website.
+            </p>
 
-          <h4>Usage Data</h4>
-          <p>
-            We may also collect information on how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
-          </p>
+            <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">Information We Collect</h3>
+            <p>
+              We may collect personal information that you voluntarily provide to us when you:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>Request an appointment</li>
+              <li>Contact us via our contact form</li>
+              <li>Sign up for our newsletter</li>
+            </ul>
+            <p className="mt-4">
+              This information may include your name, email address, phone number, and any other information you choose to provide.
+            </p>
 
-          <h2>Use of Data</h2>
-          <p>Eye Care Center OC uses the collected data for various purposes:</p>
-          <ul>
-            <li>To provide and maintain the Service</li>
-            <li>To notify you about changes to our Service</li>
-            <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
-            <li>To provide customer care and support</li>
-            <li>To provide analysis or valuable information so that we can improve the Service</li>
-            <li>To monitor the usage of the Service</li>
-            <li>To detect, prevent and address technical issues</li>
-          </ul>
+            <h3 className="text-xl font-bold text-gray-800 mt-6 mb-3">How We Use Your Information</h3>
+            <p>
+              We use the information you provide to:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>Respond to your inquiries and requests</li>
+              <li>Schedule appointments</li>
+              <li>Send you important updates or information about our services</li>
+              <li>Improve our website and services</li>
+            </ul>
 
-          <h2>Contact Us</h2>
-          <p>
-            If you have any questions about this Privacy Policy, please contact us by visiting the contact page on our website.
-          </p>
+            <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">HIPAA Notice of Privacy Practices</h2>
+            <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
+              <p className="font-semibold text-gray-900 mb-4">
+                THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.
+              </p>
+              <p>
+                EyeCare Center of Orange County is required by law to maintain the privacy of your health information and to provide you with this notice of our legal duties and privacy practices with respect to your health information.
+              </p>
+
+              <h3 className="text-lg font-bold text-gray-800 mt-6 mb-3">Your Rights</h3>
+              <p>You have the right to:</p>
+              <ul className="list-disc pl-6 space-y-2 mt-2">
+                <li>Get a copy of your paper or electronic medical record</li>
+                <li>Correct your paper or electronic medical record</li>
+                <li>Request confidential communication</li>
+                <li>Ask us to limit the information we share</li>
+                <li>Get a list of those with whom we've shared your information</li>
+                <li>Get a copy of this privacy notice</li>
+                <li>Choose someone to act for you</li>
+                <li>File a complaint if you believe your privacy rights have been violated</li>
+              </ul>
+
+              <h3 className="text-lg font-bold text-gray-800 mt-6 mb-3">Our Uses and Disclosures</h3>
+              <p>We may use and share your information as we:</p>
+              <ul className="list-disc pl-6 space-y-2 mt-2">
+                <li>Treat you</li>
+                <li>Run our organization</li>
+                <li>Bill for your services</li>
+                <li>Help with public health and safety issues</li>
+                <li>Do research</li>
+                <li>Comply with the law</li>
+                <li>Respond to organ and tissue donation requests</li>
+                <li>Work with a medical examiner or funeral director</li>
+                <li>Address workers' compensation, law enforcement, and other government requests</li>
+                <li>Respond to lawsuits and legal actions</li>
+              </ul>
+            </div>
+
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Contact Us</h2>
+            <p>
+              If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>Phone: (714) 557-5777</li>
+              <li>E-mail: info@eyecarecenteroc.com</li>
+              <li>Address: 3301 S Harbor Blvd, Suite 100, Santa Ana, CA 92704</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </section>
+
       <Footer />
     </main>
   );

@@ -9,7 +9,7 @@ import { CONTACT_INFO } from '@/lib/contact-info';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   const toggleMobileMenu = () => {
@@ -26,15 +26,47 @@ const Navigation = () => {
 
   const navItems = [
     {
-      label: 'Care & Services',
-      path: '/services',
+      label: 'Dry Eye',
+      path: '/services/dry-eye-specialist',
     },
     {
-      label: 'Conditions & Treatments',
-      path: '/conditions',
+      label: 'Keratoconus',
+      path: '/services/keratoconus-treatment',
     },
-    { path: '/about', label: 'About Us' },
-    { path: '/contact', label: 'Contact' },
+    {
+      label: 'Ortho-K',
+      path: '/services/ortho-k',
+    },
+    {
+      label: 'Headache',
+      path: '/conditions/headache',
+    },
+    {
+      label: 'Eye Care',
+      path: '/conditions',
+      hasDropdown: true,
+      dropdownItems: [
+        { label: 'Glaucoma', path: '/services/glaucoma-management' },
+        { label: 'Cataracts', path: '/conditions/cataracts' },
+        { label: 'Macular Degeneration', path: '/conditions/macular-degeneration' },
+        { label: 'Diabetic Retinopathy', path: '/conditions/diabetic-retinopathy' },
+        { label: 'All Conditions', path: '/conditions', featured: true },
+      ]
+    },
+    {
+      label: 'Patient Resources',
+      path: '/services',
+      hasDropdown: true,
+      dropdownItems: [
+        { label: 'Comprehensive Eye Exam', path: '/services/comprehensive-eye-exam' },
+        { label: 'LASIK Consultation', path: '/services/lasik-consultation' },
+        { label: 'Optical Lenses', path: '/services/optical-lenses' },
+        { label: 'Contact Lenses', path: '/services/contact-lenses/soft' },
+        { label: 'Scleral Lenses', path: '/services/scleral-lens-fitting' },
+        { label: 'All Services', path: '/services', featured: true },
+      ]
+    },
+    { path: '/about', label: 'About' },
   ];
 
   const phoneNumber = CONTACT_INFO.primaryPhone.display;
@@ -43,15 +75,15 @@ const Navigation = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center space-x-10" role="navigation" aria-label="Main navigation">
+      <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
         {navItems.map((item, index) => (
           <div key={index} className="relative">
-            {item.label === 'Services' ? (
-              // Mega Menu for Services
+            {item.hasDropdown ? (
+              // Dropdown Menu
               <div
                 className="relative group"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
+                onMouseEnter={() => setOpenDropdown(item.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
                 <Link
                   href={item.path}
@@ -62,29 +94,27 @@ const Navigation = () => {
                   <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
                 </Link>
                 <div
-                  className={`absolute top-full -left-4 mt-0 w-[600px] bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                  className={`absolute top-full left-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${openDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
                     }`}
                 >
-                  <div className="p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                    {services.slice(0, 10).map((service) => (
+                  <div className="p-4">
+                    {item.dropdownItems?.map((dropdownItem, idx) => (
                       <Link
-                        key={service.slug}
-                        href={`/services/${service.slug}/santa-ana`}
-                        className="group/item flex flex-col"
+                        key={idx}
+                        href={dropdownItem.path}
+                        className={`block py-2 px-3 rounded-lg ${dropdownItem.featured
+                            ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue mt-2 border-t border-gray-100 pt-3'
+                            : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
+                          } transition-colors`}
                       >
-                        <span className="font-semibold text-eyecare-navy group-hover/item:text-eyecare-blue transition-colors">{service.name}</span>
-                        <span className="text-xs text-gray-500 line-clamp-1">{service.description}</span>
+                        {dropdownItem.label}
                       </Link>
                     ))}
-                  </div>
-                  <div className="bg-eyecare-warm p-4 text-center border-t border-eyecare-blue/5">
-                    <Link href="/services" className="text-sm font-bold text-eyecare-blue hover:underline">
-                      View All Services &rarr;
-                    </Link>
                   </div>
                 </div>
               </div>
             ) : (
+              // Direct Link
               <Link
                 href={item.path}
                 className={`text-base font-medium text-eyecare-navy hover:text-eyecare-blue transition-colors py-2 relative group ${isActive(item.path) ? 'text-eyecare-blue' : ''
@@ -130,15 +160,31 @@ const Navigation = () => {
           <div className="absolute top-20 left-0 w-full bg-white border-t shadow-lg" id="mobile-navigation">
             <nav className="py-4" role="navigation" aria-label="Mobile navigation">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={`block px-4 py-3 text-gray-700 hover:bg-eyecare-lighter-blue hover:text-eyecare-blue transition-colors ${isActive(item.path) ? 'text-eyecare-blue bg-eyecare-lighter-blue' : ''
-                    }`}
-                  onClick={closeMobileMenu}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.path}>
+                  <Link
+                    href={item.path}
+                    className={`block px-4 py-3 text-gray-700 hover:bg-eyecare-lighter-blue hover:text-eyecare-blue transition-colors font-medium ${isActive(item.path) ? 'text-eyecare-blue bg-eyecare-lighter-blue' : ''
+                      }`}
+                    onClick={closeMobileMenu}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.hasDropdown && item.dropdownItems && (
+                    <div className="pl-6 bg-gray-50">
+                      {item.dropdownItems.map((dropdownItem, idx) => (
+                        <Link
+                          key={idx}
+                          href={dropdownItem.path}
+                          className={`block px-4 py-2 text-sm text-gray-600 hover:text-eyecare-blue transition-colors ${dropdownItem.featured ? 'font-semibold border-t border-gray-200 mt-1 pt-2' : ''
+                            }`}
+                          onClick={closeMobileMenu}
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="px-4 py-4 space-y-3 border-t mt-4">
                 <a

@@ -8,10 +8,10 @@ export default function CleanHero() {
       {/* Background Pattern/Image Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-background.png"
+          src="/images/Hero-main.webp"
           alt="Modern Eye Care Center"
           fill
-          className="object-cover opacity-10 mix-blend-overlay"
+          className="object-cover opacity-20 mix-blend-overlay"
           priority
         />
         {/* Subtle animated gradient orb for depth */}
@@ -78,8 +78,8 @@ export default function CleanHero() {
             <div className="relative bg-white p-2 rounded-2xl shadow-2xl shadow-blue-900/5 max-w-sm rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/doctors/drbonakdar.png"
-                  alt="Dr. Bonakdar - Lead Optometrist"
+                  src="/images/Hero-main.webp"
+                  alt="Eye Care Center of Orange County"
                   fill
                   className="object-cover object-top"
                   priority

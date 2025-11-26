@@ -1,9 +1,21 @@
+import { Metadata } from 'next';
 import React from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Eye, Droplets, Shield, Sun, Circle, Layers, Focus } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+
+export const metadata: Metadata = {
+    title: 'Soft Contact Lenses | Daily, Toric & Multifocal | EyeCare Center OC',
+    description: 'Experience superior comfort with our soft contact lens options. Daily disposables, toric for astigmatism, and multifocal lenses available.',
+    keywords: ['soft contact lenses', 'daily disposable contacts', 'toric lenses', 'multifocal contacts', 'contact lens fitting'],
+    openGraph: {
+        title: 'Soft Contact Lenses | EyeCare Center of Orange County',
+        description: 'Comfortable, breathable soft contact lenses for all vision needs.',
+        type: 'website',
+    }
+};
 
 export default function SoftContactLensesPage() {
     return (

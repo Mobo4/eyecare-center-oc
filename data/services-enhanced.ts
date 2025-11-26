@@ -19,7 +19,7 @@ export const enhancedServices: ServiceData[] = [
     description: 'Advanced diagnosis and treatment of keratoconus using scleral contact lenses, corneal cross-linking, and other specialized therapies.',
     metaDescription: 'Expert keratoconus treatment in Orange County. Scleral lenses, corneal cross-linking & specialty care from a leading keratoconus specialist. 35+ years experience.',
     keywords: ['keratoconus treatment', 'keratoconus specialist', 'scleral lenses keratoconus', 'corneal cross-linking', 'keratoconus Orange County'],
-    heroImage: '/images/services/keratoconus-specialist-treatment-oc.png',
+    heroImage: '/images/services/keratoconus-specialist-treatment-oc.webp',
     icon: '/images/icons/keratoconus-icon.svg',
     overview: `Keratoconus is a progressive eye condition where the cornea thins and bulges into a cone-like shape, causing blurred vision, light sensitivity, and difficulty with everyday activities. At EyeCare Center of Orange County, we specialize in comprehensive keratoconus management, helping patients at every stage of the condition achieve clear, comfortable vision.
 
@@ -122,7 +122,7 @@ Our keratoconus specialist, Dr. Alexander Bonakdar, has over 35 years of experie
     description: 'Comprehensive dry eye evaluation and treatment including IPL therapy, meibomian gland expression, and personalized treatment plans.',
     metaDescription: 'Advanced dry eye treatment in Orange County. IPL therapy, meibomian gland treatment & customized care from an experienced dry eye specialist. Relief starts here.',
     keywords: ['dry eye treatment', 'dry eye specialist', 'IPL therapy dry eye', 'meibomian gland dysfunction', 'dry eye Orange County'],
-    heroImage: '/images/services/dry-eye-treatment-therapy-orange-county.png',
+    heroImage: '/images/services/dry-eye-treatment-therapy-orange-county.webp',
     icon: '/images/icons/dry-eye-icon.svg',
     overview: `Dry eye disease affects millions of Americans, causing discomfort, blurred vision, and reduced quality of life. At EyeCare Center of Orange County, we go beyond basic dry eye treatment to address the root cause of your symptoms.
 
@@ -226,7 +226,7 @@ Our dry eye specialist offers advanced treatments including IPL (Intense Pulsed 
     description: 'Custom-designed scleral lenses for irregular corneas, dry eye, and complex vision needs. Expert fitting from an experienced specialist.',
     metaDescription: 'Expert scleral lens fitting in Orange County. Custom scleral contacts for keratoconus, dry eye & irregular corneas. 35+ years experience. Schedule your fitting.',
     keywords: ['scleral lens fitting', 'scleral contact lenses', 'custom scleral lenses', 'scleral lenses dry eye', 'scleral lenses Orange County'],
-    heroImage: '/images/services/scleral-contact-lenses-keratoconus.png',
+    heroImage: '/images/services/scleral-contact-lenses-keratoconus.webp',
     icon: '/images/icons/scleral-lens-icon.svg',
     overview: `Scleral contact lenses are large-diameter gas permeable lenses that vault over the entire cornea, providing exceptional vision and comfort for patients who cannot achieve good results with traditional contact lenses or glasses.
 
@@ -330,7 +330,7 @@ At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience
     description: 'Complete vision and eye health evaluation using advanced diagnostic technology for patients of all ages.',
     metaDescription: 'Comprehensive eye exams in Orange County. Advanced diagnostic technology, thorough vision testing & eye disease screening. Schedule your exam today.',
     keywords: ['comprehensive eye exam', 'eye exam near me', 'eye doctor Orange County', 'vision test', 'eye health screening'],
-    heroImage: '/images/services/optometry-patient-care-ai-generated.jpeg',
+    heroImage: '/images/services/optometry-patient-care-ai-generated.webp',
     icon: '/images/icons/eye-exam-icon.svg',
     overview: `A comprehensive eye exam is much more than checking if you need glasses. At EyeCare Center of Orange County, our thorough examinations evaluate your complete eye health, screen for diseases like glaucoma and macular degeneration, and ensure your vision is optimized for your daily activities.
 
@@ -416,7 +416,7 @@ Using advanced diagnostic equipment, we can detect eye conditions early—often 
     description: 'Overnight contact lenses that reshape your cornea while you sleep, providing clear vision all day without glasses or daytime contacts.',
     metaDescription: 'Ortho-K lenses in Orange County. Wake up with clear vision—no glasses or contacts during the day. Myopia control for children. Expert fitting.',
     keywords: ['ortho-k', 'orthokeratology', 'overnight contacts', 'myopia control', 'ortho-k Orange County'],
-    heroImage: '/images/services/orthokeratology-overnight-vision-correction.png',
+    heroImage: '/images/services/orthokeratology-overnight-vision-correction.webp',
     icon: '/images/icons/ortho-k-icon.svg',
     overview: `Orthokeratology (Ortho-K) uses specially designed gas permeable contact lenses worn overnight to gently reshape your cornea while you sleep. When you remove the lenses in the morning, you can see clearly all day without glasses or daytime contacts.
 
@@ -521,7 +521,7 @@ Ortho-K is also one of the most effective methods for myopia (nearsightedness) c
     description: 'Comprehensive LASIK candidacy evaluation and post-operative co-management with top Orange County refractive surgeons.',
     metaDescription: 'LASIK consultations in Orange County. Expert evaluation, candidacy assessment & post-op care. Work with top surgeons. Schedule your LASIK consultation.',
     keywords: ['LASIK consultation', 'LASIK evaluation', 'LASIK Orange County', 'laser eye surgery', 'LASIK co-management'],
-    heroImage: '/images/services/lasik-laser-eye-surgery-orange-county.png',
+    heroImage: '/images/services/lasik-laser-eye-surgery-orange-county.webp',
     icon: '/images/icons/lasik-icon.svg',
     overview: `LASIK can be life-changing for the right candidates, providing freedom from glasses and contacts. At EyeCare Center of Orange County, we provide comprehensive LASIK consultations to determine if you are a good candidate and which procedure is best for your eyes.
 
@@ -613,7 +613,7 @@ We partner with the top refractive surgeons in Orange County and provide complet
     description: 'Advanced glaucoma screening, diagnosis, and ongoing management to protect your vision from this silent sight-stealer.',
     metaDescription: 'Glaucoma screening & treatment in Orange County. Advanced diagnostics, early detection & ongoing management. Protect your vision. Schedule your screening.',
     keywords: ['glaucoma screening', 'glaucoma treatment', 'glaucoma specialist', 'glaucoma management', 'glaucoma Orange County'],
-    heroImage: '/images/services/glaucoma-management-orange-county.png',
+    heroImage: '/images/services/glaucoma-management-orange-county.webp',
     icon: '/images/icons/glaucoma-icon.svg',
     overview: `Glaucoma is called the "silent thief of sight" because it often has no symptoms until significant, irreversible vision loss has occurred. At EyeCare Center of Orange County, we use advanced diagnostic technology to detect glaucoma at its earliest stages when treatment is most effective.
 

@@ -6,6 +6,8 @@ import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import CookieConsent from '@/components/Legal/CookieConsent';
 
 
 // Configure fonts to match live site
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     default: "EyeCare Center of Orange County | Expert Eye Care & LASIK Surgery",
     template: "%s | EyeCare Center OC"
   },
-  description: `Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams. Call ${CONTACT_INFO.primaryPhone.display}`,
+  description: `Comprehensive eye care services in Orange County.Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams.Call ${CONTACT_INFO.primaryPhone.display} `,
   keywords: [
     // --- Primary Keywords ---
     "eye care orange county",
@@ -149,6 +151,16 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-T9MZNLMX"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
 
 
@@ -170,41 +182,75 @@ export default function RootLayout({
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
-              // Hide chat widget on initial load
-              (function() {
-                const style = document.createElement('style');
-                style.id = 'ghl-widget-hide';
-                style.textContent = '[data-widget-id="69163f6533e9926104e6ee9e"] { display: none !important; }';
-                document.head.appendChild(style);
+  // Hide chat widget on initial load
+  (function () {
+    const style = document.createElement('style');
+    style.id = 'ghl-widget-hide';
+    style.textContent = '[data-widget-id="69163f6533e9926104e6ee9e"] { display: none !important; }';
+    document.head.appendChild(style);
 
-                // Show after 10 seconds
-                setTimeout(function() {
-                  const hideStyle = document.getElementById('ghl-widget-hide');
-                  if (hideStyle) {
-                    hideStyle.remove();
-                  }
-                }, 10000);
-              })();
-            `,
+    // Show after 10 seconds
+    setTimeout(function () {
+      const hideStyle = document.getElementById('ghl-widget-hide');
+      if (hideStyle) {
+        hideStyle.remove();
+      }
+    }, 10000);
+  })();
+`,
           }}
         />
+
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-T9MZNLMX');
+`,
+          }}
+        />
+
+        {/* Microsoft Clarity */}
+        <Script
+          id="clarity-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "ucchukvv3r");
+`
+          }}
+        />
+        <CookieConsent />
 
         {/* Google Analytics */}
         <Script
           id="google-analytics-gtag"
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-CT7WS4307Z"
+          src="https://www.googletagmanager.com/gtag/js?id=G-2KDTQ0HX77"
         />
         <Script
           id="google-analytics-inline"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CT7WS4307Z');
-            `,
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-2KDTQ0HX77');
+`,
           }}
         />
 
@@ -214,17 +260,20 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '395306154557054');
-              fbq('track', 'PageView');
-            `,
+!function (f, b, e, v, n, t, s) {
+  if (f.fbq) return; n = f.fbq = function () {
+    n.callMethod ?
+      n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+  };
+  if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+  n.queue = []; t = b.createElement(e); t.async = !0;
+  t.src = v; s = b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t, s)
+}(window, document, 'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '395306154557054');
+fbq('track', 'PageView');
+`,
           }}
         />
 
