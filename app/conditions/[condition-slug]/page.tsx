@@ -368,34 +368,6 @@ export default async function ConditionPage({ params }: Props) {
                     </div>
                   </div>
 
-                  {/* Find Treatment Near You */}
-                  <div className="bg-gradient-to-br from-eyecare-purple/10 to-eyecare-light-purple/10 border-2 border-eyecare-purple/20 p-6 rounded-lg">
-                    <div className="flex items-center gap-2 mb-4">
-                      <MapPin className="w-6 h-6 text-eyecare-purple" />
-                      <h3 className="text-xl font-bold text-gray-900">Find Treatment Near You</h3>
-                    </div>
-                    <p className="text-gray-700 mb-4 text-sm">
-                      Get local {condition.name.toLowerCase()} treatment information for your city:
-                    </p>
-                    <div className="grid grid-cols-1 gap-2">
-                      {topCities.slice(0, 6).map((city) => (
-                        <Link
-                          key={city.slug}
-                          href={`/conditions/${conditionSlug}/${city.slug}`}
-                          className="flex items-center justify-between p-3 bg-white rounded-md hover:bg-eyecare-purple hover:text-white transition-all group"
-                        >
-                          <span className="font-semibold">{city.name}</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      ))}
-                    </div>
-                    <Link
-                      href="/locations"
-                      className="block text-center mt-4 text-eyecare-purple font-semibold hover:underline"
-                    >
-                      View All Locations →
-                    </Link>
-                  </div>
 
                   {/* Related Conditions */}
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
