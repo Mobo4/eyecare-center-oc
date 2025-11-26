@@ -28,14 +28,14 @@ const severityStyles: { [key in ConditionSeverity]: string } = {
 
 // Featured conditions for cards - common conditions patients search for
 const featuredConditionSlugs = [
-  'headache',
-  'migraine',
+  'myopia',
+  'hyperopia',
+  'astigmatism',
+  'presbyopia',
   'keratoconus',
   'dry-eye-syndrome',
-  'dry-eyes',
-  'chalazion-hordeolum',
-  'blepharitis-meibomitis',
-  'allergic-conjunctivitis',
+  'cataracts',
+  'glaucoma',
 ];
 
 // Helper to create a Condition object from SearchCondition for modal display
@@ -77,15 +77,12 @@ export default function ConditionsPage() {
 
   // Get featured conditions from our search data
   const featuredConditions = useMemo(() => {
-    return allConditions.filter(c =>
-      featuredConditionSlugs.includes(c.slug) ||
-      c.name.toLowerCase().includes('dry eye') ||
-      c.name.toLowerCase() === 'headache' ||
-      c.name.toLowerCase() === 'migraine' ||
-      c.name.toLowerCase() === 'keratoconus' ||
-      c.name.toLowerCase().includes('chalazion') ||
-      c.name.toLowerCase().includes('stye')
-    ).slice(0, 8);
+    // Sort by the order in featuredConditionSlugs
+    return allConditions
+      .filter(c => featuredConditionSlugs.includes(c.slug))
+      .sort((a, b) => {
+        return featuredConditionSlugs.indexOf(a.slug) - featuredConditionSlugs.indexOf(b.slug);
+      });
   }, []);
 
   // Filter conditions based on search
@@ -205,22 +202,25 @@ export default function ConditionsPage() {
                       const fullCondition = findOrCreateCondition(condition);
                       setSelectedCondition(fullCondition);
                     }}
-                    className="group bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-eyecare-blue/30 text-left"
+                    className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-eyecare-blue overflow-hidden text-left"
                   >
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg font-bold text-gray-900 group-hover:text-eyecare-blue transition-colors">
-                        {condition.name}
-                      </h3>
-                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-eyecare-blue group-hover:translate-x-1 transition-all" />
-                    </div>
-                    <p className="text-sm text-gray-500 mb-2">
-                      {condition.category}
-                    </p>
-                    {condition.aliases && condition.aliases.length > 0 && (
-                      <p className="text-xs text-gray-400">
-                        Also known as: {condition.aliases.slice(0, 2).join(', ')}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent to-eyecare-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative z-10">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-eyecare-blue transition-colors">
+                          {condition.name}
+                        </h3>
+                        <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-eyecare-blue group-hover:translate-x-1 transition-all" />
+                      </div>
+                      <p className="text-sm text-gray-500 mb-2">
+                        {condition.category}
                       </p>
-                    )}
+                      {condition.aliases && condition.aliases.length > 0 && (
+                        <p className="text-xs text-gray-400">
+                          Also known as: {condition.aliases.slice(0, 2).join(', ')}
+                        </p>
+                      )}
+                    </div>
                   </button>
                 );
               })}
@@ -277,7 +277,7 @@ export default function ConditionsPage() {
                         <h3 className="text-xl font-bold text-gray-900 group-hover:text-eyecare-blue transition">
                           {condition.name}
                         </h3>
-                         <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full border ${severityStyles[condition.severity]}`}>
+                        <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full border ${severityStyles[condition.severity]}`}>
                           {condition.severity}
                         </span>
                       </div>

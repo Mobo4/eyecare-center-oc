@@ -9,6 +9,9 @@ import { CONTACT_INFO } from '@/lib/contact-info';
 export const metadata: Metadata = {
     title: 'For Medical Professionals | Patient Referrals | EyeCare Center OC',
     description: 'Partner with EyeCare Center of Orange County. Seamless patient referrals for keratoconus, dry eye, and complex corneal conditions. Co-management opportunities available.',
+    alternates: {
+        canonical: 'https://eyecarecenteroc.com/medical-professionals',
+    },
 };
 
 export default function MedicalProfessionalsPage() {

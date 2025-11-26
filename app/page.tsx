@@ -23,14 +23,21 @@ const conditions = [
   { name: "Diabetic Retinopathy", slug: "diabetic-retinopathy", category: "Retinal Disease", icon: Activity, color: "bg-pink-100 text-pink-600" },
 ];
 
+import { cities as allCities } from '@/data/cities';
+
+// Select top cities for the homepage (e.g., top 6 by population or strategic importance)
 const cities = [
-  { name: "Irvine", slug: "irvine", count: "15,000+ patients" },
-  { name: "Newport Beach", slug: "newport-beach", count: "12,000+ patients" },
-  { name: "Costa Mesa", slug: "costa-mesa", count: "8,000+ patients" },
-  { name: "Huntington Beach", slug: "huntington-beach", count: "7,000+ patients" },
-  { name: "Santa Ana", slug: "santa-ana", count: "5,000+ patients" },
-  { name: "Anaheim", slug: "anaheim", count: "3,000+ patients" },
-];
+  allCities.find(c => c.slug === 'irvine'),
+  allCities.find(c => c.slug === 'newport-beach'),
+  allCities.find(c => c.slug === 'long-beach'), // New major city
+  allCities.find(c => c.slug === 'anaheim'),
+  allCities.find(c => c.slug === 'santa-ana'),
+  allCities.find(c => c.slug === 'corona'), // New major city
+].filter(Boolean).map(c => ({
+  name: c!.name,
+  slug: c!.slug,
+  count: `${c!.population} residents`
+}));
 
 export default function HomePage() {
   return (

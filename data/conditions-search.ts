@@ -17,13 +17,16 @@ export interface SearchCondition {
 // Featured conditions for the homepage cards
 export const featuredConditions = [
   'Headache',
-  'Migraine',
+  'Ocular Migraine',
   'Keratoconus',
   'Dry Eye Syndrome',
-  'Dry Eyes',
   'Chalazion/Hordeolum', // Styes
   'Blepharitis/Meibomitis',
-  'Allergic Conjunctivitis',
+  'Myopia',
+  'Hyperopia',
+  'Astigmatism',
+  'Presbyopia',
+  'Demodex',
 ];
 
 // Comprehensive conditions list from Wills Eye Manual
@@ -46,6 +49,7 @@ export const allConditions: SearchCondition[] = [
   // Eyelid Conditions
   { name: "Chalazion/Hordeolum", slug: "chalazion-hordeolum", category: "Eyelid Conditions", icdCode: "H00-19", aliases: ["Stye", "Styes", "Chalazion", "Hordeolum", "Eyelid Bump"], symptoms: ["eyelid bump", "red eyelid", "painful eyelid", "swelling"] },
   { name: "Blepharitis/Meibomitis", slug: "blepharitis-meibomitis", category: "Eyelid Conditions", icdCode: "H01-009", aliases: ["Blepharitis", "Meibomitis", "Eyelid Inflammation"], symptoms: ["crusty eyelids", "itchy eyelids", "red eyelids", "burning"] },
+  { name: "Demodex Blepharitis", slug: "demodex", category: "Eyelid Conditions", aliases: ["Eyelash Mites", "Demodex"], symptoms: ["itchy eyelashes", "cylindrical dandruff", "redness"] },
   { name: "Ectropion", slug: "ectropion", category: "Eyelid Conditions", icdCode: "H02-10", symptoms: ["watery eyes", "redness", "irritation"] },
   { name: "Congenital Ptosis", slug: "congenital-ptosis", category: "Eyelid Conditions", icdCode: "H02-40", symptoms: ["droopy eyelid"] },
   { name: "Ptosis", slug: "ptosis", category: "Eyelid Conditions", aliases: ["Droopy Eyelids", "Eyelids Drooping"], symptoms: ["droopy eyelid", "tired eyes"] },
@@ -110,7 +114,6 @@ export const allConditions: SearchCondition[] = [
 
   // Dry Eye
   { name: "Dry Eye Syndrome", slug: "dry-eye-syndrome", category: "Dry Eye", icdCode: "H00-9", aliases: ["Dry Eyes", "DES", "Keratoconjunctivitis Sicca"], symptoms: ["burning", "gritty sensation", "watery eyes", "redness"] },
-  { name: "Dry Eyes", slug: "dry-eyes", category: "Dry Eye", symptoms: ["dryness", "irritation"] },
   { name: "Meibomian Gland Dysfunction", slug: "meibomian-gland-dysfunction", category: "Dry Eye", aliases: ["MGD"], symptoms: ["dry eyes", "crusty lids", "oil gland blockage"] },
   { name: "Ocular Rosacea", slug: "ocular-rosacea", category: "Dry Eye", symptoms: ["red eyes", "burning", "skin rosacea"] },
   { name: "Staphylococcal Hypersensitivity", slug: "staphylococcal-hypersensitivity", category: "Dry Eye", symptoms: ["redness", "irritation"] },
@@ -214,7 +217,7 @@ export const allConditions: SearchCondition[] = [
 
   // Neuro-Ophthalmology
   { name: "Headache", slug: "headache", category: "Neuro-Ophthalmology" },
-  { name: "Migraine", slug: "migraine", category: "Neuro-Ophthalmology", aliases: ["Migraine Headache", "Ocular Migraine"] },
+  { name: "Ocular Migraine", slug: "ocular-migraine", category: "Neuro-Ophthalmology", aliases: ["Migraine", "Migraine Headache", "Visual Migraine"] },
   { name: "Cluster Headache", slug: "cluster-headache", category: "Neuro-Ophthalmology" },
   { name: "Optic Neuritis", slug: "optic-neuritis", category: "Neuro-Ophthalmology", icdCode: "H46" },
   { name: "Papilledema", slug: "papilledema", category: "Neuro-Ophthalmology" },
@@ -281,6 +284,12 @@ export const allConditions: SearchCondition[] = [
   { name: "PFV/PHPV", slug: "pfv-phpv", category: "Pediatrics", aliases: ["Persistent Fetal Vasculature"] },
 
   // Refractive
+  { name: "Myopia", slug: "myopia", category: "Refractive", aliases: ["Nearsightedness"], symptoms: ["blurry distance vision", "squinting"] },
+  { name: "Hyperopia", slug: "hyperopia", category: "Refractive", aliases: ["Farsightedness"], symptoms: ["blurry near vision", "eye strain"] },
+  { name: "Astigmatism", slug: "astigmatism", category: "Refractive", symptoms: ["distorted vision", "blurry vision at all distances"] },
+  { name: "Presbyopia", slug: "presbyopia", category: "Refractive", aliases: ["Aging Eyes"], symptoms: ["trouble reading", "holding phone far away"] },
+  { name: "Anisometropia", slug: "anisometropia", category: "Refractive", aliases: ["Unequal Refractive Power"], symptoms: ["eye strain", "headache", "unequal vision"] },
+  { name: "Phoria", slug: "phoria", category: "Refractive", aliases: ["Heterophoria", "Eye Misalignment"], symptoms: ["eye strain", "double vision when tired"] },
   { name: "Refractive Surgery Complications", slug: "refractive-surgery-complications", category: "Refractive" },
   { name: "LASIK Complications", slug: "lasik-complications", category: "Refractive" },
   { name: "PRK Complications", slug: "prk-complications", category: "Refractive", aliases: ["Photorefractive Keratectomy"] },

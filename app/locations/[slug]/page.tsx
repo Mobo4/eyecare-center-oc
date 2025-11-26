@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getCityBySlug, cities } from '@/data/cities';
-import { MapPin, Phone, Calendar, Users, Eye } from 'lucide-react';
+import { MapPin, Phone, Calendar, Users, Eye, ArrowRight, Shield } from 'lucide-react';
 import { conditions } from '@/data/conditions';
 import { CONTACT_INFO } from '@/lib/contact-info';
 
@@ -114,32 +114,90 @@ export default async function CityPage({ params }: Props) {
                 Expert vision care for patients of all ages
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Comprehensive Eye Exams</h3>
-                <p className="text-gray-600 mb-4">
-                  Thorough vision assessments and eye health evaluations for adults and children.
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <Link href="/conditions" className="group relative bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-2xl hover:border-eyecare-blue transition-all duration-300 overflow-hidden block">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-eyecare-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-eyecare-blue transition-colors">Comprehensive Eye Exams</h3>
+                  <p className="text-gray-600 mb-4">
+                    Thorough vision assessments and eye health evaluations for adults and children.
+                  </p>
+                  <span className="text-eyecare-blue font-semibold hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+              <Link href="/conditions" className="group relative bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-2xl hover:border-eyecare-blue transition-all duration-300 overflow-hidden block">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-eyecare-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-eyecare-blue transition-colors">Contact Lens Fitting</h3>
+                  <p className="text-gray-600 mb-4">
+                    Expert fitting for all types of contact lenses including specialty lenses.
+                  </p>
+                  <span className="text-eyecare-blue font-semibold hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+              <Link href="/conditions" className="group relative bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-2xl hover:border-eyecare-blue transition-all duration-300 overflow-hidden block">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-eyecare-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-eyecare-blue transition-colors">Eye Disease Management</h3>
+                  <p className="text-gray-600 mb-4">
+                    Treatment for glaucoma, cataracts, macular degeneration, and more.
+                  </p>
+                  <span className="text-eyecare-blue font-semibold hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+              <Link href="/services/optical-lenses" className="group relative bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-2xl hover:border-eyecare-blue transition-all duration-300 overflow-hidden block">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-eyecare-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-eyecare-blue transition-colors">Advanced Optical Lenses</h3>
+                  <p className="text-gray-600 mb-4">
+                    Premium lens technology including <strong>Progressives</strong>, <strong>AR Coatings</strong>, and <strong>Prism</strong> correction.
+                  </p>
+                  <span className="text-eyecare-blue font-semibold hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    View Lens Options <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Insurance Section */}
+        <section className="py-16 bg-blue-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 bg-blue-100 rounded-lg text-blue-600">
+                    <Shield className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900">Insurances Accepted in {city.name}</h2>
+                </div>
+                <p className="text-lg text-gray-600 mb-6">
+                  We accept most major vision and medical insurance plans including <strong>VSP</strong>, <strong>Medicare</strong>, <strong>EyeMed</strong>, and many more.
                 </p>
-                <Link href="/conditions" className="text-eyecare-blue font-semibold hover:underline">
-                  Learn More →
-                </Link>
+                <div className="flex flex-wrap items-center gap-6 mb-6">
+                  <img src="/images/logos/vsp.svg" alt="VSP" className="h-8 w-auto" />
+                  <img src="/images/logos/medicare.svg" alt="Medicare" className="h-8 w-auto" />
+                  <img src="/images/logos/eyemed.svg" alt="EyeMed" className="h-8 w-auto" />
+                  <img src="/images/logos/blue-shield.svg" alt="Blue Shield" className="h-8 w-auto" />
+                  <img src="/images/logos/united-healthcare.svg" alt="UnitedHealthcare" className="h-8 w-auto" />
+                  <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium">
+                    + Many More
+                  </span>
+                </div>
               </div>
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Contact Lens Fitting</h3>
-                <p className="text-gray-600 mb-4">
-                  Expert fitting for all types of contact lenses including specialty lenses.
-                </p>
-                <Link href="/conditions" className="text-eyecare-blue font-semibold hover:underline">
-                  Learn More →
-                </Link>
-              </div>
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Eye Disease Management</h3>
-                <p className="text-gray-600 mb-4">
-                  Treatment for glaucoma, cataracts, macular degeneration, and more.
-                </p>
-                <Link href="/conditions" className="text-eyecare-blue font-semibold hover:underline">
-                  Learn More →
+              <div className="flex-shrink-0">
+                <Link
+                  href={`/locations/${slug}/insurance`}
+                  className="inline-flex items-center justify-center bg-white text-eyecare-blue border-2 border-eyecare-blue px-6 py-3 rounded-lg font-bold hover:bg-eyecare-blue hover:text-white transition-all"
+                >
+                  View All Insurances <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </div>
             </div>
@@ -197,7 +255,7 @@ export default async function CityPage({ params }: Props) {
                 Expert diagnosis and treatment for a wide range of eye conditions
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {conditions.map((condition) => (
                 <Link
@@ -222,7 +280,7 @@ export default async function CityPage({ params }: Props) {
                 </Link>
               ))}
             </div>
-            
+
             <div className="text-center mt-8">
               <Link
                 href="/conditions"

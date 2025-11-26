@@ -52,16 +52,9 @@ export default function ExitIntentPopup({
     // NOTE: Storage checks removed for testing/demo purposes as requested.
     // In production, you would uncomment these to prevent spamming users.
 
-    /*
-    const dismissed = localStorage.getItem('exitIntent_dismissed');
-    const dismissedTime = dismissed ? parseInt(dismissed) : 0;
-    const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
-
-    if (dismissedTime > oneDayAgo) return;
-
+    // Check if already shown this session
     const shownThisSession = sessionStorage.getItem('exitIntent_shown');
     if (shownThisSession) return;
-    */
 
     // Wait for delay before activating exit intent
     const readyTimer = setTimeout(() => {
@@ -110,7 +103,7 @@ export default function ExitIntentPopup({
 
   const handleClose = () => {
     setIsVisible(false);
-    // localStorage.setItem('exitIntent_dismissed', Date.now().toString()); // Disabled for testing
+    sessionStorage.setItem('exitIntent_shown', 'true'); // Prevent showing again this session
   };
 
   const handlePrimaryCTA = () => {

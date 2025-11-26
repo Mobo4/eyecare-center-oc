@@ -714,6 +714,61 @@ export const cities: City[] = [
     neighborhoods: ["Surfside Colony"],
     seoTitle: "Eye Doctor Surfside CA | Exclusive Beach Community Eye Care",
     seoDescription: "Professional eye doctor serving Surfside, CA. Exclusive gated beach community vision care. Call (949) 364-0008."
+  },
+  {
+    name: "Long Beach",
+    slug: "long-beach",
+    county: "Los Angeles County",
+    population: "450,000+",
+    zipCodes: ["90802", "90803", "90804", "90805", "90806", "90807", "90808", "90810", "90813", "90814", "90815"],
+    description: "Long Beach is a major coastal city known for its waterfront attractions, diverse communities, and the Queen Mary. We serve Long Beach residents with comprehensive eye care services just a short drive away.",
+    neighborhoods: ["Belmont Shore", "Bixby Knolls", "Naples", "El Dorado Park", "Downtown Long Beach", "Alamitos Beach"],
+    seoTitle: "Eye Doctor Long Beach CA | Coastal Vision Care",
+    seoDescription: "Expert eye doctor serving Long Beach, CA. Comprehensive eye exams and advanced vision care. Conveniently located for Long Beach residents. Call (949) 364-0008."
+  },
+  {
+    name: "Cerritos",
+    slug: "cerritos",
+    county: "Los Angeles County",
+    population: "49,000+",
+    zipCodes: ["90703"],
+    description: "Cerritos is an affluent city known for its performing arts center and library. We provide premium eye care services to Cerritos residents looking for top-tier vision specialists.",
+    neighborhoods: ["Cerritos Towne Center", "Shadow Park", "Landmark Square"],
+    seoTitle: "Eye Doctor Cerritos CA | Premium Vision Care",
+    seoDescription: "Professional eye doctor serving Cerritos, CA. Advanced eye care and specialty contact lenses. Convenient location for Cerritos residents. Call (949) 364-0008."
+  },
+  {
+    name: "Lakewood",
+    slug: "lakewood",
+    county: "Los Angeles County",
+    population: "79,000+",
+    zipCodes: ["90711", "90712", "90713", "90714", "90715"],
+    description: "Lakewood is a family-oriented city known as 'Tree City USA'. Our eye care center serves Lakewood families with comprehensive vision services.",
+    neighborhoods: ["Lakewood Country Club", "Mayfair", "Lakewood Manor", "Carson Park"],
+    seoTitle: "Eye Doctor Lakewood CA | Family Eye Care",
+    seoDescription: "Trusted eye doctor serving Lakewood, CA. Family-friendly eye exams and vision care. Serving Lakewood Country Club area. Call (949) 364-0008."
+  },
+  {
+    name: "Corona",
+    slug: "corona",
+    county: "Riverside County",
+    population: "157,000+",
+    zipCodes: ["92879", "92880", "92881", "92882", "92883"],
+    description: "Corona is a vibrant city in Riverside County known as the 'Circle City'. We provide advanced eye care services to Corona residents seeking specialized treatment.",
+    neighborhoods: ["South Corona", "Eagle Glen", "Dos Lagos", "Sierra Del Oro", "The Retreat"],
+    seoTitle: "Eye Doctor Corona CA | Advanced Vision Care",
+    seoDescription: "Expert eye doctor serving Corona, CA. Specialized eye care including keratoconus and dry eye treatment. Worth the drive for quality care. Call (949) 364-0008."
+  },
+  {
+    name: "Chino Hills",
+    slug: "chino-hills",
+    county: "San Bernardino County",
+    population: "78,000+",
+    zipCodes: ["91709"],
+    description: "Chino Hills is known for its rolling hills and high quality of life. Our eye care center serves Chino Hills residents with premium vision services.",
+    neighborhoods: ["Vellano", "Los Serranos", "Butterfield Ranch", "Western Hills"],
+    seoTitle: "Eye Doctor Chino Hills CA | Premium Eye Care",
+    seoDescription: "Professional eye doctor serving Chino Hills, CA. Comprehensive eye exams and specialty vision care. Convenient access via 91/241. Call (949) 364-0008."
   }
 ];
 

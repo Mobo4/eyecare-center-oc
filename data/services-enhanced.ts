@@ -9,6 +9,7 @@
  */
 
 import { ServiceData } from '@/lib/schema/types';
+import { services as basicServices } from './services';
 
 export const enhancedServices: ServiceData[] = [
   {
@@ -18,7 +19,7 @@ export const enhancedServices: ServiceData[] = [
     description: 'Advanced diagnosis and treatment of keratoconus using scleral contact lenses, corneal cross-linking, and other specialized therapies.',
     metaDescription: 'Expert keratoconus treatment in Orange County. Scleral lenses, corneal cross-linking & specialty care from a leading keratoconus specialist. 35+ years experience.',
     keywords: ['keratoconus treatment', 'keratoconus specialist', 'scleral lenses keratoconus', 'corneal cross-linking', 'keratoconus Orange County'],
-    heroImage: '/images/services/keratoconus-treatment-orange-county.jpg',
+    heroImage: '/images/services/keratoconus-specialist-treatment-oc.png',
     icon: '/images/icons/keratoconus-icon.svg',
     overview: `Keratoconus is a progressive eye condition where the cornea thins and bulges into a cone-like shape, causing blurred vision, light sensitivity, and difficulty with everyday activities. At EyeCare Center of Orange County, we specialize in comprehensive keratoconus management, helping patients at every stage of the condition achieve clear, comfortable vision.
 
@@ -121,11 +122,11 @@ Our keratoconus specialist, Dr. Alexander Bonakdar, has over 35 years of experie
     description: 'Comprehensive dry eye evaluation and treatment including IPL therapy, meibomian gland expression, and personalized treatment plans.',
     metaDescription: 'Advanced dry eye treatment in Orange County. IPL therapy, meibomian gland treatment & customized care from an experienced dry eye specialist. Relief starts here.',
     keywords: ['dry eye treatment', 'dry eye specialist', 'IPL therapy dry eye', 'meibomian gland dysfunction', 'dry eye Orange County'],
-    heroImage: '/images/services/dry-eye-ipl-treatment-orange-county.jpg',
+    heroImage: '/images/services/dry-eye-treatment-therapy-orange-county.png',
     icon: '/images/icons/dry-eye-icon.svg',
     overview: `Dry eye disease affects millions of Americans, causing discomfort, blurred vision, and reduced quality of life. At EyeCare Center of Orange County, we go beyond basic dry eye treatment to address the root cause of your symptoms.
 
-Our dry eye specialist offers advanced treatments including IPL (Intense Pulsed Light) therapy, one of the most effective treatments for meibomian gland dysfunction—the leading cause of dry eye. Whether your dry eye is caused by environmental factors, screen use, or underlying medical conditions, we create a personalized treatment plan to provide lasting relief.`,
+Our dry eye specialist offers advanced treatments including IPL (Intense Pulsed Light) therapy, one of the most effective treatments for meibomian gland dysfunction—the leading cause of dry eye. Whether your dry eye is caused by environmental factors, screen use, or underlying medical conditions, we create a personalized treatment plan to provide lasting relief. For severe cases, we also offer specialized scleral lenses that bathe the eye in moisture for all-day comfort.`,
     benefits: [
       'IPL therapy for long-lasting dry eye relief',
       'Comprehensive diagnostic testing to identify root causes',
@@ -225,11 +226,11 @@ Our dry eye specialist offers advanced treatments including IPL (Intense Pulsed 
     description: 'Custom-designed scleral lenses for irregular corneas, dry eye, and complex vision needs. Expert fitting from an experienced specialist.',
     metaDescription: 'Expert scleral lens fitting in Orange County. Custom scleral contacts for keratoconus, dry eye & irregular corneas. 35+ years experience. Schedule your fitting.',
     keywords: ['scleral lens fitting', 'scleral contact lenses', 'custom scleral lenses', 'scleral lenses dry eye', 'scleral lenses Orange County'],
-    heroImage: '/images/services/scleral-lens-fitting-orange-county.jpg',
+    heroImage: '/images/services/scleral-contact-lenses-keratoconus.png',
     icon: '/images/icons/scleral-lens-icon.svg',
     overview: `Scleral contact lenses are large-diameter gas permeable lenses that vault over the entire cornea, providing exceptional vision and comfort for patients who cannot achieve good results with traditional contact lenses or glasses.
 
-At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions. Our advanced fitting technology and extensive lens inventory allow us to achieve optimal fits for even the most challenging cases.`,
+At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions. We utilize the latest lens technologies including Multifocal, Toric, and HOA (Higher Order Aberration) correction to provide not just fit, but superior visual quality. Our advanced fitting technology and extensive lens inventory allow us to achieve optimal fits for even the most challenging cases.`,
     benefits: [
       'Clear, stable vision for irregular corneas',
       'All-day comfort with moisture reservoir',
@@ -329,7 +330,7 @@ At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience
     description: 'Complete vision and eye health evaluation using advanced diagnostic technology for patients of all ages.',
     metaDescription: 'Comprehensive eye exams in Orange County. Advanced diagnostic technology, thorough vision testing & eye disease screening. Schedule your exam today.',
     keywords: ['comprehensive eye exam', 'eye exam near me', 'eye doctor Orange County', 'vision test', 'eye health screening'],
-    heroImage: '/images/services/comprehensive-eye-exam-orange-county.jpg',
+    heroImage: '/images/services/optometry-patient-care-ai-generated.jpeg',
     icon: '/images/icons/eye-exam-icon.svg',
     overview: `A comprehensive eye exam is much more than checking if you need glasses. At EyeCare Center of Orange County, our thorough examinations evaluate your complete eye health, screen for diseases like glaucoma and macular degeneration, and ensure your vision is optimized for your daily activities.
 
@@ -415,7 +416,7 @@ Using advanced diagnostic equipment, we can detect eye conditions early—often 
     description: 'Overnight contact lenses that reshape your cornea while you sleep, providing clear vision all day without glasses or daytime contacts.',
     metaDescription: 'Ortho-K lenses in Orange County. Wake up with clear vision—no glasses or contacts during the day. Myopia control for children. Expert fitting.',
     keywords: ['ortho-k', 'orthokeratology', 'overnight contacts', 'myopia control', 'ortho-k Orange County'],
-    heroImage: '/images/services/ortho-k-orange-county.jpg',
+    heroImage: '/images/services/orthokeratology-overnight-vision-correction.png',
     icon: '/images/icons/ortho-k-icon.svg',
     overview: `Orthokeratology (Ortho-K) uses specially designed gas permeable contact lenses worn overnight to gently reshape your cornea while you sleep. When you remove the lenses in the morning, you can see clearly all day without glasses or daytime contacts.
 
@@ -520,7 +521,7 @@ Ortho-K is also one of the most effective methods for myopia (nearsightedness) c
     description: 'Comprehensive LASIK candidacy evaluation and post-operative co-management with top Orange County refractive surgeons.',
     metaDescription: 'LASIK consultations in Orange County. Expert evaluation, candidacy assessment & post-op care. Work with top surgeons. Schedule your LASIK consultation.',
     keywords: ['LASIK consultation', 'LASIK evaluation', 'LASIK Orange County', 'laser eye surgery', 'LASIK co-management'],
-    heroImage: '/images/services/lasik-consultation-orange-county.jpg',
+    heroImage: '/images/services/lasik-laser-eye-surgery-orange-county.png',
     icon: '/images/icons/lasik-icon.svg',
     overview: `LASIK can be life-changing for the right candidates, providing freedom from glasses and contacts. At EyeCare Center of Orange County, we provide comprehensive LASIK consultations to determine if you are a good candidate and which procedure is best for your eyes.
 
@@ -612,7 +613,7 @@ We partner with the top refractive surgeons in Orange County and provide complet
     description: 'Advanced glaucoma screening, diagnosis, and ongoing management to protect your vision from this silent sight-stealer.',
     metaDescription: 'Glaucoma screening & treatment in Orange County. Advanced diagnostics, early detection & ongoing management. Protect your vision. Schedule your screening.',
     keywords: ['glaucoma screening', 'glaucoma treatment', 'glaucoma specialist', 'glaucoma management', 'glaucoma Orange County'],
-    heroImage: '/images/services/glaucoma-management-orange-county.jpg',
+    heroImage: '/images/services/glaucoma-management-orange-county.png',
     icon: '/images/icons/glaucoma-icon.svg',
     overview: `Glaucoma is called the "silent thief of sight" because it often has no symptoms until significant, irreversible vision loss has occurred. At EyeCare Center of Orange County, we use advanced diagnostic technology to detect glaucoma at its earliest stages when treatment is most effective.
 
@@ -690,10 +691,278 @@ Our comprehensive glaucoma services include screening, diagnosis, and ongoing ma
     ],
     relatedServices: ['comprehensive-eye-exam', 'macular-degeneration-care', 'diabetic-retinopathy-treatment'],
     lastUpdated: '2025-11-21'
+  },
+  {
+    slug: 'stellest-lenses',
+    name: 'Essilor Stellest™ Lenses',
+    shortName: 'Stellest Lenses',
+    description: 'Revolutionary myopia management lenses that slow down nearsightedness in children.',
+    metaDescription: 'Essilor Stellest lenses for myopia control in children. Slow down nearsightedness by 67% with H.A.L.T. technology. Expert fitting in Orange County.',
+    keywords: ['stellest', 'myopia control', 'essilor', 'halt technology', 'nearsightedness'],
+    overview: 'Essilor Stellest™ lenses are a game-changer in the fight against myopia (nearsightedness) in children. Using exclusive H.A.L.T. technology (Highly Aspherical Lenslet Target), these lenses create a volume of signal in the eye that slows down eye elongation. Clinical trials show that Stellest lenses slow down myopia progression by 67% on average compared to single vision lenses when worn 12 hours a day.',
+    benefits: [
+      'Slows down myopia progression by 67% on average',
+      'Corrects vision as effectively as single vision lenses',
+      'Aesthetic, safe, and simple solution for children',
+      'High-impact resistance polycarbonate material',
+      'Full UV protection'
+    ],
+    candidateCriteria: [
+      'Children with myopia (nearsightedness)',
+      'Children whose myopia is progressing rapidly',
+      'Parents concerned about their child\'s long-term eye health'
+    ],
+    notCandidates: [
+      'Children with stable vision (preventive use discussed)',
+      'Adults (designed specifically for growing eyes)'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Comprehensive Exam',
+        description: 'Detailed assessment of your child\'s vision and myopia progression risk.',
+        duration: '45-60 minutes'
+      },
+      {
+        step: 2,
+        title: 'Lens Fitting',
+        description: 'Precise measurements to ensure the H.A.L.T. technology is perfectly aligned.',
+        duration: '30 minutes'
+      },
+      {
+        step: 3,
+        title: 'Follow-up Care',
+        description: 'Regular monitoring to track the effectiveness of the treatment.',
+        duration: '15-30 minutes'
+      }
+    ],
+    cost: {
+      insuranceCoverage: 'Insurance may cover a portion of the frame and exam. These are premium specialty lenses.',
+      financingAvailable: true,
+      financingDetails: 'CareCredit available'
+    },
+    faqs: [
+      {
+        question: 'How do Stellest lenses work?',
+        answer: 'They use a constellation of 1021 invisible lenslets to create a signal that slows down eye growth while providing sharp vision through the center.'
+      },
+      {
+        question: 'Are they comfortable for children?',
+        answer: 'Yes, they look and feel like regular glasses and adaptation is very quick, usually within a few days.'
+      }
+    ],
+    relatedServices: ['myopia-management', 'comprehensive-eye-exams'],
+    lastUpdated: '2025-11-24'
+  },
+  {
+    slug: 'varilux-xr',
+    name: 'Varilux® XR series™',
+    shortName: 'Varilux XR',
+    description: 'The first eye-responsive progressive lens powered by behavioral artificial intelligence.',
+    metaDescription: 'Varilux XR series progressive lenses. AI-powered eye-responsive lenses for instant sharpness in motion. Premium progressive lenses in Orange County.',
+    keywords: ['varilux xr', 'progressive lenses', 'essilor', 'behavioral ai', 'presbyopia'],
+    overview: 'Varilux® XR series™ is the latest innovation in progressive lenses, designed to respond to the way your eyes actually move. Using behavioral AI and data from over 1 million wearers, these lenses predict your visual behavior to provide instant sharpness even in motion. They offer a 49% increase in volume of vision compared to the previous generation.',
+    benefits: [
+      'Instant sharpness even in motion',
+      'Seamless transitions from near to far',
+      'Expanded field of vision',
+      'Reduced "swim" effect',
+      'Personalized to your visual behavior'
+    ],
+    candidateCriteria: [
+      'Presbyopes seeking the best possible vision',
+      'Active individuals who need sharp vision while moving',
+      'Those who have struggled with adapting to progressives in the past'
+    ],
+    notCandidates: [
+      'Individuals who require single vision correction only',
+      'Those with specific binocular vision disorders (case by case)'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Digital Measurements',
+        description: 'We use advanced digital tools to measure your eye anatomy and visual behavior.',
+        duration: '15-20 minutes'
+      },
+      {
+        step: 2,
+        title: 'AI Optimization',
+        description: 'Your lenses are digitally surfaced using a digital twin of your visual profile.',
+        duration: 'Lab processing time'
+      },
+      {
+        step: 3,
+        title: 'Professional Fitting',
+        description: 'Expert adjustment to ensure optimal performance.',
+        duration: '15-30 minutes'
+      }
+    ],
+    cost: {
+      insuranceCoverage: 'VSP and EyeMed accepted. Premium lens copays may apply.',
+      financingAvailable: true
+    },
+    faqs: [
+      {
+        question: 'What makes Varilux XR different?',
+        answer: 'It is the first lens to use behavioral AI to predict how you look at things, ensuring your vision is sharp instantly as you move your eyes.'
+      }
+    ],
+    relatedServices: ['comprehensive-eye-exams', 'optical-lenses'],
+    lastUpdated: '2025-11-24'
+  },
+  {
+    slug: 'zeiss-smartlife',
+    name: 'ZEISS SmartLife Lenses',
+    shortName: 'ZEISS SmartLife',
+    description: 'Lenses designed for a connected, on-the-move lifestyle.',
+    metaDescription: 'ZEISS SmartLife lenses optimized for digital lifestyles. Clear vision for smartphones and dynamic activities. German engineering in Orange County.',
+    keywords: ['zeiss', 'smartlife', 'digital lenses', 'german engineering', 'optics'],
+    overview: 'ZEISS SmartLife lenses are designed for modern, dynamic visual behavior. We are constantly connected, looking at smartphones, laptops, and the world around us. SmartLife lenses account for this by optimizing the lens design for frequent gaze changes and a wider range of viewing distances.',
+    benefits: [
+      'Optimized for digital device use',
+      'Smoother transitions between distances',
+      'Wider fields of view',
+      'Adaptable to your age and visual needs',
+      'Available in Single Vision, Digital, and Progressive designs'
+    ],
+    candidateCriteria: [
+      'Anyone who uses digital devices frequently',
+      'People with an active, on-the-go lifestyle',
+      'Those looking for premium German optical engineering'
+    ],
+    notCandidates: [
+      'None specifically; suitable for most patients'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Lifestyle Analysis',
+        description: 'We discuss your daily activities and digital device usage.',
+        duration: '10-15 minutes'
+      },
+      {
+        step: 2,
+        title: 'Precision Fitting',
+        description: 'Exact measurements to align the lens optics with your eyes.',
+        duration: '15-20 minutes'
+      }
+    ],
+    cost: {
+      insuranceCoverage: 'Insurance accepted. Premium lens options available.',
+      financingAvailable: true
+    },
+    faqs: [
+      {
+        question: 'Is SmartLife only for progressives?',
+        answer: 'No, ZEISS SmartLife is available for single vision wearers (younger patients) and digital lens wearers (pre-presbyopes) as well.'
+      }
+    ],
+    relatedServices: ['comprehensive-eye-exams', 'optical-lenses'],
+    lastUpdated: '2025-11-24'
+  },
+  {
+    slug: 'shamir-autograph',
+    name: 'Shamir Autograph Intelligence™',
+    shortName: 'Shamir Autograph',
+    description: 'AI-driven progressive lenses that adapt to your "Visual Age".',
+    metaDescription: 'Shamir Autograph Intelligence progressive lenses. AI-driven design matching your Visual Age. Premium optics in Orange County.',
+    keywords: ['shamir', 'autograph intelligence', 'visual age', 'ai lenses', 'progressive'],
+    overview: 'Shamir Autograph Intelligence™ uses Big Data and Artificial Intelligence to provide a lens design that matches your "Visual Age". It recognizes that a 45-year-old uses their eyes differently than a 65-year-old (e.g., more smartphone use vs. more reading). This lens adapts the power distribution to match your specific lifestyle needs.',
+    benefits: [
+      'Matches your specific "Visual Age" profile',
+      'Easier focus on digital devices',
+      'Smooth, soft transitions',
+      'High-tech personalization',
+      'Great for first-time progressive wearers'
+    ],
+    candidateCriteria: [
+      'Progressive lens wearers of all ages',
+      'Those who want a lens tailored to their specific life stage',
+      'Heavy digital device users'
+    ],
+    notCandidates: [
+      'Single vision patients (unless needing anti-fatigue support)'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Visual Age Assessment',
+        description: 'We determine your visual needs based on your age and lifestyle.',
+        duration: '10-15 minutes'
+      },
+      {
+        step: 2,
+        title: 'Custom Fabrication',
+        description: 'Lenses are digitally surfaced to your unique prescription.',
+        duration: 'Lab processing time'
+      }
+    ],
+    cost: {
+      insuranceCoverage: 'Insurance accepted. Premium progressive lens.',
+      financingAvailable: true
+    },
+    faqs: [
+      {
+        question: 'What is Visual Age?',
+        answer: 'It refers to the physiological age of your eyes and how that correlates with your daily visual habits and focusing needs.'
+      }
+    ],
+    relatedServices: ['comprehensive-eye-exams', 'optical-lenses'],
+    lastUpdated: '2025-11-24'
+  },
+  {
+    slug: 'eyezen',
+    name: 'Essilor Eyezen® Lenses',
+    shortName: 'Eyezen',
+    description: 'Enhanced single vision lenses that relax your eyes and filter blue light.',
+    metaDescription: 'Essilor Eyezen lenses for digital eye strain. Blue light filtering and accommodative support. Computer glasses in Orange County.',
+    keywords: ['eyezen', 'computer glasses', 'blue light', 'digital eye strain', 'essilor'],
+    overview: 'Eyezen® lenses are designed for the digital age. They are not just standard glasses; they are enhanced single vision lenses that help reduce eye strain caused by digital devices. They feature a small amount of accommodative relief at the bottom of the lens to help your eyes relax when focusing on screens, and they include built-in blue light filtering.',
+    benefits: [
+      'Reduces digital eye strain',
+      'Filters harmful blue-violet light',
+      'Helps eyes relax when reading or using screens',
+      'Improves visual comfort throughout the day',
+      'Available for non-prescription wearers too'
+    ],
+    candidateCriteria: [
+      'Students and young professionals',
+      'Gamers and heavy computer users',
+      'Anyone experiencing digital eye strain',
+      'Single vision wearers aged 18-50'
+    ],
+    notCandidates: [
+      'Presbyopes requiring full progressive lenses'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Prescription Check',
+        description: 'We verify your distance prescription.',
+        duration: '15-20 minutes'
+      },
+      {
+        step: 2,
+        title: 'Relief Power Selection',
+        description: 'We determine the appropriate amount of accommodative support (0.4, 0.6, 0.85, etc.).',
+        duration: '5-10 minutes'
+      }
+    ],
+    cost: {
+      insuranceCoverage: 'Covered by most vision plans as single vision or computer lenses.',
+      financingAvailable: true
+    },
+    faqs: [
+      {
+        question: 'Can I get Eyezen without a prescription?',
+        answer: 'Yes, Eyezen lenses are great for people with 20/20 vision who want to protect their eyes from digital strain.'
+      }
+    ],
+    relatedServices: ['comprehensive-eye-exams', 'optical-lenses'],
+    lastUpdated: '2025-11-24'
   }
 ];
-
-import { services as basicServices } from './services';
 
 /**
  * Get enhanced service by slug
@@ -772,8 +1041,6 @@ export function getSmartServiceBySlug(slug: string): ServiceData | undefined {
       }
     ],
     cost: {
-      rangeMin: 150,
-      rangeMax: 500,
       insuranceCoverage: 'Coverage varies by plan. We accept most major insurance and can verify your benefits.',
       financingAvailable: true
     },
@@ -785,13 +1052,9 @@ export function getSmartServiceBySlug(slug: string): ServiceData | undefined {
       {
         question: 'Do I need a referral?',
         answer: 'In most cases, a referral is not required. You can schedule an appointment directly with our office.'
-      },
-      {
-        question: 'Is this covered by insurance?',
-        answer: 'Many services are covered by medical or vision insurance. We recommend calling our office so we can verify your specific coverage details.'
       }
     ],
-    relatedServices: ['comprehensive-eye-exam'],
+    relatedServices: ['comprehensive-eye-exams'],
     lastUpdated: '2025-11-21'
   };
 }

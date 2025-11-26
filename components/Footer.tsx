@@ -55,12 +55,12 @@ const Footer = () => {
               <h3 className="text-xl font-semibold mb-4">Eye Conditions</h3>
               <ul className="space-y-2">
                 <li><Link href="/conditions/keratoconus" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Keratoconus Treatment</Link></li>
-                <li><Link href="/conditions/dry-eye" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Dry Eye Syndrome</Link></li>
+                <li><Link href="/conditions/dry-eye-syndrome" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Dry Eye Syndrome</Link></li>
                 <li><Link href="/conditions/myopia" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Myopia Control</Link></li>
-                <li><Link href="/conditions/ortho-k" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Orthokeratology</Link></li>
+                <li><Link href="/conditions/astigmatism" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Astigmatism</Link></li>
                 <li><Link href="/conditions/computer-vision-syndrome" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Computer Vision</Link></li>
-                <li><Link href="/conditions/headache-eye-fatigue" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Eye Strain Relief</Link></li>
-                <li><Link href="/conditions/blepharitis" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Blepharitis</Link></li>
+                <li><Link href="/conditions/headache" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Headache & Eye Strain</Link></li>
+                <li><Link href="/conditions/blepharitis-meibomitis" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Blepharitis</Link></li>
                 <li><Link href="/conditions/allergic-conjunctivitis" className="text-gray-300 hover:text-eyecare-light-blue transition-colors">Eye Allergies</Link></li>
               </ul>
             </div>
@@ -135,14 +135,14 @@ const Footer = () => {
               <Link href="/terms-of-service" className="hover:text-white transition-colors">
                 Terms of Service
               </Link>
-               <Link href="/medical-disclaimer" className="hover:text-white transition-colors">
+              <Link href="/medical-disclaimer" className="hover:text-white transition-colors">
                 Medical Disclaimer
               </Link>
               <Link href="/sitemap" className="hover:text-white transition-colors">
                 Sitemap
               </Link>
             </div>
-             <p className="mt-4 text-xs text-gray-500 max-w-3xl mx-auto">
+            <p className="mt-4 text-xs text-gray-500 max-w-3xl mx-auto">
               <strong>Disclaimer:</strong> The information on this website is for informational purposes only and does not constitute medical advice. Please consult with a qualified healthcare professional for any medical concerns.
             </p>
           </div>

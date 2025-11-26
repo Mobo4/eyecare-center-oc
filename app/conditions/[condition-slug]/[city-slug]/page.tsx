@@ -21,7 +21,8 @@ const getConditionImage = (slug: string) => {
   if (slug.includes('keratoconus')) return '/images/Keratoconus_eye.avif';
   if (slug.includes('dry-eye') || slug.includes('blepharitis')) return '/images/Dryeye_01.avif';
   if (slug.includes('scleral')) return '/images/Scleral_lens_01.avif';
-  if (slug.includes('ortho-k') || slug.includes('myopia')) return '/images/Orthokeratology_topgraphy.avif';
+  if (slug.includes('ortho-k')) return '/images/Orthokeratology_topgraphy.avif';
+  if (slug.includes('myopia') || slug.includes('hyperopia') || slug.includes('astigmatism') || slug.includes('presbyopia')) return '/images/Blurry_scene.avif';
   if (slug.includes('cataract')) return '/images/hero-background.png'; // Use generic for now
   if (slug.includes('lasik')) return '/images/hero-background.png'; // Use generic for now
   return '/images/hero-background.png';
@@ -178,8 +179,8 @@ export default async function LocalConditionPage({ params }: Props) {
         {/* Main Content */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              <div className="lg:col-span-2">
+            <div className="max-w-4xl mx-auto">
+              <div>
                 {/* About the Condition */}
                 <div className="mb-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Expert {condition.name} Care for {city.name} Residents</h2>
@@ -282,87 +283,64 @@ export default async function LocalConditionPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Sidebar */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-8 space-y-6">
-                  {/* Local Service Area */}
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Serving {city.name}</h3>
-                    <div className="flex items-start gap-4 mb-4">
-                      <MapPin className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="font-semibold text-gray-900">{city.name}, California</p>
-                        <p className="text-gray-600 text-sm">{city.county}</p>
-                        <p className="text-gray-600 text-sm mt-1">Population: {city.population}</p>
-                      </div>
-                    </div>
+            </div>
+          </div>
 
-                    <div className="mt-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Neighborhoods We Serve:</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        {city.neighborhoods.slice(0, 6).map((neighborhood, index) => (
-                          <li key={index} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 bg-eyecare-blue rounded-full"></span>
-                            {neighborhood}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Zip Codes:</h4>
-                      <p className="text-sm text-gray-600">{city.zipCodes.slice(0, 6).join(', ')}</p>
-                    </div>
+          {/* Local Service Area & Related Conditions (SEO Footer) */}
+          <div className="mt-16 pt-12 border-t border-gray-200">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Local Service Area */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Serving {city.name}</h3>
+                <div className="flex items-start gap-4 mb-4">
+                  <MapPin className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-gray-900">{city.name}, California</p>
+                    <p className="text-gray-600 text-sm">{city.county}</p>
+                    <p className="text-gray-600 text-sm mt-1">Population: {city.population}</p>
                   </div>
+                </div>
 
-                  {/* CTA Box */}
-                  <div className="bg-eyecare-blue text-white p-6 rounded-lg">
-                    <h3 className="text-xl font-bold mb-3">Ready to Schedule?</h3>
-                    <p className="text-eyecare-lighter-blue mb-4 text-sm">
-                      Get expert {condition.name.toLowerCase()} treatment convenient to {city.name}.
-                    </p>
-                    <div className="space-y-3">
-                      <a
-                        href={CONTACT_INFO.primaryPhone.href}
-                        className="callrail-phone block w-full bg-white text-eyecare-blue text-center px-4 py-3 rounded-md font-semibold hover:shadow-lg transition-all"
-                      >
-                        <Phone className="inline w-4 h-4 mr-2" />
-                        Call {CONTACT_INFO.primaryPhone.display}
-                      </a>
+                <div className="mt-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Neighborhoods We Serve:</h4>
+                  <ul className="text-sm text-gray-600 space-y-1 columns-2">
+                    {city.neighborhoods.slice(0, 10).map((neighborhood, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-eyecare-blue rounded-full"></span>
+                        {neighborhood}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Zip Codes:</h4>
+                  <p className="text-sm text-gray-600">{city.zipCodes.slice(0, 10).join(', ')}</p>
+                </div>
+              </div>
+
+              {/* Related Conditions */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Related Conditions</h3>
+                <div className="space-y-2">
+                  {allConditions
+                    .filter(c => c.category === condition.category && c.slug !== condition.slug)
+                    .slice(0, 6)
+                    .map((relatedCondition) => (
                       <Link
-                        href="/book-appointment"
-                        className="block w-full bg-eyecare-light-blue text-white text-center px-4 py-3 rounded-md font-semibold hover:bg-eyecare-lighter-blue transition-all"
+                        key={relatedCondition.slug}
+                        href={`/conditions/${relatedCondition.slug}/${citySlug}`}
+                        className="block text-eyecare-blue hover:text-eyecare-dark-blue text-sm hover:underline"
                       >
-                        <Calendar className="inline w-4 h-4 mr-2" />
-                        Book Online
+                        {relatedCondition.name} in {city.name}
                       </Link>
-                    </div>
-                  </div>
-
-                  {/* Related Conditions */}
-                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Related Conditions</h3>
-                    <div className="space-y-2">
-                      {allConditions
-                        .filter(c => c.category === condition.category && c.slug !== condition.slug)
-                        .slice(0, 3)
-                        .map((relatedCondition) => (
-                          <Link
-                            key={relatedCondition.slug}
-                            href={`/conditions/${relatedCondition.slug}/${citySlug}`}
-                            className="block text-eyecare-blue hover:text-eyecare-dark-blue text-sm hover:underline"
-                          >
-                            {relatedCondition.name} in {city.name}
-                          </Link>
-                        ))}
-                      <Link
-                        href="/conditions"
-                        className="block text-eyecare-blue hover:text-eyecare-dark-blue text-sm font-semibold hover:underline mt-3"
-                      >
-                        View All Conditions →
-                      </Link>
-                    </div>
-                  </div>
+                    ))}
+                  <Link
+                    href="/conditions"
+                    className="block text-eyecare-blue hover:text-eyecare-dark-blue text-sm font-semibold hover:underline mt-3"
+                  >
+                    View All Conditions →
+                  </Link>
                 </div>
               </div>
             </div>
@@ -410,7 +388,7 @@ export default async function LocalConditionPage({ params }: Props) {
           ]}
           ctaText="Get Relief Today"
         />
-      </main>
+      </main >
       <Footer />
     </>
   );
