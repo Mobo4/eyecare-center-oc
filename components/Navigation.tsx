@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
@@ -10,7 +10,31 @@ import { CONTACT_INFO } from '@/lib/contact-info';
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isCompact, setIsCompact] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+
+  // Detect if nav is wrapping and switch to compact mode
+  useEffect(() => {
+    const checkNavHeight = () => {
+      if (navRef.current) {
+        // If nav height exceeds single line (~60px), switch to compact
+        const navHeight = navRef.current.offsetHeight;
+        setIsCompact(navHeight > 60);
+      }
+    };
+
+    // Check on mount and resize
+    checkNavHeight();
+    window.addEventListener('resize', checkNavHeight);
+
+    // Also check after fonts load
+    if (document.fonts) {
+      document.fonts.ready.then(checkNavHeight);
+    }
+
+    return () => window.removeEventListener('resize', checkNavHeight);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -75,8 +99,13 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+      {/* Desktop Navigation - Hidden when compact mode detects wrapping */}
+      <nav
+        ref={navRef}
+        className={`${isCompact ? 'hidden' : 'hidden lg:flex'} items-center space-x-8`}
+        role="navigation"
+        aria-label="Main navigation"
+      >
         {navItems.map((item, index) => (
           <div key={index} className="relative">
             {item.hasDropdown ? (
@@ -145,8 +174,8 @@ const Navigation = () => {
         </Link>
       </nav>
 
-      {/* Mobile Menu button and Navigation */}
-      <div className="lg:hidden">
+      {/* Mobile Menu button and Navigation - Shows when compact mode or small screen */}
+      <div className={isCompact ? '' : 'lg:hidden'}>
         <button
           onClick={toggleMobileMenu}
           className="text-gray-700 hover:text-eyecare-blue transition-colors"
