@@ -83,6 +83,102 @@ const nextConfig = {
         destination: '/services', // This page will need to be created
         permanent: true,
       },
+      // Service URL variations - catch common alternative URLs
+      {
+        source: '/services/lasik',
+        destination: '/services/lasik-consultation',
+        permanent: true,
+      },
+      {
+        source: '/services/ipl',
+        destination: '/services/dry-eye-ipl-treatment',
+        permanent: true,
+      },
+      {
+        source: '/services/ipl-treatment',
+        destination: '/services/dry-eye-ipl-treatment',
+        permanent: true,
+      },
+      {
+        source: '/services/dry-eye',
+        destination: '/services/dry-eye-specialist',
+        permanent: true,
+      },
+      {
+        source: '/services/keratoconus',
+        destination: '/services/keratoconus-treatment',
+        permanent: true,
+      },
+      {
+        source: '/services/ortho-k-lenses',
+        destination: '/services/ortho-k',
+        permanent: true,
+      },
+      {
+        source: '/services/overnight-contacts',
+        destination: '/services/orthokeratology',
+        permanent: true,
+      },
+      {
+        source: '/services/cxl',
+        destination: '/services/corneal-cross-linking',
+        permanent: true,
+      },
+      {
+        source: '/services/cross-linking',
+        destination: '/services/corneal-cross-linking',
+        permanent: true,
+      },
+      {
+        source: '/services/scleral',
+        destination: '/services/scleral-lenses',
+        permanent: true,
+      },
+      {
+        source: '/services/scleral-contacts',
+        destination: '/services/scleral-lenses',
+        permanent: true,
+      },
+      {
+        source: '/services/glaucoma',
+        destination: '/services/glaucoma-management',
+        permanent: true,
+      },
+      {
+        source: '/services/cataracts',
+        destination: '/services/cataract-surgery',
+        permanent: true,
+      },
+      {
+        source: '/services/macular-degeneration',
+        destination: '/services/macular-degeneration-care',
+        permanent: true,
+      },
+      {
+        source: '/services/amd',
+        destination: '/services/macular-degeneration-care',
+        permanent: true,
+      },
+      {
+        source: '/services/diabetic-eye',
+        destination: '/services/diabetic-retinopathy-treatment',
+        permanent: true,
+      },
+      {
+        source: '/services/diabetic-retinopathy',
+        destination: '/services/diabetic-retinopathy-treatment',
+        permanent: true,
+      },
+      {
+        source: '/services/eye-exam',
+        destination: '/services/comprehensive-eye-exam',
+        permanent: true,
+      },
+      {
+        source: '/services/exam',
+        destination: '/services/comprehensive-eye-exam',
+        permanent: true,
+      },
     ]
   },
   // Enable static exports for better SEO

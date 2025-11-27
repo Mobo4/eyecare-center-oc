@@ -1225,6 +1225,190 @@ At EyeCare Center of Orange County, we provide comprehensive evaluation for cros
     ],
     relatedServices: ['keratoconus-treatment', 'scleral-lens-fitting', 'scleral-lenses'],
     lastUpdated: '2025-11-26'
+  },
+  {
+    slug: 'lasik-surgery',
+    name: 'LASIK Surgery Consultation & Co-Management',
+    shortName: 'LASIK Surgery',
+    description: 'Comprehensive LASIK evaluations to determine candidacy and complete post-operative care management with top Orange County surgeons.',
+    metaDescription: 'LASIK surgery consultation in Orange County. Comprehensive candidacy evaluation, surgeon referral & post-op care. Find out if LASIK is right for you.',
+    keywords: ['LASIK surgery', 'LASIK Orange County', 'LASIK eye surgery', 'LASIK consultation', 'laser eye surgery', 'LASIK candidacy', 'LASIK co-management'],
+    heroImage: '/images/services/lasik-surgery-consultation.webp',
+    icon: '/images/icons/lasik-icon.svg',
+    overview: `LASIK (Laser-Assisted In Situ Keratomileusis) is the most popular laser vision correction procedure, helping millions achieve freedom from glasses and contacts. At EyeCare Center of Orange County, we provide comprehensive LASIK consultations to determine if you're a good candidate.
+
+Our role is to thoroughly evaluate your eyes, discuss realistic expectations, and refer you to top LASIK surgeons when appropriate. After your procedure, we provide all post-operative care locally for your convenience—saving you trips to the surgical center.`,
+    benefits: [
+      'Comprehensive candidacy evaluation',
+      'Unbiased recommendation—we don\'t perform surgery',
+      'Referral to top Orange County LASIK surgeons',
+      'Local post-operative care management',
+      'Alternative options if LASIK isn\'t right for you',
+      'Ongoing vision care after LASIK'
+    ],
+    candidateCriteria: [
+      'Nearsightedness, farsightedness, or astigmatism',
+      'Stable prescription for at least 1 year',
+      'Age 18 or older (21+ preferred)',
+      'Adequate corneal thickness',
+      'No active eye diseases',
+      'Realistic expectations about outcomes'
+    ],
+    notCandidates: [
+      'Unstable prescriptions',
+      'Thin corneas or keratoconus',
+      'Severe dry eye syndrome',
+      'Autoimmune conditions',
+      'Pregnancy or nursing',
+      'Certain occupations with restrictions'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'LASIK Consultation',
+        description: 'Comprehensive eye exam with corneal mapping, pupil measurements, tear film evaluation, and detailed discussion of your goals.',
+        duration: '90 minutes'
+      },
+      {
+        step: 2,
+        title: 'Candidacy Determination',
+        description: 'We analyze your results and provide an honest assessment. If LASIK isn\'t ideal, we discuss alternatives like Ortho-K or PRK.',
+        duration: 'Same visit'
+      },
+      {
+        step: 3,
+        title: 'Surgeon Referral',
+        description: 'If you\'re a good candidate, we refer you to a trusted LASIK surgeon and send your records.',
+        duration: '1-2 weeks'
+      },
+      {
+        step: 4,
+        title: 'Post-Op Care',
+        description: 'After your LASIK procedure, return to us for all follow-up visits: 1 day, 1 week, 1 month, 3 months, and beyond.',
+        duration: '15-30 minutes per visit'
+      }
+    ],
+    cost: {
+      rangeMin: 150,
+      rangeMax: 250,
+      insuranceCoverage: 'LASIK consultation may be covered by vision insurance. LASIK surgery itself is typically not covered but FSA/HSA eligible.',
+      financingAvailable: true,
+      financingDetails: 'Consultation fees apply to our evaluation. LASIK surgeons offer their own financing options.'
+    },
+    faqs: [
+      {
+        question: 'How do I know if I\'m a good LASIK candidate?',
+        answer: 'Good candidates have stable vision, adequate corneal thickness, no eye diseases, and realistic expectations. Our comprehensive evaluation checks all these factors and more.'
+      },
+      {
+        question: 'Do you perform LASIK surgery?',
+        answer: 'No, we are an optometric practice. We provide LASIK consultations, determine candidacy, and manage post-operative care. We refer to experienced LASIK surgeons for the actual procedure.'
+      },
+      {
+        question: 'What if I\'m not a good LASIK candidate?',
+        answer: 'We offer excellent alternatives including Ortho-K (overnight vision correction), PRK referrals, and advanced contact lens options. Many patients find these alternatives meet their needs perfectly.'
+      },
+      {
+        question: 'Why get a LASIK consultation here instead of a surgery center?',
+        answer: 'We provide an unbiased evaluation—we don\'t profit from surgery referrals. Plus, having your records with us means seamless post-op care and ongoing vision needs in one convenient location.'
+      }
+    ],
+    relatedServices: ['lasik-consultation', 'ortho-k', 'ortho-k-adults', 'comprehensive-eye-exam'],
+    lastUpdated: '2025-11-26'
+  },
+  {
+    slug: 'dry-eye-ipl-treatment',
+    name: 'IPL Treatment for Dry Eye',
+    shortName: 'IPL Dry Eye Treatment',
+    description: 'Intense Pulsed Light (IPL) therapy for chronic dry eye and meibomian gland dysfunction. Long-lasting relief from dry, irritated eyes.',
+    metaDescription: 'IPL dry eye treatment in Orange County. Intense Pulsed Light therapy for meibomian gland dysfunction & chronic dry eye. Long-lasting relief.',
+    keywords: ['IPL dry eye', 'IPL treatment dry eye', 'intense pulsed light dry eye', 'meibomian gland dysfunction treatment', 'MGD treatment', 'dry eye IPL Orange County'],
+    heroImage: '/images/services/ipl-dry-eye-treatment.webp',
+    icon: '/images/icons/ipl-icon.svg',
+    overview: `Intense Pulsed Light (IPL) therapy is a breakthrough treatment for chronic dry eye caused by meibomian gland dysfunction (MGD). Originally developed for skin treatments, IPL has been proven highly effective for treating the root cause of evaporative dry eye.
+
+At EyeCare Center of Orange County, we use IPL to reduce inflammation, eliminate bacteria and Demodex mites around the eyelids, and restore healthy meibomian gland function. Many patients experience significant improvement after just a few treatments.`,
+    benefits: [
+      'Treats the root cause of evaporative dry eye',
+      'Reduces eyelid inflammation',
+      'Improves meibomian gland function',
+      'Eliminates Demodex mites and bacteria',
+      'Long-lasting results (6-12 months)',
+      'Quick, comfortable in-office treatment',
+      'No downtime'
+    ],
+    candidateCriteria: [
+      'Chronic dry eye symptoms',
+      'Meibomian gland dysfunction (MGD)',
+      'Blepharitis or eyelid inflammation',
+      'Failed traditional dry eye treatments',
+      'Rosacea-related eye issues',
+      'Demodex infestation'
+    ],
+    notCandidates: [
+      'Very dark skin types (increased IPL risk)',
+      'Recent sun exposure or tanning',
+      'Active skin infections',
+      'Certain medications (photosensitizing)',
+      'Pregnancy'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Dry Eye Evaluation',
+        description: 'Comprehensive dry eye workup including meibography, tear osmolarity, and gland expression to confirm MGD diagnosis.',
+        duration: '45-60 minutes'
+      },
+      {
+        step: 2,
+        title: 'IPL Treatment Session',
+        description: 'Protective shields placed over eyes. IPL pulses applied to the skin around the eyes and cheeks. Meibomian gland expression follows.',
+        duration: '20-30 minutes'
+      },
+      {
+        step: 3,
+        title: 'Treatment Series',
+        description: 'Typically 3-4 treatments spaced 2-4 weeks apart for optimal results.',
+        duration: '20-30 minutes each'
+      },
+      {
+        step: 4,
+        title: 'Maintenance',
+        description: 'Annual maintenance treatments recommended to sustain results.',
+        duration: '20-30 minutes'
+      }
+    ],
+    cost: {
+      rangeMin: 350,
+      rangeMax: 500,
+      insuranceCoverage: 'IPL is typically not covered by insurance as it\'s considered elective. FSA/HSA funds can be used.',
+      financingAvailable: true,
+      financingDetails: 'Package pricing available for treatment series. CareCredit accepted.'
+    },
+    faqs: [
+      {
+        question: 'How does IPL help dry eyes?',
+        answer: 'IPL reduces inflammation, kills bacteria and Demodex mites, and improves blood vessel health around the eyelids. This allows your meibomian glands to produce healthier oils, reducing tear evaporation.'
+      },
+      {
+        question: 'Is IPL treatment painful?',
+        answer: 'Most patients describe IPL as a warm sensation with mild snapping feeling. It\'s generally well-tolerated and requires no anesthesia. Any redness typically resolves within hours.'
+      },
+      {
+        question: 'How many IPL treatments do I need?',
+        answer: 'Most patients need 3-4 initial treatments spaced 2-4 weeks apart. Results typically last 6-12 months, with annual maintenance treatments recommended.'
+      },
+      {
+        question: 'When will I notice improvement?',
+        answer: 'Some patients notice improvement after the first treatment. Maximum benefits are typically seen 1-2 weeks after completing the initial treatment series.'
+      },
+      {
+        question: 'Can IPL be combined with other dry eye treatments?',
+        answer: 'Yes! IPL works well alongside other treatments like warm compresses, lid hygiene, omega-3 supplements, and prescription drops. We create a comprehensive treatment plan tailored to your needs.'
+      }
+    ],
+    relatedServices: ['dry-eye-specialist', 'meibomian-gland-dysfunction', 'blepharitis-treatment'],
+    lastUpdated: '2025-11-26'
   }
 ];
 
