@@ -51,7 +51,7 @@ const Navigation = () => {
         { label: 'Optical Lenses', path: '/services/optical-lenses' },
         { label: 'Contact Lenses', path: '/services/contact-lenses/soft' },
         { label: 'Scleral Lenses', path: '/services/scleral-lens-fitting' },
-        { label: 'Insurance Accepted', path: '/insurance', featured: true },
+        { label: 'Insurance', path: '/insurance', featured: true },
         { label: 'All Services', path: '/services', featured: true },
       ]
     },
