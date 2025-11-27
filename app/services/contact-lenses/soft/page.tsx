@@ -7,12 +7,36 @@ import { ArrowRight, Eye, Droplets, Shield, Sun, Circle, Layers, Focus } from 'l
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Soft Contact Lenses | Daily, Toric & Multifocal | EyeCare Center OC',
-    description: 'Experience superior comfort with our soft contact lens options. Daily disposables, toric for astigmatism, and multifocal lenses available.',
-    keywords: ['soft contact lenses', 'daily disposable contacts', 'toric lenses', 'multifocal contacts', 'contact lens fitting'],
+    title: 'Soft Contact Lenses | Acuvue, Dailies, Biofinity | Orange County',
+    description: 'Premium soft contact lenses from Acuvue Oasys, Dailies Total1, Biofinity & CooperVision. Expert fitting for daily disposables, toric & multifocal lenses in Orange County.',
+    keywords: [
+        'soft contact lenses orange county',
+        'Acuvue Oasys fitting orange county',
+        'Acuvue Vita contacts',
+        'Acuvue Moist daily lenses',
+        '1-Day Acuvue TruEye',
+        'Dailies Total 1 fitting',
+        'Dailies AquaComfort Plus',
+        'Biofinity contacts',
+        'Biofinity toric astigmatism',
+        'Biofinity multifocal',
+        'CooperVision MyDay lenses',
+        'CooperVision Clariti 1 day',
+        'Bausch Lomb Ultra contacts',
+        'Biotrue ONEday lenses',
+        'Air Optix plus HydraGlyde',
+        'Air Optix Night Day',
+        'Air Optix Colors',
+        'Precision1 daily contacts',
+        'daily disposable contacts irvine',
+        'toric lenses astigmatism newport beach',
+        'multifocal contacts presbyopia',
+        'contact lens fitting santa ana',
+        'contact lens exam costa mesa'
+    ],
     openGraph: {
-        title: 'Soft Contact Lenses | EyeCare Center of Orange County',
-        description: 'Comfortable, breathable soft contact lenses for all vision needs.',
+        title: 'Soft Contact Lenses | Acuvue, Dailies, Biofinity | EyeCare Center OC',
+        description: 'Premium soft contact lenses with expert fitting. Acuvue Oasys, Dailies Total1, Biofinity & more brands available.',
         type: 'website',
     }
 };
@@ -128,8 +152,34 @@ export default function SoftContactLensesPage() {
                 </div>
             </section>
 
+            {/* Premium Brands Section */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <span className="text-eyecare-blue font-semibold tracking-wider uppercase text-sm">Premium Brands</span>
+                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-eyecare-navy mt-2 mb-4">
+                            Contact Lens Brands We Fit
+                        </h2>
+                        <p className="text-eyecare-light-navy max-w-2xl mx-auto">
+                            We carry all major contact lens brands to ensure you get the perfect fit for your eyes and lifestyle.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <BrandCard brand="Acuvue" products={["Oasys", "Vita", "Moist", "TruEye"]} manufacturer="Johnson & Johnson" />
+                        <BrandCard brand="Dailies" products={["Total1", "AquaComfort Plus", "Colors"]} manufacturer="Alcon" />
+                        <BrandCard brand="Biofinity" products={["Sphere", "Toric", "Multifocal", "Energys"]} manufacturer="CooperVision" />
+                        <BrandCard brand="Air Optix" products={["HydraGlyde", "Night & Day", "Colors"]} manufacturer="Alcon" />
+                        <BrandCard brand="Bausch + Lomb" products={["Ultra", "Infuse", "SofLens"]} manufacturer="Bausch + Lomb" />
+                        <BrandCard brand="MyDay" products={["Daily Disposable", "Toric", "Multifocal"]} manufacturer="CooperVision" />
+                        <BrandCard brand="Precision1" products={["Daily", "for Astigmatism"]} manufacturer="Alcon" />
+                        <BrandCard brand="Biotrue" products={["ONEday", "ONEday for Astigmatism"]} manufacturer="Bausch + Lomb" />
+                    </div>
+                </div>
+            </section>
+
             {/* CTA Section */}
-            <section className="py-20 bg-white text-center">
+            <section className="py-20 bg-eyecare-warm text-center">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-eyecare-navy mb-6">
                         Ready to Ditch the Glasses?
@@ -184,6 +234,23 @@ function BenefitItem({ title, description, icon: Icon }: { title: string, descri
                 <h3 className="text-lg font-bold text-eyecare-navy mb-1">{title}</h3>
                 <p className="text-eyecare-light-navy leading-relaxed">{description}</p>
             </div>
+        </div>
+    );
+}
+
+function BrandCard({ brand, products, manufacturer }: { brand: string, products: string[], manufacturer: string }) {
+    return (
+        <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-eyecare-blue/30">
+            <h3 className="text-xl font-bold text-eyecare-navy mb-2">{brand}</h3>
+            <p className="text-sm text-eyecare-blue mb-3">by {manufacturer}</p>
+            <ul className="space-y-1">
+                {products.map((product, index) => (
+                    <li key={index} className="text-sm text-eyecare-light-navy flex items-center">
+                        <span className="w-1.5 h-1.5 bg-eyecare-blue rounded-full mr-2"></span>
+                        {product}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }

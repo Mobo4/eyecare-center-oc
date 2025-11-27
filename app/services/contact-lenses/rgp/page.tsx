@@ -7,12 +7,34 @@ import { ArrowRight, Eye, Shield, Wind, Maximize, CheckCircle, AlertCircle } fro
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Rigid Gas Permeable (RGP) Lenses | EyeCare Center of Orange County',
-    description: 'RGP lenses offer superior visual clarity and eye health. Expert fitting for astigmatism, keratoconus, and presbyopia.',
-    keywords: ['RGP lenses', 'rigid gas permeable', 'hard contact lenses', 'astigmatism contacts', 'keratoconus lenses'],
+    title: 'RGP & Scleral Lenses | Keratoconus Specialist | Orange County',
+    description: 'Expert RGP and scleral lens fitting for keratoconus, high astigmatism & irregular corneas. Boston, Menicon, Rose K & custom designs. 35+ years experience in Orange County.',
+    keywords: [
+        'RGP lenses orange county',
+        'rigid gas permeable contacts',
+        'scleral lenses keratoconus',
+        'scleral contact lenses fitting',
+        'Boston XO lenses',
+        'Boston ES materials',
+        'Menicon Z lenses',
+        'Menicon Rose K keratoconus',
+        'Rose K2 lenses',
+        'Paragon CRT ortho-k',
+        'keratoconus contact lenses',
+        'irregular cornea lenses',
+        'post-LASIK ectasia lenses',
+        'pellucid marginal degeneration',
+        'corneal transplant contacts',
+        'high astigmatism contacts',
+        'hybrid contact lenses',
+        'SynergEyes lenses',
+        'custom scleral lenses irvine',
+        'keratoconus specialist newport beach',
+        'hard contact lenses santa ana'
+    ],
     openGraph: {
-        title: 'Rigid Gas Permeable (RGP) Lenses | EyeCare Center OC',
-        description: 'Sharper vision and better eye health with RGP lenses.',
+        title: 'RGP & Scleral Lenses | Keratoconus Specialist | EyeCare Center OC',
+        description: 'Expert fitting for keratoconus, irregular corneas & post-surgical vision. Boston, Menicon, Rose K brands. 35+ years experience.',
         type: 'website',
     }
 };
