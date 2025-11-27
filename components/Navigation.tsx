@@ -145,11 +145,10 @@ const Navigation = () => {
             <Link
               key={idx}
               href={subItem.path}
-              className={`block py-2 px-3 rounded-lg text-sm ${
-                subItem.featured
+              className={`block py-2 px-3 rounded-lg text-sm ${subItem.featured
                   ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue'
                   : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
-              } transition-colors`}
+                } transition-colors`}
               onClick={() => setOpenDropdown(null)}
             >
               {subItem.label}
@@ -163,9 +162,8 @@ const Navigation = () => {
       <Link
         key={item.path}
         href={item.path}
-        className={`block py-2 px-3 rounded-lg text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue transition-colors ${
-          isActive(item.path) ? 'text-eyecare-blue bg-eyecare-lighter-blue' : ''
-        }`}
+        className={`block py-2 px-3 rounded-lg text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue transition-colors ${isActive(item.path) ? 'text-eyecare-blue bg-eyecare-lighter-blue' : ''
+          }`}
         onClick={() => setOpenDropdown(null)}
       >
         {item.label}
@@ -192,30 +190,27 @@ const Navigation = () => {
                 >
                   <Link
                     href={item.path}
-                    className={`flex items-center text-base font-medium text-eyecare-navy hover:text-eyecare-blue transition-colors px-3 py-4 whitespace-nowrap ${
-                      isActive(item.path) ? 'text-eyecare-blue' : ''
-                    }`}
+                    className={`flex items-center text-base font-medium text-eyecare-navy hover:text-eyecare-blue transition-colors px-3 py-4 whitespace-nowrap ${isActive(item.path) ? 'text-eyecare-blue' : ''
+                      }`}
                   >
                     {item.label}
                     <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
                   </Link>
                   <div
-                    className={`absolute top-full left-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${
-                      openDropdown === item.label
+                    className={`absolute top-full left-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${openDropdown === item.label
                         ? 'opacity-100 visible translate-y-0'
                         : 'opacity-0 invisible translate-y-2'
-                    }`}
+                      }`}
                   >
                     <div className="p-4">
                       {item.dropdownItems?.map((dropdownItem, idx) => (
                         <Link
                           key={idx}
                           href={dropdownItem.path}
-                          className={`block py-2 px-3 rounded-lg ${
-                            dropdownItem.featured
+                          className={`block py-2 px-3 rounded-lg ${dropdownItem.featured
                               ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue mt-2 border-t border-gray-100 pt-3'
                               : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
-                          } transition-colors`}
+                            } transition-colors`}
                         >
                           {dropdownItem.label}
                         </Link>
@@ -226,15 +221,13 @@ const Navigation = () => {
               ) : (
                 <Link
                   href={item.path}
-                  className={`block text-base font-medium text-eyecare-navy hover:text-eyecare-blue transition-colors px-3 py-4 whitespace-nowrap relative group ${
-                    isActive(item.path) ? 'text-eyecare-blue' : ''
-                  }`}
+                  className={`block text-base font-medium text-eyecare-navy hover:text-eyecare-blue transition-colors px-3 py-4 whitespace-nowrap relative group ${isActive(item.path) ? 'text-eyecare-blue' : ''
+                    }`}
                 >
                   {item.label}
                   <span
-                    className={`absolute bottom-3 left-3 right-3 h-0.5 bg-eyecare-blue transform origin-left transition-transform duration-300 ${
-                      isActive(item.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                    }`}
+                    className={`absolute bottom-3 left-3 right-3 h-0.5 bg-eyecare-blue transform origin-left transition-transform duration-300 ${isActive(item.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}
                   />
                 </Link>
               )}
@@ -258,11 +251,10 @@ const Navigation = () => {
               <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${openDropdown === 'more' ? 'rotate-180' : ''}`} />
             </button>
             <div
-              className={`absolute top-full right-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${
-                openDropdown === 'more'
+              className={`absolute top-full right-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${openDropdown === 'more'
                   ? 'opacity-100 visible translate-y-0'
                   : 'opacity-0 invisible translate-y-2'
-              }`}
+                }`}
             >
               <div className="p-4">
                 {hiddenItems.map((item, index) => renderDropdownItem(item, index > 0))}
@@ -271,10 +263,9 @@ const Navigation = () => {
           </div>
         )}
 
-        {/* Request Appointment CTA */}
         <Link
           href="/book-appointment"
-          className="ml-2 bg-eyecare-blue hover:bg-eyecare-dark-blue text-white px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg font-bold text-sm tracking-wide whitespace-nowrap"
+          className="ml-2 bg-eyecare-blue hover:bg-eyecare-dark-blue text-white px-6 py-3 rounded-full transition-all shadow-md hover:shadow-lg font-bold text-sm tracking-wide whitespace-nowrap border border-transparent hover:border-white/20"
         >
           Request Appointment
         </Link>
@@ -349,28 +340,25 @@ const Navigation = () => {
                         {/* Expandable Section Header */}
                         <button
                           onClick={() => toggleMobileSection(item.label)}
-                          className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors ${
-                            mobileExpandedSections.includes(item.label)
+                          className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors ${mobileExpandedSections.includes(item.label)
                               ? 'bg-eyecare-lighter-blue text-eyecare-blue font-bold'
                               : 'text-gray-700 hover:bg-gray-50'
-                          }`}
+                            }`}
                           aria-expanded={mobileExpandedSections.includes(item.label)}
                         >
                           <span className="font-medium">{item.label}</span>
                           <ChevronRight
-                            className={`h-5 w-5 transition-transform duration-200 ${
-                              mobileExpandedSections.includes(item.label) ? 'rotate-90' : ''
-                            }`}
+                            className={`h-5 w-5 transition-transform duration-200 ${mobileExpandedSections.includes(item.label) ? 'rotate-90' : ''
+                              }`}
                           />
                         </button>
 
                         {/* Collapsible Dropdown Items */}
                         <div
-                          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                            mobileExpandedSections.includes(item.label)
+                          className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileExpandedSections.includes(item.label)
                               ? 'max-h-96 opacity-100'
                               : 'max-h-0 opacity-0'
-                          }`}
+                            }`}
                         >
                           <div className="bg-gray-50 py-2">
                             {/* View All Link */}
@@ -386,11 +374,10 @@ const Navigation = () => {
                               <Link
                                 key={idx}
                                 href={dropdownItem.path}
-                                className={`block px-8 py-3 text-sm transition-colors ${
-                                  dropdownItem.featured
+                                className={`block px-8 py-3 text-sm transition-colors ${dropdownItem.featured
                                     ? 'text-eyecare-blue font-semibold border-t border-gray-200 mt-1'
                                     : 'text-gray-600 hover:text-eyecare-blue hover:bg-gray-100'
-                                }`}
+                                  }`}
                                 onClick={() => setMobileMenuOpen(false)}
                               >
                                 {dropdownItem.label}
@@ -402,11 +389,10 @@ const Navigation = () => {
                     ) : (
                       <Link
                         href={item.path}
-                        className={`block px-5 py-4 font-medium transition-colors ${
-                          isActive(item.path)
+                        className={`block px-5 py-4 font-medium transition-colors ${isActive(item.path)
                             ? 'text-eyecare-blue bg-eyecare-lighter-blue'
                             : 'text-gray-700 hover:bg-gray-50 hover:text-eyecare-blue'
-                        }`}
+                          }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.label}

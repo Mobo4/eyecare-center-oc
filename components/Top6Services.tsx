@@ -156,9 +156,7 @@ const Top6Services = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <div className="inline-flex items-center px-4 py-2 bg-emerald-100/50 backdrop-blur-sm border border-emerald-200/50 rounded-full text-sm font-semibold text-emerald-800 mb-6">
-            9,175+ Monthly Searches in Orange County
-          </div>
+
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Most Requested{' '}
@@ -219,10 +217,7 @@ const Top6Services = () => {
                 ))}
               </ul>
 
-              {/* Search Volume Badge */}
-              <div className="mb-4 text-xs text-gray-500 font-medium">
-                📊 {service.searches}
-              </div>
+
 
               {/* CTA */}
               <div className="flex items-center text-emerald-700 font-bold group-hover:translate-x-2 transition-transform">

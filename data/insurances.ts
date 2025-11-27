@@ -24,15 +24,15 @@ export const medicalInsurances: InsuranceProvider[] = [
         accepted: true,
     },
     {
-        id: 'blue-cross',
+        id: 'anthem-blue-cross',
         name: 'Anthem Blue Cross',
         type: 'Medical',
-        logo: '/images/logos/blue-shield.svg', // Using Blue Shield as placeholder for now or create another
+        logo: '/images/logos/anthem.svg',
         accepted: true,
     },
     {
         id: 'united-healthcare',
-        name: 'UnitedHealthcare',
+        name: 'United Healthcare',
         type: 'Medical',
         logo: '/images/logos/united-healthcare.svg',
         accepted: true,
@@ -52,11 +52,47 @@ export const medicalInsurances: InsuranceProvider[] = [
         accepted: true,
     },
     {
+        id: 'providence',
+        name: 'Providence Health',
+        type: 'Medical',
+        logo: '/images/logos/providence.svg',
+        accepted: true,
+    },
+    {
+        id: 'optum',
+        name: 'Optum',
+        type: 'Medical',
+        logo: '/images/logos/optum.svg',
+        accepted: true,
+    },
+    {
+        id: 'memorialcare',
+        name: 'MemorialCare',
+        type: 'Medical',
+        logo: '/images/logos/memorialcare.svg',
+        accepted: true,
+    },
+    {
+        id: 'health-net',
+        name: 'Health Net',
+        type: 'Medical',
+        logo: '/images/logos/health-net.svg',
+        accepted: true,
+    },
+    {
         id: 'tricare',
         name: 'Tricare',
         type: 'Medical',
         logo: '/images/logos/tricare.svg',
         accepted: true,
+    },
+    {
+        id: 'covered-california',
+        name: 'Covered California',
+        type: 'Medical',
+        logo: '/images/logos/covered-california.svg',
+        accepted: true,
+        description: 'California state health insurance marketplace plans.'
     }
 ];
 
@@ -77,13 +113,6 @@ export const visionInsurances: InsuranceProvider[] = [
         accepted: true,
     },
     {
-        id: 'mes',
-        name: 'MES Vision (Medical Eye Services)',
-        type: 'Vision',
-        logo: '/images/logos/mes-vision.svg',
-        accepted: true,
-    },
-    {
         id: 'davis',
         name: 'Davis Vision',
         type: 'Vision',
@@ -98,10 +127,17 @@ export const visionInsurances: InsuranceProvider[] = [
         accepted: true,
     },
     {
-        id: 'march',
-        name: 'March Vision Care',
+        id: 'superior-vision',
+        name: 'Superior Vision',
         type: 'Vision',
-        logo: '/images/logos/march-vision.svg',
+        logo: '/images/logos/superior-vision.svg',
+        accepted: true,
+    },
+    {
+        id: 'avesis',
+        name: 'Avesis',
+        type: 'Vision',
+        logo: '/images/logos/avesis.svg',
         accepted: true,
     }
 ];

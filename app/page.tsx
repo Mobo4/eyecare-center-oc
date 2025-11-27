@@ -17,12 +17,12 @@ import { CONTACT_INFO } from '@/lib/contact-info';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 const conditions = [
-  { name: "Keratoconus", slug: "keratoconus", category: "Corneal Disease", icon: Eye, color: "bg-blue-100 text-blue-600" },
-  { name: "Cataracts", slug: "cataracts", category: "Vision Impairment", icon: Sun, color: "bg-amber-100 text-amber-600" },
-  { name: "Dry Eye Syndrome", slug: "dry-eye", category: "Chronic Condition", icon: Droplets, color: "bg-cyan-100 text-cyan-600" },
-  { name: "Glaucoma", slug: "glaucoma", category: "Vision Threat", icon: Activity, color: "bg-red-100 text-red-600" },
-  { name: "Macular Degeneration", slug: "macular-degeneration", category: "Retinal Disease", icon: Brain, color: "bg-purple-100 text-purple-600" },
-  { name: "Diabetic Retinopathy", slug: "diabetic-retinopathy", category: "Retinal Disease", icon: Activity, color: "bg-pink-100 text-pink-600" },
+  { name: "Keratoconus", slug: "keratoconus", category: "Corneal Disease", icon: Eye, color: "bg-blue-50 text-blue-600" },
+  { name: "Cataracts", slug: "cataracts", category: "Vision Impairment", icon: Sun, color: "bg-blue-50 text-blue-600" },
+  { name: "Dry Eye Syndrome", slug: "dry-eye", category: "Chronic Condition", icon: Droplets, color: "bg-blue-50 text-blue-600" },
+  { name: "Glaucoma", slug: "glaucoma", category: "Vision Threat", icon: Activity, color: "bg-blue-50 text-blue-600" },
+  { name: "Macular Degeneration", slug: "macular-degeneration", category: "Retinal Disease", icon: Brain, color: "bg-blue-50 text-blue-600" },
+  { name: "Diabetic Retinopathy", slug: "diabetic-retinopathy", category: "Retinal Disease", icon: Activity, color: "bg-blue-50 text-blue-600" },
 ];
 
 import { cities as allCities } from '@/data/cities';
@@ -63,7 +63,7 @@ export default function HomePage() {
 
       <WhyChooseUs />
 
-      <ProfessionalServices />
+
 
       <Testimonials />
 
