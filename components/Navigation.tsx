@@ -3,15 +3,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Phone, ChevronDown } from 'lucide-react';
+import { Phone, ChevronDown, ChevronRight, X } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
-
-/**
- * Progressive Collapsing Navigation with Overflow Detection
- * - Detects when nav items wrap/overflow using ResizeObserver
- * - Only shows "More" dropdown when items are hidden
- * - Hidden items appear in the More dropdown like other dropdowns
- */
 
 interface NavItem {
   label: string;
@@ -23,6 +16,7 @@ interface NavItem {
 const Navigation = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileExpandedSections, setMobileExpandedSections] = useState<string[]>([]);
   const [hiddenItems, setHiddenItems] = useState<NavItem[]>([]);
   const navListRef = useRef<HTMLUListElement>(null);
   const navItemRefs = useRef<(HTMLLIElement | null)[]>([]);
@@ -67,6 +61,33 @@ const Navigation = () => {
   const phoneNumber = CONTACT_INFO.primaryPhone.display;
   const phoneHref = CONTACT_INFO.primaryPhone.href;
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileExpandedSections([]);
+  }, [pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // Toggle mobile section expansion
+  const toggleMobileSection = (label: string) => {
+    setMobileExpandedSections((prev) =>
+      prev.includes(label)
+        ? prev.filter((l) => l !== label)
+        : [...prev, label]
+    );
+  };
+
   // Detect which items are hidden (wrapped to second line)
   const detectHiddenItems = useCallback(() => {
     if (!navListRef.current) return;
@@ -79,7 +100,6 @@ const Navigation = () => {
     navItemRefs.current.forEach((itemRef, index) => {
       if (itemRef) {
         const itemRect = itemRef.getBoundingClientRect();
-        // If item's top is significantly below the first row, it's wrapped
         if (itemRect.top > firstRowTop + 10) {
           hidden.push(navItems[index]);
           itemRef.style.visibility = 'hidden';
@@ -115,7 +135,6 @@ const Navigation = () => {
 
   const renderDropdownItem = (item: NavItem, inMoreDropdown = false) => {
     if (item.hasDropdown && item.dropdownItems) {
-      // For items with their own dropdown inside More dropdown
       return (
         <div key={item.path} className={inMoreDropdown ? 'border-t border-gray-100 pt-2 mt-2' : ''}>
           <span className="block px-3 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wide">
@@ -139,7 +158,6 @@ const Navigation = () => {
       );
     }
 
-    // Simple link item
     return (
       <Link
         key={item.path}
@@ -158,7 +176,6 @@ const Navigation = () => {
     <>
       {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center">
-        {/* Nav Items List */}
         <ul ref={navListRef} className="flex items-center" role="navigation" aria-label="Main navigation">
           {navItems.map((item, index) => (
             <li
@@ -224,7 +241,7 @@ const Navigation = () => {
           ))}
         </ul>
 
-        {/* More Dropdown - Only visible when items are hidden */}
+        {/* More Dropdown */}
         {hiddenItems.length > 0 && (
           <div
             className="relative"
@@ -262,88 +279,172 @@ const Navigation = () => {
         </Link>
       </div>
 
-      {/* Mobile Navigation - Traditional Hamburger */}
-      <div className="lg:hidden flex items-center gap-3">
+      {/* Mobile Navigation */}
+      <div className="lg:hidden flex items-center gap-2">
+        {/* Mobile Phone Button */}
+        <a
+          href={phoneHref}
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-eyecare-blue text-white callrail-phone"
+          aria-label={`Call ${phoneNumber}`}
+        >
+          <Phone className="h-5 w-5" />
+        </a>
+
+        {/* Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="text-gray-700 hover:text-eyecare-blue transition-colors p-2"
+          className="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-eyecare-blue transition-colors"
           aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
         >
           {mobileMenuOpen ? (
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <X className="h-6 w-6" />
           ) : (
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
         </button>
+      </div>
 
-        {mobileMenuOpen && (
-          <div className="absolute top-20 left-0 w-full bg-white border-t shadow-lg z-50" id="mobile-navigation">
-            <nav className="py-4" role="navigation" aria-label="Mobile navigation">
-              {navItems.map((item) => (
-                <div key={item.path}>
-                  <Link
-                    href={item.path}
-                    className={`block px-4 py-3 text-gray-700 hover:bg-eyecare-lighter-blue hover:text-eyecare-blue transition-colors font-medium ${
-                      isActive(item.path) ? 'text-eyecare-blue bg-eyecare-lighter-blue' : ''
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                  {item.hasDropdown && item.dropdownItems && (
-                    <div className="pl-6 bg-gray-50">
-                      {item.dropdownItems.map((dropdownItem, idx) => (
-                        <Link
-                          key={idx}
-                          href={dropdownItem.path}
-                          className={`block px-4 py-2 text-sm text-gray-600 hover:text-eyecare-blue transition-colors ${
-                            dropdownItem.featured ? 'font-semibold border-t border-gray-200 mt-1 pt-2' : ''
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Slide-in Menu */}
+          <div
+            id="mobile-navigation"
+            className="fixed top-0 right-0 w-full max-w-sm h-full bg-white z-50 lg:hidden shadow-2xl flex flex-col"
+          >
+            {/* Menu Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50">
+              <span className="font-bold text-eyecare-navy text-lg">Menu</span>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6 text-gray-600" />
+              </button>
+            </div>
+
+            {/* Scrollable Nav Content */}
+            <nav
+              className="flex-1 overflow-y-auto overscroll-contain"
+              role="navigation"
+              aria-label="Mobile navigation"
+            >
+              <div className="py-2">
+                {navItems.map((item) => (
+                  <div key={item.path} className="border-b border-gray-50">
+                    {item.hasDropdown ? (
+                      <>
+                        {/* Expandable Section Header */}
+                        <button
+                          onClick={() => toggleMobileSection(item.label)}
+                          className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors ${
+                            mobileExpandedSections.includes(item.label)
+                              ? 'bg-eyecare-lighter-blue text-eyecare-blue font-bold'
+                              : 'text-gray-700 hover:bg-gray-50'
                           }`}
-                          onClick={() => setMobileMenuOpen(false)}
+                          aria-expanded={mobileExpandedSections.includes(item.label)}
                         >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="px-4 py-4 space-y-3 border-t mt-4">
-                <a
-                  href={phoneHref}
-                  className="flex items-center justify-center text-eyecare-blue hover:text-eyecare-dark-blue transition-colors py-2 callrail-phone"
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  <span className="font-medium">{phoneNumber}</span>
-                </a>
-                <a
-                  href="https://bonakdar.eyefinityehr.com/ema/Login.action"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center w-full border-2 border-eyecare-blue text-eyecare-blue hover:bg-eyecare-blue hover:text-white px-6 py-3 rounded-md transition-colors font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Patient login - Opens in new window"
-                >
-                  Patient Login
-                </a>
-                <Link
-                  href="/book-appointment"
-                  className="block text-center w-full bg-eyecare-blue hover:bg-eyecare-dark-blue text-white px-6 py-3 rounded-md transition-colors font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Book Appointment
-                </Link>
+                          <span className="font-medium">{item.label}</span>
+                          <ChevronRight
+                            className={`h-5 w-5 transition-transform duration-200 ${
+                              mobileExpandedSections.includes(item.label) ? 'rotate-90' : ''
+                            }`}
+                          />
+                        </button>
+
+                        {/* Collapsible Dropdown Items */}
+                        <div
+                          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                            mobileExpandedSections.includes(item.label)
+                              ? 'max-h-96 opacity-100'
+                              : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          <div className="bg-gray-50 py-2">
+                            {/* View All Link */}
+                            <Link
+                              href={item.path}
+                              className="block px-8 py-3 text-sm text-eyecare-blue font-semibold hover:bg-gray-100 transition-colors"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              View All {item.label}
+                            </Link>
+                            {/* Sub-items */}
+                            {item.dropdownItems?.map((dropdownItem, idx) => (
+                              <Link
+                                key={idx}
+                                href={dropdownItem.path}
+                                className={`block px-8 py-3 text-sm transition-colors ${
+                                  dropdownItem.featured
+                                    ? 'text-eyecare-blue font-semibold border-t border-gray-200 mt-1'
+                                    : 'text-gray-600 hover:text-eyecare-blue hover:bg-gray-100'
+                                }`}
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.path}
+                        className={`block px-5 py-4 font-medium transition-colors ${
+                          isActive(item.path)
+                            ? 'text-eyecare-blue bg-eyecare-lighter-blue'
+                            : 'text-gray-700 hover:bg-gray-50 hover:text-eyecare-blue'
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
+                ))}
               </div>
             </nav>
+
+            {/* Fixed Bottom Actions */}
+            <div className="p-4 border-t border-gray-100 bg-white space-y-3">
+              <a
+                href={phoneHref}
+                className="flex items-center justify-center text-eyecare-blue hover:text-eyecare-dark-blue transition-colors py-3 font-medium callrail-phone"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                <span>{phoneNumber}</span>
+              </a>
+              <a
+                href="https://bonakdar.eyefinityehr.com/ema/Login.action"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center w-full border-2 border-eyecare-blue text-eyecare-blue hover:bg-eyecare-blue hover:text-white px-6 py-3 rounded-lg transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Patient Login
+              </a>
+              <Link
+                href="/book-appointment"
+                className="block text-center w-full bg-eyecare-blue hover:bg-eyecare-dark-blue text-white px-6 py-3 rounded-lg transition-colors font-bold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Book Appointment
+              </Link>
+            </div>
           </div>
-        )}
-      </div>
+        </>
+      )}
     </>
   );
 };
