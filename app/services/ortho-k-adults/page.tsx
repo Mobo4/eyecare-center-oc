@@ -133,14 +133,14 @@ export default function AdultOrthoKPage() {
                                     <h3 className="text-2xl font-bold text-eyecare-navy">Ortho-K</h3>
                                 </div>
                                 <ul className="space-y-4">
-                                    <ComparisonItem positive text="Non-surgical and non-invasive" />
-                                    <ComparisonItem positive text="100% reversible — stop anytime" />
-                                    <ComparisonItem positive text="No permanent changes to your eye" />
-                                    <ComparisonItem positive text="Adjustable as your vision changes" />
-                                    <ComparisonItem positive text="Safe for most prescriptions" />
-                                    <ComparisonItem positive text="Results in 1-2 weeks" />
-                                    <ComparisonItem negative text="Requires nightly lens wear" />
-                                    <ComparisonItem negative text="Ongoing lens care needed" />
+                                    <ComparisonItem positive={true} text="Non-surgical and non-invasive" />
+                                    <ComparisonItem positive={true} text="100% reversible — stop anytime" />
+                                    <ComparisonItem positive={true} text="No permanent changes to your eye" />
+                                    <ComparisonItem positive={true} text="Adjustable as your vision changes" />
+                                    <ComparisonItem positive={true} text="Safe for most prescriptions" />
+                                    <ComparisonItem positive={true} text="Results in 1-2 weeks" />
+                                    <ComparisonItem positive={false} text="Requires nightly lens wear" />
+                                    <ComparisonItem positive={false} text="Ongoing lens care needed" />
                                 </ul>
                             </div>
 
@@ -153,14 +153,14 @@ export default function AdultOrthoKPage() {
                                     <h3 className="text-2xl font-bold text-eyecare-navy">LASIK Surgery</h3>
                                 </div>
                                 <ul className="space-y-4">
-                                    <ComparisonItem positive text="No daily maintenance required" />
-                                    <ComparisonItem positive text="One-time procedure" />
-                                    <ComparisonItem positive text="Immediate results" />
-                                    <ComparisonItem negative text="Surgical procedure with risks" />
-                                    <ComparisonItem negative text="Permanent and irreversible" />
-                                    <ComparisonItem negative text="Not suitable for everyone" />
-                                    <ComparisonItem negative text="Dry eye side effects common" />
-                                    <ComparisonItem negative text="Enhancement may be needed later" />
+                                    <ComparisonItem positive={true} text="No daily maintenance required" />
+                                    <ComparisonItem positive={true} text="One-time procedure" />
+                                    <ComparisonItem positive={true} text="Immediate results" />
+                                    <ComparisonItem positive={false} text="Surgical procedure with risks" />
+                                    <ComparisonItem positive={false} text="Permanent and irreversible" />
+                                    <ComparisonItem positive={false} text="Not suitable for everyone" />
+                                    <ComparisonItem positive={false} text="Dry eye side effects common" />
+                                    <ComparisonItem positive={false} text="Enhancement may be needed later" />
                                 </ul>
                             </div>
                         </div>

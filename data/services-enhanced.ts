@@ -961,6 +961,270 @@ Our comprehensive glaucoma services include screening, diagnosis, and ongoing ma
     ],
     relatedServices: ['comprehensive-eye-exams', 'optical-lenses'],
     lastUpdated: '2025-11-24'
+  },
+  {
+    slug: 'orthokeratology',
+    name: 'Orthokeratology (Ortho-K)',
+    shortName: 'Orthokeratology',
+    description: 'Overnight contact lenses that reshape your cornea while you sleep, providing clear vision all day without glasses or daytime contacts.',
+    metaDescription: 'Orthokeratology (Ortho-K) lenses in Orange County. Wake up with clear vision—no glasses or contacts during the day. Myopia control for children. Expert fitting.',
+    keywords: ['orthokeratology', 'ortho-k lenses', 'overnight contacts', 'myopia control', 'orthokeratology Orange County', 'corneal reshaping'],
+    heroImage: '/images/services/orthokeratology-overnight-vision-correction.webp',
+    icon: '/images/icons/ortho-k-icon.svg',
+    overview: `Orthokeratology (Ortho-K) uses specially designed gas permeable contact lenses worn overnight to gently reshape your cornea while you sleep. When you remove the lenses in the morning, you can see clearly all day without glasses or daytime contacts.
+
+Ortho-K is also one of the most effective methods for myopia (nearsightedness) control in children. By wearing Ortho-K lenses, children can slow the progression of their myopia, reducing their risk of high myopia and associated eye diseases later in life. At EyeCare Center of Orange County, we specialize in Ortho-K fitting for both vision correction and myopia management.`,
+    benefits: [
+      'Clear vision all day without glasses or contacts',
+      'Non-surgical alternative to LASIK',
+      'Slows myopia progression in children',
+      'Reversible—stop wearing and eyes return to original state',
+      'Great for athletes and active lifestyles',
+      'No dry eye issues from daytime contact wear'
+    ],
+    candidateCriteria: [
+      'Nearsightedness (myopia) up to -6.00D',
+      'Low to moderate astigmatism',
+      'Children with progressive myopia',
+      'Adults seeking glasses-free daytime vision',
+      'Those not suitable for or wanting to avoid LASIK',
+      'Athletes, swimmers, or those in dusty environments'
+    ],
+    notCandidates: [
+      'Very high myopia (>-6.00D)',
+      'Certain corneal conditions',
+      'Chronic eye infections'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Consultation & Evaluation',
+        description: 'Comprehensive eye exam with corneal topography to determine if you are a good Ortho-K candidate.',
+        duration: '60 minutes'
+      },
+      {
+        step: 2,
+        title: 'Lens Design & Fitting',
+        description: 'Custom lens design based on your corneal shape. Initial fitting to verify proper lens performance.',
+        duration: '60 minutes'
+      },
+      {
+        step: 3,
+        title: 'Overnight Trial',
+        description: 'Wear your lenses overnight and return in the morning to check results.',
+        duration: '30 minutes follow-up'
+      },
+      {
+        step: 4,
+        title: 'Optimization & Training',
+        description: 'Lens adjustments if needed and comprehensive care training.',
+        duration: 'Varies'
+      }
+    ],
+    cost: {
+      rangeMin: 1200,
+      rangeMax: 2500,
+      insuranceCoverage: 'Some vision plans include Ortho-K benefits. Coverage varies by plan.',
+      financingAvailable: true,
+      financingDetails: 'CareCredit accepted. Package pricing typically includes fitting, lenses, and first year of follow-up care.'
+    },
+    faqs: [
+      {
+        question: 'How does orthokeratology work?',
+        answer: 'Ortho-K lenses gently reshape your cornea while you sleep using hydraulic forces under the lens. The corneal reshaping temporarily corrects your refractive error, allowing clear vision when you remove the lenses in the morning.'
+      },
+      {
+        question: 'Is orthokeratology safe for children?',
+        answer: 'Yes, Ortho-K is very safe for children when properly fitted and monitored. It is FDA-approved and provides the added benefit of slowing myopia progression.'
+      }
+    ],
+    relatedServices: ['comprehensive-eye-exam', 'lasik-consultation', 'ortho-k'],
+    lastUpdated: '2025-11-26'
+  },
+  {
+    slug: 'scleral-lenses',
+    name: 'Scleral Contact Lenses',
+    shortName: 'Scleral Lenses',
+    description: 'Custom-designed scleral lenses for irregular corneas, dry eye, and complex vision needs. Expert fitting from an experienced specialist.',
+    metaDescription: 'Expert scleral lens fitting in Orange County. Custom scleral contacts for keratoconus, dry eye & irregular corneas. 35+ years experience.',
+    keywords: ['scleral lenses', 'scleral contact lenses', 'scleral lenses keratoconus', 'scleral lenses dry eye', 'custom scleral lenses Orange County'],
+    heroImage: '/images/services/scleral-contact-lenses-keratoconus.webp',
+    icon: '/images/icons/scleral-lens-icon.svg',
+    overview: `Scleral contact lenses are large-diameter gas permeable lenses that vault over the entire cornea, providing exceptional vision and comfort for patients who cannot achieve good results with traditional contact lenses or glasses.
+
+At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions.`,
+    benefits: [
+      'Clear, stable vision for irregular corneas',
+      'All-day comfort with moisture reservoir',
+      'Excellent option for dry eye sufferers',
+      'Custom-designed for your unique eye shape',
+      'Can be worn 12-16 hours daily',
+      'Alternative when glasses and regular contacts fail'
+    ],
+    candidateCriteria: [
+      'Keratoconus or other corneal ectasias',
+      'Post-LASIK complications',
+      'Severe dry eye syndrome',
+      'Corneal scarring or irregularity',
+      'Failed soft or RGP contact lens wearers',
+      'High astigmatism or irregular astigmatism'
+    ],
+    notCandidates: [
+      'Active corneal infections',
+      'Inability to handle lenses (alternatives available)'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Consultation & Mapping',
+        description: 'Advanced corneal topography and scleral mapping to design your custom lenses.',
+        duration: '60 minutes'
+      },
+      {
+        step: 2,
+        title: 'Diagnostic Fitting',
+        description: 'Trial fitting with multiple diagnostic lenses to determine optimal vault, landing zone, and vision correction.',
+        duration: '90 minutes'
+      },
+      {
+        step: 3,
+        title: 'Lens Delivery & Training',
+        description: 'Delivery of your custom lenses with comprehensive insertion, removal, and care training.',
+        duration: '60 minutes'
+      },
+      {
+        step: 4,
+        title: 'Follow-Up Optimization',
+        description: 'Fine-tuning appointments to optimize fit and vision.',
+        duration: '30 minutes per visit'
+      }
+    ],
+    cost: {
+      rangeMin: 1800,
+      rangeMax: 4000,
+      insuranceCoverage: 'Vision insurance medical necessity provisions may cover scleral lenses for qualifying conditions.',
+      financingAvailable: true,
+      financingDetails: 'CareCredit accepted. Payment plans available for lens costs.'
+    },
+    faqs: [
+      {
+        question: 'What are scleral contact lenses?',
+        answer: 'Scleral lenses are large-diameter gas permeable contact lenses that rest on the white part of the eye (sclera) and vault over the entire cornea, providing clear vision and comfort for irregular corneas and dry eyes.'
+      },
+      {
+        question: 'How long can I wear scleral lenses each day?',
+        answer: 'Most scleral lens wearers can comfortably wear their lenses 12-16 hours per day. The fluid reservoir helps maintain hydration and comfort throughout the day.'
+      }
+    ],
+    relatedServices: ['keratoconus-treatment', 'dry-eye-specialist', 'scleral-lens-fitting'],
+    lastUpdated: '2025-11-26'
+  },
+  {
+    slug: 'corneal-cross-linking',
+    name: 'Corneal Cross-Linking (CXL)',
+    shortName: 'Cross-Linking',
+    description: 'FDA-approved treatment to halt the progression of keratoconus by strengthening the cornea with riboflavin and UV light.',
+    metaDescription: 'Corneal cross-linking (CXL) for keratoconus in Orange County. FDA-approved treatment to stop corneal progression. Expert evaluation and co-management.',
+    keywords: ['corneal cross-linking', 'CXL treatment', 'keratoconus cross-linking', 'corneal collagen crosslinking', 'stop keratoconus progression', 'CXL Orange County'],
+    heroImage: '/images/services/corneal-cross-linking-keratoconus.webp',
+    icon: '/images/icons/cross-linking-icon.svg',
+    overview: `Corneal cross-linking (CXL) is an FDA-approved treatment that strengthens the cornea to halt the progression of keratoconus. The procedure uses riboflavin (vitamin B2) eye drops and controlled UV light to create new bonds between collagen fibers in the cornea, making it stronger and more stable.
+
+At EyeCare Center of Orange County, we provide comprehensive evaluation for cross-linking candidacy and coordinate care with top corneal surgeons who perform the procedure. We manage your pre-operative assessment and post-operative care locally for your convenience.`,
+    benefits: [
+      'FDA-approved to halt keratoconus progression',
+      'Prevents need for corneal transplant in many cases',
+      'Minimally invasive outpatient procedure',
+      'One-time treatment with long-lasting results',
+      'Can be combined with other treatments',
+      'Preserves your natural cornea'
+    ],
+    candidateCriteria: [
+      'Diagnosed progressive keratoconus',
+      'Corneal ectasia after LASIK or PRK',
+      'Adequate corneal thickness (>400 microns)',
+      'No active corneal infections',
+      'Age typically under 35-40 (when progression is common)'
+    ],
+    notCandidates: [
+      'Very thin corneas (<400 microns)',
+      'Severe corneal scarring',
+      'Active eye infections or inflammation',
+      'Pregnancy or nursing'
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Comprehensive Evaluation',
+        description: 'Advanced corneal imaging (Pentacam) to assess keratoconus severity, progression, and corneal thickness for CXL candidacy.',
+        duration: '60-90 minutes'
+      },
+      {
+        step: 2,
+        title: 'Surgeon Referral',
+        description: 'If you are a candidate, we refer you to one of our trusted corneal surgeons who specialize in cross-linking.',
+        duration: 'Varies'
+      },
+      {
+        step: 3,
+        title: 'CXL Procedure',
+        description: 'Outpatient procedure performed by the corneal surgeon. Riboflavin drops are applied, followed by controlled UV light exposure.',
+        duration: '60-90 minutes'
+      },
+      {
+        step: 4,
+        title: 'Post-Operative Care',
+        description: 'We provide your follow-up care locally, monitoring healing and visual recovery at regular intervals.',
+        duration: '15-30 minutes per visit'
+      }
+    ],
+    recovery: {
+      timeline: 'Visual recovery over 1-3 months; full corneal stabilization over 6-12 months',
+      expectations: [
+        'Mild discomfort for first few days',
+        'Vision may be blurry for several weeks',
+        'Gradual improvement over 1-3 months',
+        'Cornea continues strengthening for up to a year'
+      ],
+      restrictions: [
+        'No eye rubbing',
+        'Avoid water in eyes for one week',
+        'Wear sunglasses outdoors',
+        'Use prescribed eye drops as directed'
+      ],
+      followUp: 'Follow-up at 1 day, 1 week, 1 month, 3 months, 6 months, and 1 year'
+    },
+    cost: {
+      rangeMin: 2500,
+      rangeMax: 4000,
+      insuranceCoverage: 'Many insurance plans now cover FDA-approved cross-linking. We can verify your benefits and provide documentation for prior authorization.',
+      financingAvailable: true,
+      financingDetails: 'CareCredit accepted. Surgeon financing options also available.'
+    },
+    faqs: [
+      {
+        question: 'What is corneal cross-linking?',
+        answer: 'Corneal cross-linking is a minimally invasive procedure that strengthens the cornea using riboflavin drops and UV light. It creates new bonds between collagen fibers, halting the progression of keratoconus.'
+      },
+      {
+        question: 'Does cross-linking cure keratoconus?',
+        answer: 'Cross-linking does not cure keratoconus, but it halts progression in most patients. After CXL, you may still need glasses, contact lenses, or scleral lenses for optimal vision, but your prescription should remain more stable.'
+      },
+      {
+        question: 'Is cross-linking painful?',
+        answer: 'The procedure itself is not painful due to numbing drops. Some patients experience discomfort, light sensitivity, and tearing for 2-3 days after. Pain medication and lubricating drops help manage symptoms.'
+      },
+      {
+        question: 'How long does cross-linking last?',
+        answer: 'Cross-linking provides long-lasting results. Studies show the strengthening effect persists for many years. Most patients only need one treatment per eye.'
+      },
+      {
+        question: 'Can I have cross-linking if I wear scleral lenses?',
+        answer: 'Yes! Many of our scleral lens patients have also had cross-linking. CXL stabilizes the cornea while scleral lenses provide clear vision. The two treatments work well together.'
+      }
+    ],
+    relatedServices: ['keratoconus-treatment', 'scleral-lens-fitting', 'scleral-lenses'],
+    lastUpdated: '2025-11-26'
   }
 ];
 
