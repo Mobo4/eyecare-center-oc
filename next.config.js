@@ -25,6 +25,61 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  // Security Headers
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self), interest-cohort=()'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: `
+              default-src 'self';
+              script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://www.clarity.ms https://cdn.callrail.com https://api.leadconnectorhq.com https://widgets.leadconnectorhq.com https://link.msgsndr.com https://va.vercel-scripts.com;
+              style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+              img-src 'self' data: blob: https: http:;
+              font-src 'self' https://fonts.gstatic.com data:;
+              connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://www.facebook.com https://connect.facebook.net https://www.clarity.ms https://api.callrail.com https://api.leadconnectorhq.com https://backend.leadconnectorhq.com https://vitals.vercel-insights.com;
+              frame-src 'self' https://www.google.com https://www.youtube.com https://api.leadconnectorhq.com https://link.msgsndr.com;
+              object-src 'none';
+              base-uri 'self';
+              form-action 'self' https://api.leadconnectorhq.com;
+              frame-ancestors 'self';
+              upgrade-insecure-requests;
+            `.replace(/\s{2,}/g, ' ').trim()
+          }
+        ]
+      }
+    ];
+  },
   async redirects() {
     return [
       // Domain Redirects from drbonakdar.net

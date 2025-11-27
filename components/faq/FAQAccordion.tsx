@@ -57,6 +57,7 @@ export default function FAQAccordion({
                 className="w-full flex items-center justify-between p-4 text-left bg-white hover:bg-gray-50 transition-colors"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
               >
                 <span className="font-medium text-gray-900 pr-4">{faq.question}</span>
                 <ChevronDown
