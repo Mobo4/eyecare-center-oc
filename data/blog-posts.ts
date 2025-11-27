@@ -352,5 +352,125 @@ export const blogPosts: BlogPost[] = [
       <h2>Custom Designed for You</h2>
       <p>Every scleral lens is custom-designed for the unique shape of your eye. Dr. Bonakdar is a scleral lens specialist with decades of experience fitting these life-changing lenses.</p>
     `
+  },
+  {
+    slug: 'blue-light-impact-digital-eye-strain',
+    title: 'Blue Light and Your Eyes: Fact vs. Fiction',
+    excerpt: 'We are surrounded by screens, but is blue light really damaging your eyes? Separate the myths from the facts and learn how to protect your vision in the digital age.',
+    date: '2024-08-15',
+    author: 'Dr. Bonakdar',
+    category: 'Eye Health',
+    image: '/images/hero-background.png',
+    tags: ['Blue Light', 'Digital Eye Strain', 'Screen Time', 'Eye Protection'],
+    content: `
+      <h2>The Digital Dilemma</h2>
+      <p>From smartphones to laptops, our eyes are constantly exposed to blue light. While natural blue light from the sun regulates our sleep cycle, artificial blue light at night can disrupt it.</p>
+
+      <h3>Is It Damaging?</h3>
+      <p>Current research suggests that blue light from screens isn't blinding, but it does contribute to <strong>Digital Eye Strain</strong>. Symptoms include dry eyes, blurred vision, and headaches.</p>
+
+      <h2>Tips for Relief</h2>
+      <ul>
+        <li><strong>The 20-20-20 Rule:</strong> Every 20 minutes, look at something 20 feet away for 20 seconds.</li>
+        <li><strong>Blue Light Glasses:</strong> These can improve comfort by filtering out harsh wavelengths.</li>
+        <li><strong>Night Mode:</strong> Use your device's built-in settings to warm up the screen colors in the evening.</li>
+      </ul>
+    `
+  },
+  {
+    slug: 'lasik-vs-prk-which-is-right',
+    title: 'LASIK vs. PRK: Which Laser Vision Correction is Right for You?',
+    excerpt: 'Both procedures offer 20/20 vision, but they work differently. Discover the key differences between LASIK and PRK and which one suits your lifestyle and eye health.',
+    date: '2024-08-22',
+    author: 'Dr. Bonakdar',
+    category: 'Laser Surgery',
+    image: '/images/hero-background.png',
+    tags: ['LASIK', 'PRK', 'Vision Correction', 'Surgery'],
+    content: `
+      <h2>Two Paths to Clear Vision</h2>
+      <p>Both LASIK and PRK use a laser to reshape the cornea, correcting nearsightedness, farsightedness, and astigmatism. The main difference lies in how the surgeon accesses the corneal tissue.</p>
+
+      <h3>LASIK</h3>
+      <p>In LASIK, a thin flap is created on the cornea. The laser reshapes the tissue underneath, and the flap is replaced. Recovery is rapid, with most patients seeing clearly the next day.</p>
+
+      <h3>PRK</h3>
+      <p>In PRK, the outer layer of the cornea is gently removed (no flap). The laser reshapes the surface, and the outer layer grows back naturally. Recovery takes a few days longer, but it's a better option for patients with thin corneas or active lifestyles (like boxers or pilots).</p>
+
+      <h2>Which is Best?</h2>
+      <p>The "best" procedure depends on your unique eye anatomy. A comprehensive consultation with Dr. Bonakdar will determine the safest and most effective path to visual freedom for you.</p>
+    `
+  },
+  {
+    slug: 'contact-lens-care-safety-tips',
+    title: 'Contact Lens Safety: 5 Habits That Could Save Your Sight',
+    excerpt: 'Love your contacts? Make sure you\'re not putting your eyes at risk. Review these essential safety tips to prevent infections and keep your eyes healthy.',
+    date: '2024-09-01',
+    author: 'Dr. Bonakdar',
+    category: 'Contact Lenses',
+    image: '/images/hero-background.png',
+    tags: ['Contact Lenses', 'Eye Safety', 'Hygiene', 'Infection Prevention'],
+    content: `
+      <h2>Convenience with Responsibility</h2>
+      <p>Contact lenses are a medical device. Improper care can lead to serious infections like microbial keratitis, which can permanently damage your vision.</p>
+
+      <h3>Top 5 Safety Rules</h3>
+      <ol>
+        <li><strong>Never Sleep in Contacts:</strong> Unless prescribed for overnight wear, sleeping in lenses cuts off oxygen and increases infection risk by 6-8 times.</li>
+        <li><strong>No Water:</strong> Never rinse lenses or cases with tap water. Water contains microorganisms that can cause blindness.</li>
+        <li><strong>Rub and Rinse:</strong> "Rub and rinse" your lenses with solution every night, even if you use "no-rub" solution.</li>
+        <li><strong>Replace Your Case:</strong> Throw away your lens case every 3 months. It's a breeding ground for bacteria.</li>
+        <li><strong>Give Your Eyes a Break:</strong> Wear your glasses a few times a week to let your corneas breathe.</li>
+      </ol>
+    `
+  },
+  {
+    slug: 'diabetic-eye-exams-protecting-vision',
+    title: 'Diabetes and Your Eyes: Protecting Your Vision',
+    excerpt: 'Diabetes is a leading cause of blindness, but it doesn\'t have to be. Learn how managing your blood sugar and getting annual eye exams can prevent diabetic retinopathy.',
+    date: '2024-09-10',
+    author: 'Dr. Bonakdar',
+    category: 'Eye Disease',
+    image: '/images/hero-background.png',
+    tags: ['Diabetes', 'Diabetic Retinopathy', 'Eye Exams', 'Health'],
+    content: `
+      <h2>The Sugar Connection</h2>
+      <p>High blood sugar damages the tiny blood vessels in the retina, the light-sensitive tissue at the back of the eye. This condition is called <strong>Diabetic Retinopathy</strong>.</p>
+
+      <h3>Stages of Damage</h3>
+      <p>In early stages, blood vessels may leak fluid, causing blurred vision. In advanced stages, new, fragile vessels grow and bleed, leading to scarring and potential retinal detachment.</p>
+
+      <h2>Prevention is Possible</h2>
+      <p>The good news is that 90% of diabetes-related blindness is preventable. The key is:</p>
+      <ul>
+        <li><strong>Control:</strong> Keep blood sugar, blood pressure, and cholesterol in check.</li>
+        <li><strong>Detect:</strong> Get a dilated eye exam every year. We can see changes before you notice any vision loss.</li>
+      </ul>
+    `
+  },
+  {
+    slug: 'childrens-vision-school-success',
+    title: 'Vision and Learning: Is Your Child Ready for School?',
+    excerpt: '80% of learning is visual. If your child is struggling in school, the culprit might be an undiagnosed vision problem. Learn the signs of vision-related learning issues.',
+    date: '2024-09-15',
+    author: 'Dr. Bonakdar',
+    category: 'Pediatric Eye Care',
+    image: '/images/hero-background.png',
+    tags: ['Children\'s Vision', 'Learning', 'School', 'Eye Exams'],
+    content: `
+      <h2>More Than 20/20</h2>
+      <p>Good vision is more than just seeing the board clearly. It involves tracking, focusing, and processing visual information. A child can have 20/20 eyesight and still have a vision problem that affects reading.</p>
+
+      <h3>Signs of Trouble</h3>
+      <ul>
+        <li>Skipping lines or words when reading</li>
+        <li>Short attention span for close work</li>
+        <li>Headaches after school</li>
+        <li>Rubbing eyes frequently</li>
+        <li>Poor handwriting</li>
+      </ul>
+
+      <h2>The Comprehensive Exam Difference</h2>
+      <p>School screenings miss up to 60% of vision problems. A comprehensive exam tests for focusing skills, eye teaming, and tracking—all essential for academic success.</p>
+    `
   }
 ];

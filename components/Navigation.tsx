@@ -66,6 +66,7 @@ const Navigation = () => {
         { label: 'All Services', path: '/services', featured: true },
       ]
     },
+    { path: '/blog', label: 'Blog' },
     { path: '/about', label: 'About' },
   ];
 
@@ -103,8 +104,8 @@ const Navigation = () => {
                         key={idx}
                         href={dropdownItem.path}
                         className={`block py-2 px-3 rounded-lg ${dropdownItem.featured
-                            ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue mt-2 border-t border-gray-100 pt-3'
-                            : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
+                          ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue mt-2 border-t border-gray-100 pt-3'
+                          : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
                           } transition-colors`}
                       >
                         {dropdownItem.label}

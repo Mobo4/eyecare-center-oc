@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     description: 'Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, and comprehensive eye exams.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'EyeCare Center of Orange County',
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'EyeCare Center of Orange County',
     description: 'Comprehensive eye care services in Orange County',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
   },
   verification: {
     other: {
