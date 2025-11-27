@@ -37,9 +37,9 @@ export default function AccessibilityPage() {
                             Please let us know if you encounter accessibility barriers on our website:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 mt-4">
-                            <li>Phone: (714) 557-5777</li>
+                            <li>Phone: (949) 364-0008</li>
                             <li>E-mail: info@eyecarecenteroc.com</li>
-                            <li>Visitor Address: 3301 S Harbor Blvd, Suite 100, Santa Ana, CA 92704</li>
+                            <li>Visitor Address: 801 North Tustin Ave #404, Santa Ana, CA 92705</li>
                         </ul>
                         <p className="mt-4">
                             We try to respond to feedback within 2 business days.

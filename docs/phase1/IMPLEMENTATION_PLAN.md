@@ -925,7 +925,7 @@ const breakpoints = {
     "postalCode": "[ZIP]",
     "addressCountry": "US"
   },
-  "telephone": "(949) 658-2372",
+  "telephone": "(949) 364-0008",
   "priceRange": "$$",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -964,7 +964,7 @@ const breakpoints = {
 **Location Pages:**
 - Title: "Eye Doctor in [City], CA | EyeCare Center OC"
 - H1: "Eye Doctor in [City], California"
-- Meta Description: "Expert eye care in [City], CA. Serving [City] residents with comprehensive eye exams, LASIK, and specialized treatments. Call (949) 658-2372."
+- Meta Description: "Expert eye care in [City], CA. Serving [City] residents with comprehensive eye exams, LASIK, and specialized treatments. Call (949) 364-0008."
 
 ---
 

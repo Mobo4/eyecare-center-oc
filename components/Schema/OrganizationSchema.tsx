@@ -11,16 +11,16 @@ export default function OrganizationSchema() {
         "telephone": CONTACT_INFO.primaryPhone.display,
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "3301 S Harbor Blvd, Suite 100",
-            "addressLocality": "Santa Ana",
-            "addressRegion": "CA",
-            "postalCode": "92704",
+            "streetAddress": CONTACT_INFO.address.street,
+            "addressLocality": CONTACT_INFO.address.city,
+            "addressRegion": CONTACT_INFO.address.state,
+            "postalCode": CONTACT_INFO.address.zip,
             "addressCountry": "US"
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "33.6929",
-            "longitude": "-117.9189"
+            "latitude": "33.7435",
+            "longitude": "-117.8669"
         },
         "openingHoursSpecification": [
             {
