@@ -99,10 +99,10 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Desktop Navigation - Hidden when compact mode detects wrapping */}
+      {/* Desktop Navigation - Invisible (not hidden) when compact to allow measurement */}
       <nav
         ref={navRef}
-        className={`${isCompact ? 'hidden' : 'hidden lg:flex'} items-center space-x-8`}
+        className={`hidden lg:flex items-center space-x-8 ${isCompact ? 'invisible pointer-events-none absolute' : ''}`}
         role="navigation"
         aria-label="Main navigation"
       >
