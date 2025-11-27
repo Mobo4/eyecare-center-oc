@@ -17,8 +17,8 @@ export const CONTACT_INFO = {
    * All phone links have 'callrail-phone' class for tracking
    */
   primaryPhone: {
-    display: '(949) 658-2372',
-    href: 'tel:+19496582372',
+    display: '(949) 364-0008',
+    href: 'tel:+19493640008',
   },
 
   /**
