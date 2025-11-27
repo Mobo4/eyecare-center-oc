@@ -631,6 +631,116 @@ export const conditions: Condition[] = [
     seoTitle: "Phakomatoses & Ocular Tumors | Orange County",
     seoDescription: "Phakomatoses like NF and Tuberous Sclerosis have important eye findings. We are skilled in diagnosing and managing the ocular manifestations of these syndromes.",
     keywords: ["phakomatoses", "neurofibromatosis", "tuberous sclerosis", "sturge-weber", "von hippel-lindau", "lisch nodules", "retinal astrocytoma", "choroidal hemangioma"],
+  },
+
+  // HIGH-VOLUME SEO CONDITIONS (Added based on SEMrush keyword analysis)
+  {
+    name: "Eye Twitching (Myokymia)",
+    slug: "eye-twitching",
+    category: "Eyelid Conditions",
+    severity: "Mild",
+    description: "Eye twitching, medically known as myokymia, is an involuntary, repetitive spasm of the eyelid muscles. Most commonly affecting the lower eyelid, these twitches are usually harmless and resolve on their own. While occasionally annoying, they rarely indicate a serious neurological condition. Common triggers include stress, fatigue, caffeine, eye strain, and dry eyes.",
+    symptoms: ["Involuntary eyelid movement or fluttering", "Usually affects lower eyelid", "Episodes last seconds to minutes", "May come and go for days or weeks", "Triggered by stress, fatigue, or caffeine"],
+    treatments: ["Reduce caffeine and alcohol intake", "Get adequate sleep (7-8 hours)", "Apply warm compresses to the eyelid", "Use artificial tears for dry eyes", "Manage stress through relaxation techniques", "Limit screen time and take breaks", "Botox injections for persistent cases"],
+    seoTitle: "Eye Twitching (Myokymia) Treatment | Orange County Eye Specialist",
+    seoDescription: "Persistent eye twitching? Learn about causes and treatments for myokymia. Expert care from Orange County's leading eye specialists. Call (949) 364-0008.",
+    keywords: ["eye twitching", "myokymia", "eyelid twitch", "eye spasm", "twitching eye treatment", "why does my eye twitch", "eyelid spasm"]
+  },
+  {
+    name: "Yellow Eyes (Jaundice)",
+    slug: "yellow-eyes",
+    category: "Systemic Conditions",
+    severity: "Serious",
+    description: "Yellow eyes, or icterus, occur when the white part of the eye (sclera) turns yellow due to elevated bilirubin levels in the blood. This yellowing is often a sign of jaundice, which can indicate liver disease, bile duct problems, or blood disorders. Yellow eyes require prompt medical evaluation as they may signal serious underlying health conditions that need treatment.",
+    symptoms: ["Yellowing of the whites of the eyes (sclera)", "May be accompanied by yellow skin", "Dark urine", "Pale or clay-colored stools", "Fatigue and weakness", "Abdominal pain (right upper quadrant)", "Itchy skin"],
+    treatments: ["Treat underlying liver condition", "Address bile duct obstruction", "Manage hemolytic disorders", "Medication adjustments if drug-induced", "Lifestyle modifications for liver health", "Blood transfusions in severe cases", "Referral to hepatologist or gastroenterologist"],
+    seoTitle: "Yellow Eyes (Jaundice) Causes & Treatment | Orange County",
+    seoDescription: "Yellow eyes can indicate liver problems or jaundice. Get proper diagnosis and referral for treatment in Orange County. Call (949) 364-0008.",
+    keywords: ["yellow eyes", "jaundice", "icterus", "scleral icterus", "yellowing of eyes", "liver disease eyes", "bilirubin"]
+  },
+  {
+    name: "Subconjunctival Hemorrhage",
+    slug: "subconjunctival-hemorrhage",
+    category: "Conjunctiva",
+    severity: "Mild",
+    description: "A subconjunctival hemorrhage is a bright red patch on the white of the eye caused by a small blood vessel breaking beneath the clear conjunctiva. Despite its alarming appearance, it is usually harmless and painless. Common causes include straining, coughing, sneezing, heavy lifting, or minor eye trauma. The blood typically absorbs on its own within 1-2 weeks without treatment.",
+    symptoms: ["Bright red patch on the white of the eye", "No pain or vision changes", "May feel slight irritation", "Blood spreads over first 24-48 hours", "Gradually changes to yellow/green as it heals", "No discharge or crusting"],
+    treatments: ["Usually no treatment required", "Artificial tears for comfort", "Avoid blood thinners if possible", "Cold compress in first 24 hours", "Warm compress after 48 hours to speed healing", "Monitor blood pressure", "Eye exam if recurrent"],
+    seoTitle: "Subconjunctival Hemorrhage Treatment | Orange County Eye Doctor",
+    seoDescription: "Red spot in your eye? Learn about subconjunctival hemorrhage causes and treatment. Expert eye care in Orange County. Call (949) 364-0008.",
+    keywords: ["subconjunctival hemorrhage", "red spot in eye", "blood in eye", "broken blood vessel in eye", "eye bleeding", "red eye patch"]
+  },
+  {
+    name: "Corneal Abrasion",
+    slug: "corneal-abrasion",
+    category: "Cornea",
+    severity: "Moderate",
+    description: "A corneal abrasion is a scratch or scrape on the cornea, the clear front surface of the eye. It can be caused by fingernails, contact lenses, foreign objects, or rubbing the eyes. Corneal abrasions are painful but typically heal within 24-72 hours with proper treatment. Prompt care prevents infection and complications.",
+    symptoms: ["Sharp eye pain", "Feeling of something in the eye", "Tearing and watery eyes", "Light sensitivity (photophobia)", "Blurred vision", "Eye redness", "Headache", "Difficulty opening the eye"],
+    treatments: ["Antibiotic eye drops to prevent infection", "Lubricating eye drops", "Pain relief medication", "Avoid rubbing the eye", "Remove contact lenses until healed", "Eye patching (in some cases)", "Follow-up exam to ensure healing"],
+    seoTitle: "Corneal Abrasion Treatment | Orange County Eye Emergency Care",
+    seoDescription: "Scratched eye? Get urgent corneal abrasion treatment from Orange County eye specialists. Same-day appointments available. Call (949) 364-0008.",
+    keywords: ["corneal abrasion", "scratched cornea", "eye scratch", "scratched eye treatment", "corneal scratch", "eye injury"]
+  },
+  {
+    name: "Photophobia (Light Sensitivity)",
+    slug: "photophobia",
+    category: "General Ophthalmic Problems",
+    severity: "Moderate",
+    description: "Photophobia is an abnormal sensitivity to light that causes discomfort or pain when exposed to bright lights or sunlight. It is not a disease itself but a symptom of various conditions including migraines, dry eye, corneal problems, uveitis, or meningitis. Treatment focuses on identifying and addressing the underlying cause while managing symptoms.",
+    symptoms: ["Pain or discomfort in bright light", "Squinting or closing eyes in normal light", "Headaches triggered by light", "Need for dark sunglasses indoors", "Eye strain and fatigue", "Tearing in bright environments", "Difficulty with computer screens"],
+    treatments: ["Treat underlying condition", "Photochromic or tinted lenses", "FL-41 rose-tinted glasses for migraines", "Artificial tears for dry eye", "Dilating drops for uveitis", "Anti-inflammatory medications", "Environmental lighting adjustments"],
+    seoTitle: "Photophobia (Light Sensitivity) Treatment | Orange County",
+    seoDescription: "Suffering from light sensitivity? Expert diagnosis and photophobia treatment in Orange County. Find relief today. Call (949) 364-0008.",
+    keywords: ["photophobia", "light sensitivity", "sensitive to light", "eye pain in light", "light hurts eyes", "photosensitivity eyes"]
+  },
+  {
+    name: "Pinguecula",
+    slug: "pinguecula",
+    category: "Conjunctiva",
+    severity: "Mild",
+    description: "A pinguecula is a yellowish, raised growth on the conjunctiva, typically appearing on the side of the eye closest to the nose. It consists of protein, fat, and calcium deposits, often caused by chronic sun exposure, wind, and dry conditions. While usually harmless, it can become inflamed (pingueculitis) and may grow into a pterygium if untreated.",
+    symptoms: ["Yellowish bump on the white of the eye", "Usually near the nose side", "Mild irritation or grittiness", "Redness when inflamed", "Dry eye sensation", "Cosmetic concern", "May interfere with contact lens wear"],
+    treatments: ["Artificial tears for comfort", "Anti-inflammatory drops if inflamed", "UV-protective sunglasses", "Avoiding dry, dusty environments", "Surgical removal rarely needed", "Monitoring for progression to pterygium"],
+    seoTitle: "Pinguecula Treatment | Orange County Eye Specialist",
+    seoDescription: "Yellow bump on your eye? Learn about pinguecula causes and treatment from Orange County eye specialists. Call (949) 364-0008.",
+    keywords: ["pinguecula", "yellow spot on eye", "yellow bump on eye", "eye growth", "conjunctival growth", "surfer's eye"]
+  },
+  {
+    name: "Anisocoria (Unequal Pupils)",
+    slug: "anisocoria",
+    category: "Neurological",
+    severity: "Moderate",
+    description: "Anisocoria is a condition where the pupils are unequal in size. While mild anisocoria (less than 1mm difference) can be normal and present in up to 20% of the population (physiologic anisocoria), significant or sudden onset pupil inequality may indicate serious conditions including Horner syndrome, third nerve palsy, or increased intracranial pressure. New anisocoria requires urgent evaluation.",
+    symptoms: ["Unequal pupil sizes", "May be more noticeable in light or dark", "Possible drooping eyelid (if Horner syndrome)", "Double vision (if nerve palsy)", "Headache or neck pain", "May be completely asymptomatic", "Light sensitivity in affected eye"],
+    treatments: ["Observation for physiologic anisocoria", "Treat underlying neurological cause", "Emergency evaluation for acute onset", "MRI/CT imaging if indicated", "Referral to neuro-ophthalmologist", "Pharmacologic testing to identify cause", "Monitor for progression"],
+    seoTitle: "Anisocoria (Unequal Pupils) Diagnosis | Orange County",
+    seoDescription: "Unequal pupil sizes? Get expert anisocoria evaluation and diagnosis in Orange County. Neurological eye care available. Call (949) 364-0008.",
+    keywords: ["anisocoria", "unequal pupils", "different sized pupils", "pupil asymmetry", "one pupil bigger", "horner syndrome"]
+  },
+  {
+    name: "Periorbital Cellulitis",
+    slug: "periorbital-cellulitis",
+    category: "Orbital & Eyelid Infections",
+    severity: "Serious",
+    description: "Periorbital cellulitis (preseptal cellulitis) is an infection of the eyelid and skin around the eye, occurring in front of the orbital septum. It is commonly caused by bacteria following an insect bite, skin injury, sinusitis, or stye. While less serious than orbital cellulitis, it requires prompt antibiotic treatment to prevent spread to the deeper orbital tissues.",
+    symptoms: ["Eyelid swelling and redness", "Warmth around the eye", "Tenderness to touch", "Fever (sometimes)", "No eye pain with movement", "Normal vision", "No proptosis (eye bulging)", "May have recent injury or infection nearby"],
+    treatments: ["Oral antibiotics (amoxicillin-clavulanate)", "IV antibiotics if severe", "Warm compresses", "Close monitoring for progression", "CT scan if orbital cellulitis suspected", "Hospital admission if not improving", "Treat underlying sinusitis if present"],
+    seoTitle: "Periorbital Cellulitis Treatment | Orange County Eye Emergency",
+    seoDescription: "Swollen, red eyelid? Get urgent periorbital cellulitis treatment in Orange County. Same-day appointments available. Call (949) 364-0008.",
+    keywords: ["periorbital cellulitis", "preseptal cellulitis", "eyelid infection", "swollen eyelid infection", "eye infection cellulitis", "orbital cellulitis"]
+  },
+  {
+    name: "Eye Pain",
+    slug: "eye-pain",
+    category: "General Ophthalmic Problems",
+    severity: "Moderate",
+    description: "Eye pain can range from a dull ache to sharp, stabbing sensations and may originate from the eye surface, deep within the eye, or surrounding structures. Common causes include dry eye, corneal abrasion, glaucoma, uveitis, optic neuritis, sinusitis, and migraines. The nature, location, and associated symptoms help determine the underlying cause and appropriate treatment.",
+    symptoms: ["Sharp or stabbing pain", "Dull aching sensation", "Burning or stinging", "Pain with eye movement", "Throbbing pain behind the eye", "Pain worse with light exposure", "Associated headache", "Redness, tearing, or vision changes"],
+    treatments: ["Artificial tears for surface issues", "Antibiotic drops for infection", "Pressure-lowering drops for glaucoma", "Steroid drops for inflammation", "Pain relief medications", "Treat underlying sinusitis or migraine", "Emergency evaluation for severe pain", "Comprehensive eye examination"],
+    seoTitle: "Eye Pain Causes & Treatment | Orange County Eye Doctor",
+    seoDescription: "Experiencing eye pain? Get expert diagnosis and treatment from Orange County's leading eye specialists. Same-day appointments. Call (949) 364-0008.",
+    keywords: ["eye pain", "pain in eye", "sharp eye pain", "aching eye", "pain behind eye", "eye hurts", "ocular pain"]
   }
 ];
 

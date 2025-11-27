@@ -77,7 +77,14 @@ export const conditions: Condition[] = [
     symptoms: ["Gradual loss of peripheral vision", "Tunnel vision", "Eye pain", "Halos around lights"],
     treatments: ["Prescription Eye Drops", "Laser Trabeculoplasty", "Surgical Options", "Regular Monitoring"],
     seoTitle: "Glaucoma Treatment Orange County | Eye Pressure Management",
-    seoDescription: "Comprehensive glaucoma treatment in Orange County. Early detection, pressure management, and vision preservation. Call (949) 364-0008."
+    seoDescription: "Comprehensive glaucoma treatment in Orange County. Early detection, pressure management, and vision preservation. Call (949) 364-0008.",
+    localKeywords: ["glaucoma specialist", "eye pressure treatment", "glaucoma doctor near me", "optic nerve damage", "glaucoma screening"],
+    faqs: [
+      { question: "Can glaucoma be cured?", answer: "Glaucoma cannot be cured, but it can be controlled. Early detection and treatment can prevent further vision loss and preserve your remaining sight." },
+      { question: "How often should I be screened for glaucoma?", answer: "Adults over 40 should have a comprehensive eye exam every 2-4 years. Those over 60 or with risk factors should be screened annually." },
+      { question: "Does glaucoma run in families?", answer: "Yes, glaucoma has a strong genetic component. If you have a family history of glaucoma, your risk is 4-9 times higher than average." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Glaucoma Management"]
   },
   {
     name: "Macular Degeneration",
@@ -87,7 +94,14 @@ export const conditions: Condition[] = [
     symptoms: ["Blurred central vision", "Dark spots in vision", "Difficulty recognizing faces", "Straight lines appear wavy"],
     treatments: ["Anti-VEGF Injections", "Photodynamic Therapy", "Low Vision Aids", "Nutritional Supplements"],
     seoTitle: "Macular Degeneration Treatment Orange County | AMD Specialist",
-    seoDescription: "Expert macular degeneration treatment in Orange County. Anti-VEGF therapy, low vision aids, and AMD management. Call (949) 364-0008."
+    seoDescription: "Expert macular degeneration treatment in Orange County. Anti-VEGF therapy, low vision aids, and AMD management. Call (949) 364-0008.",
+    localKeywords: ["macular degeneration specialist", "AMD treatment", "wet AMD injections", "dry AMD supplements", "retina doctor"],
+    faqs: [
+      { question: "What is the difference between wet and dry AMD?", answer: "Dry AMD is the more common form where the macula thins over time. Wet AMD is more severe, involving abnormal blood vessel growth that can leak fluid and cause rapid vision loss." },
+      { question: "Can macular degeneration be prevented?", answer: "While you can't completely prevent AMD, you can reduce your risk by not smoking, eating leafy greens, taking AREDS2 supplements, and protecting your eyes from UV light." },
+      { question: "Will I go blind from macular degeneration?", answer: "AMD affects central vision but does not cause total blindness. Most patients retain peripheral vision. Early treatment and monitoring can help preserve as much vision as possible." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Retinal Imaging"]
   },
   {
     name: "Diabetic Retinopathy",
@@ -97,7 +111,14 @@ export const conditions: Condition[] = [
     symptoms: ["Floaters", "Blurred vision", "Dark areas in vision", "Difficulty seeing colors"],
     treatments: ["Laser Treatment", "Anti-VEGF Injections", "Vitrectomy Surgery", "Blood Sugar Management"],
     seoTitle: "Diabetic Retinopathy Treatment Orange County | Diabetes Eye Care",
-    seoDescription: "Specialized diabetic retinopathy treatment in Orange County. Laser therapy, injections, and comprehensive diabetes eye care. Call (949) 364-0008."
+    seoDescription: "Specialized diabetic retinopathy treatment in Orange County. Laser therapy, injections, and comprehensive diabetes eye care. Call (949) 364-0008.",
+    localKeywords: ["diabetic retinopathy specialist", "diabetes eye exam", "diabetic eye care", "retina doctor for diabetes", "laser treatment for diabetic eyes"],
+    faqs: [
+      { question: "How often should diabetics have eye exams?", answer: "People with diabetes should have a comprehensive dilated eye exam at least once a year. If you already have diabetic retinopathy, more frequent exams may be recommended." },
+      { question: "Can diabetic retinopathy be reversed?", answer: "Early diabetic retinopathy can be slowed or even improved with good blood sugar control. However, advanced retinopathy may cause permanent damage, making early detection crucial." },
+      { question: "Does controlling blood sugar help my eyes?", answer: "Yes, maintaining good blood sugar, blood pressure, and cholesterol levels can significantly reduce your risk of developing diabetic retinopathy or slow its progression." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Retinal Imaging", "Diabetic Eye Screening"]
   },
   {
     name: "Astigmatism",
@@ -107,7 +128,14 @@ export const conditions: Condition[] = [
     symptoms: ["Blurred or distorted vision", "Eye strain", "Headaches", "Difficulty seeing at night"],
     treatments: ["Prescription Glasses", "Contact Lenses", "LASIK Surgery", "Toric IOLs"],
     seoTitle: "Astigmatism Treatment Orange County | Vision Correction",
-    seoDescription: "Expert astigmatism treatment in Orange County. Glasses, contacts, LASIK, and advanced vision correction options. Call (949) 364-0008."
+    seoDescription: "Expert astigmatism treatment in Orange County. Glasses, contacts, LASIK, and advanced vision correction options. Call (949) 364-0008.",
+    localKeywords: ["astigmatism correction", "astigmatism glasses", "toric contacts", "astigmatism LASIK", "blurry vision treatment"],
+    faqs: [
+      { question: "Can astigmatism get worse over time?", answer: "Astigmatism can change gradually over time, but it doesn't always get worse. Regular eye exams help monitor any changes and update your prescription as needed." },
+      { question: "Can I wear contact lenses with astigmatism?", answer: "Yes, toric contact lenses are specifically designed for astigmatism. They have different powers in different parts of the lens to correct the irregular corneal shape." },
+      { question: "Is LASIK effective for astigmatism?", answer: "Yes, LASIK is very effective for treating astigmatism. It reshapes the cornea to correct the irregular curvature that causes blurred vision." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Contact Lens Fitting", "LASIK Consultation"]
   },
   {
     name: "Myopia (Nearsightedness)",
@@ -117,7 +145,14 @@ export const conditions: Condition[] = [
     symptoms: ["Difficulty seeing distant objects", "Squinting", "Eye strain", "Headaches"],
     treatments: ["Prescription Glasses", "Contact Lenses", "Orthokeratology", "Myopia Control Therapy"],
     seoTitle: "Myopia Treatment Orange County | Nearsightedness Control",
-    seoDescription: "Comprehensive myopia treatment in Orange County. Myopia control for children, ortho-k, and vision correction. Call (949) 364-0008."
+    seoDescription: "Comprehensive myopia treatment in Orange County. Myopia control for children, ortho-k, and vision correction. Call (949) 364-0008.",
+    localKeywords: ["myopia control", "nearsightedness treatment", "ortho-k lenses", "children's eye care", "myopia management"],
+    faqs: [
+      { question: "Can myopia be prevented in children?", answer: "While myopia cannot always be prevented, it can be slowed. Studies show increased outdoor time, reducing close-up screen time, and myopia control treatments like ortho-k or atropine drops can slow progression." },
+      { question: "What is ortho-k?", answer: "Orthokeratology (ortho-k) uses specially designed rigid contact lenses worn overnight to temporarily reshape the cornea, providing clear vision during the day without glasses or contacts." },
+      { question: "Why is myopia becoming more common?", answer: "Myopia rates are increasing worldwide, likely due to increased near work (screens, reading), less time outdoors, and genetic factors. Early intervention is key to slowing progression in children." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Ortho-K Fitting", "Myopia Control Program"]
   },
   {
     name: "Hyperopia (Farsightedness)",
@@ -127,7 +162,14 @@ export const conditions: Condition[] = [
     symptoms: ["Blurred vision of close objects", "Eye strain", "Headaches", "Difficulty focusing"],
     treatments: ["Prescription Glasses", "Contact Lenses", "LASIK Surgery", "Refractive Lens Exchange"],
     seoTitle: "Hyperopia Treatment Orange County | Farsightedness Correction",
-    seoDescription: "Expert hyperopia treatment in Orange County. Glasses, contacts, LASIK, and vision correction for farsightedness. Call (949) 364-0008."
+    seoDescription: "Expert hyperopia treatment in Orange County. Glasses, contacts, LASIK, and vision correction for farsightedness. Call (949) 364-0008.",
+    localKeywords: ["farsightedness treatment", "hyperopia correction", "reading glasses", "farsighted LASIK", "blurry near vision"],
+    faqs: [
+      { question: "Is farsightedness the same as needing reading glasses?", answer: "Not exactly. Hyperopia (farsightedness) is a refractive error present from birth, while presbyopia (needing reading glasses) is age-related loss of near focus that typically starts after age 40." },
+      { question: "Can children have hyperopia?", answer: "Yes, many children are naturally slightly farsighted. Most outgrow mild hyperopia, but moderate to severe cases need correction to prevent eye strain, headaches, or amblyopia." },
+      { question: "Can LASIK correct farsightedness?", answer: "Yes, LASIK can correct hyperopia by steepening the cornea. However, results depend on the degree of farsightedness, and some patients may need enhancement procedures." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "LASIK Consultation", "Pediatric Eye Exam"]
   },
   {
     name: "Presbyopia",
@@ -137,7 +179,14 @@ export const conditions: Condition[] = [
     symptoms: ["Difficulty reading small print", "Need to hold reading material farther away", "Eye strain", "Headaches after reading"],
     treatments: ["Reading Glasses", "Progressive Lenses", "Multifocal Contact Lenses", "Monovision LASIK"],
     seoTitle: "Presbyopia Treatment Orange County | Reading Vision Solutions",
-    seoDescription: "Presbyopia treatment options in Orange County. Reading glasses, progressive lenses, and advanced solutions. Call (949) 364-0008."
+    seoDescription: "Presbyopia treatment options in Orange County. Reading glasses, progressive lenses, and advanced solutions. Call (949) 364-0008.",
+    localKeywords: ["presbyopia treatment", "reading glasses", "progressive lenses", "multifocal contacts", "age-related vision loss"],
+    faqs: [
+      { question: "Can presbyopia be prevented?", answer: "No, presbyopia is a natural part of aging that affects nearly everyone, usually starting in the early to mid-40s. It cannot be prevented, but there are many effective treatment options." },
+      { question: "What's the difference between progressive lenses and bifocals?", answer: "Progressive lenses provide a seamless transition between distance and near vision without visible lines. Bifocals have a visible line and only two focal points without intermediate vision." },
+      { question: "Are there surgical options for presbyopia?", answer: "Yes, options include monovision LASIK (one eye for distance, one for near), multifocal lens implants during cataract surgery, and corneal inlays that improve near vision." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Contact Lens Fitting", "LASIK Consultation"]
   },
   // Additional conditions (shortened for brevity - you can expand this)
   {
@@ -148,7 +197,14 @@ export const conditions: Condition[] = [
     symptoms: ["Red, swollen eyelids", "Itchy eyes", "Crusting around eyelashes", "Watery eyes"],
     treatments: ["Eyelid Hygiene", "Warm Compresses", "Antibiotic Ointments", "Omega-3 Supplements"],
     seoTitle: "Blepharitis Treatment Orange County | Eyelid Inflammation Care",
-    seoDescription: "Effective blepharitis treatment in Orange County. Eyelid hygiene, medications, and inflammation management. Call (949) 364-0008."
+    seoDescription: "Effective blepharitis treatment in Orange County. Eyelid hygiene, medications, and inflammation management. Call (949) 364-0008.",
+    localKeywords: ["blepharitis treatment", "eyelid inflammation", "crusty eyelids", "eyelid hygiene", "chronic blepharitis"],
+    faqs: [
+      { question: "Is blepharitis contagious?", answer: "No, blepharitis is not contagious. It's an inflammatory condition usually caused by bacteria that normally live on the skin or by skin conditions like rosacea or seborrheic dermatitis." },
+      { question: "Can blepharitis be cured?", answer: "Blepharitis is typically a chronic condition that can be controlled but not cured. Consistent daily eyelid hygiene is essential for managing symptoms and preventing flare-ups." },
+      { question: "What is the best way to clean my eyelids?", answer: "Use a warm compress for 5-10 minutes, then gently scrub the eyelid margins with diluted baby shampoo or over-the-counter eyelid cleansing wipes to remove debris and crusting." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Dry Eye Treatment", "Eyelid Care"]
   },
   {
     name: "Conjunctivitis (Pink Eye)",
@@ -158,7 +214,14 @@ export const conditions: Condition[] = [
     symptoms: ["Redness in one or both eyes", "Itchiness", "Discharge that forms a crust", "Tearing"],
     treatments: ["Antibiotic Eye Drops", "Antiviral Medications", "Cold Compresses", "Artificial Tears"],
     seoTitle: "Pink Eye Treatment Orange County | Conjunctivitis Care",
-    seoDescription: "Fast pink eye treatment in Orange County. Antibiotic drops, antiviral therapy, and quick relief. Call (949) 364-0008."
+    seoDescription: "Fast pink eye treatment in Orange County. Antibiotic drops, antiviral therapy, and quick relief. Call (949) 364-0008.",
+    localKeywords: ["pink eye treatment", "conjunctivitis doctor", "eye infection treatment", "red eye care", "pink eye drops"],
+    faqs: [
+      { question: "How long is pink eye contagious?", answer: "Viral conjunctivitis is contagious for about 10-14 days. Bacterial conjunctivitis is contagious until 24-48 hours after starting antibiotic treatment. Allergic conjunctivitis is not contagious." },
+      { question: "Should I see a doctor for pink eye?", answer: "Yes, you should see a doctor to determine the cause (viral, bacterial, or allergic) and get appropriate treatment. Bacterial pink eye requires prescription antibiotic drops." },
+      { question: "Can I wear contacts with pink eye?", answer: "No, you should stop wearing contact lenses until your pink eye is completely resolved. You may need to replace your lenses and case to prevent reinfection." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Urgent Eye Care", "Contact Lens Evaluation"]
   },
   {
     name: "Stye (Hordeolum)",
@@ -168,7 +231,14 @@ export const conditions: Condition[] = [
     symptoms: ["Red, painful bump on eyelid", "Swelling", "Tenderness", "Watery eye"],
     treatments: ["Warm Compresses", "Antibiotic Ointments", "Steroid Injections", "Surgical Drainage"],
     seoTitle: "Stye Treatment Orange County | Eyelid Infection Care",
-    seoDescription: "Quick stye treatment in Orange County. Warm compresses, antibiotics, and professional care. Call (949) 364-0008."
+    seoDescription: "Quick stye treatment in Orange County. Warm compresses, antibiotics, and professional care. Call (949) 364-0008.",
+    localKeywords: ["stye treatment", "eyelid bump", "hordeolum treatment", "painful eyelid", "stye removal"],
+    faqs: [
+      { question: "Should I pop a stye?", answer: "No, never squeeze or pop a stye. This can spread the infection and make it worse. Allow it to drain naturally with warm compress treatment, or see a doctor if it doesn't improve." },
+      { question: "How long does a stye last?", answer: "Most styes heal on their own within 1-2 weeks with proper warm compress treatment. If a stye persists longer than 2 weeks, see an eye doctor for evaluation." },
+      { question: "Are styes contagious?", answer: "Styes themselves aren't highly contagious, but the bacteria that cause them can spread. Avoid touching your eyes, wash hands frequently, and don't share towels or makeup." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Eyelid Care", "Urgent Eye Care"]
   },
   {
     name: "Chalazion",
@@ -178,7 +248,14 @@ export const conditions: Condition[] = [
     symptoms: ["Painless bump on eyelid", "Swelling", "Mild irritation", "Blurred vision if large"],
     treatments: ["Warm Compresses", "Eyelid Massage", "Steroid Injections", "Surgical Removal"],
     seoTitle: "Chalazion Treatment Orange County | Eyelid Bump Removal",
-    seoDescription: "Expert chalazion treatment in Orange County. Non-surgical and surgical options available. Call (949) 364-0008."
+    seoDescription: "Expert chalazion treatment in Orange County. Non-surgical and surgical options available. Call (949) 364-0008.",
+    localKeywords: ["chalazion removal", "eyelid cyst", "blocked oil gland eye", "eyelid lump treatment", "meibomian gland blockage"],
+    faqs: [
+      { question: "What's the difference between a stye and a chalazion?", answer: "A stye is an acute, painful infection at the eyelid margin, while a chalazion is a chronic, usually painless blockage of an oil gland deeper in the eyelid. A stye can sometimes turn into a chalazion." },
+      { question: "How long does a chalazion take to go away?", answer: "Chalazions can take weeks to months to resolve with conservative treatment. If warm compresses don't work after 4-6 weeks, steroid injection or minor surgery may be needed." },
+      { question: "Can chalazions come back?", answer: "Yes, chalazions can recur, especially in people with blepharitis, rosacea, or meibomian gland dysfunction. Good eyelid hygiene and treating underlying conditions helps prevent recurrence." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Eyelid Care", "Blepharitis Treatment"]
   },
   {
     name: "Computer Vision Syndrome",
@@ -188,7 +265,187 @@ export const conditions: Condition[] = [
     symptoms: ["Eye strain", "Headaches", "Blurred vision", "Dry eyes", "Neck and shoulder pain"],
     treatments: ["Computer Glasses", "Blue Light Filters", "Vision Therapy", "Ergonomic Adjustments"],
     seoTitle: "Computer Vision Syndrome Treatment Orange County | Digital Eye Strain",
-    seoDescription: "Relief for computer vision syndrome in Orange County. Blue light protection, specialized glasses, and eye strain solutions. Call (949) 364-0008."
+    seoDescription: "Relief for computer vision syndrome in Orange County. Blue light protection, specialized glasses, and eye strain solutions. Call (949) 364-0008.",
+    localKeywords: ["computer eye strain", "digital eye strain", "blue light glasses", "screen time eye problems", "work from home eye care"],
+    faqs: [
+      { question: "What is the 20-20-20 rule?", answer: "Every 20 minutes, take a 20-second break and look at something 20 feet away. This simple practice helps reduce eye strain and encourages blinking, which keeps your eyes lubricated." },
+      { question: "Do blue light glasses really work?", answer: "Blue light glasses may help reduce eye strain for some people, though studies are mixed. More important are proper ergonomics, appropriate lighting, regular breaks, and treating underlying dry eye or vision issues." },
+      { question: "Can too much screen time permanently damage my eyes?", answer: "There's no evidence that screen use causes permanent eye damage in adults. However, increased near work in children is linked to myopia development. Symptoms like eye strain and dry eye are typically temporary and treatable." }
+    ],
+    relatedServices: ["Comprehensive Eye Exam", "Dry Eye Treatment", "Computer Glasses Prescription"]
+  },
+
+  // High-Volume Search Conditions (Added based on SEMrush competitor analysis)
+  {
+    name: "Eye Twitching (Myokymia)",
+    slug: "eye-twitching",
+    category: "Neurological",
+    description: "Eye twitching, medically known as myokymia, is an involuntary, repetitive spasm of the eyelid muscles. While usually harmless and temporary, persistent twitching can be annoying and may occasionally indicate an underlying condition requiring evaluation.",
+    symptoms: ["Involuntary eyelid movement", "Repetitive spasms", "Usually affects one eye", "May come and go for days or weeks", "Worsens with fatigue or stress"],
+    treatments: ["Stress Reduction", "Adequate Sleep", "Reduced Caffeine Intake", "Warm Compresses", "Botox Injections (severe cases)", "Treatment of Underlying Dry Eye"],
+    seoTitle: "Eye Twitching Treatment Orange County | Eyelid Spasm Specialist",
+    seoDescription: "Expert evaluation and treatment for eye twitching in Orange County. Find relief from persistent eyelid spasms. Most cases resolve with simple lifestyle changes. Call (949) 364-0008.",
+    localKeywords: ["eye twitching causes", "eyelid spasm treatment", "why is my eye twitching", "myokymia treatment", "stop eye twitching"],
+    faqs: [
+      { question: "Why is my eye twitching?", answer: "Most eye twitching is caused by stress, fatigue, caffeine, alcohol, dry eyes, or eye strain. These benign twitches usually resolve on their own within days to weeks. Rarely, persistent twitching may indicate a neurological condition." },
+      { question: "When should I see a doctor for eye twitching?", answer: "See a doctor if twitching lasts more than 3 weeks, affects other parts of your face, causes your eyelid to completely close, is accompanied by redness or swelling, or if you have drooping eyelids." },
+      { question: "Can eye twitching be a sign of something serious?", answer: "Rarely. While most twitching is benign myokymia, persistent or severe cases could indicate blepharospasm, hemifacial spasm, or other neurological conditions. An eye exam can rule out concerning causes." },
+      { question: "Does caffeine cause eye twitching?", answer: "Yes, caffeine is a common trigger for eye twitching. Reducing coffee, tea, energy drinks, and chocolate intake often helps resolve the twitching within a few days." }
+    ],
+    recoveryTimeline: "Most benign eye twitching resolves within 2-4 weeks with lifestyle modifications. Severe cases treated with Botox may need repeat injections every 3-4 months.",
+    relatedServices: ["Comprehensive Eye Exam", "Dry Eye Treatment", "Neuro-Ophthalmology Evaluation"]
+  },
+  {
+    name: "Yellow Eyes (Jaundice)",
+    slug: "yellow-eyes",
+    category: "Systemic Condition",
+    description: "Yellow discoloration of the whites of the eyes (scleral icterus) is often a sign of jaundice, indicating elevated bilirubin levels in the blood. This can be caused by liver disease, gallbladder problems, or blood disorders. Yellow eyes require prompt medical evaluation to identify the underlying cause.",
+    symptoms: ["Yellow coloring of the whites of eyes", "May accompany yellowing of skin", "Dark urine", "Pale stools", "Fatigue", "Abdominal pain"],
+    treatments: ["Treatment of Underlying Cause", "Liver Function Testing", "Ultrasound Imaging", "Referral to Gastroenterologist/Hepatologist"],
+    seoTitle: "Yellow Eyes Evaluation Orange County | Jaundice Eye Symptoms",
+    seoDescription: "Expert evaluation for yellow eyes and scleral icterus in Orange County. Identify underlying liver, gallbladder, or blood disorders. Call (949) 364-0008 for prompt assessment.",
+    localKeywords: ["yellow eyes causes", "jaundice eyes", "scleral icterus", "yellowing of eyes", "liver disease eyes"],
+    faqs: [
+      { question: "What causes yellow eyes?", answer: "Yellow eyes are caused by elevated bilirubin, a yellow pigment from red blood cell breakdown. This can result from liver disease (hepatitis, cirrhosis), gallbladder problems (gallstones, cholangitis), or blood disorders (hemolytic anemia). It requires medical evaluation." },
+      { question: "Is yellowing of eyes serious?", answer: "Yes, yellow eyes (scleral icterus) is a medical sign that warrants prompt evaluation. While some causes are treatable, others may indicate serious liver disease or require urgent intervention." },
+      { question: "Can yellow eyes go away on their own?", answer: "Yellow eyes will only resolve when the underlying condition is treated. Self-resolution without treatment is uncommon and the underlying cause must be identified and addressed." },
+      { question: "Should I see an eye doctor or my regular doctor for yellow eyes?", answer: "Start with your primary care doctor or urgent care for initial evaluation and blood tests. An eye doctor can help distinguish scleral icterus from other causes of eye discoloration like pinguecula." }
+    ],
+    recoveryTimeline: "Depends entirely on the underlying cause. Some conditions resolve within weeks with treatment; others require ongoing management.",
+    relatedServices: ["Comprehensive Eye Exam", "Medical Eye Evaluation"]
+  },
+  {
+    name: "Subconjunctival Hemorrhage",
+    slug: "subconjunctival-hemorrhage",
+    category: "Eye Injury",
+    description: "A subconjunctival hemorrhage is a bright red patch on the white of your eye caused by a broken blood vessel. Despite its alarming appearance, it's usually harmless and painless, often occurring from sneezing, coughing, straining, or minor trauma.",
+    symptoms: ["Bright red patch on white of eye", "No pain", "No vision changes", "No discharge", "May notice upon waking"],
+    treatments: ["No Treatment Needed (self-resolving)", "Artificial Tears for Comfort", "Avoid Blood Thinners if possible", "Monitor for Recurrence"],
+    seoTitle: "Subconjunctival Hemorrhage Orange County | Red Spot in Eye",
+    seoDescription: "Evaluation for subconjunctival hemorrhage (red spot in eye) in Orange County. Usually harmless but worth checking if recurrent. Call (949) 364-0008.",
+    localKeywords: ["red spot in eye", "broken blood vessel eye", "subconjunctival hemorrhage causes", "blood in white of eye", "red eye no pain"],
+    faqs: [
+      { question: "Is a subconjunctival hemorrhage serious?", answer: "No, a single subconjunctival hemorrhage is almost always harmless. The blood is trapped under the clear conjunctiva and will absorb on its own, typically within 1-2 weeks." },
+      { question: "What causes a broken blood vessel in the eye?", answer: "Common triggers include sneezing, coughing, vomiting, straining, rubbing your eye, or minor trauma. Blood thinners, high blood pressure, and bleeding disorders can increase risk." },
+      { question: "Should I see a doctor for a red spot in my eye?", answer: "A single occurrence usually doesn't require a visit. However, see a doctor if you have frequent hemorrhages, take blood thinners, have a bleeding disorder, or experience any pain or vision changes." },
+      { question: "How long does it take to heal?", answer: "Most subconjunctival hemorrhages clear within 1-2 weeks. The red blood gradually changes to yellow/brown before disappearing completely, similar to a bruise." }
+    ],
+    recoveryTimeline: "Self-resolves within 1-2 weeks without treatment. The red color fades through yellow before clearing completely.",
+    relatedServices: ["Comprehensive Eye Exam", "Urgent Eye Care"]
+  },
+  {
+    name: "Corneal Abrasion",
+    slug: "corneal-abrasion",
+    category: "Eye Injury",
+    description: "A corneal abrasion is a scratch on the cornea, the clear front surface of the eye. It's one of the most common eye injuries, causing significant pain, tearing, and light sensitivity. Prompt treatment helps prevent infection and promotes proper healing.",
+    symptoms: ["Intense eye pain", "Feeling of something in the eye", "Excessive tearing", "Redness", "Light sensitivity", "Blurred vision", "Headache"],
+    treatments: ["Antibiotic Eye Drops/Ointment", "Lubricating Drops", "Pain Management", "Patching (sometimes)", "Follow-up to Ensure Healing"],
+    seoTitle: "Corneal Abrasion Treatment Orange County | Scratched Eye Emergency",
+    seoDescription: "Urgent treatment for corneal abrasions in Orange County. Fast relief for scratched cornea pain. Prevent infection and scarring. Call (949) 364-0008 immediately.",
+    localKeywords: ["scratched cornea treatment", "corneal abrasion healing", "something scratched my eye", "eye scratch treatment", "corneal abrasion pain"],
+    faqs: [
+      { question: "How long does a corneal abrasion take to heal?", answer: "Most minor corneal abrasions heal within 24-72 hours. Larger or deeper scratches may take up to a week. Proper antibiotic treatment prevents infection during healing." },
+      { question: "Should I go to the ER for a scratched cornea?", answer: "For significant pain, see an eye doctor or urgent care same-day. Go to the ER if the injury involved chemicals, metal, glass, or high-velocity objects, or if you can't open your eye." },
+      { question: "Why does a corneal abrasion hurt so much?", answer: "The cornea has more nerve endings per square millimeter than almost any other part of the body. Even a tiny scratch causes intense pain because the cornea is extremely sensitive." },
+      { question: "Can I wear contacts after a corneal abrasion?", answer: "No, avoid contact lenses until the abrasion is completely healed and your doctor clears you. Contacts can delay healing and increase infection risk." }
+    ],
+    recoveryTimeline: "Minor abrasions heal in 24-72 hours. Larger abrasions may take 5-7 days. Complete epithelial stability takes 6-8 weeks.",
+    relatedServices: ["Emergency Eye Care", "Comprehensive Eye Exam", "Contact Lens Evaluation"]
+  },
+  {
+    name: "Photophobia (Light Sensitivity)",
+    slug: "photophobia",
+    category: "Symptom",
+    description: "Photophobia is an abnormal sensitivity to light that causes discomfort or pain. It's not a disease itself but a symptom that can indicate various underlying conditions including dry eye, migraines, corneal problems, or inflammation inside the eye.",
+    symptoms: ["Eye pain in bright light", "Squinting", "Need for sunglasses indoors", "Headaches triggered by light", "Excessive tearing", "Difficulty with screens or fluorescent lights"],
+    treatments: ["Treatment of Underlying Cause", "Tinted Lenses (FL-41)", "Dry Eye Treatment", "Migraine Management", "Anti-inflammatory Eye Drops"],
+    seoTitle: "Photophobia Treatment Orange County | Light Sensitivity Specialist",
+    seoDescription: "Expert diagnosis and treatment for photophobia in Orange County. Find relief from light sensitivity. Identify and treat the underlying cause. Call (949) 364-0008.",
+    localKeywords: ["light sensitivity eyes", "photophobia treatment", "eyes hurt in light", "light sensitive after concussion", "fl-41 glasses"],
+    faqs: [
+      { question: "What causes photophobia?", answer: "Common causes include dry eye syndrome, migraines, corneal abrasions, uveitis (eye inflammation), concussion, certain medications, and light-colored eyes. Identifying the underlying cause is essential for effective treatment." },
+      { question: "Can dry eyes cause light sensitivity?", answer: "Yes, dry eye is one of the most common causes of photophobia. When the tear film is unstable, light scatters irregularly on the cornea, causing discomfort. Treating dry eye often significantly improves light sensitivity." },
+      { question: "Do FL-41 tinted lenses help with photophobia?", answer: "Yes, FL-41 rose-tinted lenses filter specific wavelengths of light that trigger photophobia and migraines. Studies show they reduce migraine frequency and light sensitivity better than gray tints." },
+      { question: "When is photophobia an emergency?", answer: "Seek immediate care if light sensitivity comes with severe eye pain, vision loss, eye redness, or after head injury. These could indicate serious conditions like acute glaucoma, iritis, or meningitis." }
+    ],
+    recoveryTimeline: "Depends on underlying cause. Dry eye-related photophobia often improves within weeks of treatment. Migraine-related sensitivity may require ongoing management.",
+    relatedServices: ["Comprehensive Eye Exam", "Dry Eye Treatment", "Specialty Lens Fitting"]
+  },
+  {
+    name: "Pinguecula",
+    slug: "pinguecula",
+    category: "Conjunctival Lesion",
+    description: "A pinguecula is a yellowish, slightly raised growth on the conjunctiva (the clear coating over the white of the eye), usually near the cornea on the nose side. It's caused by UV exposure and environmental irritation. While benign, it can cause discomfort and cosmetic concerns.",
+    symptoms: ["Yellowish bump on white of eye", "Dryness or irritation", "Foreign body sensation", "Redness around the growth", "Usually on nasal side of eye"],
+    treatments: ["Lubricating Eye Drops", "UV-Blocking Sunglasses", "Anti-inflammatory Drops (if inflamed)", "Surgical Removal (rare, for severe cases)"],
+    seoTitle: "Pinguecula Treatment Orange County | Yellow Bump on Eye",
+    seoDescription: "Expert pinguecula evaluation and treatment in Orange County. Relief from yellow bump irritation. UV protection and management. Call (949) 364-0008.",
+    localKeywords: ["pinguecula treatment", "yellow spot on eye", "yellow bump on white of eye", "surfer's eye", "pinguecula removal"],
+    faqs: [
+      { question: "Is a pinguecula dangerous?", answer: "No, pingueculae are benign growths and do not turn into cancer. They are primarily a cosmetic concern and may cause mild irritation or dryness. They don't affect vision unless they grow very large." },
+      { question: "Can a pinguecula be removed?", answer: "Surgical removal is possible but rarely recommended because pingueculae often recur after surgery. Treatment usually focuses on managing symptoms with lubricating drops and preventing growth with UV protection." },
+      { question: "What's the difference between pinguecula and pterygium?", answer: "A pinguecula stays on the white of the eye, while a pterygium grows onto the cornea. A pinguecula can potentially develop into a pterygium if UV exposure continues." },
+      { question: "How do I prevent pingueculae from getting worse?", answer: "Wear UV-blocking sunglasses and a hat outdoors, use lubricating drops regularly, and avoid dry, dusty, or windy environments when possible." }
+    ],
+    recoveryTimeline: "Pingueculae are permanent but symptoms can be managed. Inflamed pingueculitis typically resolves within 1-2 weeks with treatment.",
+    relatedServices: ["Comprehensive Eye Exam", "Dry Eye Treatment"]
+  },
+  {
+    name: "Anisocoria (Unequal Pupils)",
+    slug: "anisocoria",
+    category: "Neurological",
+    description: "Anisocoria is a condition where the pupils are different sizes. While mild anisocoria is normal in up to 20% of the population, new or significant pupil asymmetry can indicate serious neurological conditions and requires prompt evaluation.",
+    symptoms: ["One pupil larger than the other", "May be more noticeable in certain lighting", "Possible droopy eyelid", "Possible double vision", "Usually no pain (pain is concerning)"],
+    treatments: ["Observation (physiological anisocoria)", "Treatment of Underlying Cause", "Neuroimaging (if concerning)", "Urgent Neurology Referral (if acute)"],
+    seoTitle: "Anisocoria Evaluation Orange County | Unequal Pupil Specialist",
+    seoDescription: "Expert evaluation for unequal pupils in Orange County. Distinguish benign from serious causes of anisocoria. Same-day appointments available. Call (949) 364-0008.",
+    localKeywords: ["unequal pupils causes", "one pupil bigger than other", "anisocoria treatment", "pupil size different", "horner syndrome"],
+    faqs: [
+      { question: "Is having different-sized pupils serious?", answer: "It depends. Physiological anisocoria (present since birth, stable, <1mm difference) is harmless and affects 20% of people. New-onset anisocoria, especially with other symptoms, can indicate serious conditions like Horner syndrome, third nerve palsy, or brain aneurysm." },
+      { question: "When should I worry about unequal pupils?", answer: "Seek immediate evaluation if anisocoria is new, greater than 1mm difference, accompanied by headache, droopy eyelid, double vision, eye pain, or occurs after head injury." },
+      { question: "What tests are done for anisocoria?", answer: "We'll examine pupil reactions in light and dark, check for ptosis, and may use special eye drops to help diagnose the cause. Brain imaging (MRI/MRA) may be needed to rule out serious neurological causes." },
+      { question: "Can medications cause unequal pupils?", answer: "Yes, certain medications, eye drops (especially those for glaucoma), scopolamine patches, and even touching plants like jimsonweed can cause one pupil to dilate." }
+    ],
+    recoveryTimeline: "Depends on cause. Physiological anisocoria requires no treatment. Pathological causes require treatment of the underlying condition.",
+    relatedServices: ["Comprehensive Eye Exam", "Neuro-Ophthalmology Evaluation"]
+  },
+  {
+    name: "Periorbital Cellulitis",
+    slug: "periorbital-cellulitis",
+    category: "Eye Infection",
+    description: "Periorbital cellulitis (preseptal cellulitis) is a bacterial infection of the eyelid and skin around the eye, in front of the orbital septum. It's more common in children and usually follows an insect bite, skin wound, or sinus infection. Requires prompt antibiotic treatment.",
+    symptoms: ["Swelling of eyelid and surrounding skin", "Redness and warmth", "Tenderness", "Possible fever", "Eye itself is typically NOT affected (normal vision, eye movement)"],
+    treatments: ["Oral Antibiotics", "IV Antibiotics (severe cases)", "Warm Compresses", "Close Monitoring", "CT Scan (to rule out orbital cellulitis)"],
+    seoTitle: "Periorbital Cellulitis Treatment Orange County | Eyelid Infection",
+    seoDescription: "Urgent treatment for periorbital cellulitis in Orange County. Fast antibiotic therapy for eyelid infections. Distinguish from serious orbital cellulitis. Call (949) 364-0008.",
+    localKeywords: ["periorbital cellulitis treatment", "swollen eyelid infection", "preseptal cellulitis", "eyelid cellulitis child", "eye infection swelling"],
+    faqs: [
+      { question: "How serious is periorbital cellulitis?", answer: "Periorbital cellulitis is a bacterial infection requiring antibiotics but is generally not vision-threatening when treated promptly. It's important to distinguish it from orbital cellulitis, which is more serious." },
+      { question: "What's the difference between periorbital and orbital cellulitis?", answer: "Periorbital cellulitis affects the eyelid and skin AROUND the eye with normal eye movement and vision. Orbital cellulitis affects the eye socket itself, causing pain with eye movement, bulging eye, and vision changes—this is an emergency." },
+      { question: "How did I get periorbital cellulitis?", answer: "Common causes include insect bites, minor skin injuries, sinus infections, styes that spread, or upper respiratory infections. Children are more susceptible, especially from sinus infections." },
+      { question: "Will I need to be hospitalized?", answer: "Most cases can be treated with oral antibiotics at home. Hospitalization with IV antibiotics is needed for severe cases, young children, diabetics, or if orbital cellulitis is suspected." }
+    ],
+    recoveryTimeline: "Improvement typically begins within 24-48 hours of starting antibiotics. Complete resolution usually takes 7-10 days of treatment.",
+    relatedServices: ["Emergency Eye Care", "Comprehensive Eye Exam"]
+  },
+  {
+    name: "Eye Pain",
+    slug: "eye-pain",
+    category: "Symptom",
+    description: "Eye pain can range from a dull ache to sharp, severe pain and may indicate various conditions from minor eye strain to serious emergencies like acute glaucoma or uveitis. The location, type, and accompanying symptoms help determine the cause.",
+    symptoms: ["Aching or throbbing pain", "Sharp or stabbing pain", "Burning sensation", "Pain with eye movement", "Pain with light exposure", "Headache around eye"],
+    treatments: ["Treatment Depends on Cause", "Lubricating Drops (dry eye)", "Anti-inflammatory Drops (uveitis)", "Pressure-lowering Drops (glaucoma)", "Antibiotics (infection)", "Rest (eye strain)"],
+    seoTitle: "Eye Pain Evaluation Orange County | Eye Ache Specialist",
+    seoDescription: "Expert diagnosis for eye pain in Orange County. Identify the cause of your eye discomfort. From dry eye to emergencies—same-day appointments. Call (949) 364-0008.",
+    localKeywords: ["eye pain causes", "sharp pain in eye", "aching eye", "pain behind eye", "eye hurts to move"],
+    faqs: [
+      { question: "What causes sharp pain in the eye?", answer: "Sharp eye pain can be caused by corneal abrasion, foreign body, acute angle-closure glaucoma, or uveitis. If severe or sudden, seek immediate evaluation as some causes are emergencies." },
+      { question: "Why does my eye hurt when I move it?", answer: "Pain with eye movement can indicate optic neuritis, orbital inflammation, sinusitis, muscle strain, or thyroid eye disease. If accompanied by vision changes, seek prompt evaluation." },
+      { question: "When is eye pain an emergency?", answer: "Seek immediate care for sudden severe eye pain, especially with vision loss, halos around lights, nausea/vomiting, eye redness, or after trauma. These could indicate acute glaucoma, uveitis, or other emergencies." },
+      { question: "Can dry eyes cause pain?", answer: "Yes, severe dry eye can cause significant discomfort including burning, stinging, and aching. Pain that worsens by end of day or with screen use often suggests dry eye as the cause." }
+    ],
+    recoveryTimeline: "Depends entirely on the underlying cause. Simple eye strain may resolve in hours; other conditions may require weeks of treatment.",
+    relatedServices: ["Comprehensive Eye Exam", "Emergency Eye Care", "Dry Eye Treatment"]
   },
 
   // New Detailed Conditions (Batch 1)
@@ -393,23 +650,25 @@ export const conditions: Condition[] = [
                         relatedServices: ["Vision Therapy", "Binocular Vision Assessment"]
 },
 {
-  name: "Meibomian Gland Dysfunction (MGD)",
+    name: "Meibomian Gland Dysfunction (MGD)",
     slug: "meibomian-gland-dysfunction",
-      category: "Dry Eye",
-        description: "MGD is a blockage or abnormality of the meibomian glands (oil glands) in the eyelids. Without enough oil, tears evaporate too quickly, leading to dry eye.",
-          symptoms: ["Dryness", "Burning", "Itching", "Redness", "Blurred vision"],
-            treatments: ["Lipiflow / iLux", "Warm Compresses", "Omega-3s", "Doxycycline"],
-              seoTitle: "MGD Treatment Orange County | Meibomian Gland Dysfunction",
-                seoDescription: "Expert MGD treatment in Orange County. Lipiflow and advanced therapies for evaporative dry eye. Call (949) 364-0008.",
-                  localKeywords: ["mgd treatment", "blocked oil glands eye", "lipiflow near me", "evaporative dry eye", "meibomian gland expression"],
-                    faqs: [
-                      { question: "Can blocked glands be unclogged?", answer: "Yes, thermal pulsation treatments like LipiFlow heat and massage the glands to clear blockages." },
-                      { question: "Is MGD permanent?", answer: "If left untreated, the glands can atrophy (die off) permanently. Early treatment is essential." },
-                      { question: "Why do I have it?", answer: "Aging, contact lens wear, and digital screen use (incomplete blinking) are major causes." }
-                    ],
-                      recoveryTimeline: "Improvement is seen 4-6 weeks after thermal pulsation treatment.",
-                        relatedServices: ["Dry Eye Treatment", "LipiFlow"]
-},
+    category: "Dry Eye",
+    description: "Meibomian Gland Dysfunction (MGD) is the leading cause of evaporative dry eye disease, affecting up to 86% of dry eye patients. The meibomian glands in your eyelids produce the essential oil layer of your tear film. When these glands become blocked or dysfunctional, tears evaporate too quickly, causing chronic dryness, irritation, and vision fluctuations. Early diagnosis with meibography imaging and treatment with advanced therapies like IPL (Intense Pulsed Light) can restore gland function before permanent damage occurs.",
+    symptoms: ["Chronic dryness that worsens throughout the day", "Burning and stinging sensation", "Gritty or sandy feeling", "Red, irritated eyes", "Fluctuating or blurred vision", "Eye fatigue", "Sensitivity to light", "Crusty or sticky eyelids in the morning"],
+    treatments: ["IPL (Intense Pulsed Light) Therapy", "LipiFlow Thermal Pulsation", "Meibomian Gland Expression", "BlephEx Lid Debridement", "Omega-3 Supplements", "Warm Compresses (adjunct therapy)", "Low-dose Doxycycline"],
+    seoTitle: "MGD Treatment Orange County | IPL & LipiFlow Specialists",
+    seoDescription: "Advanced Meibomian Gland Dysfunction treatment in Orange County. IPL therapy, LipiFlow, and meibography diagnosis. 87% improvement rates vs 30% with traditional methods. Call (949) 364-0008.",
+    localKeywords: ["mgd treatment", "meibomian gland dysfunction specialist", "ipl dry eye treatment", "lipiflow orange county", "meibography near me", "evaporative dry eye", "blocked oil glands treatment"],
+    faqs: [
+      { question: "Why don't warm compresses work well for MGD?", answer: "Traditional warm compress therapy shows only 20-40% improvement rates in clinical studies. The heat often doesn't penetrate deeply enough or maintain consistent temperature to effectively melt the hardened meibum blocking the glands. Modern treatments like IPL and LipiFlow deliver controlled, sustained therapeutic heat directly to the glands." },
+      { question: "What is IPL treatment for MGD and how effective is it?", answer: "IPL (Intense Pulsed Light) therapy uses calibrated light pulses to reduce inflammation, decrease abnormal blood vessels around the eyelids, and liquefy hardened meibum. A 2017 study by Dell et al. showed 87% of patients experienced significant improvement after IPL treatment. It also reduces Demodex mites and bacterial load on the eyelids." },
+      { question: "How is MGD diagnosed?", answer: "We use meibography imaging to directly visualize your meibomian glands and assess gland dropout or atrophy. This non-invasive imaging shows the actual structure of your glands, allowing us to determine disease severity and track treatment progress. Early detection is crucial because gland loss is often irreversible." },
+      { question: "What is the success rate of LipiFlow vs traditional treatments?", answer: "The SPEED study showed LipiFlow thermal pulsation achieves 76-86% improvement in MGD signs and symptoms at one month. In contrast, traditional warm compress and lid hygiene protocols show only 20-40% improvement rates. The key difference is that LipiFlow delivers consistent, controlled heat while simultaneously expressing the glands." },
+      { question: "Can MGD glands regenerate once they're gone?", answer: "Unfortunately, meibomian glands cannot regenerate once they atrophy. This is why early diagnosis and treatment are critical. Meibography imaging allows us to detect gland dropout before you experience severe symptoms, giving us the best chance to preserve your remaining gland function." }
+    ],
+    recoveryTimeline: "IPL treatment typically requires 4 sessions spaced 2-4 weeks apart. Most patients notice improvement after the second session. LipiFlow provides results within 2-4 weeks after a single treatment. Ongoing maintenance with proper lid hygiene and omega-3 supplementation helps sustain results.",
+    relatedServices: ["Dry Eye Treatment", "IPL Therapy", "LipiFlow", "Comprehensive Eye Exam"]
+  },
 {
   name: "Hypertensive Retinopathy",
     slug: "hypertensive-retinopathy",
