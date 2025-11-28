@@ -415,7 +415,7 @@ export default function OpticalLensesContent() {
                         </div>
 
                         <p className="text-sm text-gray-500 italic mt-4 border-t pt-4">
-                            * Prism is a medical prescription that requires a specific evaluation by Dr. Bonakdar. If you experience these symptoms, please mention them during your exam.
+                            * Prism is a medical prescription that requires a specific evaluation by Dr. Alexander Bonakdar. If you experience these symptoms, please mention them during your exam.
                         </p>
                     </div>
                 </LensModal>

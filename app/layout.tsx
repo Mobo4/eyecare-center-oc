@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     "low vision aids",
     "top eye surgeon orange county"
   ],
-  authors: [{ name: "Dr. Bonakdar", url: "https://eyecarecenteroc.com" }],
+  authors: [{ name: "Dr. Alexander Bonakdar", url: "https://eyecarecenteroc.com" }],
   creator: "EyeCare Center of Orange County",
   publisher: "EyeCare Center of Orange County",
   robots: {

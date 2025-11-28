@@ -66,7 +66,7 @@ export default function MedicalProfessionalsPage() {
                                 </h2>
                                 <div className="prose prose-lg text-gray-600 mb-8">
                                     <p>
-                                        Dr. Bonakdar and his team specialize in managing complex corneal conditions that often require
+                                        Dr. Alexander Bonakdar and his team specialize in managing complex corneal conditions that often require
                                         advanced diagnostics and specialized treatment modalities not available in all primary eye care settings.
                                     </p>
                                     <p>

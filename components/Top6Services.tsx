@@ -47,19 +47,19 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: 'dry-eye-ipl',
-    title: 'Dry Eye Treatment (IPL)',
-    subtitle: 'Advanced Relief for Chronic Dry Eyes',
-    description: 'Intense Pulsed Light (IPL) therapy treats the root cause of dry eye syndrome, providing long-lasting relief where eye drops fail.',
-    icon: IPLDryEyeIcon,
-    searches: '3,800 searches/month',
-    href: '/services/dry-eye-ipl-treatment',
-    cta: 'Learn About IPL Therapy',
+    id: 'scleral-lenses',
+    title: 'Scleral Lens Fitting',
+    subtitle: 'Custom Large-Diameter Contact Lenses',
+    description: 'Custom scleral lenses provide superior vision and comfort for keratoconus, post-LASIK complications, severe dry eyes, and other complex conditions.',
+    icon: ContactLensIcon,
+    searches: '590 searches/month',
+    href: '/services/scleral-lenses',
+    cta: 'Explore Scleral Lenses',
     benefits: [
-      'FDA-cleared technology',
-      'Treats root cause, not just symptoms',
-      'Long-lasting relief (6-12 months)',
-      'Non-invasive, no downtime'
+      'Custom-designed for your eyes',
+      'All-day comfort',
+      'Superior vision vs. glasses',
+      'Ideal for irregular corneas'
     ]
   },
   {
@@ -79,19 +79,19 @@ const services: Service[] = [
     ]
   },
   {
-    id: 'lasik',
-    title: 'LASIK Surgery',
-    subtitle: 'Permanent Vision Correction',
-    description: 'State-of-the-art LASIK consultation and co-management with Orange County\'s top refractive surgeons.',
-    icon: LasikIcon,
-    searches: '2,100 searches/month',
-    href: '/services/lasik-surgery',
-    cta: 'Check LASIK Candidacy',
+    id: 'dry-eye-ipl',
+    title: 'Dry Eye Treatment (IPL)',
+    subtitle: 'Advanced Relief for Chronic Dry Eyes',
+    description: 'Intense Pulsed Light (IPL) therapy treats the root cause of dry eye syndrome, providing long-lasting relief where eye drops fail.',
+    icon: IPLDryEyeIcon,
+    searches: '3,800 searches/month',
+    href: '/services/dry-eye-ipl-treatment',
+    cta: 'Learn About IPL Therapy',
     benefits: [
-      'Free candidacy evaluation',
-      'Partnership with top surgeons',
-      'Lifetime follow-up care',
-      'Financing options available'
+      'FDA-cleared technology',
+      'Treats root cause, not just symptoms',
+      'Long-lasting relief (6-12 months)',
+      'Non-invasive, no downtime'
     ]
   },
   {
@@ -127,19 +127,19 @@ const services: Service[] = [
     ]
   },
   {
-    id: 'scleral-lenses',
-    title: 'Scleral Lens Fitting',
-    subtitle: 'Custom Large-Diameter Contact Lenses',
-    description: 'Custom scleral lenses provide superior vision and comfort for keratoconus, post-LASIK complications, severe dry eyes, and other complex conditions.',
-    icon: ContactLensIcon,
-    searches: '590 searches/month',
-    href: '/services/scleral-lenses',
-    cta: 'Explore Scleral Lenses',
+    id: 'lasik',
+    title: 'LASIK Surgery',
+    subtitle: 'Permanent Vision Correction',
+    description: 'State-of-the-art LASIK consultation and co-management with Orange County\'s top refractive surgeons.',
+    icon: LasikIcon,
+    searches: '2,100 searches/month',
+    href: '/services/lasik-surgery',
+    cta: 'Check LASIK Candidacy',
     benefits: [
-      'Custom-designed for your eyes',
-      'All-day comfort',
-      'Superior vision vs. glasses',
-      'Ideal for irregular corneas'
+      'Free candidacy evaluation',
+      'Partnership with top surgeons',
+      'Lifetime follow-up care',
+      'Financing options available'
     ]
   }
 ];

@@ -17,22 +17,22 @@ const ComprehensiveEyeCare = () => {
       description: "Expert diagnosis and treatment of diabetic retinopathy, macular degeneration, glaucoma, and all types of eye disease."
     },
     {
-      icon: <GraduationCap className="w-6 h-6" />,
-      title: "Doctor of Optometry Expertise",
-      description: "OD degree with advanced medical school training and 35+ years of clinical experience treating Orange County patients."
+      icon: <Shield className="w-6 h-6" />,
+      title: "Urgent Eye Care",
+      description: "Same-day appointments available for eye infections, injuries, sudden vision changes, and other ocular emergencies."
     },
     {
       icon: <ClipboardCheck className="w-6 h-6" />,
-      title: "Advanced Diagnostics",
-      description: "State-of-the-art equipment for early detection of eye problems, retinal imaging, and comprehensive eye health assessment."
+      title: "Surgical Co-Management",
+      description: "Expert pre-operative and post-operative care for LASIK, cataract surgery, and other ocular procedures."
     },
     {
       icon: <Activity className="w-6 h-6" />,
-      title: "Contact Lenses & Vision Care",
-      description: "Expert contact lens fitting for all types of eye conditions, specialty lenses, and personalized vision correction."
+      title: "Myopia Management",
+      description: "Specialized protocols to slow the progression of nearsightedness in children using Ortho-K and other evidence-based methods."
     },
     {
-      icon: <Shield className="w-6 h-6" />,
+      icon: <GraduationCap className="w-6 h-6" />,
       title: "Preventive Eye Health",
       description: "Proactive eye care to maintain optimal eye and vision health throughout life with regular monitoring and treatment."
     }
@@ -47,7 +47,7 @@ const ComprehensiveEyeCare = () => {
             Orange County&apos;s Leading <span className="text-eyecare-blue">Optometrist</span> & Eye Care Center
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Dr. Bonakdar, Doctor of Optometry, provides comprehensive eye exams and treats eye problems with 35+ years of clinical training. Our optometry practice specializes in diagnosing and treating all types of eye conditions, from routine vision care to complex eye disease management.
+            Dr. Alexander Bonakdar, Doctor of Optometry, provides comprehensive eye exams and treats eye problems with 35+ years of clinical training. Our optometry practice specializes in diagnosing and treating all types of eye conditions, from routine vision care to complex eye disease management.
           </p>
         </div>
 

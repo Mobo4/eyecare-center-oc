@@ -214,7 +214,7 @@ export default function HomePage() {
 
       <ExitIntentPopup
         title="Get Expert Eye Care in Orange County"
-        description="Don't struggle with vision issues any longer. Dr. Bonakdar has 35+ years of experience providing comprehensive eye care and specialized treatments."
+        description="Don't struggle with vision issues any longer. Dr. Alexander Bonakdar has 35+ years of experience providing comprehensive eye care and specialized treatments."
         imageSrc="/images/hero-background.png"
         benefits={[
           'Same-day appointments available',

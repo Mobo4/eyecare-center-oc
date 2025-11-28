@@ -8,7 +8,7 @@ export default function CleanHero() {
       {/* Background Pattern/Image Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/Hero-main.webp"
+          src="/images/hero-modern.png"
           alt="Modern Eye Care Center"
           fill
           className="object-cover opacity-20 mix-blend-overlay"
@@ -37,7 +37,7 @@ export default function CleanHero() {
             </h1>
 
             <p className="text-xl text-blue-100 max-w-xl leading-relaxed font-light">
-              Experience the perfect blend of advanced medical technology and compassionate, personalized care with Dr. Bonakdar.
+              Experience the perfect blend of advanced medical technology and compassionate, personalized care with Dr. Alexander Bonakdar.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -78,7 +78,7 @@ export default function CleanHero() {
             <div className="relative bg-white p-2 rounded-2xl shadow-2xl shadow-blue-900/5 max-w-sm rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/Hero-main.webp"
+                  src="/images/doctor-consult.png"
                   alt="Eye Care Center of Orange County"
                   fill
                   className="object-cover object-top"
@@ -86,7 +86,7 @@ export default function CleanHero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60" />
                 <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <p className="font-serif text-2xl font-bold">Dr. Bonakdar</p>
+                  <p className="font-serif text-2xl font-bold">Dr. Alexander Bonakdar</p>
                   <p className="text-blue-100 font-medium">Lead Optometrist</p>
                 </div>
               </div>

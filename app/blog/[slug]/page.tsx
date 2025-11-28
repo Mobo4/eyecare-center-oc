@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="mt-12 bg-gradient-to-br from-eyecare-blue to-eyecare-dark-blue rounded-2xl p-8 text-white text-center">
                         <h3 className="text-2xl font-bold mb-4">Have Questions About Your Eye Health?</h3>
                         <p className="text-eyecare-lighter-blue mb-8 max-w-xl mx-auto">
-                            Dr. Bonakdar and his team are here to help. Schedule a consultation to discuss your specific needs.
+                            Dr. Alexander Bonakdar and his team are here to help. Schedule a consultation to discuss your specific needs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a

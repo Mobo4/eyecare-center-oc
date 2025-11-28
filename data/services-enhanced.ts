@@ -230,7 +230,7 @@ Our dry eye specialist offers advanced treatments including IPL (Intense Pulsed 
     icon: '/images/icons/scleral-lens-icon.svg',
     overview: `Scleral contact lenses are large-diameter gas permeable lenses that vault over the entire cornea, providing exceptional vision and comfort for patients who cannot achieve good results with traditional contact lenses or glasses.
 
-At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions. We utilize the latest lens technologies including Multifocal, Toric, and HOA (Higher Order Aberration) correction to provide not just fit, but superior visual quality. Our advanced fitting technology and extensive lens inventory allow us to achieve optimal fits for even the most challenging cases.`,
+At EyeCare Center of Orange County, Dr. Alexander Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions. We utilize the latest lens technologies including Multifocal, Toric, and HOA (Higher Order Aberration) correction to provide not just fit, but superior visual quality. Our advanced fitting technology and extensive lens inventory allow us to achieve optimal fits for even the most challenging cases.`,
     benefits: [
       'Clear, stable vision for irregular corneas',
       'All-day comfort with moisture reservoir',
@@ -1052,7 +1052,7 @@ Ortho-K is also one of the most effective methods for myopia (nearsightedness) c
     icon: '/images/icons/scleral-lens-icon.svg',
     overview: `Scleral contact lenses are large-diameter gas permeable lenses that vault over the entire cornea, providing exceptional vision and comfort for patients who cannot achieve good results with traditional contact lenses or glasses.
 
-At EyeCare Center of Orange County, Dr. Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions.`,
+At EyeCare Center of Orange County, Dr. Alexander Bonakdar has over 35 years of experience fitting scleral lenses for keratoconus, post-surgical complications, severe dry eye, and other complex corneal conditions.`,
     benefits: [
       'Clear, stable vision for irregular corneas',
       'All-day comfort with moisture reservoir',
@@ -1444,11 +1444,11 @@ export function getSmartServiceBySlug(slug: string): ServiceData | undefined {
     name: basic.name,
     shortName: basic.name,
     description: basic.description,
-    metaDescription: `Expert ${basic.name} in Orange County. Comprehensive care and personalized treatment from Dr. Bonakdar. Schedule your consultation today.`,
+    metaDescription: `Expert ${basic.name} in Orange County. Comprehensive care and personalized treatment from Dr. Alexander Bonakdar. Schedule your consultation today.`,
     keywords: [basic.name.toLowerCase(), `${basic.name.toLowerCase()} orange county`, 'eye doctor near me'],
     heroImage: '/images/hero-background.png', // Default
     icon: '/images/icons/eye-exam-icon.svg', // Default
-    overview: `${basic.name} is a specialized service offered at EyeCare Center of Orange County. Dr. Bonakdar has over 35 years of experience providing ${basic.name.toLowerCase()} to patients throughout Orange County. We use the latest technology and techniques to ensure the best possible outcomes for your vision and eye health.`,
+    overview: `${basic.name} is a specialized service offered at EyeCare Center of Orange County. Dr. Alexander Bonakdar has over 35 years of experience providing ${basic.name.toLowerCase()} to patients throughout Orange County. We use the latest technology and techniques to ensure the best possible outcomes for your vision and eye health.`,
     benefits: [
       'Expert diagnosis and treatment',
       'Personalized care plan',
@@ -1495,7 +1495,7 @@ export function getSmartServiceBySlug(slug: string): ServiceData | undefined {
     faqs: [
       {
         question: `What is included in ${basic.name}?`,
-        answer: `${basic.name} includes a comprehensive evaluation, diagnosis, and personalized treatment plan. Dr. Bonakdar will explain every step of the process.`
+        answer: `${basic.name} includes a comprehensive evaluation, diagnosis, and personalized treatment plan. Dr. Alexander Bonakdar will explain every step of the process.`
       },
       {
         question: 'Do I need a referral?',

@@ -36,7 +36,7 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive eye exams, advanced treatments, and personalized care from Dr. Bonakdar with 35+ years of experience serving Orange County since 1991
+            Comprehensive eye exams, advanced treatments, and personalized care from Dr. Alexander Bonakdar with 35+ years of experience serving Orange County since 1991
           </p>
 
           {/* CTA Buttons */}

@@ -91,7 +91,7 @@ export default async function LocalConditionPage({ params }: Props) {
   const locationName = city.name;
   const conditionImage = getConditionImage(condition.slug);
   const popupTitle = `Suffering from ${condition.name}?`;
-  const popupDescription = `You don't have to live with ${condition.name.toLowerCase()}. Dr. Bonakdar is an expert in treating complex eye conditions in ${locationName}. Schedule your consultation today.`;
+  const popupDescription = `You don't have to live with ${condition.name.toLowerCase()}. Dr. Alexander Bonakdar is an expert in treating complex eye conditions in ${locationName}. Schedule your consultation today.`;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://eyecarecenteroc.com' },
@@ -236,7 +236,7 @@ export default async function LocalConditionPage({ params }: Props) {
                       <CheckCircle className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-0.5" />
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">Over 35 Years of Experience</h3>
-                        <p className="text-gray-700">Dr. Bonakdar has been serving Orange County since 1991 with specialized expertise in {condition.category.toLowerCase()}.</p>
+                        <p className="text-gray-700">Dr. Alexander Bonakdar has been serving Orange County since 1991 with specialized expertise in {condition.category.toLowerCase()}.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">

@@ -8,7 +8,7 @@ import { Calendar, User, Tag, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Eye Care Blog | Expert Insights & Tips | Orange County',
-    description: 'Stay informed about the latest in eye health, keratoconus treatments, dry eye relief, and more from Dr. Bonakdar and the EyeCare Center of Orange County team.',
+    description: 'Stay informed about the latest in eye health, keratoconus treatments, dry eye relief, and more from Dr. Alexander Bonakdar and the EyeCare Center of Orange County team.',
 };
 
 export default function BlogIndexPage() {

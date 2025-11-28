@@ -51,28 +51,37 @@ const WhyChooseUs = () => {
             Experience the difference of comprehensive, patient-centered eye care with Orange County&apos;s trusted optometry experts.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="flex items-start gap-4">
-                <div className="text-eyecare-blue flex-shrink-0">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="/images/advanced-exam.png"
+              alt="Advanced Eye Exam Technology"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-eyecare-blue flex-shrink-0">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        
+
         <div className="text-center">
-          <Link 
+          <Link
             href="/book-appointment"
             className="inline-flex items-center bg-eyecare-blue hover:bg-eyecare-dark-blue text-white px-8 py-3 rounded-md text-lg font-medium transition-all hover:scale-105 transform duration-300"
           >

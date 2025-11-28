@@ -65,7 +65,7 @@ const ModernHero = () => {
 
             {/* Supporting Copy - Builds Trust */}
             <p className="text-lg text-gray-600 mb-10 max-w-3xl mx-auto">
-              Dr. Bonakdar combines clinical excellence with personalized care—no long waits,
+              Dr. Alexander Bonakdar combines clinical excellence with personalized care—no long waits,
               no rushed appointments. Walk-ins welcome for urgent eye concerns.
             </p>
 
@@ -84,7 +84,7 @@ const ModernHero = () => {
               <a href={phoneHref} className="w-full sm:w-auto">
                 <button
                   className="group w-full bg-white hover:bg-gray-50 text-gray-900 px-10 py-5 rounded-full text-lg font-bold border-3 border-emerald-600/20 hover:border-emerald-600/40 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center callrail-phone"
-                  aria-label={`Call Dr. Bonakdar at ${phoneNumber}`}
+                  aria-label={`Call Dr. Alexander Bonakdar at ${phoneNumber}`}
                 >
                   <Phone className="mr-3 w-6 h-6 text-emerald-600 group-hover:rotate-12 transition-transform duration-300" />
                   {phoneNumber}

@@ -189,7 +189,7 @@ export default function ConditionCityModal({ condition, onClose }: ConditionCity
           <div className="bg-gray-100 rounded-xl p-6 text-center border-2 border-dashed border-gray-300">
             <PlayCircle className="w-12 h-12 text-gray-400 mx-auto mb-3" />
             <p className="text-gray-600 font-medium mb-1">Video Coming Soon</p>
-            <p className="text-sm text-gray-500">Dr. Bonakdar explains {condition.name} in simple terms</p>
+            <p className="text-sm text-gray-500">Dr. Alexander Bonakdar explains {condition.name} in simple terms</p>
           </div>
 
           {/* Learn More Button */}

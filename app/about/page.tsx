@@ -10,11 +10,11 @@ import Testimonials from '@/components/Testimonials';
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-  title: 'About Dr. Bonakdar & Our Team | EyeCare Center of Orange County',
-  description: 'Meet Dr. Bonakdar and the expert team at EyeCare Center of Orange County. Learn about our 35+ years of experience and our commitment to patient care.',
+  title: 'About Dr. Alexander Bonakdar & Our Team | EyeCare Center of Orange County',
+  description: 'Meet Dr. Alexander Bonakdar and the expert team at EyeCare Center of Orange County. Learn about our 35+ years of experience and our commitment to patient care.',
   keywords: [
     'about eye care center orange county',
-    'Dr. Bonakdar',
+    'Dr. Alexander Bonakdar',
     'Bascom Palmer Eye Institute',
     'board certified ophthalmologist',
     'orange county ophthalmologist',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'pediatric eye care orange county'
   ],
   openGraph: {
-    title: 'About Dr. Bonakdar & Our Team | EyeCare Center of Orange County',
+    title: 'About Dr. Alexander Bonakdar & Our Team | EyeCare Center of Orange County',
     description: 'With over 35 years of experience and training from the renowned Bascom Palmer Eye Institute, our team provides expert, compassionate eye care.',
     type: 'website',
   },
@@ -134,14 +134,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* About Dr. Bonakdar Section */}
+        {/* About Dr. Alexander Bonakdar Section */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
               <div className="md:col-span-1">
                 <Image
                   src="/images/doctors/drbonakdar.png"
-                  alt="Dr. Bonakdar - Board Certified Ophthalmologist specializing in Keratoconus and Corneal Disease"
+                  alt="Dr. Alexander Bonakdar - Board Certified Ophthalmologist specializing in Keratoconus and Corneal Disease"
                   width={500}
                   height={500}
                   className="rounded-lg shadow-md"
@@ -149,13 +149,13 @@ export default function AboutPage() {
               </div>
               <div className="md:col-span-2">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Meet Dr. Bonakdar
+                  Meet Dr. Alexander Bonakdar
                 </h2>
                 <p className="text-lg text-gray-600 mb-6">
-                  With a distinguished career spanning over three decades, Dr. Bonakdar is a board-certified ophthalmologist recognized for his clinical expertise and compassionate approach to patient care. His commitment to providing the highest standard of vision care is rooted in his world-class training at the prestigious <strong>Bascom Palmer Eye Institute</strong>, consistently ranked as the nation's leading eye hospital.
+                  With a distinguished career spanning over three decades, Dr. Alexander Bonakdar is a board-certified ophthalmologist recognized for his clinical expertise and compassionate approach to patient care. His commitment to providing the highest standard of vision care is rooted in his world-class training at the prestigious <strong>Bascom Palmer Eye Institute</strong>, consistently ranked as the nation's leading eye hospital.
                 </p>
                 <p className="text-lg text-gray-600 mb-6">
-                  Dr. Bonakdar specializes in complex eye conditions, including advanced cataract surgery, LASIK, and the management of corneal diseases like Keratoconus. He believes in empowering patients through education, ensuring they understand their diagnosis and are actively involved in their treatment decisions. His dedication has earned the trust of thousands of patients and the respect of his peers throughout Orange County.
+                  Dr. Alexander Bonakdar specializes in complex eye conditions, including advanced cataract surgery, LASIK, and the management of corneal diseases like Keratoconus. He believes in empowering patients through education, ensuring they understand their diagnosis and are actively involved in their treatment decisions. His dedication has earned the trust of thousands of patients and the respect of his peers throughout Orange County.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2 px-4 py-2 bg-eyecare-blue/10 rounded-full text-eyecare-blue font-semibold">

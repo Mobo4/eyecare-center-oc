@@ -97,7 +97,7 @@ export default async function LocalServicePage({ params }: Props) {
 
 
   const popupTitle = `Expert ${service.shortName || service.name} Care`;
-  const popupDescription = `Looking for the best ${service.name.toLowerCase()} in ${locationName}? Dr. Bonakdar offers personalized treatment plans with over 35 years of experience.`;
+  const popupDescription = `Looking for the best ${service.name.toLowerCase()} in ${locationName}? Dr. Alexander Bonakdar offers personalized treatment plans with over 35 years of experience.`;
 
   // Use enhanced benefits if available, otherwise fallback
   const serviceBenefits = service.benefits || [
@@ -123,7 +123,7 @@ export default async function LocalServicePage({ params }: Props) {
                   Top {service.name} Specialist in {locationName}{locationSuffix}
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                  EyeCare Center of Orange County provides expert diagnosis and treatment for {service.name.toLowerCase()} for residents of {locationName} and the surrounding communities. With over 35 years of experience, Dr. Bonakdar has helped thousands of patients achieve better vision.
+                  EyeCare Center of Orange County provides expert diagnosis and treatment for {service.name.toLowerCase()} for residents of {locationName} and the surrounding communities. With over 35 years of experience, Dr. Alexander Bonakdar has helped thousands of patients achieve better vision.
                 </p>
 
                 {/* Quick Stats */}
@@ -215,7 +215,7 @@ export default async function LocalServicePage({ params }: Props) {
                     At EyeCare Center of Orange County, we understand that residents of {locationName} deserve access to world-class eye care close to home. Our practice, conveniently located in Santa Ana, serves patients from throughout {isRegion ? 'the county' : city.name + ' and surrounding areas'}, providing comprehensive {service.name.toLowerCase()} services with a patient-first approach.
                   </p>
                   <p>
-                    Dr. Bonakdar has over 35 years of experience specializing in complex eye conditions. Whether you&apos;re seeking a second opinion, struggling with symptoms, or looking for the latest treatment options, we&apos;re here to help you see better and live better.
+                    Dr. Alexander Bonakdar has over 35 years of experience specializing in complex eye conditions. Whether you&apos;re seeking a second opinion, struggling with symptoms, or looking for the latest treatment options, we&apos;re here to help you see better and live better.
                   </p>
                 </div>
 

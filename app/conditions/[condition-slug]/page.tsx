@@ -278,7 +278,7 @@ export default async function ConditionPage({ params }: Props) {
                       <CheckCircle className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-0.5" />
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">Over 30 Years of Experience</h3>
-                        <p className="text-gray-700">Dr. Bonakdar has been serving Orange County since 1991 with specialized expertise in {condition.category.toLowerCase()}.</p>
+                        <p className="text-gray-700">Dr. Alexander Bonakdar has been serving Orange County since 1991 with specialized expertise in {condition.category.toLowerCase()}.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
