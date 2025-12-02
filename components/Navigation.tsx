@@ -11,7 +11,47 @@ interface NavItem {
   path: string;
   hasDropdown?: boolean;
   dropdownItems?: { label: string; path: string; featured?: boolean }[];
+  external?: boolean;
 }
+
+const navItems: NavItem[] = [
+  { label: 'Dry Eye', path: '/services/dry-eye-specialist' },
+  { label: 'Keratoconus', path: '/services/keratoconus-treatment' },
+  { label: 'Ortho-K', path: '/services/ortho-k' },
+  { label: 'Headache', path: '/conditions/headache' },
+  {
+    label: 'Eye Care',
+    path: '/conditions',
+    hasDropdown: true,
+    dropdownItems: [
+      { label: 'Glaucoma', path: '/services/glaucoma-management' },
+      { label: 'Cataracts', path: '/conditions/cataracts' },
+      { label: 'Macular Degeneration', path: '/conditions/macular-degeneration' },
+      { label: 'Diabetic Retinopathy', path: '/conditions/diabetic-retinopathy' },
+      { label: 'All Conditions', path: '/conditions', featured: true },
+    ]
+  },
+  {
+    label: 'Patient Resources',
+    path: '/services',
+    hasDropdown: true,
+    dropdownItems: [
+      { label: 'Comprehensive Eye Exam', path: '/services/comprehensive-eye-exam' },
+      { label: 'LASIK Consultation', path: '/services/lasik-consultation' },
+      { label: 'Optical Lenses', path: '/services/optical-lenses' },
+      { label: 'Contact Lenses', path: '/services/contact-lenses' },
+      { label: '  → Soft Contact Lenses', path: '/services/contact-lenses/soft' },
+      { label: '  → RGP Lenses', path: '/services/contact-lenses/rgp' },
+      { label: '  → Scleral Lenses', path: '/services/contact-lenses/scleral' },
+      { label: '  → Hybrid Lenses', path: '/services/contact-lenses/hybrid' },
+      { label: 'Insurance', path: '/insurance', featured: true },
+      { label: 'All Services', path: '/services', featured: true },
+    ]
+  },
+  { path: '/blog', label: 'Blog' },
+  { path: '/about', label: 'About' },
+  { path: 'https://dryeyela.com', label: 'Store', external: true },
+];
 
 const Navigation = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -23,41 +63,6 @@ const Navigation = () => {
   const pathname = usePathname();
 
   const isActive = (path: string) => pathname === path;
-
-  const navItems: NavItem[] = [
-    { label: 'Dry Eye', path: '/services/dry-eye-specialist' },
-    { label: 'Keratoconus', path: '/services/keratoconus-treatment' },
-    { label: 'Ortho-K', path: '/services/ortho-k' },
-    { label: 'Headache', path: '/conditions/headache' },
-    {
-      label: 'Eye Care',
-      path: '/conditions',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Glaucoma', path: '/services/glaucoma-management' },
-        { label: 'Cataracts', path: '/conditions/cataracts' },
-        { label: 'Macular Degeneration', path: '/conditions/macular-degeneration' },
-        { label: 'Diabetic Retinopathy', path: '/conditions/diabetic-retinopathy' },
-        { label: 'All Conditions', path: '/conditions', featured: true },
-      ]
-    },
-    {
-      label: 'Patient Resources',
-      path: '/services',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Comprehensive Eye Exam', path: '/services/comprehensive-eye-exam' },
-        { label: 'LASIK Consultation', path: '/services/lasik-consultation' },
-        { label: 'Optical Lenses', path: '/services/optical-lenses' },
-        { label: 'Contact Lenses', path: '/services/contact-lenses/soft' },
-        { label: 'Scleral Lenses', path: '/services/scleral-lens-fitting' },
-        { label: 'Insurance', path: '/insurance', featured: true },
-        { label: 'All Services', path: '/services', featured: true },
-      ]
-    },
-    { path: '/blog', label: 'Blog' },
-    { path: '/about', label: 'About' },
-  ];
 
   const phoneNumber = CONTACT_INFO.primaryPhone.display;
   const phoneHref = CONTACT_INFO.primaryPhone.href;
@@ -146,8 +151,8 @@ const Navigation = () => {
               key={idx}
               href={subItem.path}
               className={`block py-2 px-3 rounded-lg text-sm ${subItem.featured
-                  ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue'
-                  : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
+                ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue'
+                : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
                 } transition-colors`}
               onClick={() => setOpenDropdown(null)}
             >
@@ -198,8 +203,8 @@ const Navigation = () => {
                   </Link>
                   <div
                     className={`absolute top-full left-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${openDropdown === item.label
-                        ? 'opacity-100 visible translate-y-0'
-                        : 'opacity-0 invisible translate-y-2'
+                      ? 'opacity-100 visible translate-y-0'
+                      : 'opacity-0 invisible translate-y-2'
                       }`}
                   >
                     <div className="p-4">
@@ -208,8 +213,8 @@ const Navigation = () => {
                           key={idx}
                           href={dropdownItem.path}
                           className={`block py-2 px-3 rounded-lg ${dropdownItem.featured
-                              ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue mt-2 border-t border-gray-100 pt-3'
-                              : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
+                            ? 'font-bold text-eyecare-blue hover:bg-eyecare-lighter-blue mt-2 border-t border-gray-100 pt-3'
+                            : 'text-eyecare-navy hover:bg-gray-50 hover:text-eyecare-blue'
                             } transition-colors`}
                         >
                           {dropdownItem.label}
@@ -218,6 +223,16 @@ const Navigation = () => {
                     </div>
                   </div>
                 </div>
+              ) : item.external ? (
+                <a
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-base font-medium text-eyecare-navy hover:text-eyecare-blue transition-colors px-3 py-4 whitespace-nowrap relative group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-3 left-3 right-3 h-0.5 bg-eyecare-blue transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
+                </a>
               ) : (
                 <Link
                   href={item.path}
@@ -252,8 +267,8 @@ const Navigation = () => {
             </button>
             <div
               className={`absolute top-full right-0 mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 transition-all duration-200 z-50 overflow-hidden ${openDropdown === 'more'
-                  ? 'opacity-100 visible translate-y-0'
-                  : 'opacity-0 invisible translate-y-2'
+                ? 'opacity-100 visible translate-y-0'
+                : 'opacity-0 invisible translate-y-2'
                 }`}
             >
               <div className="p-4">
@@ -341,8 +356,8 @@ const Navigation = () => {
                         <button
                           onClick={() => toggleMobileSection(item.label)}
                           className={`w-full flex items-center justify-between px-5 py-4 text-left transition-colors ${mobileExpandedSections.includes(item.label)
-                              ? 'bg-eyecare-lighter-blue text-eyecare-blue font-bold'
-                              : 'text-gray-700 hover:bg-gray-50'
+                            ? 'bg-eyecare-lighter-blue text-eyecare-blue font-bold'
+                            : 'text-gray-700 hover:bg-gray-50'
                             }`}
                           aria-expanded={mobileExpandedSections.includes(item.label)}
                         >
@@ -356,8 +371,8 @@ const Navigation = () => {
                         {/* Collapsible Dropdown Items */}
                         <div
                           className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileExpandedSections.includes(item.label)
-                              ? 'max-h-96 opacity-100'
-                              : 'max-h-0 opacity-0'
+                            ? 'max-h-96 opacity-100'
+                            : 'max-h-0 opacity-0'
                             }`}
                         >
                           <div className="bg-gray-50 py-2">
@@ -375,8 +390,8 @@ const Navigation = () => {
                                 key={idx}
                                 href={dropdownItem.path}
                                 className={`block px-8 py-3 text-sm transition-colors ${dropdownItem.featured
-                                    ? 'text-eyecare-blue font-semibold border-t border-gray-200 mt-1'
-                                    : 'text-gray-600 hover:text-eyecare-blue hover:bg-gray-100'
+                                  ? 'text-eyecare-blue font-semibold border-t border-gray-200 mt-1'
+                                  : 'text-gray-600 hover:text-eyecare-blue hover:bg-gray-100'
                                   }`}
                                 onClick={() => setMobileMenuOpen(false)}
                               >
@@ -386,12 +401,22 @@ const Navigation = () => {
                           </div>
                         </div>
                       </>
+                    ) : item.external ? (
+                      <a
+                        href={item.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-5 py-4 font-medium text-gray-700 hover:bg-gray-50 hover:text-eyecare-blue transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
                     ) : (
                       <Link
                         href={item.path}
                         className={`block px-5 py-4 font-medium transition-colors ${isActive(item.path)
-                            ? 'text-eyecare-blue bg-eyecare-lighter-blue'
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-eyecare-blue'
+                          ? 'text-eyecare-blue bg-eyecare-lighter-blue'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-eyecare-blue'
                           }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >

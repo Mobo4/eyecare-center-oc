@@ -121,20 +121,28 @@ export default async function LocalConditionPage({ params }: Props) {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-eyecare-lighter-blue/20 to-blue-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="/images/main.webp"
+              alt={`${condition.name} Treatment in ${city.name}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+          </div>
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
             <div className="max-w-4xl">
               <div className="flex items-center gap-2 mb-4">
-                <Eye className="w-6 h-6 text-eyecare-blue" />
-                <span className="text-eyecare-blue font-semibold">{condition.category}</span>
+                <Eye className="w-6 h-6 text-white" />
+                <span className="text-white font-semibold">{condition.category}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 {condition.name} Treatment in {city.name}, California
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-4">
+              <p className="text-xl text-white/90 leading-relaxed mb-4">
                 EyeCare Center of Orange County provides expert diagnosis and treatment for {condition.name.toLowerCase()} for residents of {city.name} and surrounding communities including {city.neighborhoods.slice(0, 3).join(', ')}.
               </p>
-              <div className="flex items-center gap-4 text-sm text-gray-600">
+              <div className="flex items-center gap-4 text-sm text-white/80">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
                   <span>Serving {city.county}</span>

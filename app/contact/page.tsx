@@ -31,13 +31,21 @@ export default function ContactPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-eyecare-lighter-blue/20 to-blue-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="/images/contact-hero.png"
+              alt="Contact EyeCare Center"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+          </div>
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Schedule Your Appointment
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-white/90 leading-relaxed">
                 We're here to help you achieve and maintain optimal vision health. Fill out the form below or call us to schedule your visit.
               </p>
             </div>
@@ -86,7 +94,7 @@ export default function ContactPage() {
                             <span>Friday:</span>
                             <span className="font-semibold">9:00 AM - 5:00 PM</span>
                           </div>
-                           <div className="flex justify-between">
+                          <div className="flex justify-between">
                             <span>Saturday:</span>
                             <span className="font-semibold">9:00 AM - 2:00 PM</span>
                           </div>
@@ -98,7 +106,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-                   <div className="bg-white border border-gray-200 p-6 rounded-lg">
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg">
                     <div className="flex items-start gap-4">
                       <MapPin className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-1" />
                       <div>

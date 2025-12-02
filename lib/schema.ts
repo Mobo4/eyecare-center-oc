@@ -84,6 +84,24 @@ export interface MedicalConditionSchema {
   };
 }
 
+export const SERVICE_AREAS = [
+  // Central Orange County
+  "Santa Ana", "Tustin", "Orange", "Villa Park", "Garden Grove", "Westminster", "Fountain Valley", "North Tustin",
+
+  // South Orange County
+  "Irvine", "Newport Beach", "Costa Mesa", "Lake Forest", "Mission Viejo", "Laguna Hills", "Laguna Woods",
+  "Aliso Viejo", "Laguna Beach", "Laguna Niguel", "Dana Point", "San Juan Capistrano", "San Clemente",
+  "Rancho Santa Margarita", "Ladera Ranch", "Coto de Caza", "Las Flores",
+
+  // North Orange County
+  "Anaheim", "Fullerton", "Placentia", "Yorba Linda", "Brea", "La Habra", "Buena Park", "Cypress",
+  "Stanton", "Los Alamitos", "Seal Beach", "La Palma", "Rossmoor", "Midway City", "Huntington Beach",
+
+  // Nearby Cities (<30 miles)
+  "Long Beach", "Cerritos", "Lakewood", "Artesia", "Bellflower", "Norwalk", "La Mirada", "Whittier",
+  "La Habra Heights", "Diamond Bar", "Chino", "Chino Hills", "Corona"
+];
+
 /**
  * Generate MedicalBusiness schema for homepage with Top 6 Services
  */
@@ -106,6 +124,7 @@ export function generateMedicalBusinessSchema(): any {
           postalCode: "92705",
           addressCountry: "US",
         },
+        areaServed: SERVICE_AREAS,
         geo: {
           "@type": "GeoCoordinates",
           latitude: "33.758810",

@@ -48,17 +48,22 @@ export default function DiagnosticTechnologyPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-eyecare-navy to-slate-800 text-white py-20 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')]"></div>
+            <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src="/images/services-main.webp"
+                        alt="Advanced Diagnostic Technology"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
                 </div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
+                <div className="relative h-full container mx-auto px-4 flex items-center">
+                    <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
                             <Scan className="w-4 h-4" />
                             State-of-the-Art Equipment
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
+                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
                             Advanced Diagnostic Technology
                         </h1>
                         <p className="text-xl text-white/90 mb-8 leading-relaxed">

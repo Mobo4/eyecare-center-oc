@@ -82,44 +82,60 @@ export default async function ServicePage({ params }: Props) {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-eyecare-lighter-blue/20 to-blue-50 py-12 md:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={
+                service.slug === 'keratoconus-treatment'
+                  ? '/images/keratoconus-main.webp'
+                  : (service.slug.includes('myopia') || service.slug.includes('ortho-k'))
+                    ? '/images/myopia-control-main.webp'
+                    : '/images/services-main.webp'
+              }
+              alt={service.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+          </div>
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
             <div className="max-w-4xl">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                 {service.name} in Orange County
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-xl text-white/90 mb-6">
                 {service.description}
               </p>
 
               {/* Author Byline */}
-              <AuthorByline
-                author={{
-                  name: doctor.name,
-                  credentials: doctor.credentials,
-                  title: doctor.title,
-                  slug: doctor.slug,
-                  photo: doctor.photo
-                }}
-                datePublished={service.lastUpdated}
-                dateModified={service.lastUpdated}
-                variant="compact"
-                showPhoto={false}
-                className="mb-6"
-              />
+              <div className="mb-6">
+                <AuthorByline
+                  author={{
+                    name: doctor.name,
+                    credentials: doctor.credentials,
+                    title: doctor.title,
+                    slug: doctor.slug,
+                    photo: doctor.photo
+                  }}
+                  datePublished={service.lastUpdated}
+                  dateModified={service.lastUpdated}
+                  variant="compact"
+                  showPhoto={false}
+                  className="text-white [&_a]:text-white [&_a]:hover:text-blue-200"
+                />
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href={CONTACT_INFO.primaryPhone.href}
-                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-eyecare-dark-blue transition-all"
+                  className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-lg font-semibold hover:shadow-xl transition-all"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/book-appointment"
-                  className="inline-flex items-center justify-center bg-white text-eyecare-blue border-2 border-eyecare-blue px-6 py-3 rounded-lg font-semibold hover:bg-eyecare-blue hover:text-white transition-all"
+                  className="inline-flex items-center justify-center bg-transparent text-white border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-eyecare-blue transition-all"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Consultation

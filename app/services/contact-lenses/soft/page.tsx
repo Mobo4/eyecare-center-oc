@@ -47,14 +47,21 @@ export default function SoftContactLensesPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="bg-eyecare-blue text-white py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10"></div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
+            <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src="/images/contact-lenses-main.webp"
+                        alt="Soft Contact Lenses"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+                </div>
+                <div className="relative h-full container mx-auto px-4 flex items-center">
+                    <div className="max-w-4xl">
+                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
                             Soft Contact Lenses
                         </h1>
-                        <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                        <p className="text-xl text-white/90 mb-8 leading-relaxed">
                             Experience freedom from glasses with our advanced soft contact lens options.
                             Comfortable, breathable, and designed for your specific vision needs.
                         </p>

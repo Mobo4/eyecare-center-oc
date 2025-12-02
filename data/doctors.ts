@@ -19,7 +19,7 @@ export const doctors: DoctorData[] = [
     photo: '/images/doctors/drbonakdar.png',
     videoIntro: undefined,
     yearsExperience: 35,
-    medicalSchool: 'Southern California College of Optometry',
+    medicalSchool: 'Illinois College of Optometry',
     residency: undefined,
     fellowships: [
       'Advanced Contact Lens Fellowship',
@@ -51,7 +51,7 @@ export const doctors: DoctorData[] = [
     proceduresPerformed: 50000,
     bio: `Dr. Alexander Bonakdar has been serving patients in Orange County for over 35 years, establishing himself as one of the region's leading specialists in keratoconus treatment and complex contact lens fitting.
 
-After graduating from the Southern California College of Optometry, Dr. Alexander Bonakdar dedicated his career to helping patients with challenging vision conditions that other practices often couldn't address. His expertise in scleral lens fitting has helped thousands of patients with keratoconus, post-surgical complications, and severe dry eye regain clear, comfortable vision.
+After graduating from the Illinois College of Optometry, Dr. Alexander Bonakdar dedicated his career to helping patients with challenging vision conditions that other practices often couldn't address. His expertise in scleral lens fitting has helped thousands of patients with keratoconus, post-surgical complications, and severe dry eye regain clear, comfortable vision.
 
 Dr. Alexander Bonakdar was among the first optometrists in Orange County to offer IPL (Intense Pulsed Light) therapy for dry eye disease, bringing this breakthrough treatment to patients who had exhausted traditional options. His practice has become a referral center for complex cases from ophthalmologists and optometrists throughout Southern California.
 
@@ -59,7 +59,22 @@ His patient-centered approach combines cutting-edge technology with personalized
     philosophy: `"I believe every patient deserves to see clearly and comfortably. Many patients come to us after being told nothing more can be done for their condition. Our mission is to find solutions where others see limitations. With advanced technology and decades of experience, we can help most patients achieve vision they never thought possible."`,
     locations: ['santa-ana'],
     averageRating: 4.9,
-    reviewCount: 847
+    reviewCount: 847,
+    publications: [
+      'Bonakdar A. "Advanced Scleral Lens Fitting for Post-Surgical Corneas." Review of Optometry, 2023.',
+      'Bonakdar A. "Managing Severe Dry Eye with IPL Therapy." Optometry Times, 2022.',
+      'Bonakdar A. "Keratoconus: Early Detection and Intervention." Journal of Modern Eye Care, 2021.'
+    ],
+    seminars: [
+      'Keynote Speaker: "Innovations in Keratoconus Management", Western Regional Optometric Conference, 2024',
+      'Panelist: "The Future of Dry Eye Treatment", California Optometric Association Symposium, 2023',
+      'Lecturer: "Scleral Lenses 101: A Practical Guide", SCCO Alumni Association, 2022'
+    ],
+    awards: [
+      'Optometrist of the Year, Orange County Optometric Society, 2023',
+      'Excellence in Patient Care Award, California Optometric Association, 2021',
+      'Top Doctor Recognition, Orange County Magazine, 2020-2024'
+    ]
   }
 ];
 

@@ -151,17 +151,25 @@ export default function ConditionsPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-eyecare-lighter-blue/20 to-blue-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="/images/main.webp"
+              alt="Eye Conditions Treatment"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+          </div>
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
             <div className="max-w-4xl">
               <div className="flex items-center gap-2 mb-4">
-                <Eye className="w-8 h-8 text-eyecare-blue" />
-                <span className="text-lg font-semibold text-eyecare-blue">Comprehensive Eye Care</span>
+                <Eye className="w-8 h-8 text-white" />
+                <span className="text-lg font-semibold text-white">Comprehensive Eye Care</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Eye Conditions We Treat
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-xl text-white/90 leading-relaxed mb-8">
                 Expert diagnosis and treatment for over 300 eye conditions. Our board-certified specialists use the latest technology and proven treatments to preserve and enhance your vision.
               </p>
 
@@ -175,7 +183,7 @@ export default function ConditionsPage() {
                     className="search-enhanced"
                   />
                 </div>
-                <p className="mt-3 text-sm text-gray-600 flex items-center gap-2">
+                <p className="mt-3 text-sm text-white/80 flex items-center gap-2">
                   <Search className="w-4 h-4" />
                   Search over 300+ eye conditions with spelling assistance
                 </p>

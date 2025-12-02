@@ -27,7 +27,10 @@ import {
   Phone,
   Calendar,
   CheckCircle,
-  Quote
+  Quote,
+  BookOpen,
+  Mic,
+  Trophy
 } from 'lucide-react';
 
 interface Props {
@@ -259,6 +262,74 @@ export default async function DoctorPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* Publications, Seminars, Awards Section */}
+        {(doctor.publications || doctor.seminars || doctor.awards) && (
+          <section className="py-12 bg-white border-t border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                {/* Publications */}
+                {doctor.publications && doctor.publications.length > 0 && (
+                  <div className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-blue-100 p-2 rounded-lg">
+                        <BookOpen className="w-6 h-6 text-eyecare-blue" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">Publications</h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {doctor.publications.map((pub, idx) => (
+                        <li key={idx} className="text-sm text-gray-700 leading-relaxed pl-2 border-l-2 border-blue-200">
+                          {pub}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Seminars */}
+                {doctor.seminars && doctor.seminars.length > 0 && (
+                  <div className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-purple-100 p-2 rounded-lg">
+                        <Mic className="w-6 h-6 text-purple-600" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">Speaking</h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {doctor.seminars.map((seminar, idx) => (
+                        <li key={idx} className="text-sm text-gray-700 leading-relaxed pl-2 border-l-2 border-purple-200">
+                          {seminar}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Awards */}
+                {doctor.awards && doctor.awards.length > 0 && (
+                  <div className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="bg-yellow-100 p-2 rounded-lg">
+                        <Trophy className="w-6 h-6 text-yellow-600" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">Awards</h3>
+                    </div>
+                    <ul className="space-y-3">
+                      {doctor.awards.map((award, idx) => (
+                        <li key={idx} className="text-sm text-gray-700 leading-relaxed pl-2 border-l-2 border-yellow-200">
+                          {award}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Location Section */}
         <section className="py-12 bg-white">

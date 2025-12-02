@@ -26,8 +26,8 @@ export default function CookieConsent() {
 
     return (
         <div className="fixed bottom-0 left-0 right-0 bg-gray-900/95 text-white p-4 z-40 backdrop-blur-sm border-t border-gray-800 shadow-2xl animate-in slide-in-from-bottom duration-500">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="flex-1">
+            <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 text-center">
+                <div className="max-w-3xl">
                     <p className="text-sm text-gray-300 leading-relaxed">
                         We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
                         By clicking "Accept All", you consent to our use of cookies.
@@ -36,13 +36,15 @@ export default function CookieConsent() {
                         </Link>.
                     </p>
                 </div>
-                <div className="flex items-center gap-3 shrink-0">
+                <div className="flex items-center justify-center gap-4">
                     <button
-                        onClick={() => setIsVisible(false)}
-                        className="p-2 text-gray-400 hover:text-white transition-colors"
-                        aria-label="Close"
+                        onClick={() => {
+                            localStorage.setItem('cookie-consent', 'rejected');
+                            setIsVisible(false);
+                        }}
+                        className="px-6 py-2 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/10 transition-colors border border-gray-700 hover:border-gray-500"
                     >
-                        <X className="w-5 h-5" />
+                        Reject
                     </button>
                     <button
                         onClick={acceptCookies}

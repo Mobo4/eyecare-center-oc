@@ -38,20 +38,25 @@ export default function FAAColorVisionPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-20 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')]"></div>
+            <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src="/images/services-main.webp"
+                        alt="FAA Color Vision Testing for Pilots"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
                 </div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <div className="relative h-full container mx-auto px-4 flex items-center">
+                    <div className="max-w-4xl">
+                        <div className="inline-flex items-center gap-2 bg-blue-500/30 text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
                             <Plane className="w-4 h-4" />
                             FAA-Approved Testing
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
+                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
                             Color Vision Testing for Pilots
                         </h1>
-                        <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                        <p className="text-xl text-white/90 mb-8 leading-relaxed">
                             Failed the Ishihara plate test at your flight physical? <strong className="text-white">Don't give up on your wings.</strong> We offer
                             FAA-approved alternative color vision tests that may qualify you for your medical certificate.
                         </p>

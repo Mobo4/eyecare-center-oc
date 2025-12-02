@@ -227,4 +227,7 @@ export interface DoctorData {
   locations: string[];
   averageRating: number;
   reviewCount: number;
+  publications?: string[];
+  seminars?: string[];
+  awards?: string[];
 }

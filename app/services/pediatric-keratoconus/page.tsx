@@ -37,18 +37,25 @@ export default function PediatricKeratoconusPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-eyecare-navy to-eyecare-dark-blue text-white py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10"></div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <section className="relative h-[450px] md:h-[550px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src="/images/keratoconus-main.webp"
+                        alt="Pediatric Keratoconus Detection"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+                </div>
+                <div className="relative h-full container mx-auto px-4 flex items-center">
+                    <div className="max-w-4xl">
+                        <div className="inline-flex items-center gap-2 bg-red-500/30 text-red-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
                             <AlertTriangle className="w-4 h-4" />
                             Critical: Early Detection Saves Vision
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
+                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
                             Pediatric Keratoconus Detection
                         </h1>
-                        <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                        <p className="text-xl text-white/90 mb-8 leading-relaxed">
                             <strong className="text-white">1 in 37 children</strong> have undiagnosed keratoconus. Our advanced screening technology
                             detects changes at the <strong className="text-white">back of the cornea</strong> before symptoms ever appear—when treatment is most effective.
                         </p>

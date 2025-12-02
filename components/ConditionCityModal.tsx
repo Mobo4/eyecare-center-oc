@@ -98,12 +98,11 @@ export default function ConditionCityModal({ condition, onClose }: ConditionCity
                 <p className="text-eyecare-lighter-blue text-sm flex items-center gap-2">
                   <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">{condition.category}</span>
                   {condition.severity && (
-                    <span className={`px-2 py-0.5 rounded-full text-xs ${
-                      condition.severity === 'Emergency' ? 'bg-red-500' :
-                      condition.severity === 'Serious' ? 'bg-orange-500' :
-                      condition.severity === 'Moderate' ? 'bg-yellow-500' :
-                      'bg-green-500'
-                    }`}>
+                    <span className={`px-2 py-0.5 rounded-full text-xs ${condition.severity === 'Emergency' ? 'bg-red-500' :
+                        condition.severity === 'Serious' ? 'bg-orange-500' :
+                          condition.severity === 'Moderate' ? 'bg-yellow-500' :
+                            'bg-green-500'
+                      }`}>
                       {condition.severity}
                     </span>
                   )}
@@ -128,6 +127,18 @@ export default function ConditionCityModal({ condition, onClose }: ConditionCity
               <Heart className="w-6 h-6 text-eyecare-blue flex-shrink-0 mt-0.5" />
               <p className="text-gray-700 leading-relaxed">{getFriendlyIntro()}</p>
             </div>
+          </div>
+
+          {/* Condition Image */}
+          <div className="relative w-full h-64 mb-6 rounded-xl overflow-hidden shadow-md bg-gray-100">
+            <img
+              src={`/images/conditions/${condition.slug}.jpg`}
+              alt={condition.name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).parentElement!.style.display = 'none';
+              }}
+            />
           </div>
 
           {/* What Is This Condition */}

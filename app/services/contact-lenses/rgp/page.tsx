@@ -12,25 +12,33 @@ export const metadata: Metadata = {
     keywords: [
         'RGP lenses orange county',
         'rigid gas permeable contacts',
-        'scleral lenses keratoconus',
-        'scleral contact lenses fitting',
         'Boston XO lenses',
-        'Boston ES materials',
+        'Boston ES lenses',
+        'Boston EO lenses',
+        'Boston Equalens II',
+        'Hexafocon A material',
+        'Enflufocon A material',
         'Menicon Z lenses',
         'Menicon Rose K keratoconus',
-        'Rose K2 lenses',
+        'Menicon Rose K2 lenses',
+        'Tisilfocon A material',
         'Paragon CRT ortho-k',
+        'Paragon HDS 100',
+        'Paflufocon D material',
+        'Bausch Lomb RGP',
+        'Polymer Technology lenses',
         'keratoconus contact lenses',
         'irregular cornea lenses',
         'post-LASIK ectasia lenses',
         'pellucid marginal degeneration',
         'corneal transplant contacts',
         'high astigmatism contacts',
-        'hybrid contact lenses',
-        'SynergEyes lenses',
-        'custom scleral lenses irvine',
-        'keratoconus specialist newport beach',
-        'hard contact lenses santa ana'
+        'custom RGP lenses irvine',
+        'RGP specialist newport beach',
+        'hard contact lenses santa ana',
+        'gas permeable lenses orange county',
+        'RGP fitting costa mesa',
+        'oxygen permeable lenses'
     ],
     openGraph: {
         title: 'RGP & Scleral Lenses | Keratoconus Specialist | EyeCare Center OC',
@@ -45,14 +53,21 @@ export default function RGPLensesPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="bg-eyecare-navy text-white py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-10"></div>
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
+            <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src="/images/contact-lenses-main.webp"
+                        alt="RGP Contact Lenses"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+                </div>
+                <div className="relative h-full container mx-auto px-4 flex items-center">
+                    <div className="max-w-4xl">
+                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
                             Rigid Gas Permeable (RGP) Lenses
                         </h1>
-                        <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                        <p className="text-xl text-white/90 mb-8 leading-relaxed">
                             Superior visual clarity and eye health. RGP lenses offer sharper vision and higher oxygen permeability than traditional soft lenses.
                         </p>
                     </div>

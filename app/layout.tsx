@@ -30,8 +30,8 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://eyecarecenteroc.com'),
   title: {
-    default: "EyeCare Center of Orange County | Expert Eye Care & LASIK Surgery",
-    template: "%s | EyeCare Center OC"
+    default: "EyeCare Center of Orange County | Number One Eyecare Practice Since 1991",
+    template: "%s | Number One Eyecare Practice in Orange County Since 1991"
   },
   description: `Comprehensive eye care services in Orange County.Expert LASIK, cataract surgery, keratoconus treatment, and comprehensive eye exams.Call ${CONTACT_INFO.primaryPhone.display} `,
   keywords: [
@@ -137,7 +137,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode; // Trigger rebuild
 }) {
   return (
     <html lang="en">
@@ -199,13 +199,13 @@ export default function RootLayout({
     style.textContent = '[data-widget-id="69163f6533e9926104e6ee9e"] { display: none !important; }';
     document.head.appendChild(style);
 
-    // Show after 10 seconds
+    // Show after 30 seconds
     setTimeout(function () {
       const hideStyle = document.getElementById('ghl-widget-hide');
       if (hideStyle) {
         hideStyle.remove();
       }
-    }, 10000);
+    }, 30000);
   })();
 `,
           }}

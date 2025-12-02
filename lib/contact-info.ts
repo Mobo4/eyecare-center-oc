@@ -8,6 +8,7 @@
  */
 
 export const CONTACT_INFO = {
+  name: 'Optometric Eyecare Center of Orange County',
   /**
    * Primary phone number for all CTAs, headers, and general contact
    * Used across: Home, About, Services, Conditions, City pages, Footer, Navigation
@@ -42,11 +43,11 @@ export const CONTACT_INFO = {
    * Physical address
    */
   address: {
-    street: '801 North Tustin Ave #404',
+    street: '801 N Tustin Ave # 404',
     city: 'Santa Ana',
     state: 'CA',
     zip: '92705',
-    full: '801 North Tustin Ave #404, Santa Ana, CA 92705',
+    full: '801 N Tustin Ave # 404, Santa Ana, CA 92705',
   },
 
   /**

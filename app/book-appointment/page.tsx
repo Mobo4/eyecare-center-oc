@@ -21,13 +21,21 @@ export default function BookAppointmentPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-50 via-eyecare-lighter-blue/20 to-blue-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl text-center mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="/images/contact-hero.png"
+              alt="Book Appointment"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+          </div>
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+            <div className="max-w-2xl text-center mx-auto">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Book Your Appointment Online
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-white/90 leading-relaxed">
                 Fill out the form below to request an appointment. Our team will confirm your booking and answer any questions you may have.
               </p>
             </div>
