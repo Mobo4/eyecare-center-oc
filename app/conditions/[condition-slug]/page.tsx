@@ -221,39 +221,43 @@ export default async function ConditionPage({ params }: Props) {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+        <section className="relative min-h-[60vh] md:min-h-[500px] flex items-center overflow-hidden">
           <div className="absolute inset-0">
             <img
               src="/images/main.webp"
               alt={condition.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+            {/* Mobile: darker overlay for readability. Desktop: gradient */}
+            <div className="absolute inset-0 bg-black/60 md:bg-gradient-to-r md:from-black/80 md:via-black/50 md:to-transparent"></div>
           </div>
-          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0">
             <div className="max-w-4xl">
               <div className="flex items-center gap-2 mb-4">
-                <Eye className="w-6 h-6 text-white" />
-                <span className="text-white font-semibold">{condition.category}</span>
+                <Eye className="w-5 h-5 md:w-6 md:h-6 text-eyecare-blue" />
+                <span className="text-eyecare-blue font-bold tracking-wide uppercase text-sm md:text-base">{condition.category}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                {condition.name}: Complete Guide to Symptoms, Causes & Treatment
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+                {condition.name}
+                <span className="block text-lg sm:text-xl md:text-2xl font-normal text-gray-200 mt-2">
+                  Complete Guide to Symptoms, Causes & Treatment
+                </span>
               </h1>
-              <p className="text-xl text-white/90 leading-relaxed mb-6">
+              <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed mb-8 max-w-2xl">
                 Expert information about {condition.name.toLowerCase()} from Orange County's leading eye care specialists.
                 Learn about symptoms, causes, diagnosis, and the latest treatment options.
               </p>
-              <div className="flex flex-col sm:flex-row items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
                 <a
                   href={CONTACT_INFO.primaryPhone.href}
-                  className="callrail-phone inline-flex items-center justify-center bg-white text-eyecare-blue px-6 py-3 rounded-md font-semibold hover:shadow-xl transition-all"
+                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3.5 rounded-lg font-bold hover:bg-eyecare-dark-blue transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   {CONTACT_INFO.primaryPhone.display}
                 </a>
                 <Link
                   href="/book-appointment"
-                  className="inline-flex items-center justify-center bg-transparent text-white border-2 border-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-eyecare-blue transition-all"
+                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-6 py-3.5 rounded-lg font-bold hover:bg-white hover:text-eyecare-blue transition-all"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Appointment
