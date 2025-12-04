@@ -206,7 +206,6 @@ export interface FAQ {
   answer: string;
 }
 
-// Doctor data types
 export interface DoctorData {
   slug: string;
   name: string;
@@ -230,4 +229,51 @@ export interface DoctorData {
   publications?: string[];
   seminars?: string[];
   awards?: string[];
+}
+
+// Clinical Image for conditions gallery
+export interface ClinicalImage {
+  url: string;
+  filename: string;
+  title: string;
+  alt: string;
+  description: string;
+  category: string;
+}
+
+// ImageObject Schema for SEO
+export interface ImageObjectSchema extends Thing {
+  '@type': 'ImageObject';
+  name: string;
+  description: string;
+  contentUrl: string;
+  caption?: string;
+  creditText?: string;
+  acquireLicensePage?: string;
+  license?: string;
+  creator?: {
+    '@type': 'Organization';
+    name: string;
+  };
+}
+
+// Medical Condition Schema
+export interface MedicalConditionSchema extends Thing {
+  '@type': 'MedicalCondition';
+  name: string;
+  description: string;
+  signOrSymptom?: Array<{
+    '@type': 'MedicalSignOrSymptom';
+    name: string;
+  }>;
+  possibleTreatment?: Array<{
+    '@type': 'MedicalTherapy';
+    name: string;
+  }>;
+  riskFactor?: string[];
+  associatedAnatomy?: {
+    '@type': 'AnatomicalStructure';
+    name: string;
+  };
+  image?: ImageObjectSchema[];
 }

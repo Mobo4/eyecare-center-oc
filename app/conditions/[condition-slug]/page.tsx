@@ -3,11 +3,13 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Phone, Calendar, Eye, AlertCircle, CheckCircle, MapPin, ArrowRight } from 'lucide-react';
+import ClinicalGallery from '@/components/ClinicalGallery';
+import { Phone, Calendar, Eye, AlertCircle, CheckCircle, MapPin, ArrowRight, ImageIcon } from 'lucide-react';
 import { conditions as fullConditions, getConditionBySlug as getFullConditionBySlug, Condition, ConditionSeverity } from '@/data/conditions-full';
 import { allConditions, SearchCondition } from '@/data/conditions-search';
 import { cities } from '@/data/cities';
 import { generateBreadcrumbSchema, generateMedicalConditionSchema } from '@/lib/schema';
+import { getImagesForCondition } from '@/lib/get-condition-images';
 import Script from 'next/script';
 import { CONTACT_INFO } from '@/lib/contact-info';
 
@@ -116,6 +118,9 @@ export default async function ConditionPage({ params }: Props) {
     notFound();
   }
 
+  // Get clinical images for this condition
+  const clinicalImages = getImagesForCondition(conditionSlug);
+
   // Get top 9 cities by population for quick selection
   const topCities = cities
     .sort((a, b) => parseInt(b.population.replace(/,/g, '')) - parseInt(a.population.replace(/,/g, '')))
@@ -165,6 +170,30 @@ export default async function ConditionPage({ params }: Props) {
     ]
   };
 
+  // ImageObject Schema for clinical images (SEO)
+  const imageSchema = clinicalImages.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": `Clinical Images of ${condition.name}`,
+    "description": `High-resolution clinical photographs showing various presentations of ${condition.name.toLowerCase()}`,
+    "image": clinicalImages.slice(0, 10).map(img => ({
+      "@type": "ImageObject",
+      "name": img.title,
+      "description": img.description,
+      "contentUrl": `https://eyecarecenteroc.com${img.url}`,
+      "caption": img.alt,
+      "creditText": "EyeCare Center of Orange County",
+      "creator": {
+        "@type": "Organization",
+        "name": "EyeCare Center of Orange County"
+      },
+      "associatedArticle": {
+        "@type": "MedicalWebPage",
+        "url": `https://eyecarecenteroc.com/conditions/${conditionSlug}`
+      }
+    }))
+  } : null;
+
   return (
     <>
       <Script
@@ -182,6 +211,13 @@ export default async function ConditionPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      {imageSchema && (
+        <Script
+          id="image-gallery-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
+        />
+      )}
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
@@ -277,6 +313,16 @@ export default async function ConditionPage({ params }: Props) {
                     ))}
                   </div>
                 </div>
+
+                {/* Clinical Images Gallery */}
+                {clinicalImages.length > 0 && (
+                  <div className="mb-12">
+                    <ClinicalGallery
+                      images={clinicalImages}
+                      conditionName={condition.name}
+                    />
+                  </div>
+                )}
 
                 {/* Why Choose Us */}
                 <div className="mb-12 bg-gradient-to-br from-eyecare-blue/5 to-eyecare-light-blue/5 p-8 rounded-xl">
