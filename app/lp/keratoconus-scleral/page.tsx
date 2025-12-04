@@ -33,6 +33,8 @@ export default function KeratoconusLandingPage() {
                     "High-definition vision correction",
                     "Non-surgical solution"
                 ]}
+                badgeText="Limited Patient Number of Appt Available"
+                badgeLink="#availability"
             />
 
             <AnimatedSection className="bg-eyecare-navy">
@@ -143,6 +145,25 @@ export default function KeratoconusLandingPage() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Availability Explanation Section */}
+            <section id="availability" className="py-16 bg-white border-b border-gray-100">
+                <div className="container mx-auto px-4 max-w-4xl text-center">
+                    <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-amber-100">
+                        <Activity className="w-4 h-4" />
+                        Important Appointment Information
+                    </div>
+                    <h2 className="text-3xl font-bold text-eyecare-navy mb-6">
+                        Why We Limit Patient Appointments
+                    </h2>
+                    <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                        Scleral lens fitting is a highly specialized process that requires precision, time, and expertise. Unlike standard eye exams, Dr. Bonakdar personally oversees every step of your custom fitting to ensure the perfect fit and optimal vision.
+                    </p>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                        To maintain this high standard of care, we limit the number of new keratoconus patients we accept each month. This ensures you receive the dedicated attention and unhurried appointments you deserve.
+                    </p>
                 </div>
             </section>
 

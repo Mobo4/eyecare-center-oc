@@ -54,6 +54,8 @@ interface HeroProps {
     benefits?: string[];
     phoneNumber?: string;
     phoneHref?: string;
+    badgeText?: string;
+    badgeLink?: string;
 }
 
 export function LandingHero({
@@ -64,20 +66,33 @@ export function LandingHero({
     ctaLink = "/book-appointment",
     benefits = [],
     phoneNumber = '(949) 364-0008',
-    phoneHref = 'tel:+19493640008'
+    phoneHref = 'tel:+19493640008',
+    badgeText = "Accepting New Patients",
+    badgeLink
 }: HeroProps) {
+    const badgeContent = (
+        <div className={`inline-flex items-center gap-2 bg-blue-100 text-eyecare-blue px-4 py-1.5 rounded-full text-sm font-bold mb-6 ${badgeLink ? 'hover:bg-blue-200 transition-colors cursor-pointer' : ''}`}>
+            <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-eyecare-blue"></span>
+            </span>
+            {badgeText}
+        </div>
+    );
+
     return (
         <section className="relative min-h-screen w-full bg-gradient-to-br from-blue-50 to-white overflow-hidden flex items-center snap-start">
             <div className="container mx-auto px-4 py-20">
                 <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
                     <div className="relative z-10">
-                        <div className="inline-flex items-center gap-2 bg-blue-100 text-eyecare-blue px-4 py-1.5 rounded-full text-sm font-bold mb-6">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-eyecare-blue"></span>
-                            </span>
-                            Accepting New Patients
-                        </div>
+                        {badgeLink ? (
+                            <a href={badgeLink} className="inline-block">
+                                {badgeContent}
+                            </a>
+                        ) : (
+                            badgeContent
+                        )}
+
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-eyecare-navy mb-6 leading-tight">
                             {headline}
                         </h1>
@@ -142,15 +157,15 @@ export function LandingHero({
                                 priority
                             />
 
-                            {/* Floating Badge */}
-                            <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur px-6 py-4 rounded-xl shadow-lg border border-gray-100 max-w-xs">
+                            {/* Floating Badge - Responsive Sizing */}
+                            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/95 backdrop-blur px-4 py-3 md:px-6 md:py-4 rounded-xl shadow-lg border border-gray-100 max-w-[200px] md:max-w-xs transition-all duration-300">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                                        <CheckCircle className="w-6 h-6" />
+                                    <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
+                                        <CheckCircle className="w-4 h-4 md:w-6 md:h-6" />
                                     </div>
                                     <div>
-                                        <p className="font-bold text-eyecare-navy">Proven Results</p>
-                                        <p className="text-xs text-gray-500">FDA-Approved Technology</p>
+                                        <p className="font-bold text-eyecare-navy text-sm md:text-base">Proven Results</p>
+                                        <p className="text-[10px] md:text-xs text-gray-500">FDA-Approved Technology</p>
                                     </div>
                                 </div>
                             </div>

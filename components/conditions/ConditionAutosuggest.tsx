@@ -168,11 +168,10 @@ export default function ConditionAutosuggest({
                 key={`${condition.slug}-${index}`}
                 onClick={() => handleSelect(condition)}
                 onMouseEnter={() => setHighlightedIndex(index)}
-                className={`w-full px-4 py-3 text-left flex items-start gap-3 transition-colors ${
-                  index === highlightedIndex
+                className={`w-full px-4 py-3 text-left flex items-start gap-3 transition-colors ${index === highlightedIndex
                     ? 'bg-eyecare-blue/10'
                     : 'hover:bg-gray-50'
-                }`}
+                  }`}
                 role="option"
                 aria-selected={index === highlightedIndex}
               >
@@ -181,7 +180,7 @@ export default function ConditionAutosuggest({
                   <div className="font-medium text-gray-900">
                     {highlightMatch(condition.name, query)}
                   </div>
-                  <div className="text-sm text-gray-500 truncate">
+                  <div className="text-sm text-gray-500">
                     {condition.category}
                     {condition.aliases && condition.aliases.length > 0 && (
                       <span className="ml-2 text-gray-400">
