@@ -33,7 +33,7 @@ export default function KeratoconusLandingPage() {
                     "High-definition vision correction",
                     "Non-surgical solution"
                 ]}
-                badgeText="Limited New Patient Appt Available"
+                badgeText="Limited New Patient Appointments Available"
                 badgeLink="#availability"
             />
 
