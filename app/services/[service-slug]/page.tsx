@@ -6,12 +6,20 @@
  *
  * CONTEXT: High-converting service pages with MedicalProcedure and FAQPage schema,
  * comprehensive content, and E-E-A-T compliance elements.
+ *
+ * FEATURES:
+ * - Medical Procedure schema
+ * - Author expertise signals
+ * - FAQ accordion
+ * - Trust indicators
+ * - Clinical image gallery
  */
 
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ClinicalGallery from '@/components/ClinicalGallery';
 import { ServiceProcess, ServiceBenefits, ServiceCandidates, ServiceCost } from '@/components/services';
 import FAQAccordion from '@/components/faq/FAQAccordion';
 import { BookAppointmentCTA, MedicalDisclaimer, AuthorByline, LastUpdated } from '@/components/shared';
@@ -19,6 +27,8 @@ import { getEnhancedServiceBySlug, getAllEnhancedServices } from '@/data/service
 import { getPrimaryDoctor } from '@/data/doctors';
 import { getMedicalProcedureJsonLd } from '@/lib/schema/medical-procedure';
 import { getLocalBusinessJsonLd } from '@/lib/schema/local-business';
+import { getImagesForCondition } from '@/lib/get-condition-images';
+import { getConditionsForService } from '@/lib/service-condition-map';
 import { Phone, Calendar } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
 import Link from 'next/link';
@@ -66,6 +76,17 @@ export default async function ServicePage({ params }: Props) {
   const doctor = getPrimaryDoctor();
   const procedureSchema = getMedicalProcedureJsonLd(service);
   const businessSchema = getLocalBusinessJsonLd(undefined, 4.9, 847);
+
+  // Get clinical images for this service from mapped conditions
+  const conditionSlugs = getConditionsForService(service.slug);
+  const clinicalImages = conditionSlugs.flatMap(slug => getImagesForCondition(slug));
+  // Deduplicate by filename
+  const seenFilenames = new Set<string>();
+  const uniqueImages = clinicalImages.filter(img => {
+    if (seenFilenames.has(img.filename)) return false;
+    seenFilenames.add(img.filename);
+    return true;
+  });
 
   return (
     <>
@@ -191,6 +212,14 @@ export default async function ServicePage({ params }: Props) {
                   faqs={service.faqs}
                   title={`Common Questions About ${service.shortName}`}
                 />
+
+                {/* Clinical Images Gallery */}
+                {uniqueImages.length > 0 && (
+                  <ClinicalGallery
+                    images={uniqueImages}
+                    conditionName={service.shortName}
+                  />
+                )}
               </div>
 
               {/* Sidebar */}
