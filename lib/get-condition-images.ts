@@ -52,6 +52,24 @@ function buildImageMappings(): Map<string, ClinicalImage[]> {
         mappings.get(slug)!.push(processImage(filename));
     }
 
+    // Deduplicate images by title (remove duplicates with similar names)
+    for (const [slug, imgs] of mappings) {
+        const seen = new Set<string>();
+        const deduped: ClinicalImage[] = [];
+
+        for (const img of imgs) {
+            // Normalize title for comparison (lowercase, remove extra spaces)
+            const normalizedTitle = img.title.toLowerCase().replace(/\s+/g, ' ').trim();
+
+            if (!seen.has(normalizedTitle)) {
+                seen.add(normalizedTitle);
+                deduped.push(img);
+            }
+        }
+
+        mappings.set(slug, deduped);
+    }
+
     // Sort images within each condition by title
     for (const [, imgs] of mappings) {
         imgs.sort((a, b) => a.title.localeCompare(b.title));
