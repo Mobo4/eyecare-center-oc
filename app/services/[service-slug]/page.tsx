@@ -117,7 +117,7 @@ export default async function ServicePage({ params }: Props) {
               className="w-full h-full object-cover object-center"
             />
             {/* Mobile: darker overlay for readability. Desktop: gradient */}
-            <div className="absolute inset-0 bg-black/60 md:bg-gradient-to-r md:from-black/80 md:via-black/50 md:to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
           </div>
           <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0">
             <div className="max-w-4xl">
