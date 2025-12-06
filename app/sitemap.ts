@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/medical-disclaimer',
     '/doctors',
     '/insurance',
+    '/lp/headaches-cvs',
   ];
 
   const staticUrls = staticPages.map((page) => ({
