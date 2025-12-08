@@ -49,15 +49,7 @@ export default function HomePage() {
 
       <OrganizationSchema />
 
-      <Hero
-        title="World-Class Eye Care in Orange County"
-        subtitle="Experience vision care that goes beyond the ordinary. Dr. Alexander Bonakdar combines 35+ years of expertise with cutting-edge technology for comprehensive eye health."
-        imageSrc="/images/home-hero.webp"
-        imageAlt="Dr. Alexander Bonakdar performing an eye exam"
-        ctaText="Book Your Exam"
-        ctaLink="/contact"
-        priority={true}
-      />
+      <CleanHero />
 
       <section className="py-12 bg-white relative z-20 md:-mt-20 px-4">
         <div className="container mx-auto">
