@@ -3,32 +3,18 @@
  * Server-side utility to read and map atlas images to conditions
  */
 
-import fs from 'fs';
-import path from 'path';
 import { ClinicalImage } from '@/lib/schema/types';
 import { findConditionSlug, processImage } from '@/lib/atlas-image-mapper';
+import { ATLAS_IMAGES } from '@/lib/generated-atlas-map';
 
-// Cache the image list
-let cachedImages: string[] | null = null;
+// Cache the image mappings
 let cachedMappings: Map<string, ClinicalImage[]> | null = null;
 
 /**
- * Get list of all atlas images
+ * Get list of all atlas images from the generated map
  */
 function getAtlasImageList(): string[] {
-    if (cachedImages) return cachedImages;
-
-    const atlasDir = path.join(process.cwd(), 'public', 'images', 'atlas');
-
-    try {
-        const files = fs.readdirSync(atlasDir)
-            .filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f));
-        cachedImages = files;
-        return files;
-    } catch (error) {
-        console.error('Error reading atlas directory:', error);
-        return [];
-    }
+    return ATLAS_IMAGES;
 }
 
 /**
