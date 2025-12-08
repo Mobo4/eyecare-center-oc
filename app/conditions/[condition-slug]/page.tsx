@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ClinicalGallery from '@/components/ClinicalGallery';
 import ServiceHero from '@/components/services/ServiceHero';
-import { Phone, Calendar, Eye, AlertCircle, CheckCircle, MapPin, ArrowRight, ImageIcon } from 'lucide-react';
+import { Phone, Calendar, Eye, AlertCircle, CheckCircle } from 'lucide-react';
 import { conditions as fullConditions, getConditionBySlug as getFullConditionBySlug, Condition, ConditionSeverity } from '@/data/conditions-full';
 import { allConditions, SearchCondition } from '@/data/conditions-search';
 import { cities } from '@/data/cities';
