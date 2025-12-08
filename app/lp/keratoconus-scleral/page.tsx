@@ -1,301 +1,328 @@
-import React from 'react';
 import { Metadata } from 'next';
-import LandingPageLayout from '@/components/landing/LandingPageLayout';
-import {
-    LandingHero,
-    SocialProof,
-    BenefitsSection,
-    Testimonials,
-    FAQSection,
-    StickyCTA,
-    AnimatedSection
-} from '@/components/landing/LandingComponents';
-import { Eye, Shield, CheckCircle, Activity, Star, MapPin } from 'lucide-react';
-import { SERVICE_AREAS } from '@/lib/schema';
+import { notFound } from 'next/navigation';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ClinicalGallery from '@/components/ClinicalGallery';
+import { ServiceProcess, ServiceBenefits, ServiceCandidates, ServiceCost } from '@/components/services';
+import FAQAccordion from '@/components/faq/FAQAccordion';
+import { BookAppointmentCTA, MedicalDisclaimer, AuthorByline, LastUpdated } from '@/components/shared';
+import { getEnhancedServiceBySlug } from '@/data/services-enhanced';
+import { getPrimaryDoctor } from '@/data/doctors';
+import { getMedicalProcedureJsonLd } from '@/lib/schema/medical-procedure';
+import { getLocalBusinessJsonLd } from '@/lib/schema/local-business';
+import { getImagesForCondition } from '@/lib/get-condition-images';
+import { getConditionsForService } from '@/lib/service-condition-map';
+import { Phone, Calendar } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/contact-info';
+import Link from 'next/link';
+import VisionSimulator from '@/components/VisionSimulator'; // Imported VisionSimulator
 
 export const metadata: Metadata = {
-    title: 'Keratoconus & Scleral Lenses',
-    description: 'Restore clear vision with custom scleral lenses for keratoconus. Dr. Bonakdar is a leading specialist in irregular cornea management in Orange County.',
+    title: 'Keratoconus & Scleral Lenses | Orange County Expert',
+    description: 'Restore clear vision with specific custom scleral lenses for keratoconus. Dr. Bonakdar is a leading specialist in irregular cornea management in Orange County.',
 };
 
 export default function KeratoconusLandingPage() {
+    // Hardcoded to keratoconus-treatment for this LP
+    const service = getEnhancedServiceBySlug('keratoconus-treatment');
+
+    if (!service) {
+        notFound();
+    }
+
+    const doctor = getPrimaryDoctor();
+    const procedureSchema = getMedicalProcedureJsonLd(service);
+    const businessSchema = getLocalBusinessJsonLd(undefined, 4.9, 847);
+
+    // Get clinical images for this service from mapped conditions
+    const conditionSlugs = getConditionsForService(service.slug);
+    const clinicalImages = conditionSlugs.flatMap(slug => getImagesForCondition(slug));
+    // Deduplicate by filename
+    const seenFilenames = new Set<string>();
+    const uniqueImages = clinicalImages.filter(img => {
+        if (seenFilenames.has(img.filename)) return false;
+        seenFilenames.add(img.filename);
+        return true;
+    });
+
     return (
-        <LandingPageLayout>
-            {/* Hero Section */}
-            <LandingHero
-                headline="Restore Your Vision. Reclaim Your Life."
-                subheadline="Experience vision clearer than you thought possible with custom-designed scleral lenses that offer superior comfort and stability."
-                imageSrc="/images/Scleral_lens_01.avif"
-                ctaText="Get Fitted for Scleral Lenses"
-                benefits={[
-                    "Custom-fit for your unique eye shape",
-                    "Superior comfort & stability",
-                    "High-definition vision correction",
-                    "Non-surgical solution"
-                ]}
-                badgeText="Limited New Patient Appointments Available"
-                badgeLink="#availability"
-            />
-
-            <AnimatedSection className="bg-eyecare-navy">
-                <SocialProof />
-            </AnimatedSection>
-
-            {/* Problem/Agitation Section */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-eyecare-navy mb-6">
-                            Is Keratoconus Stealing Your Vision?
-                        </h2>
-                        <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-                            We understand the frustration. You've been told your vision is "difficult" or "impossible" to correct. You may feel like you're losing your independence. But there is hope.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-                        <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
-                            <h3 className="text-2xl font-bold text-eyecare-navy mb-4 flex items-center gap-3">
-                                <Activity className="text-eyecare-blue w-6 h-6" />
-                                The Reality of Keratoconus
-                            </h3>
-                            <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                                Your cornea is losing its natural shape, bulging outward. This irregularity scatters light before it enters your eye, causing:
-                            </p>
-                            <ul className="space-y-2">
-                                <li className="flex items-center gap-2 text-gray-700">
-                                    <span className="w-2 h-2 bg-eyecare-blue rounded-full" />
-                                    Severe ghosting and halos
-                                </li>
-                                <li className="flex items-center gap-2 text-gray-700">
-                                    <span className="w-2 h-2 bg-eyecare-blue rounded-full" />
-                                    Distorted, blurry vision
-                                </li>
-                                <li className="flex items-center gap-2 text-gray-700">
-                                    <span className="w-2 h-2 bg-eyecare-blue rounded-full" />
-                                    Sensitivity to light
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="relative h-64 md:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                            <img
-                                src="/images/Keratoconus_eye.avif"
-                                alt="Advanced Keratoconus Eye Condition"
-                                className="absolute inset-0 w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
-                                <p className="text-white font-medium">Advanced Keratoconus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Solution Section */}
-            <section className="py-20 bg-blue-50">
-                <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="order-2 lg:order-1">
-                            <img
-                                src="/images/keratoconus-main.webp"
-                                alt="Scleral Lens Fitting"
-                                className="rounded-2xl shadow-xl w-full"
-                            />
-                        </div>
-                        <div className="order-1 lg:order-2">
-                            <span className="text-eyecare-blue font-bold tracking-wider uppercase text-sm mb-2 block">The Gold Standard</span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-eyecare-navy mb-6">
-                                Scleral Lenses: A Life-Changing Solution
-                            </h2>
-                            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Scleral lenses are large-diameter gas permeable lenses that vault over the entire cornea and rest gently on the white part of the eye (the sclera).
-                            </p>
-                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                This creates a smooth optical surface that masks irregularities, providing <strong>high-definition vision</strong> that glasses simply cannot match.
-                            </p>
-
-                            <div className="space-y-4">
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-eyecare-blue shadow-sm shrink-0">
-                                        <Shield className="w-5 h-5" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-eyecare-navy">Superior Comfort</h4>
-                                        <p className="text-sm text-gray-600">They don't touch the sensitive cornea, making them comfortable for all-day wear.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-eyecare-blue shadow-sm shrink-0">
-                                        <Eye className="w-5 h-5" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-eyecare-navy">Stable Vision</h4>
-                                        <p className="text-sm text-gray-600">The lens stays centered and doesn't rotate, providing consistent clarity.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-eyecare-blue shadow-sm shrink-0">
-                                        <CheckCircle className="w-5 h-5" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-eyecare-navy">Continuous Hydration</h4>
-                                        <p className="text-sm text-gray-600">A reservoir of fluid keeps your eye moist and healthy throughout the day.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Availability Explanation Section */}
-            <section id="availability" className="py-16 bg-white border-b border-gray-100">
-                <div className="container mx-auto px-4 max-w-4xl text-center">
-                    <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-amber-100">
-                        <Activity className="w-4 h-4" />
-                        Important Appointment Information
-                    </div>
-                    <h2 className="text-3xl font-bold text-eyecare-navy mb-6">
-                        Why We Limit Patient Appointments
-                    </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                        Scleral lens fitting is a highly specialized process that requires precision, time, and expertise. Unlike standard eye exams, Dr. Bonakdar personally oversees every step of your custom fitting to ensure the perfect fit and optimal vision.
-                    </p>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        To maintain this high standard of care, we limit the number of new keratoconus patients we accept each month. This ensures you receive the dedicated attention and unhurried appointments you deserve.
-                    </p>
-                </div>
-            </section>
-
-            {/* Benefits Grid */}
-            <AnimatedSection>
-                <BenefitsSection
-                    title="Why Choose Scleral Lenses?"
-                    benefits={[
-                        {
-                            title: "Superior Vision",
-                            description: "Scleral lenses mask corneal irregularities, providing sharper vision than glasses or standard contacts.",
-                            icon: <Eye className="w-8 h-8" />
-                        },
-                        {
-                            title: "Unmatched Comfort",
-                            description: "The lenses vault over the cornea and rest on the sclera (white of the eye), avoiding sensitive tissue.",
-                            icon: <Shield className="w-8 h-8" />
-                        },
-                        {
-                            title: "Stable Fit",
-                            description: "Large diameter lenses stay centered and don't pop out, even during active lifestyles.",
-                            icon: <CheckCircle className="w-8 h-8" />
-                        },
-                        {
-                            title: "Dry Eye Relief",
-                            description: "A fluid reservoir between the lens and eye keeps the cornea hydrated all day long.",
-                            icon: <Activity className="w-8 h-8" />
-                        },
-                        {
-                            title: "Custom Designed",
-                            description: "Each lens is precision-engineered based on a 3D map of your unique eye shape.",
-                            icon: <MapPin className="w-8 h-8" />
-                        },
-                        {
-                            title: "Expert Fitting",
-                            description: "Dr. Bonakdar is a recognized specialist with years of experience in complex contact lens fittings.",
-                            icon: <Star className="w-8 h-8" />
-                        }
-                    ]}
-                />
-            </AnimatedSection>
-
-            {/* Testimonial */}
-            <AnimatedSection className="bg-blue-50">
-                <Testimonials
-                    quote="I was told I would never see clearly again. Scleral lenses changed my life. I can drive at night and work on my computer without strain. Thank you, Dr. Bonakdar!"
-                    author="Michael R."
-                    role="Keratoconus Patient"
-                />
-            </AnimatedSection>
-
-            <AnimatedSection>
-                <FAQSection
-                    items={[
-                        {
-                            question: "Are scleral lenses hard to put in?",
-                            answer: "There is a learning curve, but most patients master the technique within a week. We provide comprehensive training and support."
-                        },
-                        {
-                            question: "How long do they last?",
-                            answer: "With proper care, a pair of scleral lenses can last 1-2 years. We recommend annual checks to ensure the fit remains optimal."
-                        },
-                        {
-                            question: "Does insurance cover them?",
-                            answer: "Many vision plans classify scleral lenses as 'medically necessary' for keratoconus, which may provide significant coverage. We can help verify your benefits."
-                        },
-                        {
-                            question: "Do they help with dry eyes?",
-                            answer: "Absolutely. The fluid reservoir between the lens and your eye provides constant hydration, making them an excellent option for severe dry eye."
-                        }
-                    ]}
-                />
-            </AnimatedSection>
-
-            {/* Service Area / Local SEO Section */}
-            <section className="py-12 bg-gray-50 border-t border-gray-200">
-                <div className="container mx-auto px-4 text-center">
-                    <h3 className="text-xl font-bold text-eyecare-navy mb-4 flex items-center justify-center gap-2">
-                        <MapPin className="text-eyecare-blue w-5 h-5" />
-                        Expert Keratoconus Care in Orange County
-                    </h3>
-                    <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        Conveniently located in Santa Ana, we are proud to serve keratoconus patients from across Orange County, including
-                        <span className="font-semibold text-eyecare-blue"> Irvine, Newport Beach, Tustin, Costa Mesa, Orange, Huntington Beach, and Mission Viejo</span>.
-                    </p>
-                </div>
-            </section>
-
-            {/* Local Business & Procedure Schema */}
+        <>
+            {/* Schema Markup */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "MedicalProcedure",
-                        "name": "Scleral Lens Fitting for Keratoconus",
-                        "description": "Custom scleral contact lens fitting for the management of keratoconus and irregular corneas.",
-                        "procedureType": "Non-surgical",
-                        "bodyLocation": "Eyes",
-                        "status": "Available",
-                        "provider": {
-                            "@type": "Physician",
-                            "name": "Dr. Alexander Bonakdar",
-                            "medicalSpecialty": "Ophthalmology",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "streetAddress": "801 N Tustin Ave # 404",
-                                "addressLocality": "Santa Ana",
-                                "addressRegion": "CA",
-                                "postalCode": "92705",
-                                "addressCountry": "US"
-                            }
-                        },
-                        "location": {
-                            "@type": "MedicalClinic",
-                            "name": "Optometric Eyecare Center of Orange County",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "streetAddress": "301 South Harbor Blvd., Suite 100",
-                                "addressLocality": "Santa Ana",
-                                "addressRegion": "CA",
-                                "postalCode": "92704",
-                                "addressCountry": "US"
-                            },
-                            "telephone": "+1-949-364-0008",
-                            "areaServed": SERVICE_AREAS
-                        }
-                    })
-                }}
+                dangerouslySetInnerHTML={{ __html: procedureSchema }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: businessSchema }}
             />
 
-            <StickyCTA />
-        </LandingPageLayout>
+            <Header />
+            <main className="min-h-screen pb-20 md:pb-0">
+                {/* Hero Section - Custom PAS Copy */}
+                <section className="relative min-h-[85vh] md:min-h-[600px] flex items-center overflow-hidden">
+                    <div className="absolute inset-0">
+                        <img
+                            src="/images/keratoconus-main.webp" // Explicitly matching service page hero
+                            alt="Keratoconus Treatment at EyeCare Center of Orange County"
+                            className="w-full h-full object-cover object-[75%_center] md:object-center"
+                        />
+                        {/* Mobile: Stronger specific gradient for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 md:bg-gradient-to-r md:from-black/80 md:via-black/50 md:to-transparent"></div>
+                    </div>
+                    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0">
+                        <div className="max-w-4xl">
+                            <div className="inline-block bg-eyecare-blue/90 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wide uppercase mb-6 backdrop-blur-sm border border-white/20">
+                                Specialized Keratoconus Care
+                            </div>
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                                Blurry Vision? Ghosting? <br className="hidden md:block" />
+                                <span className="text-eyecare-light-blue">You Don't Have to Live With It.</span>
+                            </h1>
+                            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 leading-relaxed mb-8 max-w-2xl font-medium drop-shadow-md">
+                                The Advanced Keratoconus Solution That Restores Clarity When Glasses & Standard Contacts Fail.
+                            </p>
+
+                            {/* Author Byline - Reduced size for mobile balance */}
+                            <div className="mb-8 opacity-90 hover:opacity-100 transition-opacity">
+                                <AuthorByline
+                                    author={{
+                                        name: doctor.name,
+                                        credentials: doctor.credentials,
+                                        title: doctor.title,
+                                        slug: doctor.slug,
+                                        photo: doctor.photo
+                                    }}
+                                    datePublished={service.lastUpdated}
+                                    dateModified={service.lastUpdated}
+                                    variant="compact"
+                                    showPhoto={false}
+                                    className="text-white [&_a]:text-white [&_a]:hover:text-blue-200"
+                                />
+                            </div>
+
+                            {/* Desktop CTA Buttons (Hidden on mobile generally if using sticky, but good to keep for larger mobile screens) */}
+                            <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
+                                <a
+                                    href={CONTACT_INFO.primaryPhone.href}
+                                    className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-eyecare-dark-blue transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                >
+                                    <Phone className="w-6 h-6 mr-2" />
+                                    {CONTACT_INFO.primaryPhone.display}
+                                </a>
+                                <Link
+                                    href="/book-appointment"
+                                    className="inline-flex items-center justify-center bg-white/10 backdrop-blur-md text-white border-2 border-white/40 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-eyecare-blue transition-all"
+                                >
+                                    <Calendar className="w-6 h-6 mr-2" />
+                                    Check Insurance & Book
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* PROBLEM / AGITATION SECTION - NEW */}
+                <section className="py-16 md:py-24 bg-gray-50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-3xl mx-auto text-center mb-16">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                                Frustrated by Changing Prescriptions?
+                            </h2>
+                            <p className="text-xl text-gray-700 leading-relaxed">
+                                If you've been told you have "bad astigmatism," struggle with night driving, or find yourself squinting even with new glasses, you might be dealing with more than just poor vision.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {[
+                                { title: "Glare & Halos", desc: "Lights at night streak or burst, making driving dangerous or impossible.", icon: "🚫" },
+                                { title: "Ghost Images", desc: "Seeing double or triple images, especially with high contrast text.", icon: "👻" },
+                                { title: "Itchy, Rubbing Eyes", desc: "Chronic eye rubbing is often a sign—and a cause—of worsening progression.", icon: "👁️" }
+                            ].map((item, i) => (
+                                <div key={i} className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                                    <div className="text-4xl mb-4">{item.icon}</div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                                    <p className="text-gray-600">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Vision Simulator Section */}
+                <div id="vision-simulator" className="py-12 bg-white border-y border-gray-100">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-10">
+                            <span className="text-eyecare-blue font-bold tracking-wider uppercase text-sm">See The Difference</span>
+                            <h2 className="text-3xl font-bold text-gray-900 mt-2">Simulate Your Vision</h2>
+                            <p className="text-gray-600 max-w-2xl mx-auto mt-4">
+                                Drag the slider to see how Scleral Lenses can correct the visual distortions caused by Keratoconus.
+                            </p>
+                        </div>
+                        <VisionSimulator />
+                    </div>
+                </div>
+
+                {/* Main Content */}
+                <section className="py-12 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            {/* Main Column */}
+                            <div className="lg:col-span-2 space-y-12">
+                                {/* Overview */}
+                                <div>
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                                        The Scleral Lens Solution
+                                    </h2>
+                                    <div className="prose prose-lg max-w-none text-gray-700 bg-blue-50 p-8 rounded-2xl border border-blue-100">
+                                        <p className="font-medium text-blue-900 text-xl mb-4">
+                                            Why standard contacts fail, but Scleral Lenses succeed.
+                                        </p>
+                                        <p>
+                                            Unlike soft contacts that drape over your irregular cornea—transferring the distortion to the front of the lens—**Scleral Lenses** vault over the cornea entirely.
+                                        </p>
+                                        <p>
+                                            They rest gently on the white part of your eye (the sclera) and create a fluid-filled reservoir that masks your corneal irregularity. This creates a perfectly smooth optical surface, often restoring vision to 20/20.
+                                        </p>
+                                    </div>
+                                    <div className="mt-8 prose prose-lg max-w-none text-gray-700">
+                                        {service.overview.split('\n\n').map((paragraph, idx) => (
+                                            <p key={idx} className="mb-4">{paragraph}</p>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Benefits */}
+                                <ServiceBenefits
+                                    benefits={service.benefits}
+                                    title={`Benefits of ${service.shortName} Treatment`}
+                                />
+
+                                {/* Process */}
+                                <ServiceProcess
+                                    steps={service.process}
+                                    title={`The ${service.shortName} Process`}
+                                />
+
+                                {/* Candidates */}
+                                <div>
+                                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                                        Is {service.shortName} Right for You?
+                                    </h2>
+                                    <ServiceCandidates
+                                        goodCandidates={service.candidateCriteria}
+                                        notCandidates={service.notCandidates}
+                                    />
+                                </div>
+
+                                {/* FAQ Section */}
+                                <FAQAccordion
+                                    faqs={service.faqs}
+                                    title={`Common Questions About ${service.shortName}`}
+                                />
+
+                                {/* Clinical Images Gallery */}
+                                {uniqueImages.length > 0 && (
+                                    <ClinicalGallery
+                                        images={uniqueImages}
+                                        conditionName={service.shortName}
+                                    />
+                                )}
+                            </div>
+
+                            {/* Sidebar */}
+                            <div className="lg:col-span-1 space-y-6">
+                                {/* Quick Contact */}
+                                <div className="bg-eyecare-blue text-white rounded-lg p-6 sticky top-4">
+                                    <h3 className="text-xl font-bold mb-4">Schedule Your Consultation</h3>
+                                    <p className="text-eyecare-lighter-blue mb-4">
+                                        Get expert {service.shortName.toLowerCase()} care from Dr. {doctor.name}
+                                    </p>
+                                    <a
+                                        href={CONTACT_INFO.primaryPhone.href}
+                                        className="callrail-phone block w-full bg-white text-eyecare-blue text-center px-4 py-3 rounded-lg font-semibold hover:shadow-lg transition-all mb-3"
+                                    >
+                                        <Phone className="w-5 h-5 inline mr-2" />
+                                        {CONTACT_INFO.primaryPhone.display}
+                                    </a>
+                                    <Link
+                                        href="/book-appointment"
+                                        className="block w-full bg-eyecare-light-blue text-white text-center px-4 py-3 rounded-lg font-semibold hover:bg-eyecare-lighter-blue transition-all"
+                                    >
+                                        Book Online
+                                    </Link>
+                                </div>
+
+                                {/* Cost Info */}
+                                <ServiceCost cost={service.cost} serviceName={service.name} />
+
+                                {/* Related Services */}
+                                {service.relatedServices.length > 0 && (
+                                    <div className="bg-gray-50 rounded-lg p-6">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-4">Related Services</h3>
+                                        <ul className="space-y-2">
+                                            {service.relatedServices.map(slug => {
+                                                const related = getEnhancedServiceBySlug(slug);
+                                                return related ? (
+                                                    <li key={slug}>
+                                                        <Link
+                                                            href={`/services/${slug}`}
+                                                            className="text-eyecare-blue hover:underline"
+                                                        >
+                                                            {related.name}
+                                                        </Link>
+                                                    </li>
+                                                ) : null;
+                                            })}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {/* Last Updated */}
+                                <LastUpdated
+                                    datePublished={service.lastUpdated}
+                                    dateModified={service.lastUpdated}
+                                    variant="detailed"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* CTA Section */}
+                <section className="py-12 bg-gray-50 mb-16 md:mb-0">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <BookAppointmentCTA serviceName={service.name} />
+                    </div>
+                </section>
+
+                {/* Sticky Mobile CTA */}
+                <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:hidden z-50 flex gap-3">
+                    <a
+                        href={CONTACT_INFO.primaryPhone.href}
+                        className="callrail-phone flex-1 flex items-center justify-center bg-eyecare-blue text-white px-4 py-3 rounded-lg font-bold shadow-sm"
+                    >
+                        <Phone className="w-5 h-5 mr-2" />
+                        Call Now
+                    </a>
+                    <Link
+                        href="/book-appointment"
+                        className="flex-1 flex items-center justify-center bg-eyecare-light-blue text-white px-4 py-3 rounded-lg font-bold shadow-sm"
+                    >
+                        <Calendar className="w-5 h-5 mr-2" />
+                        Book Now
+                    </Link>
+                </div>
+
+                {/* Medical Disclaimer */}
+                <section className="py-8 bg-white pb-24 md:pb-8">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <MedicalDisclaimer />
+                    </div>
+                </section>
+            </main>
+            <Footer />
+        </>
     );
 }

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Eye, Layers, Moon, Droplets } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import ServiceHero from '@/components/services/ServiceHero';
 
 export const metadata: Metadata = {
     title: 'Contact Lenses Services | EyeCare Center of Orange County',
@@ -22,26 +23,13 @@ export default function ContactLensesHubPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="relative h-[400px] md:h-[500px] overflow-hidden">
-                <div className="absolute inset-0">
-                    <img
-                        src="/images/contact-lenses-main.webp"
-                        alt="Contact Lens Services"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-                </div>
-                <div className="relative h-full container mx-auto px-4 flex items-center">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-                            Contact Lens Center
-                        </h1>
-                        <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                            From standard soft lenses to advanced medical specialty contacts, we provide expert fitting for all vision needs.
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <ServiceHero
+                imageSrc="/images/contact-lenses-main.webp"
+                title="Contact Lens Center"
+                subtitle="From standard soft lenses to advanced medical specialty contacts, we provide expert fitting for all vision needs."
+                phoneHref={CONTACT_INFO.primaryPhone.href}
+                phoneDisplay={CONTACT_INFO.primaryPhone.display}
+            />
 
             {/* Services Grid */}
             <section className="py-20 bg-white">

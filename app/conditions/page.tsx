@@ -12,6 +12,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ConditionCityModal from '@/components/ConditionCityModal';
 import { ConditionAutosuggest } from '@/components/conditions';
+import ServiceHero from '@/components/services/ServiceHero';
 import { conditions, ConditionSeverity, Condition } from '@/data/conditions-full';
 import { allConditions, SearchCondition, searchConditions } from '@/data/conditions-search';
 import { Eye, AlertTriangle, Sparkles, ChevronRight, Search } from 'lucide-react';
@@ -151,46 +152,36 @@ export default function ConditionsPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src="/images/main.webp"
-              alt="Eye Conditions Treatment"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-          </div>
-          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-            <div className="max-w-4xl">
+        {/* Hero Section */}
+        <ServiceHero
+          imageSrc="/images/main.webp"
+          title={
+            <>
               <div className="flex items-center gap-2 mb-4">
-                <Eye className="w-8 h-8 text-white" />
-                <span className="text-lg font-semibold text-white">Comprehensive Eye Care</span>
+                <Eye className="w-8 h-8 text-eyecare-blue md:text-white" />
+                <span className="text-lg font-semibold text-eyecare-blue md:text-white">Comprehensive Eye Care</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Eye Conditions We Treat
-              </h1>
-              <p className="text-xl text-white/90 leading-relaxed mb-8">
-                Expert diagnosis and treatment for over 300 eye conditions. Our board-certified specialists use the latest technology and proven treatments to preserve and enhance your vision.
-              </p>
-
-              {/* Autosuggest Search - Enhanced Visibility */}
-              <div className="max-w-2xl">
-                <div className="bg-white rounded-2xl shadow-xl p-2 border-2 border-eyecare-blue/20">
-                  <ConditionAutosuggest
-                    onSearch={handleSearch}
-                    onSelect={handleSelectSearchCondition}
-                    placeholder="Search conditions (e.g., dry eye, keratoconus, glaucoma...)"
-                    className="search-enhanced"
-                  />
-                </div>
-                <p className="mt-3 text-sm text-white/80 flex items-center gap-2">
-                  <Search className="w-4 h-4" />
-                  Search over 300+ eye conditions with spelling assistance
-                </p>
-              </div>
+              Eye Conditions We Treat
+            </>
+          }
+          subtitle="Expert diagnosis and treatment for over 300 eye conditions. Our board-certified specialists use the latest technology and proven treatments to preserve and enhance your vision."
+        >
+          {/* Autosuggest Search - Enhanced Visibility */}
+          <div className="max-w-2xl">
+            <div className="bg-white rounded-2xl shadow-xl p-2 border-2 border-eyecare-blue/20">
+              <ConditionAutosuggest
+                onSearch={handleSearch}
+                onSelect={handleSelectSearchCondition}
+                placeholder="Search conditions (e.g., dry eye, keratoconus, glaucoma...)"
+                className="search-enhanced"
+              />
             </div>
+            <p className="mt-3 text-sm text-gray-500 md:text-white/80 flex items-center gap-2">
+              <Search className="w-4 h-4" />
+              Search over 300+ eye conditions with spelling assistance
+            </p>
           </div>
-        </section>
+        </ServiceHero>
 
         {/* Featured Conditions Cards */}
         <section className="py-12 bg-white">

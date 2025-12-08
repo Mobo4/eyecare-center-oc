@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Glasses, Eye, Shield, Sun, Monitor, Zap, Layers, Sparkles, Brain, X, Check } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import ServiceHero from '@/components/services/ServiceHero';
 
 export default function OpticalLensesContent() {
     const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -18,27 +19,13 @@ export default function OpticalLensesContent() {
             <Header />
 
             {/* Hero Section */}
-            <section className="relative h-[400px] md:h-[500px] overflow-hidden">
-                <div className="absolute inset-0">
-                    <img
-                        src="/images/services-main.webp"
-                        alt="Glasses Lens Technology"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-                </div>
-                <div className="relative h-full container mx-auto px-4 flex items-center">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-                            Glasses Lens Technology
-                        </h1>
-                        <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                            Understanding your lens options is key to achieving your best possible vision.
-                            We offer the latest in optical technology to suit your lifestyle and visual needs.
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <ServiceHero
+                imageSrc="/images/services-main.webp"
+                title="Advanced Optical Lenses"
+                subtitle="Understanding your lens options is key to achieving your best possible vision. We offer the latest in optical technology to suit your lifestyle and visual needs."
+                phoneHref={CONTACT_INFO.primaryPhone.href}
+                phoneDisplay={CONTACT_INFO.primaryPhone.display}
+            />
 
             {/* Lens Designs Section */}
             <section className="py-20 bg-white">

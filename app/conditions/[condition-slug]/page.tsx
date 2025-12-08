@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ClinicalGallery from '@/components/ClinicalGallery';
+import ServiceHero from '@/components/services/ServiceHero';
 import { Phone, Calendar, Eye, AlertCircle, CheckCircle, MapPin, ArrowRight, ImageIcon } from 'lucide-react';
 import { conditions as fullConditions, getConditionBySlug as getFullConditionBySlug, Condition, ConditionSeverity } from '@/data/conditions-full';
 import { allConditions, SearchCondition } from '@/data/conditions-search';
@@ -221,51 +222,27 @@ export default async function ConditionPage({ params }: Props) {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] md:min-h-[500px] flex items-center overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src="/images/main.webp"
-              alt={condition.name}
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Mobile: darker overlay for readability. Desktop: gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-          </div>
-          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0">
-            <div className="max-w-4xl">
+        {/* Hero Section */}
+        <ServiceHero
+          imageSrc="/images/main.webp"
+          title={
+            <>
               <div className="flex items-center gap-2 mb-4">
-                <Eye className="w-5 h-5 md:w-6 md:h-6 text-eyecare-blue" />
-                <span className="text-eyecare-blue font-bold tracking-wide uppercase text-sm md:text-base">{condition.category}</span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                {condition.name}
-                <span className="block text-lg sm:text-xl md:text-2xl font-normal text-gray-200 mt-2">
-                  Complete Guide to Symptoms, Causes & Treatment
+                <Eye className="w-5 h-5 md:w-6 md:h-6 text-eyecare-blue md:text-white" />
+                <span className="text-eyecare-blue md:text-white font-bold tracking-wide uppercase text-sm md:text-base">
+                  {condition.category}
                 </span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed mb-8 max-w-2xl">
-                Expert information about {condition.name.toLowerCase()} from Orange County's leading eye care specialists.
-                Learn about symptoms, causes, diagnosis, and the latest treatment options.
-              </p>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
-                <a
-                  href={CONTACT_INFO.primaryPhone.href}
-                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3.5 rounded-lg font-bold hover:bg-eyecare-dark-blue transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  {CONTACT_INFO.primaryPhone.display}
-                </a>
-                <Link
-                  href="/book-appointment"
-                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-6 py-3.5 rounded-lg font-bold hover:bg-white hover:text-eyecare-blue transition-all"
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Appointment
-                </Link>
               </div>
-            </div>
-          </div>
-        </section>
+              {condition.name}
+              <span className="block text-lg sm:text-xl md:text-2xl font-normal text-gray-500 md:text-gray-200 mt-2">
+                Complete Guide to Symptoms, Causes & Treatment
+              </span>
+            </>
+          }
+          subtitle={`Expert information about ${condition.name.toLowerCase()} from Orange County's leading eye care specialists. Learn about symptoms, causes, diagnosis, and the latest treatment options.`}
+          phoneHref={CONTACT_INFO.primaryPhone.href}
+          phoneDisplay={CONTACT_INFO.primaryPhone.display}
+        />
 
         {/* Main Content */}
         <section className="py-16 bg-white">

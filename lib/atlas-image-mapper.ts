@@ -20,7 +20,7 @@ export interface ConditionImageMap {
 // Category to condition slug mappings
 const categoryToConditions: Record<string, string> = {
     'CATARACT': 'cataracts',
-    'CORNEA': 'keratoconus',
+    // 'CORNEA': 'keratoconus', // REMOVED: Too broad. Specific cornea images must match via regex.
     'RETINA': 'macular-degeneration',
     'GLAUCOMA': 'glaucoma',
     'UVEITIS': 'anterior-uveitis-iritis',
@@ -33,13 +33,16 @@ const categoryToConditions: Record<string, string> = {
     'GENETICS': 'retinitis-pigmentosa',
     'INHERITED DISEASE': 'retinitis-pigmentosa',
     'IRIS': 'anisocoria',
-    'CONTACT LENS': 'keratoconus',
+    // 'CONTACT LENS': 'keratoconus', // REMOVED: Too broad, causing cataract images to appear in keratoconus
     'PATHOLOGY': 'malignant-melanoma-of-the-choroid'
 };
 
 // Keyword to specific condition slug
 const keywordMappings: Array<[RegExp, string]> = [
     [/keratoconus/i, 'keratoconus'],
+    [/scleral/i, 'scleral-lenses'], // NEW: Explicit category for Scleral Lens images
+    [/cataract/i, 'cataracts'],
+    [/orthokeratology/i, 'myopia'],
     [/fuchs/i, 'fuchs-endothelial-dystrophy'],
     [/pterygium/i, 'pterygium'],
     [/pinguecula/i, 'pinguecula'],

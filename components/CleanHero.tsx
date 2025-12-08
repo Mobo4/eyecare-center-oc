@@ -2,7 +2,35 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Star, CheckCircle, ArrowRight } from 'lucide-react';
 
-export default function CleanHero() {
+interface CleanHeroProps {
+  headline?: React.ReactNode;
+  subheadline?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+  benefits?: string[];
+  badges?: {
+    text: string;
+    icon?: React.ReactNode;
+    color?: string;
+  }[];
+}
+
+export default function CleanHero({
+  headline,
+  subheadline,
+  imageSrc = "/images/doctor-consult.png",
+  imageAlt = "Eye Care Center of Orange County",
+  ctaText = "Book Appointment",
+  ctaLink = "/book-appointment",
+  secondaryCtaText = "Explore Services",
+  secondaryCtaLink = "/services",
+  benefits = ["Board Certified", "Latest Technology", "5-Star Rated"],
+  badges
+}: CleanHeroProps) {
   return (
     <section className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-eyecare-blue to-eyecare-dark-blue overflow-hidden">
       {/* Background Pattern/Image Overlay */}
@@ -28,48 +56,48 @@ export default function CleanHero() {
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-serif font-bold leading-tight tracking-tight">
-              World-Class <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
-                Eye Care
-              </span>
-              <br />
-              in Orange County
+              {headline || (
+                <>
+                  World-Class <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                    Eye Care
+                  </span>
+                  <br />
+                  in Orange County
+                </>
+              )}
             </h1>
 
             <p className="text-xl text-blue-100 max-w-xl leading-relaxed font-light">
-              Experience the perfect blend of advanced medical technology and compassionate, personalized care with Dr. Alexander Bonakdar.
+              {subheadline || "Experience the perfect blend of advanced medical technology and compassionate, personalized care with Dr. Alexander Bonakdar."}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
-                href="/book-appointment"
+                href={ctaLink}
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-eyecare-blue bg-white rounded-full hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Book Appointment
+                {ctaText}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-white/30 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
-              >
-                Explore Services
-              </Link>
+              {secondaryCtaText && secondaryCtaLink && (
+                <Link
+                  href={secondaryCtaLink}
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-white/30 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+                >
+                  {secondaryCtaText}
+                </Link>
+              )}
             </div>
 
             {/* Trust Indicators - White version */}
-            <div className="pt-8 flex items-center gap-8 text-blue-200 text-sm font-medium">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Board Certified</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Latest Technology</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>5-Star Rated</span>
-              </div>
+            <div className="pt-8 flex flex-wrap items-center gap-x-8 gap-y-4 text-blue-200 text-sm font-medium">
+              {benefits.map((benefit, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-400" />
+                  <span>{benefit}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -78,16 +106,21 @@ export default function CleanHero() {
             <div className="relative bg-white p-2 rounded-2xl shadow-2xl shadow-blue-900/5 max-w-sm rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-slate-100">
                 <Image
-                  src="/images/doctor-consult.png"
-                  alt="Eye Care Center of Orange County"
+                  src={imageSrc}
+                  alt={imageAlt}
                   fill
                   className="object-cover object-top"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60" />
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <p className="font-serif text-2xl font-bold">Dr. Alexander Bonakdar</p>
-                  <p className="text-blue-100 font-medium">Lead Optometrist</p>
+                <div className="absolute bottom-0 left-0 p-6 text-white bg-gradient-to-t from-black/80 to-transparent w-full">
+                  {/* Optional caption if needed, defaulting to Doctor info for backward compatibility if image matches */}
+                  {imageSrc.includes('doctor-consult') && (
+                    <>
+                      <p className="font-serif text-2xl font-bold">Dr. Alexander Bonakdar</p>
+                      <p className="text-blue-100 font-medium">Lead Optometrist</p>
+                    </>
+                  )}
                 </div>
               </div>
 

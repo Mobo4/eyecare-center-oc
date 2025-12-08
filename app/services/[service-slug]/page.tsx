@@ -32,6 +32,7 @@ import { getConditionsForService } from '@/lib/service-condition-map';
 import { Phone, Calendar } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
 import Link from 'next/link';
+import ServiceHero from '@/components/services/ServiceHero';
 
 interface Props {
   params: Promise<{ 'service-slug': string }>;
@@ -103,69 +104,26 @@ export default async function ServicePage({ params }: Props) {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] md:min-h-[500px] flex items-center overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src={
-                service.slug === 'keratoconus-treatment'
-                  ? '/images/keratoconus-main.webp'
-                  : (service.slug.includes('myopia') || service.slug.includes('ortho-k'))
-                    ? '/images/myopia-control-main.webp'
-                    : '/images/services-main.webp'
-              }
-              alt={service.name}
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Mobile: darker overlay for readability. Desktop: gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-          </div>
-          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0">
-            <div className="max-w-4xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                {service.name} <span className="block text-xl sm:text-2xl md:text-3xl font-normal text-gray-200 mt-2">in Orange County</span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed mb-8 max-w-2xl">
-                {service.description}
-              </p>
-
-              {/* Author Byline */}
-              <div className="mb-8">
-                <AuthorByline
-                  author={{
-                    name: doctor.name,
-                    credentials: doctor.credentials,
-                    title: doctor.title,
-                    slug: doctor.slug,
-                    photo: doctor.photo
-                  }}
-                  datePublished={service.lastUpdated}
-                  dateModified={service.lastUpdated}
-                  variant="compact"
-                  showPhoto={false}
-                  className="text-white [&_a]:text-white [&_a]:hover:text-blue-200"
-                />
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4">
-                <a
-                  href={CONTACT_INFO.primaryPhone.href}
-                  className="callrail-phone inline-flex items-center justify-center bg-eyecare-blue text-white px-6 py-3.5 rounded-lg font-bold hover:bg-eyecare-dark-blue transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  {CONTACT_INFO.primaryPhone.display}
-                </a>
-                <Link
-                  href="/book-appointment"
-                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-6 py-3.5 rounded-lg font-bold hover:bg-white hover:text-eyecare-blue transition-all"
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Consultation
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServiceHero
+          imageSrc={
+            service.slug === 'keratoconus-treatment'
+              ? '/images/keratoconus-main.webp'
+              : (service.slug.includes('myopia') || service.slug.includes('ortho-k'))
+                ? '/images/myopia-control-main.webp'
+                : '/images/services-main.webp'
+          }
+          title={
+            <>
+              {service.name}{' '}
+              <span className="block text-xl sm:text-2xl md:text-3xl font-normal text-gray-200 mt-2">
+                in Orange County
+              </span>
+            </>
+          }
+          subtitle={service.description}
+          phoneHref={CONTACT_INFO.primaryPhone.href}
+          phoneDisplay={CONTACT_INFO.primaryPhone.display}
+        />
 
         {/* Main Content */}
         <section className="py-12 bg-white">

@@ -5,9 +5,9 @@
 
 // Services that should show clinical images from specific conditions
 export const serviceToConditionMap: Record<string, string[]> = {
-    'keratoconus-treatment': ['keratoconus'],
-    'scleral-lens-fitting': ['keratoconus', 'dry-eye-syndrome'],
-    'dry-eye-specialist': ['dry-eye-syndrome'],
+    'keratoconus-treatment': ['keratoconus', 'scleral-lenses'],
+    'scleral-lens-fitting': ['scleral-lenses', 'keratoconus', 'dry-eye-syndrome'],
+    'dry-eye-specialist': ['dry-eye-syndrome', 'scleral-lenses'],
     'cataract-surgery-comanagement': ['cataracts'],
     'glaucoma-management': ['glaucoma'],
     'diabetic-eye-care': ['diabetic-retinopathy'],
