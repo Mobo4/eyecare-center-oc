@@ -233,6 +233,7 @@ export default function HomePage() {
           'Experienced specialist care'
         ]}
         ctaText="Schedule Free Consultation"
+        delayMs={12000}
       />
       <Footer />
     </main>
