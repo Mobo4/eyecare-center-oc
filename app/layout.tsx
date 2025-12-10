@@ -5,7 +5,7 @@ import "./globals.css";
 import { generateMedicalBusinessSchema } from "@/lib/schema";
 import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieConsent from '@/components/Legal/CookieConsent';

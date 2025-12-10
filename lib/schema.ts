@@ -84,23 +84,8 @@ export interface MedicalConditionSchema {
   };
 }
 
-export const SERVICE_AREAS = [
-  // Central Orange County
-  "Santa Ana", "Tustin", "Orange", "Villa Park", "Garden Grove", "Westminster", "Fountain Valley", "North Tustin",
-
-  // South Orange County
-  "Irvine", "Newport Beach", "Costa Mesa", "Lake Forest", "Mission Viejo", "Laguna Hills", "Laguna Woods",
-  "Aliso Viejo", "Laguna Beach", "Laguna Niguel", "Dana Point", "San Juan Capistrano", "San Clemente",
-  "Rancho Santa Margarita", "Ladera Ranch", "Coto de Caza", "Las Flores",
-
-  // North Orange County
-  "Anaheim", "Fullerton", "Placentia", "Yorba Linda", "Brea", "La Habra", "Buena Park", "Cypress",
-  "Stanton", "Los Alamitos", "Seal Beach", "La Palma", "Rossmoor", "Midway City", "Huntington Beach",
-
-  // Nearby Cities (<30 miles)
-  "Long Beach", "Cerritos", "Lakewood", "Artesia", "Bellflower", "Norwalk", "La Mirada", "Whittier",
-  "La Habra Heights", "Diamond Bar", "Chino", "Chino Hills", "Corona"
-];
+import { CONTACT_INFO, SERVICE_AREAS } from './contact-info';
+export { SERVICE_AREAS };
 
 /**
  * Generate MedicalBusiness schema for homepage with Top 6 Services
@@ -115,55 +100,48 @@ export function generateMedicalBusinessSchema(): any {
         name: "EyeCare Center of Orange County",
         description: "Comprehensive eye care services in Orange County. Expert LASIK, cataract surgery, keratoconus treatment, dry eye IPL therapy, and comprehensive eye exams. Board-certified specialists serving 65+ Orange County cities.",
         url: "https://eyecarecenteroc.com",
-        telephone: "+1-949-364-0008",
+        telephone: CONTACT_INFO.primaryPhone.display,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "801 North Tustin Ave #404",
-          addressLocality: "Santa Ana",
-          addressRegion: "CA",
-          postalCode: "92705",
+          streetAddress: CONTACT_INFO.address.street,
+          addressLocality: CONTACT_INFO.address.city,
+          addressRegion: CONTACT_INFO.address.state,
+          postalCode: CONTACT_INFO.address.zip,
           addressCountry: "US",
         },
-        areaServed: SERVICE_AREAS,
+        areaServed: SERVICE_AREAS.map(city => ({ "@type": "City", name: city })),
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "33.758810",
-          longitude: "-117.836090"
+          latitude: CONTACT_INFO.geo.latitude.toString(),
+          longitude: CONTACT_INFO.geo.longitude.toString()
         },
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-            opens: "09:00",
-            closes: "18:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Friday"],
-            opens: "09:00",
-            closes: "17:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Saturday"],
-            opens: "09:00",
-            closes: "14:00",
-          },
-        ],
-        priceRange: "$$",
+        openingHoursSpecification: CONTACT_INFO.openingHoursSpecification.map(hours => ({
+          "@type": "OpeningHoursSpecification",
+          ...hours
+        })),
+        priceRange: CONTACT_INFO.priceRange,
         image: "https://eyecarecenteroc.com/og-image.jpg",
         logo: "https://eyecarecenteroc.com/favicon.svg",
-        sameAs: [
-          "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
-          "https://www.instagram.com/eyecarecenteroc/",
-          "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
-          "https://www.youtube.com/@eyecarecenteroforangecount952"
-        ],
+        sameAs: Object.values(CONTACT_INFO.social),
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.9",
           reviewCount: "288"
         },
+        paymentAccepted: CONTACT_INFO.paymentAccepted,
+        currenciesAccepted: CONTACT_INFO.currenciesAccepted,
+        medicalSpecialty: [
+          "Optometry",
+          "Cornea and External Diseases"
+        ],
+        availableService: [
+          { "@type": "MedicalProcedure", "name": "Keratoconus Treatment" },
+          { "@type": "MedicalProcedure", "name": "Scleral Lens Fitting" },
+          { "@type": "MedicalProcedure", "name": "Orthokeratology" },
+          { "@type": "MedicalProcedure", "name": "Comprehensive Eye Exam" },
+          { "@type": "MedicalProcedure", "name": "Contact Lens Fitting" },
+          { "@type": "MedicalProcedure", "name": "Dry Eye Treatment" }
+        ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Eye Care Services",
@@ -232,56 +210,78 @@ export function generateMedicalBusinessSchema(): any {
 /**
  * Generate LocalBusiness schema for general pages
  */
+/**
+ * Generate LocalBusiness schema for general pages
+ */
 export function generateLocalBusinessSchema(): LocalBusinessSchema {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "EyeCare Center of Orange County",
+    name: CONTACT_INFO.name,
     description: "Expert eye care services in Orange County. Serving 65+ cities with comprehensive vision care.",
     url: "https://eyecarecenteroc.com",
-    telephone: "+1-949-364-0008",
+    telephone: CONTACT_INFO.primaryPhone.display,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "801 North Tustin Ave #404",
-      addressLocality: "Santa Ana",
-      addressRegion: "CA",
-      postalCode: "92705",
+      streetAddress: CONTACT_INFO.address.street,
+      addressLocality: CONTACT_INFO.address.city,
+      addressRegion: CONTACT_INFO.address.state,
+      postalCode: CONTACT_INFO.address.zip,
       addressCountry: "US",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "33.758810",
-      longitude: "-117.836090"
+      latitude: CONTACT_INFO.geo.latitude.toString(),
+      longitude: CONTACT_INFO.geo.longitude.toString()
     },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Friday"],
-        opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday"],
-        opens: "09:00",
-        closes: "14:00",
-      },
-    ],
-    priceRange: "$$",
+    openingHoursSpecification: CONTACT_INFO.openingHoursSpecification.map(hours => ({
+      "@type": "OpeningHoursSpecification",
+      ...hours
+    })),
+    priceRange: CONTACT_INFO.priceRange,
     image: "https://eyecarecenteroc.com/og-image.jpg",
     logo: "https://eyecarecenteroc.com/favicon.svg",
-    sameAs: [
-      "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
-      "https://www.instagram.com/eyecarecenteroc/",
-      "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
-      "https://www.youtube.com/@eyecarecenteroforangecount952"
-    ],
+    sameAs: Object.values(CONTACT_INFO.social),
+  };
+}
+
+/**
+ * Generate Physician Schema for doctor profiles
+ */
+export function generatePhysicianSchema(doctorName: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    name: doctorName,
+    description: description,
+    medicalSpecialty: "Optometry",
+    worksFor: {
+      "@type": "MedicalBusiness",
+      "@id": "https://eyecarecenteroc.com/#organization"
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: CONTACT_INFO.address.city,
+      addressRegion: CONTACT_INFO.address.state
+    }
+  };
+}
+
+/**
+ * Generate FAQ Schema
+ */
+export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
   };
 }
 

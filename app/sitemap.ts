@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
-import { conditions } from '@/data/conditions';
-import { allConditions } from '@/data/conditions-search';
+import { conditions, allConditions } from '@/data/conditions';
 import { cities } from '@/data/cities';
 import { allSmartServices } from '@/data/services-enhanced';
 

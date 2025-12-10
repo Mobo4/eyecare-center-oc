@@ -37,20 +37,22 @@ const categoryToConditions: Record<string, string> = {
     'PATHOLOGY': 'malignant-melanoma-of-the-choroid'
 };
 
-// Keyword to specific condition slug
+// Keyword to condition slug mappings
 const keywordMappings: Array<[RegExp, string]> = [
     [/keratoconus/i, 'keratoconus'],
-    [/scleral/i, 'scleral-lenses'], // NEW: Explicit category for Scleral Lens images
-    [/cataract/i, 'cataracts'],
+    [/scleral/i, 'scleral-lenses'],
+    [/cataract|aciol|intraocular.lens/i, 'cataracts'], // Added ACIOL
     [/orthokeratology/i, 'myopia'],
-    [/fuchs/i, 'fuchs-endothelial-dystrophy'],
+    [/fuchs|damek|dsaek|graft.rejection/i, 'fuchs-endothelial-dystrophy'], // Added DSAEK/Graft Rejection to Fuchs (common indication)
+    [/avellino|granular.dystrophy/i, 'corneal-dystrophies'], // Added Avellino
     [/pterygium/i, 'pterygium'],
     [/pinguecula/i, 'pinguecula'],
     [/blepharitis/i, 'blepharitis'],
-    [/chalazion/i, 'chalazion'],
+    [/chalazion|chalazia/i, 'chalazion'], // Added Chalazia (plural)
     [/stye|hordeolum/i, 'stye-hordeolum'],
     [/conjunctivitis/i, 'conjunctivitis'],
     [/dry.eye|xerophthalmia/i, 'dry-eye-syndrome'],
+    [/bitot/i, 'vitamin-a-deficiency'], // Added Bitot's spots
     [/glaucoma/i, 'glaucoma'],
     [/macular.degeneration|amd|drusen/i, 'macular-degeneration'],
     [/diabetic.retinopathy/i, 'diabetic-retinopathy'],
@@ -176,8 +178,9 @@ export function findConditionSlug(filename: string, category: string): string {
         }
     }
 
-    // Fall back to category default
-    return categoryToConditions[category] || 'cataracts';
+    // Fall back to category default if exists
+    // CRITICAL FIX: Do NOT default to 'cataracts' if unknown. Return empty string to filter out.
+    return categoryToConditions[category] || '';
 }
 
 /**

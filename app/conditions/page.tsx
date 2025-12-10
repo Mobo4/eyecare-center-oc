@@ -13,8 +13,8 @@ import Footer from '@/components/Footer';
 import ConditionCityModal from '@/components/ConditionCityModal';
 import { ConditionAutosuggest } from '@/components/conditions';
 import ServiceHero from '@/components/services/ServiceHero';
-import { conditions, ConditionSeverity, Condition } from '@/data/conditions-full';
-import { allConditions, SearchCondition, searchConditions } from '@/data/conditions-search';
+import { conditions, allConditions, ConditionSeverity, Condition } from '@/data/conditions';
+import { SearchCondition, searchConditions } from '@/data/conditions-search';
 import { Eye, AlertTriangle, Sparkles, ChevronRight, Search } from 'lucide-react';
 import { generateBreadcrumbSchema } from '@/lib/schema';
 import Script from 'next/script';
@@ -276,8 +276,8 @@ export default function ConditionsPage() {
                         <h3 className="text-xl font-bold text-gray-900 group-hover:text-eyecare-blue transition">
                           {condition.name}
                         </h3>
-                        <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full border ${severityStyles[condition.severity]}`}>
-                          {condition.severity}
+                        <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full border ${severityStyles[condition.severity || 'Moderate']}`}>
+                          {condition.severity || 'Moderate'}
                         </span>
                       </div>
                       <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">

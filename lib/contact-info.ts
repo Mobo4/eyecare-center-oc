@@ -58,7 +58,67 @@ export const CONTACT_INFO = {
     saturday: 'Saturday: 9:00 AM - 2:00 PM',
     sunday: 'Sunday: Closed',
   },
+
+  /**
+   * Geolocation for Schema and Maps
+   */
+  geo: {
+    latitude: 33.758810,
+    longitude: -117.836090,
+    googleMapsUrl: "https://maps.app.goo.gl/your-link-here", // TODO: Update with real link
+  },
+
+  /**
+   * Social Media Profiles for "sameAs" schema
+   */
+  social: {
+    facebook: "https://www.facebook.com/EyeCareCenterOfOrangeCounty/",
+    instagram: "https://www.instagram.com/eyecarecenteroc/",
+    yelp: "https://www.yelp.com/biz/eyecare-center-of-orange-county-santa-ana",
+    youtube: "https://www.youtube.com/@eyecarecenteroforangecount952",
+  },
+
+  /**
+   * Payment Options
+   */
+  paymentAccepted: ["Cash", "Credit Card", "VSP", "Medical Insurance", "CareCredit"],
+  currenciesAccepted: "USD",
+  priceRange: "$$",
+
+  /**
+   * Opening Hours in Schema.org format
+   */
+  openingHoursSpecification: [
+    {
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00"
+    },
+    {
+      dayOfWeek: ["Saturday"],
+      opens: "09:00",
+      closes: "14:00"
+    }
+  ]
 };
+
+export const SERVICE_AREAS = [
+  // Central Orange County
+  "Santa Ana", "Tustin", "Orange", "Villa Park", "Garden Grove", "Westminster", "Fountain Valley", "North Tustin",
+
+  // South Orange County
+  "Irvine", "Newport Beach", "Costa Mesa", "Lake Forest", "Mission Viejo", "Laguna Hills", "Laguna Woods",
+  "Aliso Viejo", "Laguna Beach", "Laguna Niguel", "Dana Point", "San Juan Capistrano", "San Clemente",
+  "Rancho Santa Margarita", "Ladera Ranch", "Coto de Caza", "Las Flores",
+
+  // North Orange County
+  "Anaheim", "Fullerton", "Placentia", "Yorba Linda", "Brea", "La Habra", "Buena Park", "Cypress",
+  "Stanton", "Los Alamitos", "Seal Beach", "La Palma", "Rossmoor", "Midway City", "Huntington Beach",
+
+  // Nearby Cities (<30 miles)
+  "Long Beach", "Cerritos", "Lakewood", "Artesia", "Bellflower", "Norwalk", "La Mirada", "Whittier",
+  "La Habra Heights", "Diamond Bar", "Chino", "Chino Hills", "Corona"
+];
 
 /**
  * Helper function to get phone for specific page type

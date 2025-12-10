@@ -1,4 +1,42 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "EyeCare Center of Orange County | #1 Rated Ophthalmologist & Eye Exams",
+  description: "Premier eye care practice in Orange County led by Dr. Alexander Bonakdar. Specializing in Keratoconus, LASIK, Cataracts, and comprehensive eye exams. Call today!",
+  keywords: [
+    "EyeCare Center of Orange County",
+    "Dr. Alexander Bonakdar",
+    "Ophthalmologist Orange County",
+    "Best Eye Doctor Orange County",
+    "Keratoconus Specialist",
+    "Scleral Lenses Expert",
+    "Cataract Surgery",
+    "LASIK Surgery",
+    "Glaucoma Treatment",
+    "Dry Eye Specialist"
+  ],
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com',
+  },
+  openGraph: {
+    title: "EyeCare Center of Orange County | World-Class Vision Care",
+    description: "Experience the perfect blend of advanced medical technology and compassionate care. 35+ years of excellence in Orange County.",
+    url: 'https://eyecarecenteroc.com',
+    siteName: 'EyeCare Center of Orange County',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'EyeCare Center of Orange County - Dr. Alexander Bonakdar',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
 import OrganizationSchema from '@/components/Schema/OrganizationSchema';
 import Hero from '@/components/Hero';
 import Header from "@/components/Header";

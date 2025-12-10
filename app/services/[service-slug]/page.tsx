@@ -100,6 +100,38 @@ export default async function ServicePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: businessSchema }}
       />
+      {uniqueImages.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ImageGallery",
+              "name": `Clinical Images of ${service.name}`,
+              "description": `High-resolution clinical photographs showing various presentations of ${service.name.toLowerCase()}`,
+              "image": uniqueImages.slice(0, 10).map(img => ({
+                "@type": "ImageObject",
+                "name": img.title,
+                "description": img.description,
+                "contentUrl": `https://eyecarecenteroc.com${img.url}`,
+                "license": "https://eyecarecenteroc.com/contact",
+                "acquireLicensePage": "https://eyecarecenteroc.com/contact",
+                "copyrightNotice": "EyeCare Center of Orange County",
+                "caption": img.alt,
+                "creditText": "EyeCare Center of Orange County",
+                "creator": {
+                  "@type": "Organization",
+                  "name": "EyeCare Center of Orange County"
+                },
+                "associatedArticle": {
+                  "@type": "MedicalWebPage",
+                  "url": `https://eyecarecenteroc.com/services/${service.slug}`
+                }
+              }))
+            })
+          }}
+        />
+      )}
 
       <Header />
       <main className="min-h-screen">

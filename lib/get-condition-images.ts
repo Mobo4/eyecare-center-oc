@@ -31,6 +31,9 @@ function buildImageMappings(): Map<string, ClinicalImage[]> {
         const category = parts[0];
         const slug = findConditionSlug(filename, category);
 
+        // Skip images that don't satisfy any mapping rules
+        if (!slug) continue;
+
         if (!mappings.has(slug)) {
             mappings.set(slug, []);
         }
