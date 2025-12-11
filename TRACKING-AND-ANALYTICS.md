@@ -28,17 +28,17 @@ This document details all tracking, analytics, and conversion tracking implement
 3. Tracks all phone calls and attributes them to marketing channels
 
 ### Phone Numbers
-- **Primary Display**: (949) 364-0008
+- **Primary Display**: (714) 558-1182
 - **Secondary Display**: (714) 558-1182
 - **Tel Links**: 
-  - `tel:+19493640008`
+  - `tel:+17145581182`
   - `tel:+17145581182`
 
 ### CSS Class for Tracking
 Add `callrail-phone` class to any phone number element:
 ```html
-<a href="tel:+19493640008" className="callrail-phone">
-  (949) 364-0008
+<a href="tel:+17145581182" className="callrail-phone">
+  (714) 558-1182
 </a>
 ```
 

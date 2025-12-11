@@ -65,8 +65,8 @@ export function LandingHero({
     ctaText = "Schedule Your Assessment",
     ctaLink = "/book-appointment",
     benefits = [],
-    phoneNumber = '(949) 364-0008',
-    phoneHref = 'tel:+19493640008',
+    phoneNumber = '(714) 558-1182',
+    phoneHref = 'tel:+17145581182',
     badgeText = "Accepting New Patients",
     badgeLink
 }: HeroProps) {
@@ -301,8 +301,8 @@ export function FAQSection({ items }: { items: { question: string, answer: strin
 
 // --- Sticky Mobile CTA ---
 export function StickyCTA({
-    phoneNumber = '(949) 364-0008',
-    phoneHref = 'tel:+19493640008'
+    phoneNumber = '(714) 558-1182',
+    phoneHref = 'tel:+17145581182',
 }: {
     phoneNumber?: string,
     phoneHref?: string

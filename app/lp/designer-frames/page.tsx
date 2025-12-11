@@ -266,7 +266,7 @@ export default function DesignerFramesLandingPage() {
                                 "postalCode": "92705",
                                 "addressCountry": "US"
                             },
-                            "telephone": "+1-949-364-0008",
+                            "telephone": "+1-714-558-1182",
                             "areaServed": SERVICE_AREAS
                         }
                     })

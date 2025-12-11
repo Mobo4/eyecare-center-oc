@@ -82,7 +82,7 @@ export function getEnhancedConditionBySlug(slug: string): Condition | undefined 
       symptoms: searchCondition.symptoms || ["Vision changes", "Eye irritation"],
       treatments: ["Comprehensive Eye Exam", "Personalized Treatment Plan"],
       seoTitle: `${searchCondition.name} Treatment Orange County`,
-      seoDescription: `Expert ${searchCondition.name} treatment in Orange County. Call (949) 364-0008.`,
+      seoDescription: `Expert ${searchCondition.name} treatment in Orange County. Call (714) 558-1182.`,
       localKeywords: [`${searchCondition.name} specialist`, "eye doctor"],
       severity: "Moderate" // Default
     };

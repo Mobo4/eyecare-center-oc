@@ -249,7 +249,7 @@ export default function HeadachesCVSLandingPage() {
                             "provider": {
                                 "@type": "MedicalClinic",
                                 "name": "Optometric Eyecare Center of Orange County",
-                                "telephone": "+1-949-364-0008",
+                                "telephone": "+1-714-558-1182",
                                 "address": {
                                     "@type": "PostalAddress",
                                     "addressLocality": "Santa Ana",

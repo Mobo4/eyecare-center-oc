@@ -240,7 +240,7 @@ export default function DryEyeIPLLandingPage() {
                                 "postalCode": "92704",
                                 "addressCountry": "US"
                             },
-                            "telephone": "+1-949-364-0008",
+                            "telephone": "+1-714-558-1182",
                             "areaServed": SERVICE_AREAS
                         }
                     })
