@@ -14,7 +14,18 @@ export const metadata: Metadata = {
     "Cataract Surgery",
     "LASIK Surgery",
     "Glaucoma Treatment",
-    "Dry Eye Specialist"
+    "Dry Eye Specialist",
+    "eye disease",
+    "contact lenses",
+    "eye care",
+    "eye and vision",
+    "eye conditions",
+    "macular degeneration",
+    "doctor of optometry",
+    "vision therapy",
+    "medical doctors",
+    "eye examination",
+    "eye surgery"
   ],
   alternates: {
     canonical: 'https://eyecarecenteroc.com',

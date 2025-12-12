@@ -1,0 +1,2161 @@
+Delivered-To: drbonakdar@gmail.com
+Received: by 2002:a05:7110:548c:b0:2df:840c:4e77 with SMTP id n12csp872567gei;
+ Sun, 2 Nov 2025 01:37:07 -0800 (PST)
+X-Received: by 2002:a05:622a:22a5:b0:4df:acb4:2f58 with SMTP id
+ d75a77b69052e-4ed30f873famr114764091cf.39.1762075987694; Sun, 02 Nov 2025
+ 01:33:07 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEyu9tFbZKOLQ0fqzBI3VE2FmyQ4mUdShaZMoyeMhmySI4Inz+OTw3bGq2JbmOJM6REeyrD
+X-Received: by 2002:a05:622a:22a5:b0:4df:acb4:2f58 with SMTP id
+ d75a77b69052e-4ed30f873famr114763431cf.39.1762075985531; Sun, 02 Nov 2025
+ 01:33:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1762075985; cv=none; d=google.com;
+ s=arc-20240605;
+ b=W009q+RTYh0+vDHld+ngZ5zhDS/htVTZAJfOJTx9wZ2nhEpzktyW0X7RpsdOV4/d99
+ W64gkGkjnCRcFhCQpg1cNzC3/OB6O1FTTVpEYf6lRd1fIOYQIXPxoUFURNGgIyy7qyvu
+ E1sk+rS6AbtFWY0A6DgNuU7lJp2Dh4jMCAJuoy7q3rCRNC+fBB7nMUYGo2doAKYgR9cE
+ LHxzaGVq+/2ynAWuMikRbALndRo1BGkZsECPTVJ4hTQwEFugV0e+tUTs90S2HTgCPJfQ
+ xVhfPFHN2rD+avpuh58h3YlZh8p/+g6U5vEmB+aYn8g2jCV3zLPfg/eHExQOivVVdJeQ EAwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
+ s=arc-20240605; h=to:subject:message-id:mime-version:from:date
+ :content-transfer-encoding:dkim-signature:dkim-signature;
+ bh=YVtUeySTuFwOSulggU/8PZoOvCIx/n202p+bh247AYo=;
+ fh=ff3XRorfbTUwKa3sQtYkEaGXqu0R/HHi8g6MbenL59c=;
+ b=dP1MJT8RwXxgF3BL4F+rMCjxgE0qN6C3+mixXon2SL3ftpsZ4DIon6pctkpdwkqCpp
+ m7Nv1G12p9R5Wa8QQHIu1lVbW1a7KmHh9t9SFS10wrTkQCUPaDLl1ItSOa/kFV2l0P2h
+ GKw5gDOAnd91IujYxf/6bQAVRWJiP9zAz00GnuMUvjoIs229gMmpp8W2pzex7vaT7QE5
+ jKX9F00GzcbCZvsOzoecfT5CiiG77gfeNc5ovisqoP7dybfjswCZpaeua0Sa6kK572CQ
+ cTdhwcr6QwhztJ7xxo8KY16yVGNV0+ZSYMVxBkmxZN340tnC0EKGz/IPHnvKPuGYE++7 jh3g==;
+ dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; dkim=pass header.i=@ahrefs.com
+ header.s=s1 header.b=qE1xUtfG; dkim=pass header.i=@sendgrid.info
+ header.s=smtpapi header.b=TUv4CVeF; spf=pass (google.com: domain of
+ bounces+588331-c7af-drbonakdar=gmail.com@em5183.ahrefs.com designates
+ 159.183.153.36 as permitted sender)
+ smtp.mailfrom="bounces+588331-c7af-drbonakdar=gmail.com@em5183.ahrefs.com";
+ dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ahrefs.com
+Return-Path: <bounces+588331-c7af-drbonakdar=gmail.com@em5183.ahrefs.com>
+Received: from wfbtwwnq.outbound-mail.sendgrid.net
+ (wfbtwwnq.outbound-mail.sendgrid.net. [159.183.153.36]) by mx.google.com with
+ ESMTPS id d75a77b69052e-4ed35366668si21100191cf.988.2025.11.02.01.33.04 for
+ <drbonakdar@gmail.com> (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256
+ bits=128/128); Sun, 02 Nov 2025 01:33:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of
+ bounces+588331-c7af-drbonakdar=gmail.com@em5183.ahrefs.com designates
+ 159.183.153.36 as permitted sender) client-ip=159.183.153.36;
+Authentication-Results: mx.google.com; dkim=pass header.i=@ahrefs.com
+ header.s=s1 header.b=qE1xUtfG; dkim=pass header.i=@sendgrid.info
+ header.s=smtpapi header.b=TUv4CVeF; spf=pass (google.com: domain of
+ bounces+588331-c7af-drbonakdar=gmail.com@em5183.ahrefs.com designates
+ 159.183.153.36 as permitted sender)
+ smtp.mailfrom="bounces+588331-c7af-drbonakdar=gmail.com@em5183.ahrefs.com";
+ dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ahrefs.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ahrefs.com;
+ h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+ to:cc:content-type:date:feedback-id:from:subject:to; s=s1;
+ bh=YVtUeySTuFwOSulggU/8PZoOvCIx/n202p+bh247AYo=;
+ b=qE1xUtfG9oTzI7vtW57KLxpIHnQvblqRoSXF3tOHGzHZ+hialnrhqXsZbGfA/s/9UK+i
+ HNkiEcf7RD6WRN6WF6/0TjGdIsx+oM8WenRd3e4jRh++lA0f3RHyy8Hu0k0mqm0qNbnQNh
+ hyhpa5IcBbNgPblNjuwiUlCBPvPcj0v9YuxITKOWlKKGWhxp43HBKm+2c/O6vegyF4VUcR
+ y6IGNxj8kaQKHTw+0UR92Eem4B15vDPGgp4XNZ4r3dN3MOAYFfAY/WZNjfDE9Uu21wDF2X
+ Ze9awBeBFJmWeoQpQxdB50/IbZta0fYUptO3FpbmJqb2gNT0PHM9EcQAeUx/ZhLg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+ h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+ to:cc:content-type:date:feedback-id:from:subject:to; s=smtpapi;
+ bh=YVtUeySTuFwOSulggU/8PZoOvCIx/n202p+bh247AYo=;
+ b=TUv4CVeF3vtqqS7JTrp8gXd5S4OlawHhYpZ7J3lIvqBI6Cz5RgwDKMXfP36A0akhBE5c
+ D6u44OWkhPU3VaP4s2NZiS101avDZIK7RGlhq7tXCE3CQFnJBwQzp1VsYngw53vmWNSiBZ
+ aamWzORydjPqdPwnBFzU1oDia8C3c/Os0=
+Received: by recvd-59c5cbbc7-f8t8q with SMTP id
+ recvd-59c5cbbc7-f8t8q-1-6907254F-47 2025-11-02 09:33:03.919634653 +0000 UTC
+ m=+5150892.594149826
+Received: from NTg4MzMx (unknown) by geopod-ismtpd-12 (SG) with HTTP id
+ PfcnEKfGTpWrbtQgLHgIeA Sun, 02 Nov 2025 09:33:03.836 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Sun, 02 Nov 2025 09:33:03 +0000 (UTC)
+From: Ahrefs Site Explorer <se@ahrefs.com>
+Mime-Version: 1.0
+Message-ID: <PfcnEKfGTpWrbtQgLHgIeA@geopod-ismtpd-12>
+Subject: 67 new / 6 lost backlinks - drbonakdar.net/
+X-SG-EID: =?us-ascii?Q?u001=2EscyHMsJJHt4kXQXSQiHGqLQK0vn2sB8bgdf4SXplPu18u1eThutgmuMcb?=
+ =?us-ascii?Q?E8Sg8nPgay1SZYoFdwozWTaOCx9yIznyfk2bDCP?=
+ =?us-ascii?Q?McqGYCGsPsfYslYEKxslWN00TKF5MYYLC9RuYt1?=
+ =?us-ascii?Q?DfAfCaS=2FImopGSrO8aGdxPPmFINxd4c+7HIYQD8?=
+ =?us-ascii?Q?fiie4jJhJLGsEWBa6w9FvB24Trbjg412bNkWldP?=
+ =?us-ascii?Q?fYHIbMVz1xNH4xE17gD1ZiOneF=2F+4=2FN3X+6OqEx?=
+ =?us-ascii?Q?V=2FA7?=
+X-SG-ID: =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BsjQ11cDqnnjQeoZWgXZQmPMdA4pccPJRfrLB?=
+ =?us-ascii?Q?X50KBEIuqlOTWpLoEwLhClqh4O8=2Fg=3D=3D?=
+To: drbonakdar@gmail.com
+X-Entity-ID: u001.4DuCS8VCYkhlWj8xIVxU2Q==
+
+<html>
+<head>
+	<meta name=3D"viewport" content=3D"width=3Ddevice-width" />
+	<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" /=
+>
+	<title>Alerts for Backlinks - Ahrefs</title>
+
+
+	<style type=3D"text/css">
+		/* CLIENT-SPECIFIC STYLES */
+		#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" me=
+ssage */
+		.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to=
+ display emails at full width */
+		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass fon=
+t, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotm=
+ail to display normal line spacing */
+		body { background: #f5f5f8; }
+		body, table, td, a{-webkit-text-size-adjust:100%; -ms-text-size-adjust:10=
+0%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+		table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing =
+between tables in Outlook 2007 and up */
+		img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resiz=
+ed image in Internet Explorer */
+
+		/* RESET STYLES */
+		body{margin:0; padding:0;}
+		img{border:0; height:auto; line-height:100%; outline:none; text-decoratio=
+n:none;}
+		table{border-collapse:collapse !important;}
+		body{height:100% !important; margin:0; padding:0; width:100% !important;}
+
+		/* iOS BLUE LINKS */
+		.appleBody a {color:#68440a; text-decoration: none;}
+		.appleFooter a {color:#999999; text-decoration: none;}
+
+		/* MOBILE STYLES */
+		@media screen and (max-width: 525px) {
+
+			/* ALLOWS FOR FLUID TABLES */
+			table[class=3D"wrapper"]{
+				width:100% !important;
+			}
+
+			/* ADJUSTS LAYOUT OF LOGO IMAGE */
+			td[class=3D"logo"]{
+				text-align: left;
+				padding: 20px 0 20px 0 !important;
+			}
+
+			td[class=3D"logo"] img{
+				margin:0 auto!important;
+			}
+
+			/* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+			td[class=3D"mobile-hide"]{
+				display:none;}
+
+			img[class=3D"mobile-hide"]{
+				display: none !important;
+			}
+
+			img[class=3D"img-max"]{
+				max-width: 100% !important;
+				height:auto !important;
+			}
+
+			/* FULL-WIDTH TABLES */
+			table[class=3D"responsive-table"]{
+				width:100%!important;
+			}
+
+			/* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+			td[class=3D"padding"]{
+				padding: 10px 5% 15px 5% !important;
+			}
+
+			td[class=3D"padding-copy"]{
+				padding: 10px 5% 10px 5% !important;
+				text-align: center;
+			}
+
+			td[class=3D"padding-meta"]{
+				padding: 30px 5% 0px 5% !important;
+				text-align: center;
+			}
+
+			td[class=3D"no-pad"]{
+				padding: 0 0 20px 0 !important;
+			}
+
+			td[class=3D"no-padding"]{
+				padding: 0 !important;
+			}
+
+			td[class=3D"section-padding"]{
+				padding: 50px 15px 50px 15px !important;
+			}
+
+			td[class=3D"section-padding-bottom-image"]{
+				padding: 50px 15px 0 15px !important;
+			}
+
+			/* ADJUST BUTTONS ON MOBILE */
+			td[class=3D"mobile-wrapper"]{
+				padding: 10px 5% 15px 5% !important;
+			}
+
+			table[class=3D"mobile-button-container"]{
+				margin:0 auto;
+				width:100% !important;
+			}
+
+			a[class=3D"mobile-button"]{
+				width:80% !important;
+				padding: 15px !important;
+				border: 0 !important;
+				font-size: 16px !important;
+			}
+		}
+	</style>
+</head>
+
+<body style=3D"margin: 0; padding: 0;">
+
+<!--- EMAIL SNIPPETS: HIDDEN TEXTS ---->
+<div style=3D"display: none; font-size: 0px; line-height: 0px; max-height: =
+0px; max-width: 0px; width: 0px; opacity: 0; overflow: hidden; color: #f2f2=
+f5;">
+	smartwaydirectory.com, seowebsitesdirectory.com, sureprofitscoach.com, saa=
+sdirectoryzone.com, topbacklinksdirectory.com, semrushdirectory.com, backli=
+nker.shop, businesswebsitesdirectory.com, allistingdirectory.com</div>
+
+<!--- Preheader white space hack ---->
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">&#847;&zwn=
+j;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&=
+nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbs=
+p;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbs=
+p;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwn=
+j;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&=
+nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbs=
+p;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&nbsp;&#847;&zwnj;&nbs=
+p;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwn=
+j;&nbsp;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwn=
+j;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&=
+nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbs=
+p;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&=
+#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&nbsp;&#847;&zwnj;&nbsp;&#84=
+7;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwn=
+j;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&nbsp;&#847;&=
+zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwn=
+j;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&=
+nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbs=
+p;</div>
+
+<!-- BEGIN EMAIL CONTENTS  -->
+<!-- HEADER  -->
+
+<table border=3D"0" cellspacing=3D"0" cellspacing=3D"0" width=3D"100%">
+    <tr>
+        <td bgcolor=3D"#f5f5f8" align=3D"center" style=3D"padding:12px 0 12=
+px 0;">
+            <table class=3D"responsive-table" width=3D"600" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Ari=
+al, sans-serif; font-size: 14px; line-height:18px;">
+                <tr>
+                    <td align=3D"right">
+                        <a href=3D"https://app.ahrefs.com/user/alerts/backl=
+inks/edit/25522582" style=3D"color:#84898f; text-decoration:none; margin:0;=
+ display:inline; font-family:Arial, Helvetica, sans-serif; font-size:12px; =
+padding:0 0 0 0; line-height:18px;">Edit alert</a>&nbsp; <span style=3D"col=
+or:#b2b7bd;font-size:12px;">=E2=80=A2</span> &nbsp;<a href=3D"https://app.a=
+hrefs.com/user/alerts/unsubscribe/25522582?email=3Ddrbonakdar%40gmail.com&t=
+oken=3Da6da2ca309131d4c1e5dd716ec0139af" style=3D"color:#84898f; text-decor=
+ation:none; margin:0; display:inline; font-family:Arial, Helvetica, sans-se=
+rif; font-size:12px; padding:0 0 0 0; line-height:18px;">Unsubscribe</a>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+	<tr>
+		<td bgcolor=3D"#f5f5f8" align=3D"center" style=3D"padding: 0;">
+
+			<!-- HEADER --->
+			<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-=
+serif; font-size: 14px; line-height:18px;">
+				<tr>
+					<td bgcolor=3D"#005a9e" style=3D"background: #005a9e; text-align: left=
+; font-family:Arial, Helvetica, sans-serif; font-size:13px; padding:15px 40=
+px 12px 20px; line-height:18px; height:25px; color: #333333;">
+						<a href=3D"https://app.ahrefs.com/user/alerts/backlinks" style=3D"blo=
+ck; margin:0;padding:0; height:25px;">
+							<img src=3D"https://static.ahrefs.com/images/ahrefs-alert.png" width=
+=3D"137" height=3D"20" alt=3D"Ahrefs"/>
+						</a>
+					</td>
+					<td bgcolor=3D"#005a9e" style=3D"background: #005a9e; color:#8eaac9; t=
+ext-align:right; padding:0; padding: 17px 20px 16px 20px; font-size: 14px; =
+line-height:18px;">
+						                            Monthly update &nbsp;=E2=80=A2&nbsp;  01 =
+Oct=E2=80=9301 Nov 					</td>
+				</tr>
+			</table>
+
+			<!-- HEADER META CONTENTS --->
+			<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-=
+serif; max-width:600px;box-sizing: border-box; font-size: 14px; background:=
+ #fff; margin: 0;">
+				<tr>
+					<td style=3D"border-bottom: 3px solid #f5f5f8; color: #333; text-align=
+:left; padding: 19px 30px 17px 20px; line-height:18px;">
+						Domain:<strong style=3D"margin:0;padding:0 0 0 5px;word-break:break-a=
+ll; word-break: break-word;"><a style=3D"color: #00479e; text-decoration: n=
+one;" href=3D"http://drbonakdar.net/">drbonakdar.net/</a></strong>
+					</td>
+					<td style=3D"border-bottom: 3px solid #f5f5f8; color: #333; text-align=
+:right; padding: 19px 30px 17px 20px; line-height:18px;">
+						<span style=3D"margin:0 0 0 0; padding:0 0 0 0; display:inline-block;=
+ color:#84898f;">Website traffic: <strong style=3D"color:#333">All</strong>=
+</span>
+						<span style=3D"border-right:1px solid #eee; display: inline-block; wi=
+dth:0; height: 100%; margin: 0 4px;"></span>
+						<span style=3D"margin:0 0 0 0; padding:0 0 0 0; color:#84898f;">DR: <=
+strong style=3D"color:#333">All</strong> </span>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!--- MAIN CONTENTS --->
+<!-- SUMMARY -->
+<table border=3D"0" cellspacing=3D"0" cellspacing=3D"0" width=3D"100%">
+	<tr>
+		<td bgcolor=3D"#f5f5f8" align=3D"center" style=3D"padding:0;">
+
+						<!-- SUMMARY --->
+			<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-=
+serif; background:#ffffff; font-size: 14px; line-height:18px;">
+				<tr>
+					<td style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-ser=
+if; box-sizing: border-box; color: #333333; font-size:18px; vertical-align:=
+ top; margin: 0; padding:21px 20px 13px 20px; line-height:18px; text-align:=
+ left;">
+						<strong>
+							Summary
+						</strong>
+					</td>
+				</tr>
+				<tr>
+					<td style=3D"border-bottom: 3px solid #f5f5f8; color: #8eaac9; padding=
+: 0 20px 22px 20px; font-size: 14px; line-height:18px; text-align:left;">
+							<table border=3D"0" cellspacing=3D"0" cellspacing=3D"0" width=3D"100=
+%">
+																	<tr>
+										<td style=3D"text-align:left; font-family:Arial, Helvetica, sans-=
+serif; color: #333; margin:0; padding:0 0 1px 0; font-size: 14px;">
+											<span style=3D"display: block; color: #333; margin:0; padding:0 =
+0 1px 0;font-size: 14px;"><span style=3D"display:inline-block; margin:0 4px=
+ 0 0; padding:0; "><img src=3D"https://static.ahrefs.com/images/green-plus.=
+gif" width=3D"12" height=3D"12" alt=3D""/></span> 29 new referring domains =
+</span>
+										</td>
+									</tr>
+																	<tr>
+										<td style=3D"text-align:left; font-family:Arial, Helvetica, sans-=
+serif; color: #333; margin:0; padding:0 0 1px 0; font-size: 14px;">
+											<span style=3D"display: block; color: #333; margin:0; padding:0 =
+0 1px 0; font-size: 14px;">
+												<span style=3D"display:inline-block; margin:0 4px 0 0; padding:=
+0;"><img src=3D"https://static.ahrefs.com/images/green-plus.gif" width=3D"1=
+2" height=3D"12" alt=3D""/></span> 67 new backlinks 											</span>
+										</td>
+									</tr>
+																	<tr>
+										<td style=3D"text-align:left; font-family:Arial, Helvetica, sans-=
+serif; color: #333; margin:0; padding:0 0 1px 0; font-size: 14px;">
+											<span style=3D"display:inline-block; margin:0 4px 0 0; padding:0=
+;"><img src=3D"https://static.ahrefs.com/images/red-minus.gif" width=3D"12"=
+ height=3D"12" alt=3D""/></span> 6 lost backlinks 										</td>
+									</tr>
+															</table>
+					</td>
+				</tr>
+			</table>
+		=09
+						<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sa=
+ns-serif; background:#ffffff; font-size: 14px; line-height:18px;">
+				<tr style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-seri=
+f; box-sizing: border-box; font-size: 14px; margin: 0;">
+					<td class=3D"content-wrap" style=3D"font-family: 'Helvetica Neue', Hel=
+vetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertica=
+l-align: top; margin: 0; padding:0 20px 27px 20px;  border-bottom: 3px soli=
+d #f5f5f8;" valign=3D"top">
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td colspan=3D"2" style=3D"padding:0 0 20px 0;">
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+										<tr>
+											<td style=3D"width:20px;padding:7px 8px 0 0;">
+												<img src=3D"https://static.ahrefs.com/images/green-plus.gif" wi=
+dth=3D"20" height=3D"20" alt=3D""/>
+											</td>
+                                            <td style=3D"text-align: left;"=
+>
+												<span class=3D"block" style=3D"display:block; color:#333;font-s=
+ize: 18px; padding: 21px 0 19px 0;">
+													<strong>29 new referring domains </strong>
+												</span>
+											</td>
+										</tr>
+									</table>
+
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 0=E2=80=9330</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  44% " width=3D" 44% " bgcolor=3D"#fb3640=
+ "></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">13 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 31=E2=80=9350</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  31% " width=3D" 31% " bgcolor=3D"#ffd275=
+ "></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">9 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 51=E2=80=9370</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  24% " width=3D" 24% " bgcolor=3D"#a1cf6b=
+ "></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">7 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 71=E2=80=93100</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  1% " width=3D" 1% " bgcolor=3D" #dddddd =
+"></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">0 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																		</table>
+								</td>
+							</tr>
+						</table>
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<thead>
+								<tr>
+									<th style=3D"border-bottom:1px solid #ebebeb;padding:7px 0 6px 0; =
+text-align:left; color: #333; font-family:Arial, Helvetica, sans-serif; fon=
+t-size:13px;">
+										DR
+									</th>
+									<th style=3D"border-bottom:1px solid #ebebeb;padding:7px 0 6px 0; =
+text-align:left; color: #333; font-family:Arial, Helvetica, sans-serif; fon=
+t-size:13px;">
+										Top 10 new referring domains
+									</th>
+									<th style=3D"border-bottom:1px solid #ebebeb;padding:7px 0 6px 0;"=
+></th>
+								</tr>
+							</thead>
+															<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										64
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://sureprofitscoach.com" style=3D"color: #00479e;=
+ text-decoration: none; font-size: 14px;">
+												sureprofitscoach.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22surep=
+rofitscoach.com%22%2C%22all%22%5D" style=3D"text-decoration:none;background=
+: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3px=
+ 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										61
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://mediapostdirectory.com" style=3D"color: #00479=
+e; text-decoration: none; font-size: 14px;">
+												mediapostdirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22media=
+postdirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgrou=
+nd: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3=
+px 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										61
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://bestbusniessdirectory.com" style=3D"color: #00=
+479e; text-decoration: none; font-size: 14px;">
+												bestbusniessdirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22bestb=
+usniessdirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backg=
+round: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding=
+: 3px 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										56
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://linkpointdirectory.com" style=3D"color: #00479=
+e; text-decoration: none; font-size: 14px;">
+												linkpointdirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22linkp=
+ointdirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgrou=
+nd: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3=
+px 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										51
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://usaseodirectory.com" style=3D"color: #00479e; =
+text-decoration: none; font-size: 14px;">
+												usaseodirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22usase=
+odirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;background:=
+ #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3px =
+8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										51
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://topsiterankdirectory.com" style=3D"color: #004=
+79e; text-decoration: none; font-size: 14px;">
+												topsiterankdirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22topsi=
+terankdirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgr=
+ound: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding:=
+ 3px 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										51
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://powerlinkdirectory.com" style=3D"color: #00479=
+e; text-decoration: none; font-size: 14px;">
+												powerlinkdirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22power=
+linkdirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgrou=
+nd: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3=
+px 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										49
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://databoostdirectory.com" style=3D"color: #00479=
+e; text-decoration: none; font-size: 14px;">
+												databoostdirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22datab=
+oostdirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgrou=
+nd: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3=
+px 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										45
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://directorycloudhub.com" style=3D"color: #00479e=
+; text-decoration: none; font-size: 14px;">
+												directorycloudhub.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22direc=
+torycloudhub.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgroun=
+d: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3p=
+x 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										40
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://smartwaydirectory.com" style=3D"color: #00479e=
+; text-decoration: none; font-size: 14px;">
+												smartwaydirectory.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22smart=
+waydirectory.com%22%2C%22all%22%5D" style=3D"text-decoration:none;backgroun=
+d: #e8eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3p=
+x 8px 3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            						</table>
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td style=3D"padding:14px 0 0 0;">
+									<a href=3D"https://app.ahrefs.com/v2-site-explorer/refdomains/subd=
+omains?target=3Ddrbonakdar.net/&historyDateRange=3D30d&history=3Dnew" style=
+=3D"border-radius:3px; padding:4px 10px 3px 10px; font-weight:bold; border-=
+radius: 3px; background:#e8eef4; font-size:12px; color: #00479e; text-decor=
+ation: none;">
+										View full report
+									</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+						<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sa=
+ns-serif; background:#ffffff; font-size: 14px; line-height:18px;">
+				<tr>
+					<td style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sans-ser=
+if; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0=
+; padding:5px 20px 27px 20px;border-bottom: 3px solid #f5f5f8;">
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td colspan=3D"2" style=3D"padding:0 0 20px 0;">
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+										<tr>
+											<td style=3D"width:20px; padding:5px 8px 0 0;">
+												<img src=3D"https://static.ahrefs.com/images/green-plus.gif" wi=
+dth=3D"20" height=3D"20" alt=3D""/>
+											</td>
+											<td style=3D"text-align: left;">
+												<span class=3D"block" style=3D"display:block; color:#333;font-s=
+ize: 18px; padding: 20px 0 19px 0;">
+													<strong>67 new backlinks</strong>
+												</span>
+											</td>
+										</tr>
+									</table>
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+										<tr>
+											<td style=3D"padding:0 0 5px 0; font-family:Arial, Helvetica, sa=
+ns-serif; color:#333; width: 120px; text-align: left;">
+												Dofollow
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td width=3D"88.059701492537%" bgcolor=3D"#5bc0ec"></td>
+														<td style=3D"text-align: left">
+															<span style=3D"width: 110px;white-space: nowrap;display: blo=
+ck; color: #333; font-size:14px; padding:0 0 0 10px; line-height: 18px;">
+																<a href=3D"https://app.ahrefs.com/v2-site-explorer/backlink=
+s/subdomains?followType=3Ddofollow&grouping=3Dgroup-similar&historyDateRang=
+e=3D30d&history=3Dnew&target=3Ddrbonakdar.net/" style=3D"margin:0; padding:=
+0; color: #00479e; text-decoration: none;">59 links</a>															</spa=
+n>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td style=3D"padding:0 0 5px 0; font-family:Arial, Helvetica, sa=
+ns-serif; color:#333; width: 120px; text-align: left;">
+												Nofollow
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td width=3D"11.940298507463%" bgcolor=3D"#5bc0ec"></td>
+                                                        <td style=3D"text-a=
+lign: left">
+															<span style=3D"width: 110px;white-space: nowrap;display: blo=
+ck; color: #333; font-size:14px; padding:0 0 0 10px; line-height: 18px;">
+																<a href=3D"https://app.ahrefs.com/v2-site-explorer/backlink=
+s/subdomains?followType=3Dnofollow&grouping=3Dgroup-similar&historyDateRang=
+e=3D30d&history=3Dnew&target=3Ddrbonakdar.net/" style=3D"margin:0; padding:=
+0; color: #00479e; text-decoration: none;">8 links</a>															</span=
+>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<thead>
+							<tr>
+								<th style=3D"border-bottom:1px solid #ebebeb; text-align:left; padd=
+ing:7px 0 6px 0; ;font-size:13px; color: #333; font-family:Arial, Helvetica=
+, sans-serif; ">
+									DR
+								</th>
+								<th style=3D"border-bottom:1px solid #ebebeb; text-align:left; padd=
+ing:7px 0 6px 0; ;font-size:13px; color: #333; font-family:Arial, Helvetica=
+, sans-serif; ">
+									Top 10 new unique dofollow backlinks
+								</th>
+							</tr>
+							</thead>
+
+							<tbody>
+															<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											40										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://smartwaydirectory.com/most-visited-website-=
+list-2458/" title=3D"Most Visited website list 2458 | Smart Way Directory" =
+style=3D"word-break:break-all; word-break: break-word; -moz-hyphens: auto; =
+hyphens: auto; text-align:left; color: #00479e; text-decoration:none; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; pad=
+ding:0 0 0 0; line-height:18px;">
+                                                        Most Visited websit=
+e list 2458 | Smart Way Directory                                          =
+              													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://smar=
+twaydirectory.com/most-visited-website-list-2458/" style=3D"color: #13892b;=
+ text-decoration: none;">
+																													<strong>smartwaydirectory.com</strong><span>/m=
+ost-visited-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											26										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://seowebsitesdirectory.com/most-visited-websi=
+te-list-2458/" title=3D"Most Visited website list 2458 | Seo Website Direct=
+ory" style=3D"word-break:break-all; word-break: break-word; -moz-hyphens: a=
+uto; hyphens: auto; text-align:left; color: #00479e; text-decoration:none; =
+font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold=
+; padding:0 0 0 0; line-height:18px;">
+                                                        Most Visited websit=
+e list 2458 | Seo Website Directory                                        =
+                													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://seow=
+ebsitesdirectory.com/most-visited-website-list-2458/" style=3D"color: #1389=
+2b; text-decoration: none;">
+																													<strong>seowebsitesdirectory.com</strong><span=
+>/most-visited-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											64										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://sureprofitscoach.com/most-visited-website-l=
+ist-2458/" title=3D"Most Visited website list 2458 | Sure Profits Coach" st=
+yle=3D"word-break:break-all; word-break: break-word; -moz-hyphens: auto; hy=
+phens: auto; text-align:left; color: #00479e; text-decoration:none; font-fa=
+mily:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; paddi=
+ng:0 0 0 0; line-height:18px;">
+                                                        Most Visited websit=
+e list 2458 | Sure Profits Coach                                           =
+             													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://sure=
+profitscoach.com/most-visited-website-list-2458/" style=3D"color: #13892b; =
+text-decoration: none;">
+																													<strong>sureprofitscoach.com</strong><span>/mo=
+st-visited-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://drbonakdar.net/" style=3D"text-decoration:=
+none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											26										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://saasdirectoryzone.com/directory-website-lis=
+t-2458/" title=3D"Directory website list 2458 | Saas Directory Zone" style=
+=3D"word-break:break-all; word-break: break-word; -moz-hyphens: auto; hyphe=
+ns: auto; text-align:left; color: #00479e; text-decoration:none; font-famil=
+y:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; padding:=
+0 0 0 0; line-height:18px;">
+                                                        Directory website l=
+ist 2458 | Saas Directory Zone                                             =
+           													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://saas=
+directoryzone.com/directory-website-list-2458/" style=3D"color: #13892b; te=
+xt-decoration: none;">
+																													<strong>saasdirectoryzone.com</strong><span>/d=
+irectory-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											26										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://topbacklinksdirectory.com/directory-website=
+-list-2458/" title=3D"Directory website list 2458 | Top Backlinks Directory=
+" style=3D"word-break:break-all; word-break: break-word; -moz-hyphens: auto=
+; hyphens: auto; text-align:left; color: #00479e; text-decoration:none; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; p=
+adding:0 0 0 0; line-height:18px;">
+                                                        Directory website l=
+ist 2458 | Top Backlinks Directory                                         =
+               													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://topb=
+acklinksdirectory.com/directory-website-list-2458/" style=3D"color: #13892b=
+; text-decoration: none;">
+																													<strong>topbacklinksdirectory.com</strong><spa=
+n>/directory-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											50										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://semrushdirectory.com/directory-website-list=
+-2458/" title=3D"Directory website list 2458 | Semrush Directory" style=3D"=
+word-break:break-all; word-break: break-word; -moz-hyphens: auto; hyphens: =
+auto; text-align:left; color: #00479e; text-decoration:none; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; font-weight: bold; padding:0 0 =
+0 0; line-height:18px;">
+                                                        Directory website l=
+ist 2458 | Semrush Directory                                               =
+         													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://semr=
+ushdirectory.com/directory-website-list-2458/" style=3D"color: #13892b; tex=
+t-decoration: none;">
+																													<strong>semrushdirectory.com</strong><span>/di=
+rectory-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											27										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://backlinker.shop/f3pjcf-contact-to-us-and-ge=
+t-offer-details-for-seo-ranking-fast/" title=3D"Ranking Fast on Google and =
+All Search Engines in 3 Weeks =E2=80=94 Monthly SEO, High DA/DR/TF, PBN Sup=
+port, Guest Posts =E2=80=94 All Niches Allowed (Gambling Included) 24/7 Sup=
+port =E2=80=94 Visit SkylinkSEO.com =E2=80=93 Manual Premium Links, Fast Re=
+sults" style=3D"word-break:break-all; word-break: break-word; -moz-hyphens:=
+ auto; hyphens: auto; text-align:left; color: #00479e; text-decoration:none=
+; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bo=
+ld; padding:0 0 0 0; line-height:18px;">
+                                                        Ranking Fast on Goo=
+gle and All Search Engines in 3                                            =
+                                                                        ...=
+<span style=3D"display:inline-block;color: #333; text-decoration:none; font=
+-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight: normal; =
+padding:0 0 0 0; line-height:18px;"> + 175 characters</span>
+                                                        													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://back=
+linker.shop/f3pjcf-contact-to-us-and-get-offer-details-for-seo-ranking-fast=
+/" style=3D"color: #13892b; text-decoration: none;">
+																													<strong>backlinker.shop</strong><span>=E2=80=
+=A6-get-offer-details-for-seo-ranking-fast/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">SERP upgrade for drbonakdar.net: clean backlink =
+profile + GP; DR/DA/TF up =E2=80=94 all niches/languages. | Visit Skylinkse=
+o.com for any Query</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											32										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://businesswebsitesdirectory.com/most-visited-=
+website-list-2458/" title=3D"Most Visited website list 2458 | Business Dire=
+ctory" style=3D"word-break:break-all; word-break: break-word; -moz-hyphens:=
+ auto; hyphens: auto; text-align:left; color: #00479e; text-decoration:none=
+; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bo=
+ld; padding:0 0 0 0; line-height:18px;">
+                                                        Most Visited websit=
+e list 2458 | Business Directory                                           =
+             													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://busi=
+nesswebsitesdirectory.com/most-visited-website-list-2458/" style=3D"color: =
+#13892b; text-decoration: none;">
+																													<strong>businesswebsitesdirectory.com</strong>=
+<span>/most-visited-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://drbonakdar.net/" style=3D"text-decoration:=
+none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											8										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://allistingdirectory.com/directory-website-li=
+st-2458/" title=3D"Directory website list 2458 | All Listing Drectory" styl=
+e=3D"word-break:break-all; word-break: break-word; -moz-hyphens: auto; hyph=
+ens: auto; text-align:left; color: #00479e; text-decoration:none; font-fami=
+ly:Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; padding=
+:0 0 0 0; line-height:18px;">
+                                                        Directory website l=
+ist 2458 | All Listing Drectory                                            =
+            													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://alli=
+stingdirectory.com/directory-website-list-2458/" style=3D"color: #13892b; t=
+ext-decoration: none;">
+																													<strong>allistingdirectory.com</strong><span>/=
+directory-website-list-2458/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://drbonakdar.net/" style=3D"text-decoration:=
+none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+																<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+8px 0 0 0;" valign=3D"top">
+										<span style=3D"width:33px; text-align:left; color: #000; display:=
+block; font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0 =
+0 0 0;">
+											51										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 9px 0 0 0;"=
+>
+										<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+                                                <td style=3D"text-align:lef=
+t;">
+													<a href=3D"https://topsiterankdirectory.com/directory-website-=
+list-2458-keyword-power-55/" title=3D"Directory website list 2458 =E2=80=93=
+ Keyword Power 55 | Top Site Rank Directory" style=3D"word-break:break-all;=
+ word-break: break-word; -moz-hyphens: auto; hyphens: auto; text-align:left=
+; color: #00479e; text-decoration:none; font-family:Arial, Helvetica, sans-=
+serif; font-size:14px; font-weight: bold; padding:0 0 0 0; line-height:18px=
+;">
+                                                        Directory website l=
+ist 2458 =E2=80=93 Keyword Power 55 | T                                    =
+                                                                           =
+     ...<span style=3D"display:inline-block;color: #333; text-decoration:no=
+ne; font-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight: =
+normal; padding:0 0 0 0; line-height:18px;"> + 22 characters</span>
+                                                        													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto; text-align:left; color: #000; font-family:Ar=
+ial, Helvetica, sans-serif; font-size:14px; padding:0 0 1px 0; line-height:=
+17px;">
+													<img src=3D"https://static.ahrefs.com/images/green-lock.gif" a=
+lt=3D"https" width=3D"8" height=3D"11">													<a href=3D"https://tops=
+iterankdirectory.com/directory-website-list-2458-keyword-power-55/" style=
+=3D"color: #13892b; text-decoration: none;">
+																													<strong>topsiterankdirectory.com</strong><span=
+>=E2=80=A6tory-website-list-2458-keyword-power-55/</span>													</a>
+												</td>
+											</tr>
+											<tr>
+												<td style=3D"word-break:break-all; word-break: break-word; -moz=
+-hyphens: auto; hyphens: auto;  text-align:left; color: #000; font-family:A=
+rial, Helvetica, sans-serif; font-size:14px; padding:0 0 7px 0; line-height=
+:17px;">
+													 <a href=3D"https://www.drbonakdar.net/" style=3D"text-decorat=
+ion:none; color: #00479e;">drbonakdar.net</a> 												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+															</tbody>
+						</table>
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td style=3D"padding:14px 0 0 0;">
+									<a href=3D"https://app.ahrefs.com/v2-site-explorer/backlinks/subdo=
+mains?followType=3Ddofollow&grouping=3Dgroup-similar&historyDateRange=3D30d=
+&history=3Dnew&target=3Ddrbonakdar.net/" style=3D"border-radius:3px; paddin=
+g:4px 10px 3px 10px; font-weight:bold; background:#e8eef4; border-radius: 3=
+px; font-size:12px; color: #00479e; text-decoration: none;">
+										View full report
+									</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+						<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, sa=
+ns-serif; background:#ffffff; font-size: 14px; line-height:18px;">
+				<tr>
+					<td style=3D"box-sizing: border-box; font-size: 14px; vertical-align: =
+top; margin: 0; padding:5px 20px 27px 20px;border-bottom: 3px solid #f5f5f8=
+;">
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td colspan=3D"2" style=3D"padding:0 0 20px 0;">
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+										<tr>
+											<td style=3D"width:20px; padding:5px 8px 0 0;">
+												<img src=3D"https://static.ahrefs.com/images/red-minus.gif" wid=
+th=3D"20" height=3D"20" alt=3D""/>
+											</td>
+											<td style=3D"text-align:left; font-family: 'Helvetica Neue', Hel=
+vetica, Arial, sans-serif; color:#333;font-size: 18px; padding: 20px 0 19px=
+ 0;">
+												<strong>6 lost backlinks</strong>
+											</td>
+										</tr>
+									</table>
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+										<tr>
+                                            <td style=3D"padding:0 0 5px 0;=
+ font-family:Arial, Helvetica, sans-serif; color:#333; width: 120px; text-a=
+lign: left;">
+												Dofollow
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td width=3D"66.666666666667%" bgcolor=3D"#5bc0ec"></td>
+                                                        <td style=3D"text-a=
+lign: left">
+															<span style=3D"width: 110px;white-space: nowrap;display: blo=
+ck; color: #333; font-size:14px; padding:0 0 0 10px; line-height: 18px;">
+																<a href=3D"https://app.ahrefs.com/v2-site-explorer/backlink=
+s/subdomains?followType=3Ddofollow&grouping=3Dgroup-similar&historyDateRang=
+e=3D30d&history=3Dlost&target=3Ddrbonakdar.net/" style=3D"margin:0; padding=
+:0; font-weight: normal; color: #00479e; text-decoration: none;">4 links</a=
+>															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+                                            <td style=3D"padding:0 0 5px 0;=
+ font-family:Arial, Helvetica, sans-serif; color:#333; width: 120px; text-a=
+lign: left;">
+												Nofollow
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td width=3D"33.333333333333%" bgcolor=3D"#5bc0ec"></td>
+                                                        <td style=3D"text-a=
+lign: left">
+															<span style=3D"width: 110px;white-space: nowrap;display: blo=
+ck; color: #333; font-size:14px; padding:0 0 0 10px; line-height: 18px;">
+																<a href=3D"https://app.ahrefs.com/v2-site-explorer/backlink=
+s/subdomains?followType=3Dnofollow&grouping=3Dgroup-similar&historyDateRang=
+e=3D30d&history=3Dlost&target=3Ddrbonakdar.net/" style=3D"margin:0; padding=
+:0; font-weight: normal; color: #00479e; text-decoration: none;">2 links</a=
+>															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+                                                                        			=
+					</td>
+							</tr>
+						</table>
+
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td colspan=3D"2" style=3D"padding:20px 0 20px 0;">
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+										<tr>
+											<td style=3D"width:20px;padding:7px 8px 0 0;">
+												<img src=3D"https://static.ahrefs.com/images/red-minus.gif" wid=
+th=3D"20" height=3D"20" alt=3D""/>
+											</td>
+                                            <td style=3D"text-align: left;"=
+>
+												<span class=3D"block" style=3D"display:block; color:#333;font-s=
+ize: 18px; padding: 21px 0 19px 0;">
+													<strong>3 lost referring domains </strong>
+												</span>
+											</td>
+										</tr>
+									</table>
+
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 0=E2=80=9330</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  100% " width=3D" 100% " bgcolor=3D"#5bc0=
+ec "></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">3 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 31=E2=80=9350</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  1% " width=3D" 1% " bgcolor=3D" #dddddd =
+"></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">0 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 51=E2=80=9370</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  1% " width=3D" 1% " bgcolor=3D" #dddddd =
+"></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">0 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																			<tr>
+											<td style=3D"padding:0 0 5px 0; width: 90px;">
+												<span style=3D"display: block; color:#333; width: 120px; text-a=
+lign: left; font-size: 14px; font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;">DR 71=E2=80=93100</span>
+											</td>
+											<td style=3D"padding:0 0 5px 0;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+													<tr>
+														<td style=3D"width:  1% " width=3D" 1% " bgcolor=3D" #dddddd =
+"></td>
+														<td><span style=3D"width: 110px; margin:0; font-size: 14px; l=
+ine-height: 18px; white-space: nowrap;display: block; color: #333;  padding=
+:0 0 0 10px;">0 domains </span></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+																		</table>
+								</td>
+							</tr>
+						</table>
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<thead>
+								<tr>
+									<th style=3D"border-bottom:1px solid #ebebeb;padding:7px 0 6px 0; =
+text-align:left; color: #333; font-family:Arial, Helvetica, sans-serif; fon=
+t-size:13px;">
+										DR
+									</th>
+									<th style=3D"border-bottom:1px solid #ebebeb;padding:7px 0 6px 0; =
+text-align:left; color: #333; font-family:Arial, Helvetica, sans-serif; fon=
+t-size:13px;">
+										Lost referring domains
+									</th>
+									<th style=3D"border-bottom:1px solid #ebebeb;padding:7px 0 6px 0;"=
+></th>
+								</tr>
+							</thead>
+															<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										26
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://vayuc.com" style=3D"color: #00479e; text-decor=
+ation: none; font-size: 14px;">
+												vayuc.com											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22vayuc=
+.com%22%2C%22all%22%5D" style=3D"text-decoration:none;background: #e8eef4; =
+border-radius: 3px; color: #00479e; color: #00479e; padding: 3px 8px 3px; f=
+ont-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										26
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://neurolens.ca" style=3D"color: #00479e; text-de=
+coration: none; font-size: 14px;">
+												neurolens.ca											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22neuro=
+lens.ca%22%2C%22all%22%5D" style=3D"text-decoration:none;background: #e8eef=
+4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3px 8px 3px=
+; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            								<tr>
+									<td style=3D"width:33px; border-bottom:1px solid #ebebeb; padding:=
+7px 0 3px 0; text-align:left; color: #000; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:14px;" valign=3D"middle">
+										1
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding:7px 0 6px 0;=
+">
+										<span style=3D"text-align:left; color: #000; display:block; font-=
+family:Arial, Helvetica, sans-serif; font-size:14px; padding:0; line-height=
+:17px;">
+											<a href=3D"http://backlinkpro.pro" style=3D"color: #00479e; text=
+-decoration: none; font-size: 14px;">
+												backlinkpro.pro											</a>
+										</span>
+									</td>
+									<td style=3D"border-bottom:1px solid #ebebeb; padding: 2px 0 3px 0=
+;" align=3D"right" style=3D"text-align: right;">
+                                        <a href=3D"https://app.ahrefs.com/v=
+2-site-explorer/refdomains/subdomains?target=3Ddrbonakdar.net/&historyDateR=
+ange=3D30d&domainNameRules=3D%5B%5B%22contains%22%2C%22any%22%5D%2C%22backl=
+inkpro.pro%22%2C%22all%22%5D" style=3D"text-decoration:none;background: #e8=
+eef4; border-radius: 3px; color: #00479e; color: #00479e; padding: 3px 8px =
+3px; font-size: 12px; font-weight: bold;">View</a>
+									</td>
+								</tr>
+                            						</table>
+					=09
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"ma=
+rgin-top: 20px;">
+							<thead>
+							<tr>
+								<th style=3D"border-bottom:1px solid #ebebeb; text-align:left; padd=
+ing:7px 0 6px 0; font-size:13px; color: #333; font-family:Arial, Helvetica,=
+ sans-serif; ">
+									DR
+								</th>
+								<th style=3D"border-bottom:1px solid #ebebeb; text-align:left; padd=
+ing:7px 0 6px 0; font-size:13px; color: #333; font-family:Arial, Helvetica,=
+ sans-serif; ">
+									Lost unique dofollow backlinks
+								</th>
+							</tr>
+							</thead>
+
+							<tbody>
+							                                        <tr>
+                                        <td style=3D"width:33px; border-bot=
+tom:1px solid #ebebeb; text-align:left; color: #000; padding:9px 0 0 0; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px;" valign=3D"top">
+                                            0                              =
+          </td>
+                                        <td style=3D"border-bottom:1px soli=
+d #ebebeb; padding:9px 0 12px 0;">
+                                            <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                                <tr>
+                                                    <td style=3D"text-align=
+: left;">
+                                                        <a href=3D"https://=
+promo.eyecarecenteroc.com/lead-magnet-page-6841-9006-6616-2060" title=3D"" =
+style=3D"word-break:break-all; word-break: break-word; text-align:left; col=
+or: #00479e; text-decoration:none; display:block; font-family:Arial, Helvet=
+ica, sans-serif; font-size:14px; font-weight: bold; padding:0 0 0 0; line-h=
+eight:18px;">
+                                                                           =
+                                             														</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"text-align=
+:left;">
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #13892b; =
+display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; pa=
+dding:0 0 1px 0; line-height:17px;">
+                                                            <img src=3D"htt=
+ps://static.ahrefs.com/images/green-lock.gif" alt=3D"https" width=3D"8" hei=
+ght=3D"11"><a href=3D"https://promo.eyecarecenteroc.com/lead-magnet-page-68=
+41-9006-6616-2060" style=3D"color: #13892b; text-decoration: none;">
+                                                                           =
+                                                 <strong>promo.eyecarecente=
+roc.com</strong><span>/lead-magnet-page-6841-9006-6616-2060</span>         =
+                                                   </a>
+                                                        </span>
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #333; dis=
+play:block; font-family:Arial, Helvetica, sans-serif; font-size:14px; paddi=
+ng:0 0 4px 0; line-height:17px;"><span style=3D"color: #000000 "> <a href=
+=3D"https://drbonakdar.net/" style=3D"text-decoration:none; color: #00479e;=
+">Visit Website</a> </span></span>
+                                                    </td>
+                                                </tr>
+												<tr>
+													<td>
+																											</td>
+												</tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                                                        <tr=
+>
+                                        <td style=3D"width:33px; border-bot=
+tom:1px solid #ebebeb; text-align:left; color: #000; padding:9px 0 0 0; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px;" valign=3D"top">
+                                            26                             =
+           </td>
+                                        <td style=3D"border-bottom:1px soli=
+d #ebebeb; padding:9px 0 12px 0;">
+                                            <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                                <tr>
+                                                    <td style=3D"text-align=
+: left;">
+                                                        <a href=3D"https://=
+www.neurolens.ca/en-ca/the-test" title=3D"The Test" style=3D"word-break:bre=
+ak-all; word-break: break-word; text-align:left; color: #00479e; text-decor=
+ation:none; display:block; font-family:Arial, Helvetica, sans-serif; font-s=
+ize:14px; font-weight: bold; padding:0 0 0 0; line-height:18px;">
+                                                            The Test       =
+                                                     														</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"text-align=
+:left;">
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #13892b; =
+display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; pa=
+dding:0 0 1px 0; line-height:17px;">
+                                                            <img src=3D"htt=
+ps://static.ahrefs.com/images/green-lock.gif" alt=3D"https" width=3D"8" hei=
+ght=3D"11"><a href=3D"https://www.neurolens.ca/en-ca/the-test" style=3D"col=
+or: #13892b; text-decoration: none;">
+                                                                           =
+                                                 <strong>www.neurolens.ca</=
+strong><span>/en-ca/the-test</span>                                        =
+                    </a>
+                                                        </span>
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #333; dis=
+play:block; font-family:Arial, Helvetica, sans-serif; font-size:14px; paddi=
+ng:0 0 4px 0; line-height:17px;"><span style=3D"color: #000000 "> <a href=
+=3D"https://www.drbonakdar.net/appointment-request.html" style=3D"text-deco=
+ration:none; color: #00479e;">Book Appointment</a> </span></span>
+                                                    </td>
+                                                </tr>
+												<tr>
+													<td>
+																											</td>
+												</tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                                                        <tr=
+>
+                                        <td style=3D"width:33px; border-bot=
+tom:1px solid #ebebeb; text-align:left; color: #000; padding:9px 0 0 0; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px;" valign=3D"top">
+                                            26                             =
+           </td>
+                                        <td style=3D"border-bottom:1px soli=
+d #ebebeb; padding:9px 0 12px 0;">
+                                            <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                                <tr>
+                                                    <td style=3D"text-align=
+: left;">
+                                                        <a href=3D"https://=
+www.neurolens.ca/fr-ca/le-quiz" title=3D"The Test" style=3D"word-break:brea=
+k-all; word-break: break-word; text-align:left; color: #00479e; text-decora=
+tion:none; display:block; font-family:Arial, Helvetica, sans-serif; font-si=
+ze:14px; font-weight: bold; padding:0 0 0 0; line-height:18px;">
+                                                            The Test       =
+                                                     														</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"text-align=
+:left;">
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #13892b; =
+display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; pa=
+dding:0 0 1px 0; line-height:17px;">
+                                                            <img src=3D"htt=
+ps://static.ahrefs.com/images/green-lock.gif" alt=3D"https" width=3D"8" hei=
+ght=3D"11"><a href=3D"https://www.neurolens.ca/fr-ca/le-quiz" style=3D"colo=
+r: #13892b; text-decoration: none;">
+                                                                           =
+                                                 <strong>www.neurolens.ca</=
+strong><span>/fr-ca/le-quiz</span>                                         =
+                   </a>
+                                                        </span>
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #333; dis=
+play:block; font-family:Arial, Helvetica, sans-serif; font-size:14px; paddi=
+ng:0 0 4px 0; line-height:17px;"><span style=3D"color: #000000 "> <a href=
+=3D"https://www.drbonakdar.net/appointment-request.html" style=3D"text-deco=
+ration:none; color: #00479e;">Book Appointment</a> </span></span>
+                                                    </td>
+                                                </tr>
+												<tr>
+													<td>
+																											</td>
+												</tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                                                        <tr=
+>
+                                        <td style=3D"width:33px; border-bot=
+tom:1px solid #ebebeb; text-align:left; color: #000; padding:9px 0 0 0; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px;" valign=3D"top">
+                                            1                              =
+          </td>
+                                        <td style=3D"border-bottom:1px soli=
+d #ebebeb; padding:9px 0 12px 0;">
+                                            <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                                <tr>
+                                                    <td style=3D"text-align=
+: left;">
+                                                        <a href=3D"https://=
+backlinkpro.pro/best-link-building-service-for-google-ranking-267/" title=
+=3D"=F0=9F=9A=80 Boost Organic Traffic, Rankings &amp; Authority with 100% =
+Premium Backlinks - Give Your Competitors a Tough Time! =F0=9F=94=A5 | Rank=
+vance.com -" style=3D"word-break:break-all; word-break: break-word; text-al=
+ign:left; color: #00479e; text-decoration:none; display:block; font-family:=
+Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; padding:0 =
+0 0 0; line-height:18px;">
+                                                            =F0=9F=9A=80 Bo=
+ost Organic Traffic, Rankings &amp; Auth                                   =
+                                                                           =
+              ...<span style=3D"display:inline-block;color: #333; text-deco=
+ration:none; font-family:Arial, Helvetica, sans-serif; font-size:13px; font=
+-weight: normal; padding:0 0 0 0; line-height:18px;"> + 91 characters</span=
+>
+                                                            														<=
+/a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"text-align=
+:left;">
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #13892b; =
+display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; pa=
+dding:0 0 1px 0; line-height:17px;">
+                                                            <img src=3D"htt=
+ps://static.ahrefs.com/images/green-lock.gif" alt=3D"https" width=3D"8" hei=
+ght=3D"11"><a href=3D"https://backlinkpro.pro/best-link-building-service-fo=
+r-google-ranking-267/" style=3D"color: #13892b; text-decoration: none;">
+                                                                           =
+                                                 <strong>backlinkpro.pro</s=
+trong><span>=E2=80=A6building-service-for-google-ranking-267/</span>       =
+                                                     </a>
+                                                        </span>
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #333; dis=
+play:block; font-family:Arial, Helvetica, sans-serif; font-size:14px; paddi=
+ng:0 0 4px 0; line-height:17px;"><span style=3D"color: #000000 "> <a href=
+=3D"https://drbonakdar.net/" style=3D"text-decoration:none; color: #00479e;=
+">drbonakdar.net</a> </span></span>
+                                                    </td>
+                                                </tr>
+												<tr>
+													<td>
+																											</td>
+												</tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                                                        <tr=
+>
+                                        <td style=3D"width:33px; border-bot=
+tom:1px solid #ebebeb; text-align:left; color: #000; padding:9px 0 0 0; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px;" valign=3D"top">
+                                            26                             =
+           </td>
+                                        <td style=3D"border-bottom:1px soli=
+d #ebebeb; padding:9px 0 12px 0;">
+                                            <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                                <tr>
+                                                    <td style=3D"text-align=
+: left;">
+                                                        <a href=3D"https://=
+vayuc.com/website-list-2458/" title=3D"website list 2458 =E2=80=93 VAYUC" s=
+tyle=3D"word-break:break-all; word-break: break-word; text-align:left; colo=
+r: #00479e; text-decoration:none; display:block; font-family:Arial, Helveti=
+ca, sans-serif; font-size:14px; font-weight: bold; padding:0 0 0 0; line-he=
+ight:18px;">
+                                                            website list 24=
+58 =E2=80=93 VAYUC                                                         =
+   														</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"text-align=
+:left;">
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #13892b; =
+display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; pa=
+dding:0 0 1px 0; line-height:17px;">
+                                                            <img src=3D"htt=
+ps://static.ahrefs.com/images/green-lock.gif" alt=3D"https" width=3D"8" hei=
+ght=3D"11"><a href=3D"https://vayuc.com/website-list-2458/" style=3D"color:=
+ #13892b; text-decoration: none;">
+                                                                           =
+                                                 <strong>vayuc.com</strong>=
+<span>/website-list-2458/</span>                                           =
+                 </a>
+                                                        </span>
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #333; dis=
+play:block; font-family:Arial, Helvetica, sans-serif; font-size:14px; paddi=
+ng:0 0 4px 0; line-height:17px;"><span style=3D"color: #000000 "> <a href=
+=3D"https://drbonakdar.net/" style=3D"text-decoration:none; color: #00479e;=
+">drbonakdar.net</a> </span></span>
+                                                    </td>
+                                                </tr>
+												<tr>
+													<td>
+																											</td>
+												</tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                                                        <tr=
+>
+                                        <td style=3D"width:33px; border-bot=
+tom:1px solid #ebebeb; text-align:left; color: #000; padding:9px 0 0 0; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:14px;" valign=3D"top">
+                                            1                              =
+          </td>
+                                        <td style=3D"border-bottom:1px soli=
+d #ebebeb; padding:9px 0 12px 0;">
+                                            <table width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                                                <tr>
+                                                    <td style=3D"text-align=
+: left;">
+                                                        <a href=3D"https://=
+backlinkpro.pro/best-link-building-service-for-google-ranking-267/" title=
+=3D"=F0=9F=9A=80 Boost Organic Traffic, Rankings &amp; Authority with 100% =
+Premium Backlinks - Give Your Competitors a Tough Time! =F0=9F=94=A5 | Rank=
+vance.com -" style=3D"word-break:break-all; word-break: break-word; text-al=
+ign:left; color: #00479e; text-decoration:none; display:block; font-family:=
+Arial, Helvetica, sans-serif; font-size:14px; font-weight: bold; padding:0 =
+0 0 0; line-height:18px;">
+                                                            =F0=9F=9A=80 Bo=
+ost Organic Traffic, Rankings &amp; Auth                                   =
+                                                                           =
+              ...<span style=3D"display:inline-block;color: #333; text-deco=
+ration:none; font-family:Arial, Helvetica, sans-serif; font-size:13px; font=
+-weight: normal; padding:0 0 0 0; line-height:18px;"> + 91 characters</span=
+>
+                                                            														<=
+/a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style=3D"text-align=
+:left;">
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #13892b; =
+display:block; font-family:Arial, Helvetica, sans-serif; font-size:13px; pa=
+dding:0 0 1px 0; line-height:17px;">
+                                                            <img src=3D"htt=
+ps://static.ahrefs.com/images/green-lock.gif" alt=3D"https" width=3D"8" hei=
+ght=3D"11"><a href=3D"https://backlinkpro.pro/best-link-building-service-fo=
+r-google-ranking-267/" style=3D"color: #13892b; text-decoration: none;">
+                                                                           =
+                                                 <strong>backlinkpro.pro</s=
+trong><span>=E2=80=A6building-service-for-google-ranking-267/</span>       =
+                                                     </a>
+                                                        </span>
+                                                        <span style=3D"word=
+-break:break-all; word-break: break-word; text-align:left; color: #333; dis=
+play:block; font-family:Arial, Helvetica, sans-serif; font-size:14px; paddi=
+ng:0 0 4px 0; line-height:17px;"><span style=3D"color: #000000 "> <a href=
+=3D"https://www.drbonakdar.net/" style=3D"text-decoration:none; color: #004=
+79e;">drbonakdar.net</a> </span></span>
+                                                    </td>
+                                                </tr>
+												<tr>
+													<td>
+																											</td>
+												</tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    							</tbody>
+						</table>
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+							<tr>
+								<td style=3D"padding:14px 0 0 0;">
+									<a href=3D"https://app.ahrefs.com/v2-site-explorer/backlinks/subdo=
+mains?followType=3Ddofollow&grouping=3Dgroup-similar&historyDateRange=3D30d=
+&history=3Dlost&target=3Ddrbonakdar.net/" style=3D"border-radius:3px; paddi=
+ng:4px 10px 3px 10px; font-weight:bold; border-radius: 3px; background:#e8e=
+ef4; font-size:12px; color: #00479e; text-decoration: none;">
+										View full report
+									</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+					</td>
+	</tr>
+</table>
+
+<!-- FOOTER -->
+<table border=3D"0" cellspacing=3D"0" cellspacing=3D"0" width=3D"100%">
+	<tr>
+		<td bgcolor=3D"#f5f5f8" align=3D"center" style=3D"padding:0;">
+			<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cellsp=
+acing=3D"0">
+				<tr>
+					<td bgcolor=3D"#f5f5f8" align=3D"center" style=3D"background: #f5f5f8;=
+ padding: 32px 20px 20px 20px;" valign=3D"top">
+						<img src=3D"https://static.ahrefs.com/images/ahrefs-email-logo.png" w=
+idth=3D"74" height=3D"18" alt=3D"Ahrefs">
+					</td>
+				</tr>
+			</table>
+			<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cellsp=
+acing=3D"0">
+				<tr>
+					<td class=3D"content-block" bgcolor=3D"#f5f5f8" align=3D"center" style=
+=3D"background: #f5f5f8; padding: 0 20px 0 20px; font-family: 'Helvetica Ne=
+ue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px;=
+ vertical-align: top; margin: 0; line-height:18px;" valign=3D"top">
+                        <span style=3D"display:block; margin:0; padding:0; =
+line-height: 13px;">
+                            <span style=3D"color:#84898f;margin:0; font-siz=
+e: 13px; padding:0;">=C2=A9 2025 Ahrefs Pte Ltd.</span>
+                        </span>
+					</td>
+				</tr>
+				<tr>
+					<td class=3D"content-block" bgcolor=3D"#f5f5f8" align=3D"center" style=
+=3D"background: #f5f5f8; padding: 0 20px 4px 20px; font-family: 'Helvetica =
+Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14p=
+x; vertical-align: top; margin: 0; line-height:18px;" valign=3D"top">
+                        <span style=3D"display:block; margin:0; padding:0 0=
+ 0 0;">
+                            <span style=3D"color: #84898f; font-size: 13px;=
+ margin:0; padding:0;">16 Raffles Quay, #33-03 Hong Leong Building, Singapo=
+re 048581</span>
+                        </span>
+					</td>
+				</tr>
+				<tr>
+					<td class=3D"content-block" bgcolor=3D"#f5f5f8" align=3D"center" style=
+=3D"background: #f5f5f8; padding: 0 20px 13px 20px; font-family: 'Helvetica=
+ Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14=
+px; vertical-align: top; margin: 0; line-height:18px;" valign=3D"top">
+                        <span style=3D"display:block; margin:0; padding:0">
+                            <a href=3D"mailTo:support@ahrefs.com" style=3D"=
+color: #84898f; margin:0; padding:0; font-size: 13px; text-decoration:none;=
+">support@ahrefs.com</a>
+                        </span>
+					</td>
+				</tr>
+			</table>
+			<table class=3D"responsive-table" width=3D"600" cellpadding=3D"0" cellsp=
+acing=3D"0">
+				<tr>
+					<td class=3D"content-block" bgcolor=3D"#f5f5f8" align=3D"center" style=
+=3D"background: #f5f5f8; padding: 0 20px 30px 20px; font-family: 'Helvetica=
+ Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14=
+px; vertical-align: top; margin: 0; line-height:18px;" valign=3D"top">
+                        <span style=3D"display:block; margin:0; padding:0">
+							<span style=3D"color: #84898f; margin:0; padding:0; font-size: 13px;=
+">
+                                <a href=3D"https://app.ahrefs.com/user/aler=
+ts/backlinks/edit/25522582" style=3D"color:#84898f; text-decoration:none; m=
+argin:0; display:inline; font-family:Arial, Helvetica, sans-serif; font-siz=
+e:13px; padding:0px 0 0 0px; line-height:18px;">Edit alert</a>
+                                &nbsp; =E2=80=A2  &nbsp;<a href=3D"https://=
+app.ahrefs.com/user/alerts/unsubscribe/25522582?email=3Ddrbonakdar%40gmail.=
+com&token=3Da6da2ca309131d4c1e5dd716ec0139af" style=3D"color:#84898f; text-=
+decoration:none; margin:0; display:inline; font-family:Arial, Helvetica, sa=
+ns-serif; font-size:13px; padding:0px 0 0 0px; line-height:18px;">Unsubscri=
+be</a>
+                                &nbsp;  =E2=80=A2  &nbsp;<a href=3D"https:/=
+/ahrefs.com/legal" style=3D"color:#84898f; text-decoration:none; margin:0; =
+display:inline; font-family:Arial, Helvetica, sans-serif; font-size:13px; p=
+adding:0px 0 0 0px; line-height:18px;">Legal info</a>
+                            </span>
+                        </span>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</table>
+</body>
+</html>
