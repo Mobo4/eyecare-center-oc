@@ -3,14 +3,24 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & HIPAA Notice | EyeCare Center of Orange County',
-  description: 'Our privacy policy and Notice of Privacy Practices (HIPAA) regarding your medical information.',
+  title: 'Privacy Policy | EyeCare Center of Orange County',
+  description: 'Privacy policy for EyeCare Center of Orange County. Learn how we protect your personal health information and maintain HIPAA compliance.',
   robots: 'noindex, follow',
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/privacy-policy',
+  }
 };
 
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function PrivacyPolicyPage() {
+  const businessSchema = generateLocalBusinessSchema();
+
   return (
     <main className="min-h-screen bg-white">
+      <JsonLd data={businessSchema} id="business-schema" />
       <Header />
 
       <section className="py-16 md:py-24">

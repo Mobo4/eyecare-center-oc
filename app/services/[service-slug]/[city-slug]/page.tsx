@@ -81,6 +81,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+import { generateLocalConditionSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default async function LocalServicePage({ params }: Props) {
   const resolvedParams = await params;
   const { 'service-slug': serviceSlug, 'city-slug': citySlug } = resolvedParams;
@@ -94,6 +97,16 @@ export default async function LocalServicePage({ params }: Props) {
   const isRegion = citySlug === 'orange-county';
   const locationName = isRegion ? 'Orange County' : city.name;
   const locationSuffix = isRegion ? '' : ', CA';
+
+  // Generate Schema
+  const schemaUrl = `https://eyecarecenteroc.com/services/${serviceSlug}/${citySlug}`;
+  const conditionSchema = generateLocalConditionSchema(
+    service.name,
+    service.description,
+    city.name,
+    city.county || "Orange County",
+    schemaUrl
+  );
 
 
   const popupTitle = `Expert ${service.shortName || service.name} Care`;
@@ -110,6 +123,7 @@ export default async function LocalServicePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={conditionSchema} id="condition-schema" />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

@@ -15,11 +15,21 @@ export const metadata: Metadata = {
         description: 'Find the perfect contact lenses for your vision needs. From daily disposables to specialty medical lenses.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/contact-lenses',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function ContactLensesHubPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

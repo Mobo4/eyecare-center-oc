@@ -6,8 +6,8 @@ import { ArrowRight, AlertTriangle, Eye, Shield, Baby, Activity, CheckCircle, Se
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Pediatric Keratoconus Detection | 1 in 37 Children Undiagnosed | Orange County',
-    description: 'Early keratoconus detection in children is critical. Studies show 1 in 37 kids have undiagnosed keratoconus. Our Pentacam technology detects changes at the back of the cornea before symptoms appear.',
+    title: 'Pediatric Keratoconus Treatment | Kids Eye Care | OC',
+    description: 'Specialized keratoconus treatment for children: cross-linking, scleral lenses, myopia control. Expert pediatric care in Orange County.',
     keywords: [
         'pediatric keratoconus',
         'keratoconus in children',
@@ -29,11 +29,21 @@ export const metadata: Metadata = {
         description: '1 in 37 children have undiagnosed keratoconus. Our advanced Pentacam screening detects changes before symptoms appear.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/pediatric-keratoconus',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function PediatricKeratoconusPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

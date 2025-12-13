@@ -7,16 +7,22 @@ import Link from 'next/link';
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'For Medical Professionals | Patient Referrals | EyeCare Center OC',
-    description: 'Partner with EyeCare Center of Orange County. Seamless patient referrals for keratoconus, dry eye, and complex corneal conditions. Co-management opportunities available.',
+    title: 'Medical Professional Referrals | EyeCare Center OC',
+    description: 'Trusted eye care partner for medical professionals. Expert consultations, advanced diagnostics, seamless patient care in Orange County.',
     alternates: {
         canonical: 'https://eyecarecenteroc.com/medical-professionals',
     },
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function MedicalProfessionalsPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <>
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
             <main className="min-h-screen bg-white">
                 {/* Hero Section */}

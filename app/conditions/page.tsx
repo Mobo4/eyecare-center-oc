@@ -8,8 +8,20 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: 'Eye Conditions We Treat | EyeCare Center of Orange County',
+  description: 'Learn about the 300+ eye conditions treated at EyeCare Center of Orange County. From keratoconus and dry eye to cataracts and glaucoma.',
+  keywords: ['eye conditions', 'keratoconus', 'dry eye', 'cataracts', 'glaucoma', 'orange county eye doctor', 'vision problems'],
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/conditions',
+  }
+};
+
 import ConditionCityModal from '@/components/ConditionCityModal';
 import { ConditionAutosuggest } from '@/components/conditions';
 import ServiceHero from '@/components/services/ServiceHero';

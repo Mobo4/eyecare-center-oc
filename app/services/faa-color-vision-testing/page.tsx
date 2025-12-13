@@ -6,8 +6,8 @@ import { ArrowRight, Plane, Eye, CheckCircle, AlertCircle, FileCheck, Clock } fr
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'FAA Color Vision Testing | Pilot Medical Exam | Orange County',
-    description: 'FAA-approved color vision testing for pilots. Farnsworth D-15, Rabin Cone Contrast Test, and OCVT alternatives. Failed Ishihara? We can help you get your medical certificate.',
+    title: 'FAA Color Vision Testing | Pilot Medical Exams | OC',
+    description: 'FAA-approved color vision testing for pilots. Expert medical examinations for aviation certification. Comprehensive testing in Orange County.',
     keywords: [
         'FAA color vision test',
         'pilot color vision exam',
@@ -30,11 +30,21 @@ export const metadata: Metadata = {
         description: 'Failed the Ishihara? FAA-approved alternative color vision tests available. Farnsworth D-15, Rabin Cone Contrast, and more.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/faa-color-vision-testing',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function FAAColorVisionPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

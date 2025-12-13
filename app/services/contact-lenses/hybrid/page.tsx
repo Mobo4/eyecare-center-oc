@@ -7,8 +7,8 @@ import { ArrowRight, Eye, Shield, Zap, CheckCircle, XCircle, Layers, Focus, Sun 
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Hybrid Contact Lenses | SynergEyes | Best of Both Worlds | Orange County',
-    description: 'Hybrid contact lenses combine RGP clarity with soft lens comfort. SynergEyes Duette, UltraHealth, ClearKone for keratoconus, astigmatism & irregular corneas. Expert fitting in Orange County.',
+    title: 'Hybrid Contact Lenses | SynergEyes | Orange County',
+    description: 'Advanced hybrid contact lenses combining RGP clarity with soft lens comfort. Perfect for keratoconus, astigmatism. Expert fitting in OC.',
     keywords: [
         'hybrid contact lenses orange county',
         'SynergEyes hybrid lenses',
@@ -36,11 +36,21 @@ export const metadata: Metadata = {
         description: 'Get the clarity of RGP lenses with the comfort of soft lenses. Expert SynergEyes hybrid lens fitting for keratoconus and irregular corneas.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/contact-lenses/hybrid',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function HybridContactLensesPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

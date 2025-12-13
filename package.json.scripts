@@ -1,0 +1,8 @@
+{
+  "name": "eyecare-center-oc",
+  "scripts": {
+    "audit:static": "npx ts-node tools/seo-audit/ultimate-semrush.ts static",
+    "audit:live": "npx ts-node tools/seo-audit/ultimate-semrush.ts live",
+    "audit:fix": "npx ts-node tools/seo-audit/fix-all-issues.ts"
+  }
+}

@@ -11,7 +11,7 @@ import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
   title: 'Insurance | EyeCare Center of Orange County',
-  description: 'We accept most major medical and vision insurance plans including VSP, EyeMed, Medicare, Blue Shield, Aetna, Cigna, and more. Learn the difference between vision and medical insurance.',
+  description: 'We accept VSP, EyeMed, Medicare, and most vision insurance. Expert eye care with comprehensive coverage in Orange County. Call for benefits verification.',
   keywords: [
     'eye doctor insurance orange county',
     'VSP eye doctor',

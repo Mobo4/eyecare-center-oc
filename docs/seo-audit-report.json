@@ -1,196 +1,437 @@
 {
-  "timestamp": "2025-12-12T01:52:09.108Z",
+  "timestamp": "2025-12-13T02:57:53.997Z",
   "projectRoot": "/Users/alex/Documents/Projects/eyecare-center-oc-old",
   "pagesScanned": 42,
-  "componentsScanned": 112,
+  "componentsScanned": 113,
   "issues": {
-    "missingMetadata": [
-      {
-        "file": "app/conditions/page.tsx",
-        "severity": "HIGH",
-        "message": "Page is missing metadata export. This affects SEO title and description."
-      },
-      {
-        "file": "app/icons-preview/page.tsx",
-        "severity": "HIGH",
-        "message": "Page is missing metadata export. This affects SEO title and description."
-      }
-    ],
-    "missingAltText": [
-      {
-        "file": "components/ClinicalGallery.tsx",
-        "severity": "MEDIUM",
-        "tag": "<Image\n                                    src={image.url}\n                     ...",
-        "message": "Image is missing alt text. This affects accessibility and image SEO."
-      }
-    ],
-    "missingSchema": [
-      {
-        "file": "app/accessibility/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/blog/[slug]/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/blog/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/book-appointment/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/contact/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/doctors/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/financing/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/fsa-hsa-eye-care/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/icons-preview/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/insurance-coverage/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/locations/[slug]/insurance/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/locations/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/medical-disclaimer/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/medical-professionals/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/privacy-policy/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/[service-slug]/[city-slug]/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/contact-lenses/hybrid/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/contact-lenses/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/contact-lenses/rgp/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/contact-lenses/scleral/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/contact-lenses/soft/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/diagnostic-technology/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
-      {
-        "file": "app/services/faa-color-vision-testing/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      },
+    "missingMetadata": [],
+    "missingAltText": [],
+    "missingSchema": [],
+    "brokenLinks": [],
+    "keywordGaps": [],
+    "h1Usage": [
       {
         "file": "app/services/optical-lenses/page.tsx",
         "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
+        "message": "Page is missing an <h1> tag. Every page should have exactly one main heading."
+      }
+    ],
+    "metadataQuality": [
+      {
+        "file": "app/blog/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (168 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/blog/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/blog/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/book-appointment/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/book-appointment/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/conditions/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/conditions/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/financing/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (63 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/financing/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (166 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/financing/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/fsa-hsa-eye-care/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (70 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/fsa-hsa-eye-care/page.tsx",
+        "severity": "LOW",
+        "message": "Description is too short (109 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/fsa-hsa-eye-care/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/icons-preview/page.tsx",
+        "severity": "LOW",
+        "message": "Title is too short (29 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/icons-preview/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/icons-preview/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/insurance/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (184 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/insurance-coverage/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (171 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/insurance-coverage/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/insurance-coverage/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/locations/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/lp/designer-frames/page.tsx",
+        "severity": "LOW",
+        "message": "Title is too short (27 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/lp/designer-frames/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/lp/designer-frames/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/lp/dry-eye-ipl/page.tsx",
+        "severity": "LOW",
+        "message": "Title is too short (20 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/lp/dry-eye-ipl/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/lp/dry-eye-ipl/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/lp/headaches-cvs/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (63 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/lp/headaches-cvs/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (168 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/lp/headaches-cvs/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/lp/keratoconus-scleral/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/lp/keratoconus-scleral/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/lp/surgical-consult/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/lp/surgical-consult/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/medical-disclaimer/page.tsx",
+        "severity": "LOW",
+        "message": "Description is too short (42 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/medical-disclaimer/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/medical-disclaimer/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/medical-professionals/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (65 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/medical-professionals/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (169 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/medical-professionals/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (70 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (161 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/privacy-policy/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (63 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/privacy-policy/page.tsx",
+        "severity": "LOW",
+        "message": "Description is too short (94 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/privacy-policy/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/privacy-policy/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
+      },
+      {
+        "file": "app/services/contact-lenses/hybrid/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (72 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/hybrid/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (190 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/hybrid/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/contact-lenses/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/contact-lenses/rgp/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (61 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/rgp/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (171 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/rgp/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/contact-lenses/scleral/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (63 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/scleral/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (189 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/scleral/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/contact-lenses/soft/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (64 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/soft/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (170 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/contact-lenses/soft/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/diagnostic-technology/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (71 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/diagnostic-technology/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (203 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/diagnostic-technology/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/faa-color-vision-testing/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (61 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/faa-color-vision-testing/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (174 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/faa-color-vision-testing/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/optical-lenses/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Title is too long (64 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/optical-lenses/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (163 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/optical-lenses/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
       },
       {
         "file": "app/services/ortho-k-adults/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
+        "severity": "MEDIUM",
+        "message": "Title is too long (80 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/ortho-k-adults/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (176 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/ortho-k-adults/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
       },
       {
         "file": "app/services/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
+        "severity": "MEDIUM",
+        "message": "Description is too long (169 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/services/page.tsx",
+        "severity": "LOW",
+        "message": "Missing Open Graph social sharing data."
       },
       {
         "file": "app/services/pediatric-keratoconus/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
+        "severity": "MEDIUM",
+        "message": "Title is too long (78 chars). Recommended: 30-60 chars."
+      },
+      {
+        "file": "app/services/pediatric-keratoconus/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Description is too long (198 chars). Recommended: 120-160 chars."
+      },
+      {
+        "file": "app/services/pediatric-keratoconus/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
       },
       {
         "file": "app/terms-of-service/page.tsx",
-        "severity": "HIGH",
-        "message": "Critical page is missing JSON-LD Schema. This affects rich snippets in search results."
-      }
-    ],
-    "brokenLinks": [],
-    "keywordGaps": [
-      {
-        "file": "app/page.tsx",
         "severity": "LOW",
-        "missingKeywords": [
-          "optometrist"
-        ],
-        "message": "Missing 1 target keywords in file content or metadata."
+        "message": "Description is too short (40 chars). Recommended: 120-160 chars."
       },
       {
-        "file": "app/layout.tsx",
+        "file": "app/terms-of-service/page.tsx",
+        "severity": "MEDIUM",
+        "message": "Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues."
+      },
+      {
+        "file": "app/terms-of-service/page.tsx",
         "severity": "LOW",
-        "missingKeywords": [
-          "optometrist",
-          "contact lenses"
-        ],
-        "message": "Missing 2 target keywords in file content or metadata."
+        "message": "Missing Open Graph social sharing data."
       }
-    ]
+    ],
+    "brokenImages": [],
+    "globalFiles": [
+      {
+        "file": "ROOT",
+        "severity": "MEDIUM",
+        "message": "Missing favicon.ico. This affects brand visibility in search tabs."
+      }
+    ],
+    "sitemapCoverage": []
   },
   "summary": {
-    "totalIssues": 33,
-    "high": 22,
-    "medium": 1,
-    "low": 2
+    "totalIssues": 82,
+    "high": 1,
+    "medium": 14,
+    "low": 7
   }
 }

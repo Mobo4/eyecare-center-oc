@@ -20,6 +20,10 @@ import VisionSimulator from '@/components/VisionSimulator'; // Imported VisionSi
 export const metadata: Metadata = {
     title: 'Keratoconus & Scleral Lenses | Orange County Expert',
     description: 'Restore clear vision with specific custom scleral lenses for keratoconus. Dr. Bonakdar is a leading specialist in irregular cornea management in Orange County.',
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/lp/keratoconus-scleral',
+  }
 };
 
 export default function KeratoconusLandingPage() {

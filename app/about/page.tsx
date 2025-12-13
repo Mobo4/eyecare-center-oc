@@ -10,8 +10,8 @@ import Testimonials from '@/components/Testimonials';
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-  title: 'About Dr. Alexander Bonakdar & Our Team | EyeCare Center of Orange County',
-  description: 'Meet Dr. Alexander Bonakdar and the expert team at EyeCare Center of Orange County. Learn about our 35+ years of experience and our commitment to patient care.',
+  title: 'About EyeCare Center OC | Dr. Alexander Bonakdar',
+  description: 'Learn about our 35+ years of excellence in eye care. Dr. Bonakdar leads Orange County with advanced technology and personalized patient care.',
   keywords: [
     'about eye care center orange county',
     'Dr. Alexander Bonakdar',

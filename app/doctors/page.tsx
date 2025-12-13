@@ -13,17 +13,34 @@ import Footer from '@/components/Footer';
 import { BookAppointmentCTA } from '@/components/shared';
 import { getAllDoctors } from '@/data/doctors';
 import { Star, Award, MapPin } from 'lucide-react';
+import JsonLd from '@/components/JsonLd';
+import { generateMedicalBusinessSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Our Doctors | EyeCare Center of Orange County',
-  description: 'Meet our experienced eye care specialists. Dr. Alexander Bonakdar has 35+ years of experience treating keratoconus, dry eye, and complex vision conditions in Orange County.',
+  title: 'Our Doctors | Dr. Alexander Bonakdar | EyeCare Center OC',
+  description: 'Meet Dr. Alexander Bonakdar, a board-certified ophthalmologist with over 35 years of experience specializing in Keratoconus, LASIK, and difficult fittings.',
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/doctors',
+  },
+  openGraph: {
+    title: 'Our Doctors | Dr. Alexander Bonakdar | EyeCare Center OC',
+    description: 'Meet Dr. Alexander Bonakdar, specialized in Keratoconus and LASIK.',
+    type: 'website',
+  }
 };
 
 export default function DoctorsPage() {
   const doctors = getAllDoctors();
+  const businessSchema = generateMedicalBusinessSchema();
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://eyecarecenteroc.com' },
+    { name: 'Our Doctors', url: 'https://eyecarecenteroc.com/doctors' },
+  ]);
 
   return (
     <>
+      <JsonLd data={businessSchema} id="business-schema" />
+      <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

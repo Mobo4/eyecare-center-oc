@@ -11,20 +11,8 @@ export const CONFIG = {
     // Directories to exclude
     excludeDirs: ['node_modules', '.next', '.git', 'public', 'tools'],
 
-    // Required keywords for homepage/layout analysis
+    // Keywords to check for in content/metadata (Case-insensitive)
     requiredKeywords: [
-        'eye care',
-        'optometrist',
-        'eye doctor',
-        'orange county',
-        'keratoconus',
-        'dry eye',
-        'lasik',
-        'cataract',
-        'contact lenses',
-        'eye exam',
-        'vision',
-        'ophthalmologist',
         'scleral lens',
     ],
 
@@ -39,4 +27,12 @@ export const CONFIG = {
     // Output settings
     outputPath: 'docs/seo-audit-report.json',
     maxIssuesPerCategory: 20,
+
+    // Validation Limits
+    validation: {
+        titleMin: 30,
+        titleMax: 60,
+        descMin: 120,
+        descMax: 160,
+    }
 };

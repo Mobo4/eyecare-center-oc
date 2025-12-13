@@ -70,7 +70,7 @@ export default function ProfessionalFeatures() {
         {/* Left Column: Image */}
         <div className="mt-8 lg:mt-0">
           <Image
-            src="/images/clinic-photo.jpg"
+            src="/images/doctor-consult.png"
             alt="Interior of EyeCare Center of Orange County clinic"
             width={800}
             height={600}

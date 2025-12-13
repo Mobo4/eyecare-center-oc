@@ -3,11 +3,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Check, Shield, Phone, ArrowRight, FileText, CreditCard } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Insurance Coverage & Accepted Plans | EyeCare Center OC',
-  description: 'We accept VSP, EyeMed, Medicare, and most major vision and medical insurance plans. Keratoconus treatment, scleral lenses, and comprehensive eye care covered by insurance.',
+  description: 'Understand your vision insurance coverage. We accept most major plans including VSP, EyeMed, Medicare. Expert eye care in Orange County with insurance help.',
   keywords: [
     'keratoconus treatment covered by insurance',
     'scleral lenses insurance coverage',
@@ -18,9 +20,18 @@ export const metadata: Metadata = {
     'insurance eye doctor orange county',
     'vision insurance accepted',
   ],
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/insurance-coverage',
+  },
 };
 
 export default function InsuranceCoveragePage() {
+  const businessSchema = generateLocalBusinessSchema();
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://eyecarecenteroc.com' },
+    { name: 'Insurance Coverage', url: 'https://eyecarecenteroc.com/insurance-coverage' },
+  ]);
+
   const insurancePlans = [
     {
       category: 'Vision Insurance Plans',
@@ -91,6 +102,8 @@ export default function InsuranceCoveragePage() {
 
   return (
     <main className="min-h-screen">
+      <JsonLd data={businessSchema} id="business-schema" />
+      <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
       <Header />
 
       {/* Hero Section */}
@@ -209,13 +222,12 @@ export default function InsuranceCoveragePage() {
                   <tr key={idx} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-semibold text-gray-900">{item.service}</td>
                     <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                        item.medicalCoverage.includes('Usually') || item.medicalCoverage.includes('Often')
-                          ? 'bg-emerald-100 text-emerald-800'
-                          : item.medicalCoverage.includes('Case-by-case')
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${item.medicalCoverage.includes('Usually') || item.medicalCoverage.includes('Often')
+                        ? 'bg-emerald-100 text-emerald-800'
+                        : item.medicalCoverage.includes('Case-by-case')
                           ? 'bg-yellow-100 text-yellow-800'
                           : 'bg-gray-100 text-gray-800'
-                      }`}>
+                        }`}>
                         {item.medicalCoverage}
                       </span>
                     </td>

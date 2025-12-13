@@ -30,14 +30,23 @@ export const metadata: Metadata = {
     description: `Expert eye care serving 65+ Orange County cities. Call ${CONTACT_INFO.primaryPhone.display} to schedule your appointment.`,
     type: 'website',
   },
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/locations',
+  }
 };
 
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function LocationsPage() {
+  const businessSchema = generateLocalBusinessSchema();
   // Sort cities alphabetically
   const sortedCities = [...cities].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <>
+      <JsonLd data={businessSchema} id="business-schema" />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

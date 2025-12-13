@@ -6,8 +6,8 @@ import { ArrowRight, Eye, Scan, Activity, Layers, Droplets, Sun, TestTube, Radio
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Advanced Eye Diagnostic Technology | OCT, Pentacam, ERG | Orange County',
-    description: 'State-of-the-art eye diagnostic equipment: OCT, Pentacam corneal tomography, ERG, visual field testing, meibography, B-scan ultrasound, and point-of-care testing. Comprehensive eye care in Orange County.',
+    title: 'Advanced Eye Diagnostic Technology | Orange County',
+    description: 'State-of-the-art diagnostic equipment: OCT, topography, visual fields. Precise diagnosis and treatment planning in Orange County.',
     keywords: [
         'OCT eye scan orange county',
         'optical coherence tomography',
@@ -40,11 +40,21 @@ export const metadata: Metadata = {
         description: 'Comprehensive diagnostic capabilities including OCT, Pentacam, ERG, visual field, meibography, and point-of-care testing.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/diagnostic-technology',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function DiagnosticTechnologyPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

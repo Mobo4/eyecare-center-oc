@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "EyeCare Center of Orange County | #1 Rated Ophthalmologist & Eye Exams",
-  description: "Premier eye care practice in Orange County led by Dr. Alexander Bonakdar. Specializing in Keratoconus, LASIK, Cataracts, and comprehensive eye exams. Call today!",
+  title: 'EyeCare Center OC | Top Ophthalmologist & Eye Exams',
+  description: 'Premier eye care in Orange County. Dr. Bonakdar specializes in Keratoconus, LASIK, Cataracts. Comprehensive exams. Call today!',
   keywords: [
     "EyeCare Center of Orange County",
     "Dr. Alexander Bonakdar",
@@ -25,7 +25,17 @@ export const metadata: Metadata = {
     "vision therapy",
     "medical doctors",
     "eye examination",
-    "eye surgery"
+    "eye examination",
+    "eye surgery",
+    "optometrist",
+    "Headache Relief",
+    "Orthokeratology",
+    "IPL for Dry Eye",
+    "Stye Treatment",
+    "Emergency Eyecare",
+    "Red Eye Treatment",
+    "Myopia Management",
+    "Eye Pain Relief"
   ],
   alternates: {
     canonical: 'https://eyecarecenteroc.com',
@@ -75,6 +85,8 @@ const conditions = [
 ];
 
 import { cities as allCities } from '@/data/cities';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 
 // Select top cities for the homepage (e.g., top 6 by population or strategic importance)
 const cities = [
@@ -91,8 +103,15 @@ const cities = [
 }));
 
 export default function HomePage() {
+    const businessSchema = generateLocalBusinessSchema();
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://eyecarecenteroc.com' },
+    ]);
+
   return (
     <main className="min-h-screen bg-white" suppressHydrationWarning>
+            <JsonLd data={businessSchema} id="business-schema" />
+            <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
       <Header />
       <OrganizationSchema />
 

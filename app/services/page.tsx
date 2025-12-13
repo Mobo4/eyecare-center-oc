@@ -4,15 +4,29 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { services } from '@/data/services';
 import { ChevronRight } from 'lucide-react';
+import { generateMedicalBusinessSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Eye Care Services in Orange County',
-  description: 'Explore a full range of expert eye care services, from comprehensive exams to advanced surgical procedures like LASIK and cataract surgery. Serving all of Orange County.',
+  description: 'Comprehensive eye care services: keratoconus treatment, scleral lenses, LASIK, dry eye therapy, contact lenses. Expert care in Orange County.',
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services',
+  }
 };
 
 export default function ServicesPage() {
+  const businessSchema = generateMedicalBusinessSchema(); // Use MedicalBusiness for services index
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://eyecarecenteroc.com' },
+    { name: 'Services', url: 'https://eyecarecenteroc.com/services' },
+  ]);
+
   return (
     <>
+      <JsonLd data={businessSchema} id="business-schema" />
+      <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

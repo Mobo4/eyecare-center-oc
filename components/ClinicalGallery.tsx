@@ -217,7 +217,7 @@ export default function ClinicalGallery({ images, conditionName, className = '' 
                             >
                                 <Image
                                     src={image.url}
-                                    alt=""
+                                    alt={`Thumbnail of ${image.title}`}
                                     fill
                                     sizes="64px"
                                     className="object-cover"

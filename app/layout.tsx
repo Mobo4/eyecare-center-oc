@@ -45,6 +45,8 @@ export const metadata: Metadata = {
     "keratoconus treatment",
     "vision correction",
     "eye surgery",
+    "optometrist",
+    "contact lenses",
 
     // --- Location-Specific Keywords ---
     "eye doctor irvine",
@@ -102,6 +104,11 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
   openGraph: {
     type: 'website',

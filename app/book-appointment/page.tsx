@@ -13,11 +13,21 @@ export const metadata: Metadata = {
     'online appointment booking',
     'eye care appointment santa ana',
   ],
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/book-appointment',
+  }
 };
 
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function BookAppointmentPage() {
+  const businessSchema = generateLocalBusinessSchema();
+
   return (
     <>
+      <JsonLd data={businessSchema} id="business-schema" />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

@@ -16,6 +16,10 @@ import { SERVICE_AREAS } from '@/lib/schema';
 export const metadata: Metadata = {
     title: 'Vision Correction Consultation',
     description: 'Get unbiased expert guidance for LASIK, cataract surgery, and ICL. Independent pre-op evaluation and post-op care. Serving Orange County.',
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/lp/surgical-consult',
+  }
 };
 
 export default function SurgicalConsultLandingPage() {

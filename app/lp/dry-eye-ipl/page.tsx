@@ -14,8 +14,12 @@ import { Droplets, Shield, Sun, Zap, Clock, ThumbsUp, CheckCircle } from 'lucide
 import { SERVICE_AREAS } from '@/lib/schema';
 
 export const metadata: Metadata = {
-    title: 'Dry Eye Relief (IPL)',
+    title: 'IPL Dry Eye Treatment | Orange County',
     description: 'Stop suffering from dry, gritty eyes. FDA-approved IPL treatment targets the root cause of dry eye for long-lasting relief. Schedule your assessment today.',
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/lp/dry-eye-ipl',
+  }
 };
 
 export default function DryEyeIPLLandingPage() {

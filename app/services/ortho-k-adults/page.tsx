@@ -6,8 +6,8 @@ import { ArrowRight, Moon, Sun, Eye, Shield, CheckCircle, XCircle, Zap, Clock } 
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Adult Ortho-K | LASIK Alternative | No Surgery Vision Correction | Orange County',
-    description: 'Orthokeratology for adults - a non-surgical LASIK alternative. Wake up with clear vision without glasses, contacts, or surgery. Reversible, safe, FDA-approved overnight lenses.',
+    title: 'Ortho-K for Adults | Non-Surgical Vision Correction',
+    description: 'Orthokeratology for adults: overnight vision correction without surgery. Wake up with clear vision. Expert fitting in Orange County.',
     keywords: [
         'ortho-k for adults',
         'orthokeratology orange county',
@@ -35,11 +35,21 @@ export const metadata: Metadata = {
         description: 'Clear vision without surgery. Ortho-K overnight lenses reshape your cornea while you sleep. Wake up seeing clearly.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/ortho-k-adults',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function AdultOrthoKPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

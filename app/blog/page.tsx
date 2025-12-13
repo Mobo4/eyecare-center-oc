@@ -8,12 +8,43 @@ import { Calendar, User, Tag, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Eye Care Blog | Expert Insights & Tips | Orange County',
-    description: 'Stay informed about the latest in eye health, keratoconus treatments, dry eye relief, and more from Dr. Alexander Bonakdar and the EyeCare Center of Orange County team.',
+    description: 'Expert eye care insights from Dr. Bonakdar. Learn about keratoconus, dry eye, LASIK, contact lenses, and comprehensive eye health in Orange County.',
+    alternates: {
+        canonical: 'https://eyecarecenteroc.com/blog',
+    },
 };
 
+import JsonLd from '@/components/JsonLd';
+
 export default function BlogIndexPage() {
+    const blogSchema = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Eye Care Blog",
+        "description": "Expert Insights & Tips from EyeCare Center of Orange County",
+        "publisher": {
+            "@type": "Organization",
+            "name": "EyeCare Center of Orange County",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://eyecarecenteroc.com/favicon.svg"
+            }
+        },
+        "blogPost": blogPosts.map(post => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "url": `https://eyecarecenteroc.com/blog/${post.slug}`,
+            "datePublished": post.date,
+            "author": {
+                "@type": "Person",
+                "name": post.author
+            }
+        }))
+    };
+
     return (
         <>
+            <JsonLd data={blogSchema} id="blog-schema" />
             <Header />
             <main className="min-h-screen bg-gray-50">
                 {/* Hero Section */}

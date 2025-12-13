@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, CreditCard, Calendar, DollarSign, CheckCircle, Shield, Percent, Clock, Calculator } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-    title: 'Eye Care Financing | Payment Plans | CareCredit | Orange County',
-    description: 'Affordable eye care financing options. 0% interest payment plans, CareCredit, Alphaeon Credit accepted. FSA/HSA welcome. Make vision care affordable in Orange County.',
+    title: 'Eye Care Financing | CareCredit & Payment Plans | OC',
+    description: 'Flexible financing options for eye care. CareCredit, payment plans, and insurance accepted. Make vision care affordable in Orange County.',
     keywords: [
         'eye care financing orange county',
         'vision care payment plans',
@@ -38,8 +40,19 @@ export const metadata: Metadata = {
 };
 
 export default function FinancingPage() {
+    const businessSchema = generateLocalBusinessSchema();
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://eyecarecenteroc.com' },,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/financing',
+  }
+        { name: 'Financing', url: 'https://eyecarecenteroc.com/financing' },
+    ]);
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
+            <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
             <Header />
 
             {/* Hero Section */}

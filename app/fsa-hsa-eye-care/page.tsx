@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight, Clock, Calendar, DollarSign, CheckCircle, AlertTriangle, Eye, Glasses, ShoppingBag, Heart } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-    title: 'FSA & HSA Eye Care | Use Expiring Benefits | Orange County Optometrist',
-    description: 'Use your FSA/HSA funds before they expire! Eye exams, glasses, contacts, and more are eligible expenses. Don\'t lose your pre-tax healthcare dollars. Orange County eye care.',
+    title: 'FSA & HSA Eye Care | Use Benefits Before Expiry | OC',
+    description: 'Maximize your FSA and HSA benefits for eye care. Comprehensive eye exams, contact lenses, glasses, and treatments covered. Use benefits before they expire in Orange County.'t lose your pre-tax healthcare dollars. Orange County eye care.',
     keywords: [
         'FSA eye care',
         'HSA eye care',
@@ -38,12 +40,23 @@ export const metadata: Metadata = {
         title: 'FSA & HSA Eye Care | Use Expiring Benefits | EyeCare Center OC',
         description: 'Don\'t let your FSA/HSA funds expire! Eye exams, glasses, contacts, and specialty services are all eligible expenses.',
         type: 'website',
-    }
+    },
+    alternates: {
+        canonical: 'https://eyecarecenteroc.com/fsa-hsa-eye-care',
+    },
 };
 
 export default function FSAHSAPage() {
+    const businessSchema = generateLocalBusinessSchema();
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://eyecarecenteroc.com' },
+        { name: 'FSA / HSA Eye Care', url: 'https://eyecarecenteroc.com/fsa-hsa-eye-care' },
+    ]);
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
+            <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
             <Header />
 
             {/* Hero Section */}

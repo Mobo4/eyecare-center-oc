@@ -40,9 +40,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default async function CityInsurancePage({ params }: Props) {
     const { slug } = await params;
     const city = getCityBySlug(slug);
+    const businessSchema = generateLocalBusinessSchema();
 
     if (!city) {
         notFound();
@@ -50,6 +54,7 @@ export default async function CityInsurancePage({ params }: Props) {
 
     return (
         <>
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
             <main className="min-h-screen bg-gray-50">
                 {/* Hero Section */}

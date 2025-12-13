@@ -4,13 +4,27 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
     title: 'Accessibility Statement | EyeCare Center of Orange County',
-    description: 'Our commitment to digital accessibility for people with disabilities.',
+    description: 'We are committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone.',
+    alternates: {
+        canonical: 'https://eyecarecenteroc.com/accessibility',
+    },
+    openGraph: {
+        title: 'Accessibility Statement | EyeCare Center of Orange County',
+        description: 'Committed to digital accessibility for all users.',
+        type: 'website',
+    },
     robots: 'noindex, follow',
 };
 
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function AccessibilityPage() {
+    const businessSchema = generateLocalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             <section className="py-16 md:py-24">

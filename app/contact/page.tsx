@@ -4,10 +4,15 @@ import Footer from '@/components/Footer';
 import GhlFormComponent from '@/components/ghl/GhlFormComponent'; // Use the new GHL component
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Contact Us | EyeCare Center of Orange County',
-  description: `Schedule your appointment at EyeCare Center of Orange County. Call ${CONTACT_INFO.primaryPhone.display} or book online. Convenient locations across Orange County.`,
+  description: 'Schedule your appointment today. Located in Orange County, we offer comprehensive eye exams and specialty contact lens fittings. Call or book online.',
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/contact',
+  },
   keywords: [
     'contact eye doctor orange county',
     'schedule eye exam',
@@ -26,8 +31,11 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const businessSchema = generateLocalBusinessSchema();
+
   return (
     <>
+      <JsonLd data={businessSchema} />
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}

@@ -1,6 +1,20 @@
 'use client';
 
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Icon Preview | EyeCare Center OC Design System',
+  robots: {
+    index: false,
+    follow: false,
+  },
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/icons-preview',
+  }
+};
+
 import { YearsExperienceIconV1 } from '@/components/icons/trust-badges/YearsExperienceIcon-v1';
 import { YearsExperienceIconV2 } from '@/components/icons/trust-badges/YearsExperienceIcon-v2';
 import { PatientsTreatedIconV1 } from '@/components/icons/trust-badges/PatientsTreatedIcon-v1';
@@ -20,9 +34,15 @@ import { CornealCrosslinkingIconV2 } from '@/components/icons/service-icons/Corn
 import { ScleralLensFittingIconV1 } from '@/components/icons/service-icons/ScleralLensFittingIcon-v1';
 import { ScleralLensFittingIconV2 } from '@/components/icons/service-icons/ScleralLensFittingIcon-v2';
 
+import { generateLocalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function IconsPreviewPage() {
+  const businessSchema = generateLocalBusinessSchema();
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
+      <JsonLd data={businessSchema} id="business-schema" />
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
           Eye Care Service Icons Preview
@@ -116,7 +136,7 @@ export default function IconsPreviewPage() {
 
         <div className="mt-12 p-6 bg-blue-50 rounded-lg">
           <p className="text-gray-700">
-            <strong>Note:</strong> All icons are React components with SVG code. 
+            <strong>Note:</strong> All icons are React components with SVG code.
             Each icon can be individually customized by editing its `.tsx` file.
             Visit <code className="bg-white px-2 py-1 rounded">/components/icons/</code> to see all files.
           </p>

@@ -44,6 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
+import JsonLd from '@/components/JsonLd';
+
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
     const post = blogPosts.find((p) => p.slug === slug);
@@ -52,8 +54,30 @@ export default async function BlogPostPage({ params }: Props) {
         notFound();
     }
 
+    const blogPostingSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "image": post.image,
+        "author": {
+            "@type": "Person",
+            "name": post.author
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "EyeCare Center of Orange County",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://eyecarecenteroc.com/favicon.svg"
+            }
+        },
+        "datePublished": post.date,
+        "description": post.excerpt
+    };
+
     return (
         <>
+            <JsonLd data={blogPostingSchema} id="blog-posting-schema" />
             <Header />
             <main className="min-h-screen bg-white">
                 {/* Article Header */}

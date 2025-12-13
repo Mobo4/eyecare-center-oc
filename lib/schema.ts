@@ -109,7 +109,18 @@ export function generateMedicalBusinessSchema(): any {
           postalCode: CONTACT_INFO.address.zip,
           addressCountry: "US",
         },
-        areaServed: SERVICE_AREAS.map(city => ({ "@type": "City", name: city })),
+        areaServed: [
+          ...SERVICE_AREAS.map(city => ({ "@type": "City", name: city })),
+          {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": CONTACT_INFO.geo.latitude.toString(),
+              "longitude": CONTACT_INFO.geo.longitude.toString()
+            },
+            "geoRadius": "48280" // 30 miles in meters
+          }
+        ],
         geo: {
           "@type": "GeoCoordinates",
           latitude: CONTACT_INFO.geo.latitude.toString(),

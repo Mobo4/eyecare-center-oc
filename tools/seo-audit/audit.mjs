@@ -37,6 +37,11 @@ const results = {
         missingSchema: [],
         brokenLinks: [],
         keywordGaps: [],
+        h1Usage: [],
+        metadataQuality: [],
+        brokenImages: [],
+        globalFiles: [],
+        sitemapCoverage: [],
     },
     summary: {},
 };
@@ -228,7 +233,115 @@ function checkBrokenLinks() {
     }
 }
 
-// Check 5: Keyword Density Analysis
+// Check 5: H1 Tag Validation
+function checkH1Usage() {
+    console.log('🔍 Checking for H1 tag usage...');
+    const pageFiles = getAllFiles(appDir, 'page.tsx');
+
+    for (const file of pageFiles) {
+        const content = fs.readFileSync(file, 'utf-8');
+        const relativePath = path.relative(projectRoot, file);
+
+        // Find h1 tags
+        const h1Regex = /<h1[^>]*>/gi;
+        const h1Matches = content.match(h1Regex) || [];
+
+        // Check for Hero components which likely contain H1s
+        const heroRegex = /<[a-zA-Z]*Hero/gi;
+        const heroMatches = content.match(heroRegex) || [];
+
+        if (h1Matches.length === 0 && heroMatches.length === 0) {
+            results.issues.h1Usage.push({
+                file: relativePath,
+                severity: 'HIGH',
+                message: 'Page is missing an <h1> tag. Every page should have exactly one main heading.',
+            });
+        } else if (h1Matches.length > 1) {
+            results.issues.h1Usage.push({
+                file: relativePath,
+                severity: 'MEDIUM',
+                message: `Page has ${h1Matches.length} <h1> tags. Multiple H1 tags can confuse search engines.`,
+            });
+        }
+    }
+}
+
+// Check 6: Metadata Validation (Length, Canonical, OpenGraph)
+function checkMetadataValidation() {
+    console.log('🔍 Validating metadata quality (Length, OG, Canonicals)...');
+    const pageFiles = getAllFiles(appDir, 'page.tsx');
+
+    for (const file of pageFiles) {
+        const content = fs.readFileSync(file, 'utf-8');
+        const relativePath = path.relative(projectRoot, file);
+
+        // Extract metadata object (simplified regex approach)
+        // This is a rough extraction and might need AST for robust parsing, but works for standard Next.js patterns
+        const metadataMatch = content.match(/export const metadata: Metadata = ({[\s\S]+?});/);
+
+        if (metadataMatch) {
+            const metadataStr = metadataMatch[1];
+
+            // 1. Check Title Length
+            const titleMatch = metadataStr.match(/title:\s*['"`](.*?)['"`]/);
+            if (titleMatch) {
+                const title = titleMatch[1];
+                if (title.length < CONFIG.validation.titleMin) {
+                    results.issues.metadataQuality.push({
+                        file: relativePath,
+                        severity: 'LOW',
+                        message: `Title is too short (${title.length} chars). Recommended: ${CONFIG.validation.titleMin}-${CONFIG.validation.titleMax} chars.`,
+                    });
+                } else if (title.length > CONFIG.validation.titleMax) {
+                    results.issues.metadataQuality.push({
+                        file: relativePath,
+                        severity: 'MEDIUM',
+                        message: `Title is too long (${title.length} chars). Recommended: ${CONFIG.validation.titleMin}-${CONFIG.validation.titleMax} chars.`,
+                    });
+                }
+            }
+
+            // 2. Check Description Length
+            const descMatch = metadataStr.match(/description:\s*['"`](.*?)['"`]/);
+            if (descMatch) {
+                const desc = descMatch[1];
+                if (desc.length < CONFIG.validation.descMin) {
+                    results.issues.metadataQuality.push({
+                        file: relativePath,
+                        severity: 'LOW',
+                        message: `Description is too short (${desc.length} chars). Recommended: 120-160 chars.`,
+                    });
+                } else if (desc.length > CONFIG.validation.descMax) {
+                    results.issues.metadataQuality.push({
+                        file: relativePath,
+                        severity: 'MEDIUM',
+                        message: `Description is too long (${desc.length} chars). Recommended: 120-160 chars.`,
+                    });
+                }
+            }
+
+            // 3. Check Canonical
+            if (!metadataStr.includes('canonical') && !metadataStr.includes('alternates')) {
+                results.issues.metadataQuality.push({
+                    file: relativePath,
+                    severity: 'MEDIUM',
+                    message: `Missing canonical tag. Define 'alternates.canonical' to prevent duplicate content issues.`,
+                });
+            }
+
+            // 4. Check Open Graph
+            if (!metadataStr.includes('openGraph')) {
+                results.issues.metadataQuality.push({
+                    file: relativePath,
+                    severity: 'LOW',
+                    message: `Missing Open Graph social sharing data.`,
+                });
+            }
+        }
+    }
+}
+
+// Check 7: Keyword Density Analysis (Renamed from Check 5)
 function checkKeywordDensity() {
     console.log('🔍 Analyzing keyword presence on key pages...');
 
@@ -272,9 +385,14 @@ function generateReport() {
 
     const categories = [
         { key: 'missingMetadata', label: '❌ Missing Metadata', emoji: '📝' },
-        { key: 'missingAltText', label: '🖼️  Missing Alt Text', emoji: '🖼️' },
+        { key: 'missingAltText', label: '🖼️  Missing Alt Text', emoji: '🖼' },
         { key: 'missingSchema', label: '📋 Missing Schema', emoji: '📋' },
+        { key: 'h1Usage', label: '🏷️ H1 Tag Issues', emoji: '🏷️ ' },
+        { key: 'metadataQuality', label: '✨ Metadata Quality', emoji: '✨' },
+        { key: 'brokenImages', label: '🖼️ Broken Images (Local)', emoji: '🖼️' },
         { key: 'brokenLinks', label: '🔗 Potential Broken Links', emoji: '🔗' },
+        { key: 'globalFiles', label: '🌍 Global SEO Files', emoji: '🌍' },
+        { key: 'sitemapCoverage', label: '🗺️ Sitemap Coverage', emoji: '🗺️' },
         { key: 'keywordGaps', label: '🔑 Keyword Gaps', emoji: '🔑' },
     ];
 
@@ -345,6 +463,128 @@ function generateReport() {
     fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
 }
 
+// Check 8: Broken Images (Local)
+function checkBrokenImages() {
+    console.log('🔍 Checking for broken local images...');
+    const allFiles = [
+        ...getAllFiles(appDir, '.tsx'),
+        ...getAllFiles(componentsDir, '.tsx'),
+    ];
+
+    const publicDir = path.join(projectRoot, 'public');
+
+    for (const file of allFiles) {
+        const content = fs.readFileSync(file, 'utf-8');
+        const relativePath = path.relative(projectRoot, file);
+
+        // Match src="..." attributes (static strings only)
+        const srcRegex = /src=["']([^"']+)["']/g;
+        let match;
+
+        while ((match = srcRegex.exec(content)) !== null) {
+            const src = match[1];
+
+            // Only check local absolute paths (starting with /)
+            if (!src.startsWith('/') || src.startsWith('//')) continue;
+
+            // Skip probable dynamic paths
+            if (src.includes('${') || src.includes('{')) continue;
+
+            const localPath = path.join(publicDir, src);
+            if (!fs.existsSync(localPath)) {
+                results.issues.brokenImages.push({
+                    file: relativePath,
+                    severity: 'HIGH',
+                    message: `Image source "${src}" not found in public directory.`,
+                });
+            }
+        }
+    }
+}
+
+// Check 9: Global Files (Robots, Favicon)
+function checkGlobalFiles() {
+    console.log('🔍 Checking for global SEO files...');
+
+    // Check public/robots.txt or app/robots.ts
+    const hasRobots = fs.existsSync(path.join(projectRoot, 'public', 'robots.txt')) ||
+        fs.existsSync(path.join(projectRoot, 'app', 'robots.ts'));
+
+    if (!hasRobots) {
+        results.issues.globalFiles.push({
+            file: 'ROOT',
+            severity: 'HIGH',
+            message: 'Missing robots.txt (or app/robots.ts). Search engines may not crawl correctly.',
+        });
+    }
+
+    // Check favicon
+    const hasFavicon = fs.existsSync(path.join(projectRoot, 'public', 'favicon.ico')) ||
+        fs.existsSync(path.join(projectRoot, 'app', 'favicon.ico'));
+
+    if (!hasFavicon) {
+        results.issues.globalFiles.push({
+            file: 'ROOT',
+            severity: 'MEDIUM',
+            message: 'Missing favicon.ico. This affects brand visibility in search tabs.',
+        });
+    }
+
+    // Check sitemap
+    const hasSitemap = fs.existsSync(path.join(projectRoot, 'public', 'sitemap.xml')) ||
+        fs.existsSync(path.join(projectRoot, 'app', 'sitemap.ts'));
+
+    if (!hasSitemap) {
+        results.issues.globalFiles.push({
+            file: 'ROOT',
+            severity: 'HIGH',
+            message: 'Missing sitemap.xml (or app/sitemap.ts). Search engines need this to discover pages.',
+        });
+    }
+}
+
+// Check 10: Sitemap Coverage (Basic)
+function checkSitemapCoverage() {
+    console.log('🔍 Checking sitemap coverage (Static Pages)...');
+
+    // Attempt to read app/sitemap.ts if it exists to see if it includes basic static logic
+    const sitemapPath = path.join(appDir, 'sitemap.ts');
+    if (!fs.existsSync(sitemapPath)) return; // Already flagged by globalFiles check
+
+    const sitemapContent = fs.readFileSync(sitemapPath, 'utf-8');
+
+    // Identify top-level static pages in app/
+    const staticPages = getAllFiles(appDir, 'page.tsx')
+        .map(f => {
+            const rel = path.relative(appDir, f);
+            let route = '/' + rel
+                .replace('/page.tsx', '')
+                .replace('page.tsx', '');
+            if (route === '/') route = '/';
+            return route;
+        })
+        .filter(r => !r.includes('[') && !r.includes('_')); // Filter out dynamic and system routes
+
+    // Check if these static routes are likely "mentioned" in sitemap.ts (Heuristic)
+    // We look for the route string or some programatic inclusion evidence.
+
+    for (const route of staticPages) {
+        if (route === '/') continue; // Usually handled
+
+        // Remove leading slash for matching (e.g., 'about' or '/about')
+        const routeName = route.replace(/^\//, '');
+
+        // Very basic check: does the sitemap code mention this route name?
+        // This finds strict deficiencies in manual sitemaps.
+        if (!sitemapContent.includes(routeName) && !sitemapContent.includes('routes')) {
+            results.issues.sitemapCoverage.push({
+                file: 'app/sitemap.ts',
+                severity: 'LOW',
+                message: `Static page "${route}" might be missing from sitemap.ts. (Manual verification recommended).`,
+            });
+        }
+    }
+}
 // Main Execution
 console.log('🚀 Starting Local SEO Audit...');
 console.log(`📂 Project Root: ${projectRoot}`);
@@ -352,6 +592,11 @@ console.log(`📂 Project Root: ${projectRoot}`);
 checkMissingMetadata();
 checkMissingAltText();
 checkMissingSchema();
+checkH1Usage();
+checkMetadataValidation();
+checkBrokenImages();
+checkGlobalFiles();
+checkSitemapCoverage();
 checkBrokenLinks();
 checkKeywordDensity();
 generateReport();

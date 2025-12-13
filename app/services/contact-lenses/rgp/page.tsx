@@ -7,8 +7,8 @@ import { ArrowRight, Eye, Shield, Wind, Maximize, CheckCircle, AlertCircle } fro
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'RGP & Scleral Lenses | Keratoconus Specialist | Orange County',
-    description: 'Expert RGP and scleral lens fitting for keratoconus, high astigmatism & irregular corneas. Boston, Menicon, Rose K & custom designs. 35+ years experience in Orange County.',
+    title: 'RGP Contact Lenses | Gas Permeable Lenses | OC',
+    description: 'Rigid gas permeable contact lenses for superior vision. Ideal for keratoconus, high astigmatism. Expert fitting in Orange County.',
     keywords: [
         'RGP lenses orange county',
         'rigid gas permeable contacts',
@@ -45,11 +45,21 @@ export const metadata: Metadata = {
         description: 'Expert fitting for keratoconus, irregular corneas & post-surgical vision. Boston, Menicon, Rose K brands. 35+ years experience.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/contact-lenses/rgp',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function RGPLensesPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

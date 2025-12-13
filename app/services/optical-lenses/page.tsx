@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import OpticalLensesContent from '@/components/services/OpticalLensesContent';
 
 export const metadata: Metadata = {
-    title: 'Advanced Optical Lenses & Glasses Technology | EyeCare Center OC',
-    description: 'Explore our premium lens options including Varilux progressives, Crizal anti-reflective coatings, and specialized lenses for digital eye strain and myopia control.',
+    title: 'Premium Optical Lenses | Varilux & Crizal | OC',
+    description: 'Advanced lens technology: Varilux progressives, Crizal coatings, digital lenses. Superior vision and comfort in Orange County.',
     keywords: [
         'optical lenses orange county',
         'progressive lenses',
@@ -18,9 +18,21 @@ export const metadata: Metadata = {
         title: 'Advanced Optical Lenses & Glasses Technology | EyeCare Center OC',
         description: 'Discover the latest in lens technology for clearer, more comfortable vision.',
         type: 'website',
-    }
+    },
+    alternates: {
+        canonical: 'https://eyecarecenteroc.com/services/optical-lenses',
+    },
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function OpticalLensesPage() {
-    return <OpticalLensesContent />;
+    const businessSchema = generateMedicalBusinessSchema();
+    return (
+        <>
+            <JsonLd data={businessSchema} id="business-schema" />
+            <OpticalLensesContent />
+        </>
+    );
 }

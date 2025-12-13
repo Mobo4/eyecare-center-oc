@@ -13,6 +13,61 @@ import { services as basicServices } from './services';
 
 export const enhancedServices: ServiceData[] = [
   {
+    slug: 'emergency-eye-care',
+    name: 'Emergency Eye Care & Red Eye Treatment',
+    shortName: 'Emergency Care',
+    description: 'Immediate treatment for eye infections, red eyes, foreign bodies, and sudden vision changes. Same-day appointments available.',
+    metaDescription: 'Emergency eye care in Orange County. Treatment for red eye, styes, infections & foreign bodies. Same-day appointments with Dr. Bonakdar.',
+    keywords: ['emergency eye care', 'red eye treatment', 'stye treatment', 'eye infection', 'foreign body removal', 'orange county emergency eye doctor'],
+    heroImage: '/images/services/emergency-eye-care.webp',
+    icon: '/images/icons/emergency-icon.svg',
+    overview: 'Eye emergencies require prompt professional attention to prevent vision loss and allow for rapid healing. At EyeCare Center of Orange County, we prioritize urgent cases including red eyes, painful infections, sudden vision loss, and foreign bodies. Dr. Alexander Bonakdar provides expert diagnosis and treatment when you need it most, often saving you a long wait at the ER.',
+    benefits: ['Same-day urgent appointments', 'expert diagnosis of red eyes', 'foreign body removal', 'treatment for eye infections', 'avoid ER wait times'],
+    candidateCriteria: ['Sudden eye pain or redness', 'Sudden vision loss', 'Flashes of light or floaters', 'Foreign object in eye', 'Eye trauma or injury'],
+    notCandidates: [],
+    process: [
+      { step: 1, title: 'Triage', description: 'Immediate assessment of your symptoms to determine urgency.', duration: '5 min' },
+      { step: 2, title: 'Examination', description: 'Thorough evaluation of the injury or infection using specialized equipment.', duration: '15-30 min' },
+      { step: 3, title: 'Treatment', description: 'Immediate treatment such as foreign body removal, prescription drops, or other intervention.', duration: 'Varies' }
+    ],
+    recovery: { timeline: 'Immediate relief for most conditions', expectations: ['Pain relief', 'Redness reduction', 'Clearer vision'], restrictions: ['Follow medication schedule'], followUp: 'As needed' },
+    cost: { rangeMin: 150, rangeMax: 350, insuranceCoverage: 'Medical insurance typically covers emergency eye visits.', financingAvailable: false },
+    faqs: [
+      { question: 'What counts as an eye emergency?', answer: 'Sudden vision loss, eye pain, chemicals in the eye, foreign objects, severe redness, and flashes/floaters are all emergencies that require immediate attention.' },
+      { question: 'Do you treat styes?', answer: 'Yes, we provide medical treatment for styes (hordeolum) and chalazions to reduce pain and inflammation and speed up healing.' },
+      { question: 'Should I go to the ER or an eye doctor?', answer: 'For most eye issues, an eye doctor is better equipped to diagnose and treat you than an ER, and the wait is usually much shorter.' }
+    ],
+    relatedServices: ['comprehensive-eye-exam'],
+    lastUpdated: '2025-12-12'
+  },
+  {
+    slug: 'headache-relief',
+    name: 'Headache & Computer Vision Relief',
+    shortName: 'Headache Relief',
+    description: 'Specialized testing and treatment for headaches caused by binocular vision dysfunction and digital eye strain.',
+    metaDescription: 'Relief for headaches & digital eye strain in Orange County. Specialized testing for binocular vision dysfunction (BVD). Stop suffering today.',
+    keywords: ['headache relief', 'computer vision syndrome', 'binocular vision dysfunction', 'neurolens', 'eye strain treatment'],
+    heroImage: '/images/services/headache-relief.webp',
+    icon: '/images/icons/headache-icon.svg',
+    overview: 'Many chronic headaches, migraines, and neck pain are actually caused by your eyes—specifically, a misalignment between your eyes known as Binocular Vision Dysfunction (BVD). Even small misalignments can cause your eye muscles to overwork, leading to painful symptoms. We specialize in identifying and treating these vision-based causes of headaches to provide lasting relief.',
+    benefits: ['Relief from chronic headaches', 'reduced digital eye strain', 'improved reading comfort', 'better focus and concentration', 'non-invasive treatment'],
+    candidateCriteria: ['Chronic headaches or migraines', 'Eye strain from computer use', 'Dizziness or motion sickness', 'Neck and shoulder pain', 'Light sensitivity'],
+    notCandidates: [],
+    process: [
+      { step: 1, title: 'Sensorimotor Exam', description: 'Detailed testing of eye alignment and muscle balance.', duration: '45 min' },
+      { step: 2, title: 'Prism Trial', description: 'Trialing specialized micro-prism lenses to see if symptoms improve.', duration: '30 min' },
+      { step: 3, title: 'Prescription', description: 'Custom optical prescription designed to relax your eyes.', duration: '15 min' }
+    ],
+    recovery: { timeline: 'Immediate symptom reduction with glasses', expectations: ['Fewer headaches', 'Less eye strain'], restrictions: [], followUp: '1 month' },
+    cost: { rangeMin: 200, rangeMax: 500, insuranceCoverage: 'Exam covered by some medical plans. Prism lenses may be covered by vision insurance.', financingAvailable: true },
+    faqs: [
+      { question: 'Can eyes really cause headaches?', answer: 'Yes. When eyes are slightly misaligned, the brain forces eye muscles to work overtime to align images, leading to trigeminal dysphoria—experienced as headaches and eye pain.' },
+      { question: 'What is Computer Vision Syndrome?', answer: 'Marketing term for digital eye strain. It includes symptoms like dry eyes, headaches, and blurred vision resulting from prolonged screen use.' }
+    ],
+    relatedServices: ['comprehensive-eye-exam', 'dry-eye-specialist'],
+    lastUpdated: '2025-12-12'
+  },
+  {
     slug: 'keratoconus-treatment',
     name: 'Keratoconus Treatment',
     shortName: 'Keratoconus',

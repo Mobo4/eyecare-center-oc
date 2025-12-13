@@ -7,8 +7,8 @@ import { ArrowRight, Eye, Droplets, Shield, Sun, Circle, Layers, Focus } from 'l
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Soft Contact Lenses | Acuvue, Dailies, Biofinity | Orange County',
-    description: 'Premium soft contact lenses from Acuvue Oasys, Dailies Total1, Biofinity & CooperVision. Expert fitting for daily disposables, toric & multifocal lenses in Orange County.',
+    title: 'Soft Contact Lenses | Daily & Monthly | Orange County',
+    description: 'Premium soft contact lenses: daily disposables, monthly, toric for astigmatism, multifocal. Expert fitting and care in Orange County.',
     keywords: [
         'soft contact lenses orange county',
         'Acuvue Oasys fitting orange county',
@@ -39,11 +39,21 @@ export const metadata: Metadata = {
         description: 'Premium soft contact lenses with expert fitting. Acuvue Oasys, Dailies Total1, Biofinity & more brands available.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/contact-lenses/soft',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function SoftContactLensesPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}

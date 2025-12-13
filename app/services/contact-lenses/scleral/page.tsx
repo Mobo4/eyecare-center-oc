@@ -7,8 +7,8 @@ import { ArrowRight, Eye, Shield, Droplets, CheckCircle, AlertCircle, Maximize, 
 import { CONTACT_INFO } from '@/lib/contact-info';
 
 export const metadata: Metadata = {
-    title: 'Scleral Contact Lenses | Keratoconus Specialist | Orange County',
-    description: 'Expert scleral lens fitting for keratoconus, dry eye, irregular corneas & post-surgical eyes. Custom-designed large diameter lenses vault over cornea. 35+ years experience in Orange County.',
+    title: 'Scleral Contact Lenses | Keratoconus Expert | OC',
+    description: 'Custom scleral lenses for keratoconus, dry eye, post-LASIK. Life-changing comfort and vision. Expert fitting in Orange County.',
     keywords: [
         'scleral lenses orange county',
         'scleral contact lenses keratoconus',
@@ -36,11 +36,21 @@ export const metadata: Metadata = {
         description: 'Expert scleral lens fitting for keratoconus and irregular corneas. Custom-designed lenses vault over cornea for superior comfort and vision.',
         type: 'website',
     }
+,
+  alternates: {
+    canonical: 'https://eyecarecenteroc.com/services/contact-lenses/scleral',
+  }
 };
 
+import { generateMedicalBusinessSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
+
 export default function ScleralLensesPage() {
+    const businessSchema = generateMedicalBusinessSchema();
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLd data={businessSchema} id="business-schema" />
             <Header />
 
             {/* Hero Section */}
