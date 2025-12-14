@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     'online appointment booking',
     'eye care appointment santa ana',
   ],
-,
   alternates: {
     canonical: 'https://eyecarecenteroc.com/book-appointment',
   }

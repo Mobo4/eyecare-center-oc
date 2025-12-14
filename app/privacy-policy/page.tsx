@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | EyeCare Center of Orange County',
   description: 'Privacy policy for EyeCare Center of Orange County. Learn how we protect your personal health information and maintain HIPAA compliance.',
   robots: 'noindex, follow',
-,
   alternates: {
     canonical: 'https://eyecarecenteroc.com/privacy-policy',
   }

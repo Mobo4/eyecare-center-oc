@@ -10,7 +10,6 @@ import JsonLd from '@/components/JsonLd';
 export const metadata: Metadata = {
   title: 'Eye Care Services in Orange County',
   description: 'Comprehensive eye care services: keratoconus treatment, scleral lenses, LASIK, dry eye therapy, contact lenses. Expert care in Orange County.',
-,
   alternates: {
     canonical: 'https://eyecarecenteroc.com/services',
   }

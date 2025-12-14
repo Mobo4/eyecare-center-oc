@@ -9,7 +9,6 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-,
   alternates: {
     canonical: 'https://eyecarecenteroc.com/terms-of-service',
   }

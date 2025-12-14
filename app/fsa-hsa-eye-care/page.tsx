@@ -9,7 +9,7 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
     title: 'FSA & HSA Eye Care | Use Benefits Before Expiry | OC',
-    description: 'Maximize your FSA and HSA benefits for eye care. Comprehensive eye exams, contact lenses, glasses, and treatments covered. Use benefits before they expire in Orange County.'t lose your pre-tax healthcare dollars. Orange County eye care.',
+    description: 'Maximize your FSA and HSA benefits for eye care. Comprehensive eye exams, contact lenses, glasses, and treatments covered. Use benefits before they expire in Orange County.',
     keywords: [
         'FSA eye care',
         'HSA eye care',

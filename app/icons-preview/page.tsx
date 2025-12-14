@@ -1,19 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Icon Preview | EyeCare Center OC Design System',
-  robots: {
-    index: false,
-    follow: false,
-  },
-,
-  alternates: {
-    canonical: 'https://eyecarecenteroc.com/icons-preview',
-  }
-};
 
 import { YearsExperienceIconV1 } from '@/components/icons/trust-badges/YearsExperienceIcon-v1';
 import { YearsExperienceIconV2 } from '@/components/icons/trust-badges/YearsExperienceIcon-v2';

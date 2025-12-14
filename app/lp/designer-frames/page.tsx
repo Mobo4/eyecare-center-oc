@@ -16,7 +16,6 @@ import { SERVICE_AREAS } from '@/lib/schema';
 export const metadata: Metadata = {
     title: 'Designer Eyewear Frames | Luxury Glasses | OC',
     description: 'Expert eye care meets luxury eyewear. Comprehensive exams and personalized frame styling in one visit. Serving Santa Ana, Irvine, and Newport Beach.',
-,
   alternates: {
     canonical: 'https://eyecarecenteroc.com/lp/designer-frames',
   }

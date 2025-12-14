@@ -69,10 +69,7 @@ export default function HeadachesCVSLandingPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                         {[
-                            { text: "Chronic headaches or migraines", icon: <Brain className="w-6 h-6 text-red-500" /> },,
-  alternates: {
-    canonical: 'https://eyecarecenteroc.com/lp/headaches-cvs',
-  }
+                            { text: "Chronic headaches or migraines", icon: <Brain className="w-6 h-6 text-red-500" /> },
                             { text: "Neck and shoulder stiffness", icon: <Frown className="w-6 h-6 text-orange-500" /> },
                             { text: "Eye fatigue & light sensitivity", icon: <Sun className="w-6 h-6 text-yellow-500" /> },
                             { text: "Dizziness or motion sickness", icon: <TrendingUp className="w-6 h-6 text-purple-500" /> },

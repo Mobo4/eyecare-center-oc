@@ -42,10 +42,7 @@ export const metadata: Metadata = {
 export default function FinancingPage() {
     const businessSchema = generateLocalBusinessSchema();
     const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: 'https://eyecarecenteroc.com' },,
-  alternates: {
-    canonical: 'https://eyecarecenteroc.com/financing',
-  }
+        { name: 'Home', url: 'https://eyecarecenteroc.com' },
         { name: 'Financing', url: 'https://eyecarecenteroc.com/financing' },
     ]);
 

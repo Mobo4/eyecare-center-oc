@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     description: `Expert eye care serving 65+ Orange County cities. Call ${CONTACT_INFO.primaryPhone.display} to schedule your appointment.`,
     type: 'website',
   },
-,
   alternates: {
     canonical: 'https://eyecarecenteroc.com/locations',
   }
