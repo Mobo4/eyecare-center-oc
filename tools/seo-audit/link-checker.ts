@@ -5,7 +5,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { CONFIG } from './agent-config.ts';
+import { CONFIG } from './agent-config';
 
 export class LinkChecker {
     private projectRoot: string;

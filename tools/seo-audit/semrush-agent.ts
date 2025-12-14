@@ -7,8 +7,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { CONFIG } from './agent-config.ts';
-import { LinkChecker } from './link-checker.ts';
+import { CONFIG } from './agent-config';
+import { LinkChecker } from './link-checker';
 
 // Types
 interface Issue {

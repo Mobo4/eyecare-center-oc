@@ -15,7 +15,7 @@
 import fs from 'fs';
 import path from 'path';
 import { spawn, ChildProcess } from 'child_process';
-import { CONFIG } from './agent-config.ts';
+import { CONFIG } from './agent-config';
 
 // Types
 interface Issue {
