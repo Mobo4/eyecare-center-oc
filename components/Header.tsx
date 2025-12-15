@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Eye, User, Phone, Stethoscope, Globe, ChevronDown, X } from 'lucide-react';
 import Navigation from './Navigation';
 import { CONTACT_INFO } from '@/lib/contact-info';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface UtilityItem {
   id: string;
@@ -152,6 +153,12 @@ const Header = () => {
             <Phone className="h-3 w-3 mr-1.5" />
             <span className="font-medium">{phoneNumber}</span>
           </a>
+
+          {/* Divider */}
+          <div className="h-4 w-px bg-white/20 flex-shrink-0" />
+
+          {/* Language Switcher */}
+          <LanguageSwitcher />
 
           {/* Divider */}
           <div className="h-4 w-px bg-white/20 flex-shrink-0" />

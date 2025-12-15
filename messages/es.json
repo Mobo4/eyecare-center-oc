@@ -1,0 +1,111 @@
+{
+    "Metadata": {
+        "title": "Centro de Cuidado Ocular OC | Oftalmólogo y Exámenes de la Vista",
+        "description": "Cuidado ocular de primera en el Condado de Orange. Dr. Bonakdar especializado en Queratocono, LASIK, Cataratas. Exámenes completos. ¡Llame hoy!"
+    },
+    "Navigation": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "services": "Servicios",
+        "conditions": "Condiciones",
+        "locations": "Ubicaciones",
+        "contact": "Contacto",
+        "bookAppointment": "Agendar Cita",
+        "callNow": "Llamar Ahora"
+    },
+    "HomePage": {
+        "hero": {
+            "title": "Cuidado Ocular de Clase Mundial",
+            "subtitle": "El Centro de Cuidado Ocular Más Confiable del Condado de Orange Desde 1991",
+            "cta": "Agendar Cita"
+        },
+        "conditionsSection": {
+            "title": "Condiciones Oculares que Tratamos",
+            "subtitle": "Diagnóstico y tratamiento avanzado para todas las condiciones oculares con tecnología de punta",
+            "viewAll": "Ver las 191 Condiciones Oculares",
+            "learnMore": "Más Información"
+        },
+        "citiesSection": {
+            "title": "Sirviendo a las Comunidades del Condado de Orange",
+            "subtitle": "Cuidado ocular experto en su vecindario con ubicaciones convenientes en todo el Condado de Orange",
+            "viewAll": "Ver las 65 Ciudades que Servimos",
+            "viewDetails": "Ver Detalles de Ubicación"
+        },
+        "ctaSection": {
+            "title": "¿Listo para Mejorar su Visión?",
+            "subtitle": "Agende su examen ocular completo hoy con los especialistas de confianza del Condado de Orange",
+            "callButton": "Llamar",
+            "bookOnline": "Reservar en Línea"
+        },
+        "exitPopup": {
+            "title": "Obtenga Cuidado Ocular Experto en el Condado de Orange",
+            "description": "No sufra más con problemas de visión. El Dr. Alexander Bonakdar tiene más de 35 años de experiencia brindando cuidado ocular integral y tratamientos especializados.",
+            "benefits": [
+                "Citas el mismo día disponibles",
+                "La mayoría de seguros aceptados",
+                "Tecnología de diagnóstico avanzada",
+                "Atención de especialistas experimentados"
+            ],
+            "cta": "Agendar Consulta Gratis"
+        }
+    },
+    "Conditions": {
+        "keratoconus": "Queratocono",
+        "cataracts": "Cataratas",
+        "dryEye": "Síndrome de Ojo Seco",
+        "glaucoma": "Glaucoma",
+        "macularDegeneration": "Degeneración Macular",
+        "diabeticRetinopathy": "Retinopatía Diabética",
+        "categories": {
+            "cornealDisease": "Enfermedad de la Córnea",
+            "visionImpairment": "Deterioro de la Visión",
+            "chronicCondition": "Condición Crónica",
+            "visionThreat": "Amenaza a la Visión",
+            "retinalDisease": "Enfermedad de la Retina"
+        }
+    },
+    "Footer": {
+        "quickLinks": "Enlaces Rápidos",
+        "services": "Servicios",
+        "conditions": "Condiciones",
+        "financing": "Financiamiento",
+        "insurance": "Seguro",
+        "contactInfo": "Información de Contacto",
+        "hours": "Horario",
+        "followUs": "Síguenos",
+        "copyright": "© 2025 Centro de Cuidado Ocular del Condado de Orange. Todos los derechos reservados.",
+        "privacyPolicy": "Política de Privacidad",
+        "termsOfService": "Términos de Servicio",
+        "medicalDisclaimer": "Aviso Legal Médico"
+    },
+    "Common": {
+        "learnMore": "Más Información",
+        "readMore": "Leer Más",
+        "viewAll": "Ver Todo",
+        "submit": "Enviar",
+        "cancel": "Cancelar",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "close": "Cerrar",
+        "loading": "Cargando...",
+        "error": "Ocurrió un error",
+        "success": "¡Éxito!"
+    },
+    "Forms": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "message": "Mensaje",
+        "preferredDate": "Fecha Preferida",
+        "preferredTime": "Hora Preferida",
+        "reasonForVisit": "Motivo de la Visita",
+        "insuranceProvider": "Proveedor de Seguro",
+        "submit": "Enviar",
+        "required": "Requerido",
+        "invalidEmail": "Correo electrónico inválido",
+        "invalidPhone": "Número de teléfono inválido",
+        "successMessage": "¡Gracias! Nos pondremos en contacto pronto.",
+        "errorMessage": "Algo salió mal. Por favor intente de nuevo."
+    }
+}

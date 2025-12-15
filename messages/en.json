@@ -1,0 +1,111 @@
+{
+    "Metadata": {
+        "title": "EyeCare Center OC | Top Ophthalmologist & Eye Exams",
+        "description": "Premier eye care in Orange County. Dr. Bonakdar specializes in Keratoconus, LASIK, Cataracts. Comprehensive exams. Call today!"
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "conditions": "Conditions",
+        "locations": "Locations",
+        "contact": "Contact",
+        "bookAppointment": "Book Appointment",
+        "callNow": "Call Now"
+    },
+    "HomePage": {
+        "hero": {
+            "title": "World-Class Eye Care",
+            "subtitle": "Orange County's Most Trusted Eye Care Center Since 1991",
+            "cta": "Schedule Appointment"
+        },
+        "conditionsSection": {
+            "title": "Eye Conditions We Treat",
+            "subtitle": "Advanced diagnosis and treatment for all eye conditions with cutting-edge technology",
+            "viewAll": "View All 191 Eye Conditions",
+            "learnMore": "Learn More"
+        },
+        "citiesSection": {
+            "title": "Serving Orange County Communities",
+            "subtitle": "Expert eye care in your neighborhood with convenient locations across Orange County",
+            "viewAll": "View All 65 Cities We Serve",
+            "viewDetails": "View Location Details"
+        },
+        "ctaSection": {
+            "title": "Ready to Improve Your Vision?",
+            "subtitle": "Schedule your comprehensive eye exam today with Orange County's trusted eye care specialists",
+            "callButton": "Call",
+            "bookOnline": "Book Online"
+        },
+        "exitPopup": {
+            "title": "Get Expert Eye Care in Orange County",
+            "description": "Don't struggle with vision issues any longer. Dr. Alexander Bonakdar has 35+ years of experience providing comprehensive eye care and specialized treatments.",
+            "benefits": [
+                "Same-day appointments available",
+                "Most insurance plans accepted",
+                "Advanced diagnostic technology",
+                "Experienced specialist care"
+            ],
+            "cta": "Schedule Free Consultation"
+        }
+    },
+    "Conditions": {
+        "keratoconus": "Keratoconus",
+        "cataracts": "Cataracts",
+        "dryEye": "Dry Eye Syndrome",
+        "glaucoma": "Glaucoma",
+        "macularDegeneration": "Macular Degeneration",
+        "diabeticRetinopathy": "Diabetic Retinopathy",
+        "categories": {
+            "cornealDisease": "Corneal Disease",
+            "visionImpairment": "Vision Impairment",
+            "chronicCondition": "Chronic Condition",
+            "visionThreat": "Vision Threat",
+            "retinalDisease": "Retinal Disease"
+        }
+    },
+    "Footer": {
+        "quickLinks": "Quick Links",
+        "services": "Services",
+        "conditions": "Conditions",
+        "financing": "Financing",
+        "insurance": "Insurance",
+        "contactInfo": "Contact Information",
+        "hours": "Hours",
+        "followUs": "Follow Us",
+        "copyright": "© 2025 EyeCare Center of Orange County. All rights reserved.",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "medicalDisclaimer": "Medical Disclaimer"
+    },
+    "Common": {
+        "learnMore": "Learn More",
+        "readMore": "Read More",
+        "viewAll": "View All",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "close": "Close",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "success": "Success!"
+    },
+    "Forms": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message",
+        "preferredDate": "Preferred Date",
+        "preferredTime": "Preferred Time",
+        "reasonForVisit": "Reason for Visit",
+        "insuranceProvider": "Insurance Provider",
+        "submit": "Submit",
+        "required": "Required",
+        "invalidEmail": "Invalid email address",
+        "invalidPhone": "Invalid phone number",
+        "successMessage": "Thank you! We'll be in touch soon.",
+        "errorMessage": "Something went wrong. Please try again."
+    }
+}

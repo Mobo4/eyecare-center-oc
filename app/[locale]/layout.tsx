@@ -1,7 +1,7 @@
 // Force rebuild
 import type { Metadata } from "next";
 import { Poppins, Playfair_Display } from 'next/font/google';
-import "./globals.css";
+import "../globals.css";
 import { generateMedicalBusinessSchema } from "@/lib/schema";
 import { CONTACT_INFO } from "@/lib/contact-info";
 import Script from 'next/script';
@@ -9,6 +9,8 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieConsent from '@/components/Legal/CookieConsent';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 
 // Configure fonts to match live site
@@ -142,13 +144,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params
 }: {
-  children: React.ReactNode; // Trigger rebuild
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Structured Data - MedicalBusiness Schema */}
         <script
@@ -159,27 +166,29 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.variable} ${playfair.variable} antialiased`}>
-        {/* Skip Navigation Link for Accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-eyecare-blue focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none"
-        >
-          Skip to main content
-        </a>
+        <NextIntlClientProvider messages={messages}>
+          {/* Skip Navigation Link for Accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-eyecare-blue focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none"
+          >
+            Skip to main content
+          </a>
 
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-T9MZNLMX"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-        {/* End Google Tag Manager (noscript) */}
-        <div id="main-content">
-          {children}
-        </div>
+          {/* Google Tag Manager (noscript) */}
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-T9MZNLMX"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+          {/* End Google Tag Manager (noscript) */}
+          <div id="main-content">
+            {children}
+          </div>
+        </NextIntlClientProvider>
 
 
 
